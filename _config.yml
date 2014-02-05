@@ -9,18 +9,12 @@ owner:
   avatar:         bio-photo.jpg
   bio:            "I like to build."
   email:          prakhar1989@gmail.com
-  # Social networking links are used in author-bio sidebar. Update and remove as you like.
-  github:         http://github.com/prakhar1989
+  github:         prakhar1989
   linkedin:       prakharsrivastav
-  lastfm:         http://last.fm/user/krat0sprakhar
-  # For Google Authorship https://plus.google.com/authorship
-  google_plus:    
+  lastfm:         krat0sprakhar
 
 # Analytics and webmaster tools stuff goes here
-google_analytics:   
-google_verify:      
-# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:        
+google_analytics:  UA-40692332-1
 
 # Links to include in top navigation
 # For external links add external: true
