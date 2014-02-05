@@ -1,7 +1,6 @@
 title:            cat /dev/null
 tagline:          A short tagline
-description:      A web log about my journey through software development 
-# Your site's domain goes here. Leave localhost server or blank when working locally.
+description:      A web log about my journey through the trenches of software development 
 url:              http://prakhar1989.github.io
 
 # Owner/author information
