@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Class Based Views
+description: Django's Class Based Views in Flask
+category: articles
+tags: [python, flask, django]
 ---
 
 If you've used Django before, one of the things that you surely miss (apart from the django-admin, of course) is class based (or generic) views. Class based views allow you to structure your views and reuse code by harnessing inheritance and mixins. This allows you to create generic views for routine tasks and simply inherit from them for similar views.
