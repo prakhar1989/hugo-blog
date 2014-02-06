@@ -16,7 +16,7 @@ In other words, blueprints are essential to building a Flask site larger than a 
 
 Lets get started. Lets start with a simple app which looks like this -
 
-{% raw %}
+{% highlight python %}
 |-- blogs
 |  |-- __init__.py
 |  |-- views.py
@@ -27,7 +27,7 @@ Lets get started. Lets start with a simple app which looks like this -
 |  |  |-- posts/
 |  |  |  |-- index.html
 |-- runserver.py
-{% endraw %}
+{% endhighlight %}
 
 I'm using the same structure as we discussed in the previous post, however,
 given the scale of the app, I'm not using flask-script and instead have a simple
