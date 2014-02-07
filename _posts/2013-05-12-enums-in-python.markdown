@@ -87,6 +87,7 @@ assigned to the enum members and dont stand for anything. As mentioned in the PE
 
 ### Highlights
 Below is a list of important features as defined in the PEP
+
 - Enums support iteration in definition order 
 - Enum members are hashable.
 - Duplication of enum members is not allowed. However, if two enum members have the same value then they are referred to as aliases.
