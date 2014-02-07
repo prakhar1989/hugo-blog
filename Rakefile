@@ -6,7 +6,9 @@ require 'time'
 SOURCE = '.'
 CONFIG = {
   "posts" => File.join(SOURCE, "_posts"),
-  "format" => "markdown"
+  "format" => "markdown",
+  "config" => "_config.yml", 
+  "url" => "http://prakhar1989.github.io"
 }
 
 desc "Create a new post in #{CONFIG['posts']}"
@@ -16,16 +18,18 @@ task :post do
   tags = ENV["tags"] || "[rant]"
   category = ENV["category"] || "articles"
   slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+
   begin
     date = (ENV['date'] ? Time.parse(ENV['date']) : Time.now).strftime('%Y-%m-%d')
   rescue => e
     puts "Error - date format must be YYYY-MM-DD!"
     exit -1
   end
+
   filename = File.join(CONFIG["posts"], "#{date}-#{slug}.#{CONFIG['format']}")
-  puts filename
+
   if File.exist?(filename)
-    abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?")
+    abort("rake aborted!")
   end
 
   puts "Creating a new post: #{filename}"
@@ -38,7 +42,22 @@ task :post do
     post.puts "tags: #{tags}"
     post.puts "---"
   end
+end
 
+desc "Push to github"
+task :deploy do
+  commit_message = ENV["message"] || abort("Please provide a commit message")
+
+  filename = File.join(CONFIG["config"])
+  if !File.exist?(filename) 
+    abort("config file not found!")
+  end
+  config = YAML.load_file(filename)
+  abort("Please change the URL to #{CONFIG['url']} before deploying ") unless config["url"] == CONFIG["url"]
+
+  system "git add ."
+  system "git commit -am '#{commit_message}'"
+  system "git push -u origin master"
 end
 
 desc "Live Preview"
@@ -46,11 +65,7 @@ task :preview do
   system 'jekyll serve -w'
 end
 
-desc "Show Usage!" 
-task :usage do 
-  puts "Lists tasks with rake -T"
-  puts "1. new post: rake post title='A Title' [date='2012-02-09'] [tags=[tag1,tag2]] [category='category']"
-  puts "2. preview"
+desc "List tasks" 
+task :default do 
+  system('rake -T')
 end
-
-task :default => :usage
