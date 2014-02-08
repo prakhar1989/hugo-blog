@@ -1,7 +1,7 @@
 ---
 layout: home
-description: "A responsive Jekyll theme with editorial tendencies by designer Michael Rose."
-tags: [Jekyll, theme, responsive, blog, template]
+description: "Prakhar Srivastav's web log"
+tags: [blog, web, log, Prakhar, Srivastav, "Prakhar Srivatav"]
 image:
   feature: texture-feature-01.jpg
 ---

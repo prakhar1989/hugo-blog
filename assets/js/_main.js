@@ -33,6 +33,4 @@ $(document).ready(function() {
     // make it unique to apply your CSS animations just to this exact popup
     mainClass: 'mfp-fade'
   });
-  //initialize instantClick
-  InstantClick.init(true);
 });
