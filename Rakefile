@@ -47,7 +47,7 @@ end
 
 desc "Push to github"
 task :deploy do
-  commit_message = ENV["message"] || abort("Please provide a commit message")
+  commit_message = ENV["message"] || ENV["m"] || abort("Please provide a commit message")
 
   filename = File.join(CONFIG["config"])
   if !File.exist?(filename) 
