@@ -8,7 +8,8 @@ CONFIG = {
   "posts" => File.join(SOURCE, "_posts"),
   "format" => "markdown",
   "config" => "_config.yml", 
-  "url" => "http://prakhar1989.github.io"
+  "url" => "http://prakhar1989.github.io",
+  "dev" => "http://localhost:4000"
 }
 
 desc "Create a new post in #{CONFIG['posts']}"
@@ -62,6 +63,12 @@ end
 
 desc "Live Preview"
 task :preview do
+  filename = File.join(CONFIG["config"])
+  if !File.exist?(filename) 
+    abort("config file not found!")
+  end
+  config_yaml = YAML.load_file(filename)
+  abort("Please change the URL to #{CONFIG['dev']} before previewing ") unless config_yaml["url"] == CONFIG["dev"]
   system 'jekyll serve -w'
 end
 
