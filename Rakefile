@@ -47,7 +47,7 @@ task :post do
 end
 
 desc "Push to github"
-task :deploy do
+task :publish do
   commit_message = ENV["message"] || ENV["m"] || abort("Please provide a commit message")
 
   filename = File.join(CONFIG["config"])
@@ -55,7 +55,7 @@ task :deploy do
     abort("config file not found!")
   end
   config = YAML.load_file(filename)
-  abort("Please change the URL to #{CONFIG['url']} before deploying ") unless config["url"] == CONFIG["url"]
+  abort("Please change the URL to #{CONFIG['url']} before publishing ") unless config["url"] == CONFIG["url"]
 
   system "git add ."
   system "git commit -am '#{commit_message}'"
