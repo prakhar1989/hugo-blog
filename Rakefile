@@ -9,7 +9,7 @@ CONFIG = {
   "posts" => File.join(SOURCE, "_posts"),
   "format" => "markdown",
   "config" => "_config.yml", 
-  "url" => "http://prakhar1989.github.io",
+  "url" => "http://prakhar.me",
   "dev" => "http://localhost:4000"
 }
 
