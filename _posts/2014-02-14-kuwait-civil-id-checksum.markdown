@@ -8,7 +8,7 @@ tags: [math, checksum]
 
 It's been around 8 months since I've started working in Kuwait & I can still vividly remember the hoopla we had to go through in order to get our Civil IDs. The Kuwaiti Government assigns a unique identification number to each and every resident of Kuwait which is called the Civil ID. This is quite similar to how it works in all the countries, however, the process in Kuwait is protracted and quite laborious for expats. 
 
-Recently, we were building an application that required the user to enter his or her civil id. The app was supposed to be a mobile app and the Civil ID being a long **12 digit** number, we were certain that typos would be quite common. To our lucky, we discovered that the Kuwaiti system uses a Checksum to validate. 
+Recently, we were building an application that required the user to enter his or her civil id. The app was supposed to be a mobile app and the Civil ID being a long **12 digit** number, we were certain that typos would be quite common. To our luck, we discovered that the Kuwaiti system uses a Checksum to validate for correctness.
 
 
 ## What?
