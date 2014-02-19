@@ -1,0 +1,67 @@
+---
+layout: post
+title: New Git Tricks
+description: Improve your local git workflow
+category: articles
+tags: [rant]
+---
+
+I just finished reading the [Think Like (a) Git](http://think-like-a-git.net/) book which is a *advanced beginners* introduction to Git. Below is a quick rundown of a few cool git commands I learnt about. Read on below to level up your Git skillz!
+
+### git add file --patch
+Touted as the [most powerful feature that you will ever use](https://news.ycombinator.com/item?id=4744405) the patch mode allows you to selectively move changes from your working copy into the staging area. What does this mean? What this means is that instead of moving the entire set of changes on working copy into the staging area (for commit and push) it allows you to select what git calls `hunks` and commit them. This lets you keep changes that you are unsure about locally instead of keeping them stashed somewhere and keeps your commits clean and focused to one specific functionality.
+
+Only recently I learnt ([thanks to Ryan Tomayko](http://tomayko.com/writings/the-thing-about-git)) that this is one of those features that makes git super powerful as a VCS. How do you use this awesome feature you ask? Here's how[^1] -
+
+I have a file `new.txt` that has few parts that are intented to be commited for this release and other parts that can wait for later. You get a call from your colleague and you are told the first fix is required immediately so you are required to stop all your work and commit **ASAP**
+
+{% highlight bash %}
+$ git status
+# On branch master
+# Changes not staged for commit:
+#	modified:   new.txt
+{% endhighlight %}
+
+To selectively commit the urgent changes, I use the `git add new.txt --patch` at which stage git prompts me by cycling you each hunk one by one with a list of options regarding what I can do with it. If you press `\` git will show you a helpful list of what all actions you can carry out on this (and other) hunks.
+
+{% highlight bash %}
+$ git add -p new.txt
+diff --git a/new.txt b/new.txt
+index e69de29..274a6fb 100644
+--- a/new.txt
++++ b/new.txt
+@@ -0,0 +1,6 @@
++# this is for the first release
++puts "hello world"
++
++
++# this is for the second release
++puts "bye world"
+Stage this hunk [y,n,q,a,d,/,e,?]?
+{% endhighlight %}
+
+Git decides on hunks based on whitespace and since nothing was added in the file before, it considers all of the code as just one hunk. Ideally, you would have already commited code separating spaced edits in which case you can easily just use `s` to tell git to split the hunk for you. I, however, will you use the `e` command to edit the hunk git has identified. 
+
+To edit a hunk (git gives you a friendly message here as well about how to edit) you can use # to remove a line from a hunk and add a + to add line to the hunk. In my case, I simply prefix the second release code with a # and mark it out of the hunk. Now I can easily do a `git commit -m "first release ready"` and push my changes to the remote branch.
+
+### git commit --amend
+Was there a time when you hurriedly typed `git commit -m "bug 1337 - pwned"` but only as you run your test-suite you realize that the bug still remains (or worse - you have broken something else in the process). You slap your head disappointed with the premature commit, roll up your sleeves and fix the bug. This time; for good. In this case, your next commit probably looks like `git commit -m "bug 1337 - pwned for good"`
+
+If you're like me you probably do this 10 times (yes, I love `git commit` THAT much), this command will really help you clean up your over-excited commits. This is how it works 
+
+{% highlight bash %}
+$ git commit -am "bug pwned"
+$ # write some kickass code to fix the bug (really)
+$ git commit -am "bug pwned" --amend
+
+$ git log
+commit c841103a1babe33b76add3034ba4921221becce1
+Author: Prakhar Srivastav <prakhar1989@gmail.com>
+Date:   Wed Feb 19 21:04:45 2014 +0300
+
+    bug pwned
+{% endhighlight %}
+
+The last command will overwrite your old commit message and help keep you a straight face in front of your boss when he checks those commits.
+
+[^1]: If you're the GUI kind of guy, you can simply use a [good](http://www.sourcetreeapp.com/) [enough](http://gitx.frim.nl/) git UI to do all this for you.  
