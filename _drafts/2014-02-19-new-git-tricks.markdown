@@ -44,6 +44,8 @@ Git decides on hunks based on whitespace and since nothing was added in the file
 
 To edit a hunk (git gives you a friendly message here as well about how to edit) you can use # to remove a line from a hunk and add a + to add line to the hunk. In my case, I simply prefix the second release code with a # and mark it out of the hunk. Now I can easily do a `git commit -m "first release ready"` and push my changes to the remote branch.
 
+Lastly, if you like this then you can surely try out `git add --interactive` which gives you a whole lot of other options and allows you to have more fine grained control on how you want you staging area to change. You can read [this](http://git-scm.com/book/en/Git-Tools-Interactive-Staging) page for a nice intro. 
+
 ### git commit --amend
 Was there a time when you hurriedly typed `git commit -m "bug 1337 - pwned"` but only as you run your test-suite you realize that the bug still remains (or worse - you have broken something else in the process). You slap your head disappointed with the premature commit, roll up your sleeves and fix the bug. This time; for good. In this case, your next commit probably looks like `git commit -m "bug 1337 - pwned for good"`
 
@@ -63,5 +65,14 @@ Date:   Wed Feb 19 21:04:45 2014 +0300
 {% endhighlight %}
 
 The last command will overwrite your old commit message and help keep you a straight face in front of your boss when he checks those commits.
+
+### Relative References
+
+- http://git-scm.com/book/en/Git-Tools-Stashing
+- http://www.paulboxley.com/blog/2011/06/git-caret-and-tilde
+
+### git rebase
+
+- http://think-like-a-git.net/sections/rebase-from-the-ground-up.html
 
 [^1]: If you're the GUI kind of guy, you can simply use a [good](http://www.sourcetreeapp.com/) [enough](http://gitx.frim.nl/) git UI to do all this for you.  
