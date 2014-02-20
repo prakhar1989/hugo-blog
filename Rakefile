@@ -97,15 +97,16 @@ task :publish do
   system "git push -u origin master"
 end
 
-desc "Live Preview"
+desc "Live Preview (use mode=drafts for drafts)"
 task :preview do
   filename = File.join(CONFIG["config"])
   if !File.exist?(filename) 
     abort("config file not found!")
   end
+  drafts = ENV["mode"] || ""
   config_yaml = YAML.load_file(filename)
   abort("Please change the URL to #{CONFIG['dev']} before previewing ") unless config_yaml["url"] == CONFIG["dev"]
-  system 'jekyll serve -w'
+  system "jekyll serve -w --#{drafts}"
 end
 
 desc "List tasks" 
