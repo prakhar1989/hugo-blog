@@ -10,5 +10,5 @@ image:
   creditlink: http://texturelovers.com
 ---
 
-*Prakhar* loves Python, Unix, Vim and celebrating the joy of programming. In his free time Prakhar enjoys hacking on new projects and trying out new languages.
+I love Python, Unix, Vim and celebrating the joy of programming. In my free time Prakhar I enjoy hacking on new projects and trying out new languages.
 

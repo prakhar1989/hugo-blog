@@ -80,7 +80,6 @@ task :draft do
   end
 end
 
-
 desc "Push to github"
 task :publish do
   commit_message = ENV["message"] || ENV["m"] || abort("Please provide a commit message")
