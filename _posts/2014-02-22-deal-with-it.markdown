@@ -3,7 +3,7 @@ layout: post
 title: Deal With It
 description: Vim saves the day
 category: articles
-tags: [rant]
+tags: [rant, vim, unix]
 ---
 
 Hilarious fable on HN featuring the superhero Unix and its trusted sidekick - Vim!
@@ -19,14 +19,14 @@ Hilarious fable on HN featuring the superhero Unix and its trusted sidekick - Vi
 - pulls out [Note 3](http://www.samsung.com/global/microsite/galaxynote3-gear/), shitty 3G coverage
 - connects to VPN
 - ssh into dev env with [connectbot](https://play.google.com/store/apps/details?id=org.connectbot&hl=en)
-- switches to [hackerkeyboard](https://code.google.com/p/hackerskeyboard/) for input mode
+- switches to [hackerkeyboard](https://play.google.com/store/apps/details?id=org.pocketworkstation.pckeyboard) for input mode
 - [screen -dr dev](https://kb.iu.edu/data/acuy.html) 
-- *Ctrl+c* `tail join IRC channel that dumps syslogs from production cluster`
+- *Ctrl+c* `tail join IRC channel that dumps syslogs from production cluster`[^1]
 - *sees error*
 - *Ctrl+c* `vim the/file/causing/the/unexpected/problem` 
 
 **fix the problem**
-`:wq`
+`:wq`[^2]
 
 {% highlight bash %}
 git stash
@@ -42,5 +42,7 @@ git push
 
 deal with it.
 
-
 [Source](https://news.ycombinator.com/item?id=7280853)
+
+[^1]: the `tail` command is used to print the last lines of a text file. `tail -f server_log` is a knee-jerk reaction to any server issue.
+[^2]: `wq` saves a files in vim and closes the text editor
