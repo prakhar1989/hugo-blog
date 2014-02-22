@@ -1,0 +1,46 @@
+---
+layout: post
+title: Deal With It
+description: Vim saves the day
+category: articles
+tags: [rant]
+---
+
+Hilarious fable on HN featuring the superhero Unix and its trusted sidekick - Vim!
+
+**ring ring ring**
+
+*yeah, what's up?*
+
+*<ins>[Nagios](http://www.nagios.org/)</ins> is paging, something with that code you pushed live a couple hours ago is throwing a fit... looks like half the web cluster is on the verge of <ins>[going to swap](https://help.ubuntu.com/community/SwapFaq/#What_is_swappiness_and_how_do_I_change_it.3F)</ins>, can you look into it? asap!*
+
+*Well, I'm on at the bus stop and won't be near a computer for at least an hour...yeah, I'll sort it out, will text you when we can push fix live.*
+
+- pulls out [Note 3](http://www.samsung.com/global/microsite/galaxynote3-gear/), shitty 3G coverage
+- connects to VPN
+- ssh into dev env with [connectbot](https://play.google.com/store/apps/details?id=org.connectbot&hl=en)
+- switches to [hackerkeyboard](https://code.google.com/p/hackerskeyboard/) for input mode
+- [screen -dr dev](https://kb.iu.edu/data/acuy.html) 
+- *Ctrl+c* `tail join IRC channel that dumps syslogs from production cluster`
+- *sees error*
+- *Ctrl+c* `vim the/file/causing/the/unexpected/problem` 
+
+**fix the problem**
+`:wq`
+
+{% highlight bash %}
+git stash
+git pull 
+git stash apply
+git commit
+git push
+{% endhighlight %}
+
+*Ctrl+d*, exit
+
+> sends text message "good to go!"
+
+deal with it.
+
+
+[Source](https://news.ycombinator.com/item?id=7280853)
