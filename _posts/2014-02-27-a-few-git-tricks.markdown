@@ -84,15 +84,19 @@ Finished one cherry-pick.
 {% highlight bash %}
 $ git summary
 
- project  : PostmanInterceptor
- repo age : 3 weeks
- active   : 10 days
- commits  : 59
- files    : 41
+ project  : httpbin
+ repo age : 2 years, 9 months
+ active   : 103 days
+ commits  : 359
+ files    : 21
  authors  :
-    40	Prakhar Srivastav       67.8%
-    12	Arjun Variar            20.3%
-     7	Abhinav Asthana         11.9%
+   298	Kenneth Reitz           83.0%
+     7	Rodrigo Chacon          1.9%
+     7	Kyle Conroy             1.9%
+     5	Zbigniew Siciarz        1.4%
+     4	Chris Dary              1.1%
+     3	Steven Honson           0.8%
+     .  ......                  ...
 {% endhighlight %}
 
 [^1]: If you're the GUI kind of guy, you can simply use a [good](http://www.sourcetreeapp.com/) [enough](http://gitx.frim.nl/) git UI to do all this for you.  
