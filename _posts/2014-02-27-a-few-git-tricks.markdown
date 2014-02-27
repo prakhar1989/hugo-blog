@@ -66,7 +66,7 @@ Date:   Wed Feb 19 21:04:45 2014 +0300
 
 The last command will overwrite your old commit message and help keep you a straight face in front of your boss when he checks those commits.
 
-### git cheery-pick
+### git cherry-pick
 
 Last week I was on a [project](https://github.com/a85/PostmanInterceptor) where our work spanned across multiple git branches. At one time, I simply needed to replay the work (one specific commit) I had done in one branch onto another. It was not a right time for a merge hence the only option was to manually make those changes. That's when my friend introduced me to `git cherry-pick`. As evident, this command allows you to selectively pick commits and replay the changes. If you have small code patches to be moved across branches, `cherry-pick` is your friend. To use cherry pick, simply refer the commit SHA hash and you're done.
 
