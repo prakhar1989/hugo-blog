@@ -11,7 +11,7 @@ I just finished reading the [Think Like (a) Git](http://think-like-a-git.net/) b
 ### git add file --patch
 Touted as the [most powerful feature that you will ever use](https://news.ycombinator.com/item?id=4744405) the patch mode allows you to selectively move changes from your working copy into the staging area. What does this mean? What this means is that instead of moving the entire set of changes on working copy into the staging area (for commit and push) it allows you to select what git calls `hunks` and commit them. This lets you keep changes that you are unsure about locally instead of keeping them stashed somewhere and keeps your commits clean and focused to one specific functionality.
 
-Only recently I learnt ([thanks to Ryan Tomayko](http://tomayko.com/writings/the-thing-about-git)) that this is one of those features that makes git super powerful as a VCS. How do you use this awesome feature you ask? Here's how[^1] -
+Only recently I learnt ([thanks to Ryan Tomayko](http://tomayko.com/writings/the-thing-about-git)) that this is one of those features that makes git super powerful as a VCS when compared to other VCS's. How do you use this awesome feature you ask? Here's how[^1] -
 
 I have a file `new.txt` that has few parts that are intented to be commited for this release and other parts that can wait for later. You get a call from your colleague and you are told the first fix is required immediately so you are required to stop all your work and commit **ASAP**
 
@@ -40,16 +40,16 @@ index e69de29..274a6fb 100644
 Stage this hunk [y,n,q,a,d,/,e,?]?
 {% endhighlight %}
 
-Git decides on hunks based on whitespace and since nothing was added in the file before, it considers all of the code as just one hunk. Ideally, you would have already commited code separating spaced edits in which case you can easily just use `s` to tell git to split the hunk for you. I, however, will you use the `e` command to edit the hunk git has identified. 
+Git decides on hunks based on whitespace and since nothing was added in the file before, it considers all of the code as just one hunk. Ideally, you would have already commited code separating spaced edits in which case you can easily just use `s` to tell git to split the hunk for you. I, however, will you use the `e` command to edit the hunk git has identified.
 
 To edit a hunk (git gives you a friendly message here as well about how to edit) you can use # to remove a line from a hunk and add a + to add line to the hunk. In my case, I simply prefix the second release code with a # and mark it out of the hunk. Now I can easily do a `git commit -m "first release ready"` and push my changes to the remote branch.
 
-Lastly, if you like this then you can surely try out `git add --interactive` which gives you a whole lot of other options and allows you to have more fine grained control on how you want you staging area to change. You can read [this](http://git-scm.com/book/en/Git-Tools-Interactive-Staging) page for a nice intro. 
+Lastly, if you like this then you can surely try out `git add --interactive` which gives you a whole lot of other options and allows you to have more fine grained control on how you want you staging area to change. You can read [this](http://git-scm.com/book/en/Git-Tools-Interactive-Staging) page for a nice intro.
 
 ### git commit --amend
 Was there a time when you hurriedly typed `git commit -m "bug 1337 - pwned"` but only as you run your test-suite you realize that the bug still remains (or worse - you have broken something else in the process). You slap your head disappointed with the premature commit, roll up your sleeves and fix the bug. This time; for good. In this case, your next commit probably looks like `git commit -m "bug 1337 - pwned for good"`
 
-If you're like me you probably do this 10 times (yes, I love `git commit` THAT much), this command will really help you clean up your over-excited commits. This is how it works 
+If you're like me you probably do this 10 times (yes, I love `git commit` THAT much), this command will really help you clean up your over-excited commits. This is how it works
 
 {% highlight bash %}
 $ git commit -am "bug pwned"
@@ -66,13 +66,33 @@ Date:   Wed Feb 19 21:04:45 2014 +0300
 
 The last command will overwrite your old commit message and help keep you a straight face in front of your boss when he checks those commits.
 
-### Relative References
+### git cheery-pick
 
-- http://git-scm.com/book/en/Git-Tools-Stashing
-- http://www.paulboxley.com/blog/2011/06/git-caret-and-tilde
+Last week I was on a [project](https://github.com/a85/PostmanInterceptor) where our work spanned across multiple git branches. At one time, I simply needed to replay the work (one specific commit) I had done in one branch onto another. It was not a right time for a merge hence the only option was to manually make those changes. That's when my friend introduced me to `git cherry-pick`. As evident, this command allows you to selectively pick commits and replay the changes. If you have small code patches to be moved across branches, `cherry-pick` is your friend. To use cherry pick, simply refer the commit SHA hash and you're done.
 
-### git rebase
+{% highlight bash %}
+$ git cherry-pick 5d3e1b6
+Finished one cherry-pick.
+[master e458a9b] Bug fixes for :contains() another-class.
+3 files changed, 36 insertions(+), 3 deletions(-)
+{% endhighlight %}
 
-- http://think-like-a-git.net/sections/rebase-from-the-ground-up.html
+### git extras
+
+[Git Extras](https://github.com/visionmedia/git-extras) is a set of very useful git utilities that was developed by the extremely prolific node hacker - TJ Holowaychuk. My personal favorite include `git summary` which gives a great summary of how long the project has been active along with author contributions and `git effort` which gives a very cool heatmap around what files have been worked on the most. Be sure to checkout the project, it'll surely make your git journey even more fun!
+
+{% highlight bash %}
+$ git summary
+
+ project  : PostmanInterceptor
+ repo age : 3 weeks
+ active   : 10 days
+ commits  : 59
+ files    : 41
+ authors  :
+    40	Prakhar Srivastav       67.8%
+    12	Arjun Variar            20.3%
+     7	Abhinav Asthana         11.9%
+{% endhighlight %}
 
 [^1]: If you're the GUI kind of guy, you can simply use a [good](http://www.sourcetreeapp.com/) [enough](http://gitx.frim.nl/) git UI to do all this for you.  
