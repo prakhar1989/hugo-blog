@@ -1,9 +1,9 @@
 ---
 layout: post
-title: New Git Tricks
+title: A Few Git Tricks
 description: Improve your local git workflow
 category: articles
-tags: [rant]
+tags: [git, tricks, howto]
 ---
 
 I just finished reading the [Think Like (a) Git](http://think-like-a-git.net/) book which is a *advanced beginners* introduction to Git. Below is a quick rundown of a few cool git commands I learnt about. Read on below to level up your Git skillz!
