@@ -22,7 +22,7 @@ $ git status
 #	modified:   new.txt
 {% endhighlight %}
 
-To selectively commit the urgent changes, I use the `git add new.txt --patch` at which stage git prompts me by cycling you each hunk one by one with a list of options regarding what I can do with it. If you press `\` git will show you a helpful list of what all actions you can carry out on this (and other) hunks.
+To selectively commit the urgent changes, I use the `git add new.txt --patch` command at which stage git prompts me with the first hunk that it has identified with a set of options regarding what I can do with it. To cycle to the next hunk you need to tell git what to do with the current one. If the single-letter commands feel confusing you can try the `\` command that will show you a helpful list of what all actions you can carry out on this (and other) hunks.
 
 {% highlight bash %}
 $ git add -p new.txt
