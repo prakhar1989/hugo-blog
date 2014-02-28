@@ -6,14 +6,14 @@ category: articles
 tags: [git, tricks, howto]
 ---
 
-I just finished reading the [Think Like (a) Git](http://think-like-a-git.net/) book which is a *advanced beginners* introduction to Git. Below is a quick rundown of a few cool git commands I learnt about. Read on below to level up your Git skillz!
+I just finished reading the [Think Like (a) Git](http://think-like-a-git.net/) book which is a *advanced beginners* introduction to Git. Below is a quick rundown of a few cool git commands I learned about. Read on below to level up your Git skillz!
 
 ### git add file --patch
 Touted as the [most powerful feature that you will ever use](https://news.ycombinator.com/item?id=4744405) the patch mode allows you to selectively move changes from your working copy into the staging area. What does this mean? What this means is that instead of moving the entire set of changes on working copy into the staging area (for commit and push) it allows you to select what git calls `hunks` and commit them. This lets you keep changes that you are unsure about locally instead of keeping them stashed somewhere and keeps your commits clean and focused to one specific functionality.
 
-Only recently I learnt ([thanks to Ryan Tomayko](http://tomayko.com/writings/the-thing-about-git)) that this is one of those features that makes git super powerful as a VCS when compared to other VCS's. How do you use this awesome feature you ask? Here's how[^1] -
+Only recently I learned ([thanks to Ryan Tomayko](http://tomayko.com/writings/the-thing-about-git)) that this is one of those features that makes git super powerful as a VCS when compared to other VCS's. How do you use this awesome feature you ask? Here's how[^1] -
 
-I have a file `new.txt` that has few parts that are intented to be commited for this release and other parts that can wait for later. You get a call from your colleague and you are told the first fix is required immediately so you are required to stop all your work and commit **ASAP**
+I have a file `new.txt` that has few parts that are intended to be committed for this release and other parts that can wait for later. You get a call from your colleague and you are told the first fix is required immediately so you are required to stop all your work and commit **ASAP**
 
 {% highlight bash %}
 $ git status
@@ -40,7 +40,7 @@ index e69de29..274a6fb 100644
 Stage this hunk [y,n,q,a,d,/,e,?]?
 {% endhighlight %}
 
-Git decides on hunks based on whitespace and since nothing was added in the file before, it considers all of the code as just one hunk. Ideally, you would have already commited code separating spaced edits in which case you can easily just use `s` to tell git to split the hunk for you. I, however, will you use the `e` command to edit the hunk git has identified.
+Git decides on hunks based on white-space and since nothing was added in the file before, it considers all of the code as just one hunk. Ideally, you would have already committed code separating spaced edits in which case you can easily just use `s` to tell git to split the hunk for you. I, however, will you use the `e` command to edit the hunk git has identified.
 
 To edit a hunk (git gives you a friendly message here as well about how to edit) you can use # to remove a line from a hunk and add a + to add line to the hunk. In my case, I simply prefix the second release code with a # and mark it out of the hunk. Now I can easily do a `git commit -m "first release ready"` and push my changes to the remote branch.
 
@@ -53,7 +53,7 @@ If you're like me you probably do this 10 times (yes, I love `git commit` THAT m
 
 {% highlight bash %}
 $ git commit -am "bug pwned"
-$ # write some kickass code to fix the bug (really)
+$ # write some kick-ass code to fix the bug (really)
 $ git commit -am "bug pwned" --amend
 
 $ git log
@@ -79,7 +79,7 @@ Finished one cherry-pick.
 
 ### git extras
 
-[Git Extras](https://github.com/visionmedia/git-extras) is a set of very useful git utilities that was developed by the extremely prolific node hacker - TJ Holowaychuk. My personal favorite include `git summary` which gives a great summary of how long the project has been active along with author contributions and `git effort` which gives a very cool heatmap around what files have been worked on the most. Be sure to checkout the project, it'll surely make your git journey even more fun!
+[Git Extras](https://github.com/visionmedia/git-extras) is a set of very useful git utilities that was developed by the extremely prolific node hacker - TJ Holowaychuk. My personal favorite include `git summary` which gives a great summary of how long the project has been active along with author contributions and `git effort` which gives a very cool heat-map around what files have been worked on the most. Be sure to checkout the project, it'll surely make your git journey even more fun!
 
 {% highlight bash %}
 $ git summary
