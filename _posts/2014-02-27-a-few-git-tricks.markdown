@@ -44,7 +44,7 @@ Git decides on hunks based on white-space and since nothing was added in the fil
 
 To edit a hunk (git gives you a friendly message here as well about how to edit) you can use # to remove a line from a hunk and add a + to add line to the hunk. In my case, I simply prefix the second release code with a # and mark it out of the hunk. Now I can easily do a `git commit -m "first release ready"` and push my changes to the remote branch.
 
-Lastly, if you like this then you can surely try out `git add --interactive` which gives you a whole lot of other options and allows you to have more fine grained control on how you want you staging area to change. You can read [this](http://git-scm.com/book/en/Git-Tools-Interactive-Staging) page for a nice intro.
+Lastly, if you like this then you can surely try out `git add --interactive` which gives you a whole lot of other options and allows you to have more fine grained control on how you want your staging area to change. You can read [this](http://git-scm.com/book/en/Git-Tools-Interactive-Staging) page for a nice intro.
 
 ### git commit --amend
 Was there a time when you hurriedly typed `git commit -m "bug 1337 - pwned"` but only as you run your test-suite you realize that the bug still remains (or worse - you have broken something else in the process). You slap your head disappointed with the premature commit, roll up your sleeves and fix the bug. This time; for good. In this case, your next commit probably looks like `git commit -m "bug 1337 - pwned for good"`
@@ -64,11 +64,11 @@ Date:   Wed Feb 19 21:04:45 2014 +0300
     bug pwned
 {% endhighlight %}
 
-The last command will overwrite your old commit message and help keep you a straight face in front of your boss when he checks those commits.
+The last command will overwrite your old commit message and help you keep a straight face in front of your boss when he checks those commits.
 
 ### git cherry-pick
 
-Last week I was on a [project](https://github.com/a85/PostmanInterceptor) where our work spanned across multiple git branches. At one time, I simply needed to replay the work (one specific commit) I had done in one branch onto another. It was not a right time for a merge hence the only option was to manually make those changes. That's when my friend introduced me to `git cherry-pick`. As evident, this command allows you to selectively pick commits and replay the changes. If you have small code patches to be moved across branches, `cherry-pick` is your friend. To use cherry pick, simply refer the commit SHA hash and you're done.
+Last week I working was on a [project](https://github.com/a85/PostmanInterceptor) where our work spanned across multiple git branches. At one time, I simply needed to replay the work (one specific commit) I had done in one branch onto another. It was not the right time for a merge hence the only option was to manually make those changes. That's when a friend introduced me to `git cherry-pick`. As evident, this command allows you to selectively pick commits and replay the changes. If you have small code patches to be moved across branches, `cherry-pick` is your friend. To use cherry pick, simply refer the commit SHA hash and you're done.
 
 {% highlight bash %}
 $ git cherry-pick 5d3e1b6
@@ -79,7 +79,7 @@ Finished one cherry-pick.
 
 ### git extras
 
-[Git Extras](https://github.com/visionmedia/git-extras) is a set of very useful git utilities that was developed by the extremely prolific node hacker - TJ Holowaychuk. My personal favorite include `git summary` which gives a great summary of how long the project has been active along with author contributions and `git effort` which gives a very cool heat-map around what files have been worked on the most. Be sure to checkout the project, it'll surely make your git journey even more fun!
+[Git Extras](https://github.com/visionmedia/git-extras) is a set of very useful git utilities that was developed by the extremely prolific node hacker - TJ Holowaychuk. My personal favorite includes `git summary` which gives a great summary of how long the project has been active along with author contributions and `git effort` which gives a very cool heat-map around what files have been worked on the most. Be sure to checkout the project, it'll surely make your git journey even more fun!
 
 {% highlight bash %}
 $ git summary
