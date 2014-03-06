@@ -1,0 +1,11 @@
+---
+layout: post
+title: Functions 101
+description: A functions primer in javascript
+category: articles
+tags: [functions, javascript]
+---
+
+- functions are first-class objects which means they behave like any other object. That is, they can be passed, returned and modified by functions.
+- One of the reason functions and functional concepts are important because in Javascript a function is a primary modular unit of execution.
+-
