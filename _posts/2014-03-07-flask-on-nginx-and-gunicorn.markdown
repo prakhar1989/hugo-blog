@@ -71,7 +71,10 @@ server {
 
 To run this configuration you need to save this in `/etc/nginx/sites-available`. Assuming your file is `flaskconfig`, you need to create a symbolic link in the `sites-enabled` directory.
 
-`$ ln -s /etc/nginx/sites-available/flaskconfig /etc/nginx/sites-enabled/flaskconfig`
+{% highlight bash %}
+$ cd /etc/nginx
+$ ln -s /etc/nginx/sites-available/flaskconfig /etc/nginx/sites-enabled/flaskconfig
+{% endhighlight %}
 
 To test everything is working fine, restart nginx - hopefully the server should restart without any server errors[^3]. Now `cd` into the project directory and start the `gunicorn_start` command. Now head over to the domain name and you should see your application running.
 
