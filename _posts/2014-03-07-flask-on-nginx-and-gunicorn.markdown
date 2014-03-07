@@ -6,14 +6,12 @@ category: articles
 tags: [nginx, flask, python, deployment]
 ---
 
-Even after having deployed [Flask]() apps a number of times I always find myself googling up blog posts on getting one up and running. Below is simple, straight-forward guide to deploy a flask app on a linux server using Nginx, Gunicorn and Supervisor.
+Even after deploying a number of [Flask](http://flask.pocoo.org/) apps I always find myself googling up blog posts on how to get the trio of nginx, gunicorn and supervisor working together. Below is simple, straight, no-nonsense guide on how to deploy a flask app on a Linux server using Nginx, Gunicorn and Supervisor.
 
-A disclaimer: this guide will not tell you what these technologies are. Specifically, I will not talk about why you should use `nginx` + `gunicorn` instead of `apache` + `mod_wsgi`. There is plenty of good documentation online which already does that. This is my preferred setup for deploying flask applications and has served me quite well in the past. 
-
-Lastly, the setup below uses virtualenv as it helps keep your environment clean.
+A disclaimer: this guide will not tell you what these technologies are. Specifically, I will not talk about why you should use `nginx` + `gunicorn` instead of `apache` + `mod_wsgi`. There is plenty of good documentation online which already does that. This is my preferred setup for deploying flask applications and it is extremely simple to get started.
 
 ### Setup
-First off setup a virtualenv
+First off setup a virtualenv. I'm a big fan of virtualenv as it helps you keep your global system environment clean.
 {% highlight bash %}
 $ cd flask_app
 $ virtualenv flask_env
@@ -47,7 +45,7 @@ export PYTHONPATH=$FLASKDIR:$PYTHONPATH
 RUNDIR=$(dirname $SOCKFILE)
 test -d $RUNDIR || mkdir -p $RUNDIR
 
-# Start your Unicorn
+# Start your unicorn
 exec gunicorn main:app -b 127.0.0.1:8000 \
   --name $NAME \
   --workers $NUM_WORKERS \
@@ -60,9 +58,7 @@ To make sure everything is running, attempt a `sudo ./gunicorn_start` command[^1
 
 ### Nginx
 
-Now that `gunicorn` is setup properly we can now move our focus to Nginx. The configuration is quite simple to get it started. The couple of lines below simply tell nginx to act as a reverse proxy. To run this configuration you need to save this in `/etc/nginx/sites-available`. Assuming your file is `flaskconfig`, you need to create a symbolic link in the `sites-enabled` directory.
-
-`$ ln -s /etc/nginx/sites-available/flaskconfig /etc/nginx/sites-enabled/flaskconfig`
+Now that `gunicorn` is setup properly we can now move our focus to Nginx. The configuration is quite simple to get it started. The couple of lines below simply tell Nginx to act as a reverse proxy. 
 
 **Contents of flaskconfig**[^2]
 {% highlight bash %}
@@ -73,11 +69,15 @@ server {
 }
 {% endhighlight %}
 
-To test everything is working fine, restart nginx - hopefully the server should restart without any server errors. Now `cd` into the project directory and start the `gunicorn_start` command. Now head over to the domain name and you should see your application running.
+To run this configuration you need to save this in `/etc/nginx/sites-available`. Assuming your file is `flaskconfig`, you need to create a symbolic link in the `sites-enabled` directory.
+
+`$ ln -s /etc/nginx/sites-available/flaskconfig /etc/nginx/sites-enabled/flaskconfig`
+
+To test everything is working fine, restart nginx - hopefully the server should restart without any server errors[^3]. Now `cd` into the project directory and start the `gunicorn_start` command. Now head over to the domain name and you should see your application running.
 
 ### Supervisor
 
-Supervisor is a client/server system that allows its users to monitor and control a number of processes on UNIX-like operating systems. In simple words, rather than manually starting and stopping `gunicorn` you can use supervisor to create a deamon that is easy to manage. Create a new configuration file in `/etc/supervisor/conf.d`. To manage supervisor you can use the familiar `sudo service supervisor start/stop` commands.
+Supervisor is a client/server system that allows its users to monitor and control a number of processes on UNIX-like operating systems. In simple words, rather than manually starting and stopping `gunicorn` you can use supervisor to create a daemon that is easy to manage. Create a new configuration file in `/etc/supervisor/conf.d`. To manage supervisor you can use the familiar `sudo service supervisor restart` command.
 
 {% highlight bash %}
 [program:flask_app]
@@ -126,3 +126,4 @@ Hopefully, this post has been helpful in giving you a good idea of how you can d
 
 [^1]: Do remember to give the `gunicorn_start` script the executable status with the `chmod +x gunicorn_start` command.
 [^2]: For a more elaborate configuration for a production server, refer to the [gunicorn documentation](http://gunicorn-docs.readthedocs.org/en/latest/deploy.html)
+[^3]: You can use `sudo nginx -t` to identify any configuration related errors.
