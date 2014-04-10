@@ -11,6 +11,6 @@ Its inspiring to read about how programming greats like [John Resig](http://ejoh
 
 I think no matter how experienced or productive one is as a programmer, each of us struggles with the same issues of feeling lazy, bored and occasionally too burnt out to code. What's motivated me most after the post is the fact that if John Resig can work this hard to write code each day so should I.
 
-I'm currently on a 20 day streak github, which is the highest I've been on this far. Work on [newman](http://github.com/a85/newman) has been both fun and challenging to keep me engaged for 3 weeks. I'm quite anxious on how I will keep up the streak post the release but as John says, the important point is to make a change in yourself for something that you care about.
+I'm currently on a 20 day streak github, which is the highest I've been on this far. Working on [newman](http://github.com/a85/newman) has been both fun and challenging to keep me engaged for 3 weeks. I'm quite anxious on how I will keep up the streak post the release but as John says, the important point is to make a change in yourself for something that you care about.
 
 For those of you who haven't read the blog [post](http://ejohn.org/blog/write-code-every-day/), I'd strongly encourage you to do so!
