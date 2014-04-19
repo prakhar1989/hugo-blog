@@ -8,7 +8,7 @@ modified: 04-04-2014
 
 I believe that the best way to learn is by working on projects. Below is a growing list of projects that I have shipped encompassing different kinds of technologies.
 
-<ul class="projects-list">
+<ul class="projects-list unstyled-list">
 <li>
 	<div class="project-item">
 		<h4>Gettup</h4>
