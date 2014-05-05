@@ -11,8 +11,9 @@ I believe that the best way to learn is by working on projects. Below is a growi
 <ul class="projects-list unstyled-list">
 <li>
 	<div class="project-item">
-		<h4>Gettup</h4>
-			<p>GettUp is a simple command line utility which lets you share and upload files to the ge.tt sharing service quickly and easily.</p>
+		<h4><a href="https://github.com/prakhar1989/gettup">Gettup</a></h4>
+			<p class="stack">Python, Command-Line</p>
+			<p>Gettup is one of those scratch-your-itch projects where you instantly want to share a file right from your terminal. Maybe you are SSHed into a server and feel scp is too troublesome or you do not want to open a website and drag-drop (or worse, upload) a file? Gettup is a simple command line utility which lets you share and upload files to the <a href="http://ge.tt/">ge.tt</a> sharing service quickly and easily. It uses the Ge.tt API to share a file and generate a URL that you can share. It features a LOT of cool options like bulk upload, ability to create and shares(a collection of files) and rename files. Feel free to go through the <a href="https://github.com/prakhar1989/gettup/blob/master/README.md">README</a> for the complete list. Gettup also helps me to tick off an item from my bucket list i.e. publishing a python package on the <a href="https://pypi.python.org/pypi/gettup/0.3.0">Python Package Index!</a></p>
 	</div>
 </li>
 
