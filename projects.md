@@ -3,7 +3,9 @@ layout: page
 permalink: /projects/
 title: Projects 
 tags: [projects]
-modified: 04-04-2014
+modified: 05-05-2014
+image:
+  feature: mac3.jpg
 ---
 
 I believe that the best way to learn is by working on projects. Below is a growing list of projects that I have shipped encompassing different kinds of technologies.
