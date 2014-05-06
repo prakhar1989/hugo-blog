@@ -22,22 +22,27 @@ I believe that the best way to learn is by working on projects. Below is a growi
 
 <li>
 	<div class="project-item">
-		<h3>Postman Interceptor</h3>
-		<p class="stack">Javascript, Chrome Extension</p>
-<p>Helper extension for the Postman packaged app. Also helps send restricted headers.</p>
+		<h3><a href="https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo">Postman Interceptor</a></h3>
+		<p class="stack">Javascript, Sinon.js, Chrome Extension</p>
+<p><a href="https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo">Postman Interceptor</a> is a chrome extension that gives <a href="http://getpostman.com">Postman</a> wings! It enables Postman to send restricted headers i.e. headers that cannot be send via XmlHttpRequest like User-Agent, Referrer etc. and send cookie information with any request.</p>
+<p>The killer feature in the extension is the ability to capture any requests sent by the browser and forward them to Postman for inspection. If you are looking at inspecting if your website is making the right API calls then all you need to do is just turn on this extension and all your requests will be forwarded to Postman for you to inspect the headers, the form data and body. From a technical standpoint this was my foray into developing a chrome application - an ecosystem for which I have become quite fond of post the project. Lastly, writing tests for an extension was challenging but with availability of stubs and mocks in <a href="#">Sinon</a> they became a breeze.</p>
+<p>Here is a short 20sec demo on how it works!</p>
+<iframe width="420" height="315" src="//www.youtube.com/embed/Dxf-o_DLSLw" frameborder="0" allowfullscreen></iframe>
 	</div>
 </li>
 
 <li>
 	<div class="project-item">
-		<h3>PostmanBin</h3>
-<p>Forked of the utterly useful httpbin project, postmanbin is set of useful api routes for testing and demoing postman</p>
+		<h3><a href="http://dump.getpostman.com">PostmanBin</a></h3>
+		<p class="stack">Python, Flask, RESTful API</p>
+		<p><a href="http://github.com/prakhar1989/postmanbin">PostmanBin</a> is fork of the utterly useful <a href="http://httpbin.org">HttpBin</a> project by Kenneth Reitz. It takes the existing repo and uses Flask-Restful to build a RESTful api for a blog - useful for debugging requests via Postman or otherwise.</p>
 	</div>
 </li>
 
 <li>
 	<div class="project-item">
 		<h3>Newman</h3>
+		<p class="stack">Javascript, Node.js</p>
 <p>The command-line collection runner for Postman</p>
 	</div>
 </li>
@@ -45,7 +50,8 @@ I believe that the best way to learn is by working on projects. Below is a growi
 <li>
 	<div class="project-item">
 		<h3>Python Algorithms</h3>
-<p>A collection of 30 famous data-structures and algorithms reimplemented in Python with complete tests.</p>
+		<p class="stack">Python</p>
+		<p>A collection of 30 famous data-structures and algorithms reimplemented in Python with complete tests.</p>
 	</div>
 </li>
 
