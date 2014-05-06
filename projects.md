@@ -8,7 +8,9 @@ image:
   feature: mac3.jpg
 ---
 
-I believe that the best way to learn is by working on projects. Below is a growing list of projects that I have shipped encompassing different kinds of technologies.
+> “For the things we have to learn before we can do them, we learn by doing them.” - Aristotle
+
+I believe that the best way to learn is by working on projects. Below is a growing list of projects that I have shipped across various technologies listed in chronological order.
 
 <ul class="projects-list unstyled-list">
 <li>
@@ -43,7 +45,7 @@ I believe that the best way to learn is by working on projects. Below is a growi
 <li>
 	<div class="project-item">
 		<h3><a href="https://github.com/prakhar1989/gettup">Gettup</a></h3>
-			<p class="stack">Python, Command-Line, Pypi</p>
+			<p class="stack">Python, Command-Line</p>
 			<p><a href="http://github.com/prakhar1989/Gettup">Gettup</a> is one of those scratch-your-itch projects where you instantly want to share a file right from your terminal. Maybe you are SSHed into a server and feel scp is too troublesome or you do not want to open a website and drag-drop (or worse, upload) a file? </p>
 <p>Gettup is a simple command line utility which lets you share and upload files to the <a href="http://ge.tt/">ge.tt</a> sharing service quickly and easily. It uses the Ge.tt API to share a file and generate a URL that you can share. It features a LOT of cool options like bulk upload, ability to create and shares(a collection of files) and rename files. Feel free to go through the <a href="https://github.com/prakhar1989/gettup/blob/master/README.md">README</a> for the complete list. Gettup also helps me to tick off an item from my bucket list i.e. publishing a python package on the <a href="https://pypi.python.org/pypi/gettup/0.3.0">Python Package Index!</a></p>
 	</div>
@@ -51,9 +53,9 @@ I believe that the best way to learn is by working on projects. Below is a growi
 
 <li>
 	<div class="project-item">
-		<h3>Stripe CTF 3.0</h3>
-		<p class="stack">Scala, Node.js, Python</p>
-		<p>https://github.com/prakhar1989/Stripe-CTF</p>
+		<h3><a href="https://github.com/prakhar1989/Stripe-CTF">Stripe CTF 3.0</a></h3>
+		<p class="stack">Scala, Node.js, Ruby</p>
+		<p><a href="https://stripe-ctf.com/">Capture the Flag</a> or CTF is an annual programming competition held by <a href="#">Stripe</a> where developers have to solve challenging problems by writing code! This was my first attempt at participating in the CTF and it turned out to be super fun! The challenges were really well thought, the community around it was inspiring and the overall experience was very good. Not to mention I also got a free Stripe Tshirt for finishing in the top 1000!</p>
 	</div>
 </li>
 
@@ -61,13 +63,14 @@ I believe that the best way to learn is by working on projects. Below is a growi
 	<div class="project-item">
 		<h3><a href="https://github.com/prakhar1989/TimeLogger">TimeLogger</a></h3>
 		<p class="stack">Python, Django, Google Charts</p>
-		<p>Time Tracking for enterprises</p>
+		<p><a href="https://github.com/prakhar1989/TimeLogger">Timelogger</a> is a Django backed time tracking application. The idea of building a time-tracking app germinated on seeing developers at my current company being asked to track their time as spent on building features, squashing bugs and attending meetings. Timelogger features a customizable and a pretty rad Admin dashboard interface that allows him/her to add projects in varying categories, carry out user management and track leaves. </p>
+<p>Witnessing the analysis done on time-tracking data, timelogger was built with strong reporting capabilities in mind with options to get in-depth and summarized graphs of activities of an individual or a team (offshore and onshore), all of which could be neatly exported to Excel for more in-depth analysis. Finally, Timelogger boasts of a fully responsive UI that works well on a mobile and features tight integration with <a href="http://www.redmine.org/">Redmine</a> - an open-source bug tracking system.</p>
 	</div>
 </li>
 
 <li>
 	<div class="project-item">
-		<h3>Python Algorithms</h3>
+		<h3><a href="https://github.com/prakhar1989/Algorithms">Python Algorithms</a></h3>
 		<p class="stack">Python</p>
 		<p>What started off as a small set of algorithms while solving problems in Tim Roughgarden's excellent course - <a href="https://www.coursera.org/course/algo">Analysis and Design of Algorithms</a> slowly grew into a collection of 30 famous data-structures and algorithms reimplemented in Python covering Dynamic Programming, Graph Algorithms and String algorithms. All implementations are complete with test data and thorough tests. With more than 200 stars on Github, this also happens to be my most popular repository!</p>
 	</div>
@@ -76,8 +79,8 @@ I believe that the best way to learn is by working on projects. Below is a growi
 <li>
 	<div class="project-item">
 		<h3>Oh My Green!</h3>
-		<p class="stack">Ruby on Rails</p>
-		<p>Time Tracking for enterprises</p>
+		<p class="stack">Ruby on Rails, Facebook Graph API</p>
+		<p><a href="http://www.ohmygreen.com/store">Oh My Green</a> is Palo Alto based E-commerce company specializing in selling organic, non-GMO food and snacks. It was started by a group of Stanford alums and I was responsible for porting their entire PHP Symphony app to <a href="http://omgonrails.herokuapp.com/">Ruby on Rails</a>. This was my first experience working remotely with a diverse team and it was good fun building a cool referral signup program on Rails!</p>
 	</div>
 </li>
 
@@ -144,6 +147,6 @@ I believe that the best way to learn is by working on projects. Below is a growi
 
 * [Developing Web Applications](https://www.udacity.com/course/cs253)
 * [Functional Programming in Scala](https://www.coursera.org/course/progfun)
-* [Algorithms with Tim Roughgarden](https://www.coursera.org/course/algo)
-* [Computing for Data Analytics](https://www.coursera.org/course/compdata)
+* [Algorithms with Tim Roughgarden](https://www.coursera.org/course/algo) 
+* [Computing for Data Analytics in R](https://www.coursera.org/course/compdata)
 * [Machine Learning](https://www.coursera.org/course/ml)
