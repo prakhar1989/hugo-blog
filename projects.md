@@ -13,10 +13,11 @@ I believe that the best way to learn is by working on projects. Below is a growi
 <ul class="projects-list unstyled-list">
 <li>
 	<div class="project-item">
-		<h3><a href="https://github.com/prakhar1989/gettup">Gettup</a></h3>
-			<p class="stack">Python, Command-Line, Pypi</p>
-			<p><a href="http://github.com/prakhar1989/Gettup">Gettup</a> is one of those scratch-your-itch projects where you instantly want to share a file right from your terminal. Maybe you are SSHed into a server and feel scp is too troublesome or you do not want to open a website and drag-drop (or worse, upload) a file? </p>
-<p>Gettup is a simple command line utility which lets you share and upload files to the <a href="http://ge.tt/">ge.tt</a> sharing service quickly and easily. It uses the Ge.tt API to share a file and generate a URL that you can share. It features a LOT of cool options like bulk upload, ability to create and shares(a collection of files) and rename files. Feel free to go through the <a href="https://github.com/prakhar1989/gettup/blob/master/README.md">README</a> for the complete list. Gettup also helps me to tick off an item from my bucket list i.e. publishing a python package on the <a href="https://pypi.python.org/pypi/gettup/0.3.0">Python Package Index!</a></p>
+		<h3><a href="https://www.npmjs.org/package/newman">Newman</a></h3>
+		<p class="stack">Javascript, Node.js, Sinon.js, Grunt, Mocha</p>
+<p><a href="https://www.npmjs.org/package/newman">Newman</a> is a command-line collection runner for Postman. With Newman, postman users can integrate Postman collections with their build system. Or run automated tests for their API through a cron job. One can also use Newman as a grunt plugin to run their API tests any time you save your code in your editor. Newman is a npm package and can be installed very easily.</p>
+<p>Newman was one of my biggest side-projects till date with development spanning over a two month period. We spent a lot of time in designing the structure so that its extensible for its users. At the end Newman is more like a library which can be integrated to any application. Lastly, Newman happens to be my first library available on NPM!</p>
+<p>For more information about the project do read my accompanying <a href="articles/newman-is-live/">blog post</a></p>
 	</div>
 </li>
 
@@ -41,9 +42,26 @@ I believe that the best way to learn is by working on projects. Below is a growi
 
 <li>
 	<div class="project-item">
-		<h3>Newman</h3>
-		<p class="stack">Javascript, Node.js</p>
-<p>The command-line collection runner for Postman</p>
+		<h3><a href="https://github.com/prakhar1989/gettup">Gettup</a></h3>
+			<p class="stack">Python, Command-Line, Pypi</p>
+			<p><a href="http://github.com/prakhar1989/Gettup">Gettup</a> is one of those scratch-your-itch projects where you instantly want to share a file right from your terminal. Maybe you are SSHed into a server and feel scp is too troublesome or you do not want to open a website and drag-drop (or worse, upload) a file? </p>
+<p>Gettup is a simple command line utility which lets you share and upload files to the <a href="http://ge.tt/">ge.tt</a> sharing service quickly and easily. It uses the Ge.tt API to share a file and generate a URL that you can share. It features a LOT of cool options like bulk upload, ability to create and shares(a collection of files) and rename files. Feel free to go through the <a href="https://github.com/prakhar1989/gettup/blob/master/README.md">README</a> for the complete list. Gettup also helps me to tick off an item from my bucket list i.e. publishing a python package on the <a href="https://pypi.python.org/pypi/gettup/0.3.0">Python Package Index!</a></p>
+	</div>
+</li>
+
+<li>
+	<div class="project-item">
+		<h3>Stripe CTF 3.0</h3>
+		<p class="stack">Scala, Node.js, Python</p>
+		<p>https://github.com/prakhar1989/Stripe-CTF</p>
+	</div>
+</li>
+
+<li>
+	<div class="project-item">
+		<h3><a href="https://github.com/prakhar1989/TimeLogger">TimeLogger</a></h3>
+		<p class="stack">Python, Django, Google Charts</p>
+		<p>Time Tracking for enterprises</p>
 	</div>
 </li>
 
@@ -51,21 +69,29 @@ I believe that the best way to learn is by working on projects. Below is a growi
 	<div class="project-item">
 		<h3>Python Algorithms</h3>
 		<p class="stack">Python</p>
-		<p>A collection of 30 famous data-structures and algorithms reimplemented in Python with complete tests.</p>
+		<p>What started off as a small set of algorithms while solving problems in Tim Roughgarden's excellent course - <a href="https://www.coursera.org/course/algo">Analysis and Design of Algorithms</a> slowly grew into a collection of 30 famous data-structures and algorithms reimplemented in Python covering Dynamic Programming, Graph Algorithms and String algorithms. All implementations are complete with test data and thorough tests. With more than 200 stars on Github, this also happens to be my most popular repository!</p>
 	</div>
 </li>
 
 <li>
 	<div class="project-item">
-		<h3>Research Portal</h3>
-<p>Did Front-end Design and Developement for an app that allows students, faculty and admin office to track academic conferences and research projects at the university.</p>
+		<h3>Oh My Green!</h3>
+		<p class="stack">Ruby on Rails</p>
+		<p>Time Tracking for enterprises</p>
 	</div>
 </li>
 
 <li>
 <div class="project-item">
-	<h3>Gems</h3>
-	<p>A candy inspired theme for the CMUS(C Music player)</p>
+	<h3>Reco Engine</h3>
+	<p>Attempt to build a recommendation engine in Python</p>
+</div>
+</li>
+
+<li>
+<div class="project-item">
+	<h3>Voting Application</h3>
+	<p>Election Application built as a SPA using Python (Flask) and Backbone</p>
 </div>
 </li>
 
@@ -90,19 +116,6 @@ I believe that the best way to learn is by working on projects. Below is a growi
 </div>
 </li>
 
-<li>
-<div class="project-item">
-	<h3>Reco Engine</h3>
-	<p>Attempt to build a recommendation engine in Python</p>
-</div>
-</li>
-
-<li>
-<div class="project-item">
-	<h3>Voting Application</h3>
-	<p>Election Application built as a SPA using Python (Flask) and Backbone</p>
-</div>
-</li>
 
 <li>
 <div class="project-item">
@@ -116,6 +129,13 @@ I believe that the best way to learn is by working on projects. Below is a growi
 	<h3>Pastie</h3>
 	<p>Pastebin clone in Sinatra</p>
 </div>
+</li>
+
+<li>
+	<div class="project-item">
+		<h3>Research Portal</h3>
+<p>Did Front-end Design and Developement for an app that allows students, faculty and admin office to track academic conferences and research projects at the university.</p>
+	</div>
 </li>
 
 </ul>
