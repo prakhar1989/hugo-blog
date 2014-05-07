@@ -80,34 +80,41 @@ I believe that the best way to learn is by working on projects. Below is a growi
 	<div class="project-item">
 		<h3>Oh My Green!</h3>
 		<p class="stack">Ruby on Rails, Facebook Graph API</p>
-		<p><a href="http://www.ohmygreen.com/store">Oh My Green</a> is Palo Alto based E-commerce company specializing in selling organic, non-GMO food and snacks. It was started by a group of Stanford alums and I was responsible for porting their entire PHP Symphony app to <a href="http://omgonrails.herokuapp.com/">Ruby on Rails</a>. This was my first experience working remotely with a diverse team and it was good fun building a cool referral signup program on Rails!</p>
+		<p><a href="http://www.ohmygreen.com/store">Oh My Green</a> is Palo Alto based E-commerce company specializing in selling organic, non-GMO food and snacks. It was started by a group of Stanford alums and I was hired as a summer intern for porting their entire PHP Symphony app to <a href="http://omgonrails.herokuapp.com/">Ruby on Rails</a>. This was my first experience working remotely with a diverse team and it was good fun building a cool referral signup program on Rails!</p>
 	</div>
 </li>
 
 <li>
 <div class="project-item">
-	<h3>Reco Engine</h3>
-	<p>Attempt to build a recommendation engine in Python</p>
+	<h3><a href="https://github.com/prakhar1989/Reco_Engine">Recommendation Engine using Collaborative Filtering</a></h3>
+	<p class="stack">Python</p>
+	<p>After Andrew Ng's awesome class on <a href="https://www.coursera.org/course/ml">Machine Learning</a> I was extremely excited to try our some of my newly learnt ML skillz on a more practical project in a more practical language (Octave was quite boring!). What could be better than building your own recommendation engine based on collaborative filtering - <a href="http://en.wikipedia.org/wiki/Netflix_Prize">the algorithm that was originally used by Amazon and Netflix for their recommendation engines!</a> The project was inspired by a very cool <a href="http://files.grouplens.org/papers/algs.pdf">paper</a> on the same topic by the leading authors in this field and the creators of the GroupLens database. The result was a nifty implementation of the paper and some interesting recommendations that no longer seemed like magic!</p>
 </div>
 </li>
 
 <li>
 <div class="project-item">
-	<h3>Voting Application</h3>
-	<p>Election Application built as a SPA using Python (Flask) and Backbone</p>
+	<h3><a href="https://github.com/prakhar1989/VotingApplication">Voting Application</a></h3>
+	<p class="stack">Python, Flask, Backbone.js</p>
+	<p>This creatively named application was developed in college for <em>(yes, you guessed it right)</em> elections! Built using a RESTful backend and a Javascript heavy front-end powered by Backbone, it was my attempt to build a medium sized application and to sub-consciously jump on the fat client - thin server bandwagon. Being an overall good fun to develop in, I ended up <a href="https://gist.github.com/prakhar1989/2c40618266a4887e3435">writing few parts</a> of the application that helped in doing other projects in the university as well.</p>
 </div>
 </li>
 
 <li>
 <div class="project-item">
-	<h3>Loops</h3>
-	<p>Loops is a first attempt at making a Single Page Web App (SPA) built using JS, Backbone and Flask (python). </p>
+	<h3><a href="http://github.com/prakhar1989/Loops">Loops</a></h3>
+	<p class="stack">Javascript, Last.fm API, Flask</p>
+	<figure>
+		<a href="#"><img src="/images/loops.png"></a>
+	</figure>
+	<p>Everyone loves a music player with a nice interface, dynamic album art and last.fm integration. Sweeping generalizations aside loops is my first attempt at making a Single Page Web App (SPA). It is built without a JS MVC framework, something that I found too intimidating at that time, with flask as a minimal backend. Loops has a slick interface <em>(yes, those discs in LOOPS actually rotate!)</em>, last.fm integration for album art and artist info along with keyboard shortcuts.</p>
 </div>
 </li>
 
 <li>
 <div class="project-item">
-	<h3>Jokastore</h3>
+	<h3><a href="http://jokastore.appspot.com">Jokastore</a></h3>
+	<p class="stack">Python, Webapp2, Google App Engine, Google API</p>
 	<p>Mini-ecommerce store in Python, hosted on Google App Engine</p>
 </div>
 </li>
