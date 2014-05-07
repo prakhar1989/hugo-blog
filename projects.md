@@ -114,38 +114,25 @@ I believe that the best way to learn is by working on projects. Below is a growi
 <li>
 <div class="project-item">
 	<h3><a href="http://jokastore.appspot.com">Jokastore</a></h3>
-	<p class="stack">Python, Webapp2, Google App Engine, Google API</p>
-	<p>Mini-ecommerce store in Python, hosted on Google App Engine</p>
+	<p class="stack"><strong>Tshirt Design</strong>, Python, Webapp2, Google App Engine, Google API</p>
+	<p><a href="https://github.com/prakhar1989/Jokastore">Jokastore</a> is a mini-ecommerce store built from scratch for the entrepreneurship class at IIM Calcutta. Our team used the store to sell witty and minimally designed Tshirts to Jokars (students of IIMC). Jokastore is a simple e-commerce platform with tight social integration, Google login and traditional cart features. Being interested in design, I also designed the Tshirts in Photoshop and released a video charting the journey of an IIMC student as a sequence of Tshirts. The project went on to become extremely popular and also got us a mention on the National Daily!</p>
 </div>
 </li>
 
 <li>
 <div class="project-item">
-	<h3>Blag</h3>
-	<p>Blogging engine made for CS253 Udacity course taught by Steve Huffman</p>
-</div>
-</li>
-
-
-<li>
-<div class="project-item">
-	<h3>Color Palette</h3>
-	<p>Simple python program to generate list of colors used by a website</p>
+	<h3><a href="https://github.com/prakhar1989/Color-palette">Color Palette</a></h3>
+	<p class="stack">Python, lxml</p>
+	<p>Uses the fabulous LXML library to traverse a website's stylesheets and get the dominant colors used in it. It generates an HTML file containing the colors sorted by their frequency. This probably needs to be expanded to generate website screenshots and apply clustering to get a better "feel" for the color like Apple's iTunes!</p>
 </div>
 </li>
 
 <li>
 <div class="project-item">
-	<h3>Pastie</h3>
-	<p>Pastebin clone in Sinatra</p>
+	<h3><a href="https://github.com/prakhar1989/pastie">Pastie</a></h3>
+	<p class="stack">Sinatra, Ruby, Datamapper</p>
+	<p>Pastie was born in the wee hours of the night when I was trying to learn how to use Sinatra and DataMapper. You can use it to save snippets of code to share it with others. As an added bonus: it adds beautiful syntax coloring to it as well. Just paste your fugly code and press Ctrl-s to save. Inspired by <a href="http://hastebin.com">Hastebin</a></p>
 </div>
-</li>
-
-<li>
-	<div class="project-item">
-		<h3>Research Portal</h3>
-<p>Did Front-end Design and Developement for an app that allows students, faculty and admin office to track academic conferences and research projects at the university.</p>
-	</div>
 </li>
 
 </ul>
