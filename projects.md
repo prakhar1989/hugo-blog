@@ -139,6 +139,8 @@ I believe that the best way to learn is by working on projects. Below is a growi
 
 ## Courses
 
+I'm quite passionate about improving as a programmer and regularly seek the help of courses to keep in touch with theory and learn new concepts in Computer Science. I consider myself extremely lucky to be alive and have the resources to be part of the educational revolution (read <a href="http://en.wikipedia.org/wiki/Massive_open_online_course">MOOCs</a>) that is sweeping over the world. Below is a small but ever-growing list of courses that I've successfully completed!
+
 * [Developing Web Applications](https://www.udacity.com/course/cs253)
 * [Functional Programming in Scala](https://www.coursera.org/course/progfun)
 * [Algorithms with Tim Roughgarden](https://www.coursera.org/course/algo) 
