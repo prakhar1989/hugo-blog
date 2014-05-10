@@ -17,8 +17,8 @@ I believe that the best way to learn is by working on projects. Below is a growi
 	<div class="project-item">
 		<h3><a href="https://www.npmjs.org/package/newman">Newman</a></h3>
 		<p class="stack">Javascript, Node.js, Sinon.js, Grunt, Mocha</p>
-<p><a href="https://www.npmjs.org/package/newman">Newman</a> is a command-line collection runner for Postman. With Newman, postman users can integrate Postman collections with their build system. Or run automated tests for their API through a cron job. One can also use Newman as a grunt plugin to run their API tests any time you save your code in your editor. Newman is a npm package and can be installed very easily.</p>
-<p>Newman was one of my biggest side-projects till date with development spanning over a two month period. We spent a lot of time in designing the structure so that it is extensible for its users. At the end Newman is more like a library which can be integrated with any application. Lastly, Newman happens to be my first library available on NPM!</p>
+<p><a href="https://www.npmjs.org/package/newman">Newman</a> is a command-line collection runner for Postman. With Newman, postman users can integrate Postman collections with their build system or run automated tests for their API through a cron job. One can also use Newman as a grunt plugin to run their API tests any time you save your code in your editor. Newman is available as a npm package and can be installed very easily.</p>
+<p>Newman was one of my biggest side-projects till date with development spanning over a two month period. We spent a lot of time in designing the architecture so that it is extensible for its users. At the end Newman is more like a library which can be integrated with any application. Lastly, Newman happens to be my first library to be available on NPM!</p>
 <p>For more information about the project do read my accompanying <a href="articles/newman-is-live/">blog post.</a></p>
 	</div>
 </li>
@@ -28,7 +28,7 @@ I believe that the best way to learn is by working on projects. Below is a growi
 		<h3><a href="https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo">Postman Interceptor</a></h3>
 		<p class="stack">Javascript, Sinon.js, Chrome Extension</p>
 <p><a href="https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo">Postman Interceptor</a> is a chrome extension that gives <a href="http://getpostman.com">Postman</a> wings! It enables Postman to send restricted headers i.e. headers that cannot be sent via XmlHttpRequest like User-Agent, Referrer etc. and send cookie information with any request.</p>
-<p>The killer feature in this extension is the ability to capture any requests sent by the browser and forward them to Postman for inspection. If you are looking at inspecting the right API calls that your website is making then all you need to do is just turn on this extension and all your requests will be forwarded to Postman for you to inspect the headers, the form data and body. From a technical standpoint this was my foray into developing a chrome application - an ecosystem for which I have become quite fond of post the project. Lastly, writing tests for an extension was challenging but with the availability of stubs and mocks in <a href="#">Sinon</a> they became a breeze.</p>
+<p>The killer feature in this extension is the ability to capture any requests sent by the browser and forward them to Postman for inspection. If you are looking at inspecting the API calls that your website is making then all you need to do is just turn on this extension and all your requests will be forwarded to Postman for you to inspect the headers, the form data and body. From a technical standpoint this was my foray into developing a chrome application - an ecosystem for which I have become quite fond of post the project. Writing tests for an extension was challenging but with the availability of stubs and mocks in <a href="#">Sinon</a> they became a breeze.</p>
 <p>Here is a short 20sec demo on how it works!</p>
 <iframe width="420" height="315" src="//www.youtube.com/embed/Dxf-o_DLSLw" frameborder="0" allowfullscreen></iframe>
 	</div>
@@ -46,7 +46,7 @@ I believe that the best way to learn is by working on projects. Below is a growi
 	<div class="project-item">
 		<h3><a href="https://github.com/prakhar1989/gettup">Gettup</a></h3>
 			<p class="stack">Python, Command-Line</p>
-			<p><a href="http://github.com/prakhar1989/Gettup">Gettup</a> is one of those scratch-your-itch projects where you instantly want to share a file right from your terminal. Maybe you are SSHed into a server and feel scp is too troublesome or you do not want to open a website and drag-drop (or worse, upload) a file? </p>
+			<p><a href="http://github.com/prakhar1989/Gettup">Gettup</a> is one of those scratch-your-itch projects I worked on thorough which you can instantly share a file right from your terminal. Maybe you are SSHed into a server and feel scp is too troublesome or you do not want to open a website and drag-drop (or worse, upload) a file? </p>
 <p>Gettup is a simple command line utility which lets you share and upload files to the <a href="http://ge.tt/">ge.tt</a> sharing service quickly and easily. It uses the Ge.tt API to share a file and generate a URL that you can share. It features a LOT of cool options like bulk upload, ability to create shares (a collection of files) and rename files. Feel free to go through the <a href="https://github.com/prakhar1989/gettup/blob/master/README.md">README</a> for the complete list. Gettup also helped me in ticking off an item from my bucket list i.e. publishing a python package on the <a href="https://pypi.python.org/pypi/gettup/0.3.0">Python Package Index!</a></p>
 	</div>
 </li>
@@ -63,7 +63,7 @@ I believe that the best way to learn is by working on projects. Below is a growi
 	<div class="project-item">
 		<h3><a href="https://github.com/prakhar1989/TimeLogger">TimeLogger</a></h3>
 		<p class="stack">Python, Django, Google Charts</p>
-		<p><a href="https://github.com/prakhar1989/TimeLogger">Timelogger</a> is a Django backed time tracking application. The idea of building a time-tracking app germinated on seeing developers at my current company being asked to track their time as spent on building features, squashing bugs and attending meetings. Timelogger features a customizable and a pretty rad Admin dashboard interface that allows anyone to add projects in varying categories, carry out user management and track leaves. </p>
+		<p><a href="https://github.com/prakhar1989/TimeLogger">Timelogger</a> is a Django backed time tracking application. The idea of building a time-tracking app germinated on seeing developers at my current company being asked to track their time spent on building features, squashing bugs and attending meetings. Timelogger features a customizable and a pretty rad Admin dashboard interface that allows anyone to add projects in varying categories, carry out user management and track leaves. </p>
 <p>Witnessing the analysis done on time-tracking data, timelogger was built with strong reporting capabilities in mind with options to get in-depth and summarized graphs of activities of an individual or a team (offshore and onshore), all of which could be neatly exported to Excel for more in-depth analysis. Finally, Timelogger boasts of a fully responsive UI that works well on a mobile and features tight integration with <a href="http://www.redmine.org/">Redmine</a> - an open-source bug tracking system.</p>
 	</div>
 </li>
@@ -80,7 +80,7 @@ I believe that the best way to learn is by working on projects. Below is a growi
 	<div class="project-item">
 		<h3>Oh My Green!</h3>
 		<p class="stack">Ruby on Rails, Facebook Graph API</p>
-		<p><a href="http://www.ohmygreen.com/store">Oh My Green</a> is Palo Alto based E-commerce company specializing in selling organic, non-GMO food and snacks. It was started by a group of Stanford alums and I was hired as a summer intern for porting their entire PHP Symphony app to <a href="http://omgonrails.herokuapp.com/">Ruby on Rails</a>. This was my first experience working remotely with a diverse team and it was good fun building a cool referral signup program on Rails!</p>
+		<p><a href="http://www.ohmygreen.com/store">Oh My Green</a> is Palo Alto based E-commerce company specializing in selling organic, non-GMO food and snacks. It was started by a group of Stanford alumni and I was hired as a summer intern for porting their entire PHP Symphony app to <a href="http://omgonrails.herokuapp.com/">Ruby on Rails</a>. This was my first experience working remotely with a diverse team and it was good fun building a cool referral signup program on Rails!</p>
 	</div>
 </li>
 
@@ -88,7 +88,7 @@ I believe that the best way to learn is by working on projects. Below is a growi
 <div class="project-item">
 	<h3><a href="https://github.com/prakhar1989/Reco_Engine">Recommendation Engine using Collaborative Filtering</a></h3>
 	<p class="stack">Python</p>
-	<p>After Andrew Ng's awesome class on <a href="https://www.coursera.org/course/ml">Machine Learning</a> I was extremely excited to try our some of my newly learnt ML skillz on a more practical project in a more practical language (Octave was quite boring!). What could be better than building your own recommendation engine based on collaborative filtering - <a href="http://en.wikipedia.org/wiki/Netflix_Prize">the algorithm that was originally used by Amazon and Netflix for their recommendation engines!</a> The project was inspired by a very cool <a href="http://files.grouplens.org/papers/algs.pdf">paper</a> on the same topic by the leading authors in this field and the creators of the GroupLens database. The result was a nifty implementation of the paper and some interesting recommendations that no longer seemed like magic!</p>
+	<p>After Andrew Ng's awesome class on <a href="https://www.coursera.org/course/ml">Machine Learning</a> I was extremely excited to try our some of my newly learnt ML skills on a more practical project in a more practical language (Octave was quite boring!). What could be better than building your own recommendation engine based on collaborative filtering - <a href="http://en.wikipedia.org/wiki/Netflix_Prize">the algorithm that was originally used by Amazon and Netflix for their recommendation engines!</a> The project was inspired by a very cool <a href="http://files.grouplens.org/papers/algs.pdf">paper</a> on the same topic by the leading authors in this field and the creators of the GroupLens database. The result was a nifty implementation of the paper and some interesting recommendations that no longer seemed like magic!</p>
 </div>
 </li>
 
