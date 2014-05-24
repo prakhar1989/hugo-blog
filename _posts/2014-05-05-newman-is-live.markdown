@@ -3,7 +3,7 @@ layout: post
 title: Newman Is Live
 description: The Postman Collection Runner is shipped!
 category: articles
-tags: [postman]
+tags: [postman, newman]
 ---
 
 And finally, after working non-stop on the project for 45 days [Newman](http://github.com/a85/Newman) is finally in beta. Newman is a command-line collection runner for [Postman](http://getpostman.com) built fully on Node.js. Newman is my first-ever node.js project and I'm extremely glad to have got a chance to build something useful and learn a new technology. 
