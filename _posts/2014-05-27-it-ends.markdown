@@ -7,7 +7,7 @@ tags: [github]
 ---
 
 <figure>
-	<a href="#"><img src="/images/githubstreak.png"></a>
+	<a href="#"><img src="/images/github_streak.png"></a>
 	<figcaption><a href="https://github.com/prakhar1989" title="Newman Demo">Github Streak</a>.</figcaption>
 </figure>
 
