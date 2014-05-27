@@ -6,6 +6,11 @@ category: articles
 tags: [github]
 ---
 
+<figure>
+	<a href="#"><img src="/images/githubstreak.png"></a>
+	<figcaption><a href="https://github.com/prakhar1989" title="Newman Demo">Github Streak</a>.</figcaption>
+</figure>
+
 And so it ends! For the past 64 days, I've been working hard to keep contributing to open source, to keep committing meaningful commits each day. Yesterday, I decided to end it. Nearing the end, it started getting a bit tiring. I was spending my time in office thinking what will I work on today. In the start it was good, I had a couple of good postman projects to take care of. But after release, I was in search of a new project.
 
 Learning Go had been on my mind for quite some time and somewhere between my time in Postman, I did give it a shot. But I realized that to build something meaningful, I'd have to put some serious time in it. Bogged by the pressure of releasing code each day I was not feeling comfortable in taking time out to learn a new language.
