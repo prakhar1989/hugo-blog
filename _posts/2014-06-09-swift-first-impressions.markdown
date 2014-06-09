@@ -27,10 +27,12 @@ Modern languages like Go embrace type inference and in my opinion it is one of r
 An optional value either contains a value or a `nil` to indicate that a value is missing. I first learnt about the `Option` type in Scala and the benefits of using a dedicated type for this became evident early on. Being a strongly typed language, Swift encourages using optionals to ensure safety.
 
 {% highlight python %}
-let msg = raw_prompt()
+# in the python world one would 
+# do the following
+msg = raw_prompt()
 if msg {
   // raises a compile error
-  println(msg + ", world")
+  print(msg + ", world")
 }
 {% endhighlight %}
 
@@ -86,7 +88,7 @@ for i in 0..10 {
 
 // Python
 for i in range(0, 10) {
-	println(i)
+	print(i)
 }
 
 // Ruby
@@ -108,7 +110,7 @@ for _ in 0..n {
 }
 {% endhighlight %}
 
-This is a nice-to-have feature if you don't want the local namespace.
+This is a nice-to-have feature if you don't want to populate the local namespace.
 
 ### Closures
 If you have any Javascript experience under your belt, chances are you have used closures. Closures are common in languages in which functions are treated as first-class citizens. I'll not go into details of explaining what closures are but to put it in one line - they are self-contained blocks of code that can be passed around your code. Closures basically capture or *close* the values of the data from the context in which they were defined.
