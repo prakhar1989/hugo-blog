@@ -23,14 +23,14 @@ casper.start(home_url);
 casper.waitForSelector("form#form1");
  
 casper.then(function() {
-	this.fill('form[name="form1"]',{ 'showrate' : '2'});
-	this.click('input[type=submit]')
+  this.fill('form[name="form1"]',{ 'showrate' : '2'});
+  this.click('input[type=submit]')
 });
  
 casper.then(function(){
-	var rate = this.getHTML('tr:nth-child(4) td:nth-child(4) span');
-	this.echo("AMX REMIT RATE - Rs." +  rate); // later sent as an email as well
-	this.open(sparkfun_url + rate);
+  var rate = this.getHTML('tr:nth-child(4) td:nth-child(4) span');
+  this.echo("AMX REMIT RATE - Rs." +  rate); // later sent as an email as well
+  this.open(sparkfun_url + rate);
 });
  
 casper.run();
