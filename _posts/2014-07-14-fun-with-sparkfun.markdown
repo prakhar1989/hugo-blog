@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Fun with SparkFun
-description: Logging remittance rates with Sparkfun and Casperjs
+description: Logging data with Sparkfun and Casperjs
 category: articles
 tags: [crawl]
 ---
