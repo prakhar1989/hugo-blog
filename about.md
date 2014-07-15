@@ -18,4 +18,4 @@ If you'd like to connect, feel free to reach out on my [email](mailto:prakhar198
 
 ---
 
-[^1]: If you're wondering who that dog is doing there, you probably haven't spent years of your childhood on those fun NES games. [Read more here](http://en.wikipedia.org/wiki/Duck_Hunt#Legacy)
+[^1]: If you're wondering what that dog is doing there, you probably haven't spent years of your childhood on those fun NES games. [Read more here](http://en.wikipedia.org/wiki/Duck_Hunt#Legacy)
