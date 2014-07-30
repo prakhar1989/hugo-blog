@@ -88,7 +88,7 @@ let () =
 Note: The OCaml solution has been picked up from this [reddit thread](http://www.reddit.com/r/programming/comments/2btrvt/gal/cj8yj2k).
 
 ### Other Languages
-- Not surprisingly, both Java and PHP do not have a solution.
+- Not surprisingly, both Java and PHP do not have a solution (atleast a solution that follows all the [rules](https://github.com/eatnumber1/goal#rules))
 - The [nimrod](https://github.com/eatnumber1/goal/blob/master/solutions/complete/nimrod/dom96/goal.nim) submission defines a new operator and comes up with a brilliantly clever solution
 - The [scala](https://github.com/eatnumber1/goal/blob/master/solutions/complete/scala/lopopolo/goal.scala) code defines a case class to concisely run the constructor every time `()` is seen.
 
