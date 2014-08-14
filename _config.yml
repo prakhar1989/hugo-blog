@@ -2,8 +2,8 @@ title:            cat /dev/null
 tagline:          A short tagline
 description:      A web log about my journey through the trenches of software development 
 #url:              http://prakhar1989.github.io
-url:              http://localhost:4000
-# url:              http://prakhar.me
+#url:              http://localhost:4000
+url:              http://prakhar.me
 
 # Owner/author information
 owner:
