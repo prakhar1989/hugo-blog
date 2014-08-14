@@ -18,6 +18,6 @@ tags: [life]
 
 *Reduce your burn rate ruthlessly and save $. Seriously, your car/house/clothes are too nice, and you have them because society makes you feel less successful if you don't. Happiness and stuff have virtually no correlation. Get to the point where you're downright smug about your burn rate. Smirk at people who drive BMWs.*
 
-*Remember that a million years of evolution has made humanity naturally discontent-- do you think happiness/contentedness is a survival trait? Add to that the external pressure of peers who make it big, do "great things", and the river of marketing telling you that you need fancier watches, shinier cars, the newest iPhone. **Being happy/content takes smarts and discipline that most people simply can't manage. Be one of the ones who can**.* - Tony Wright's [comment](https://news.ycombinator.com/item?id=8177830) on HN
+*Remember that a million years of evolution has made humanity naturally discontent-- do you think happiness/contentedness is a survival trait? Add to that the external pressure of peers who make it big, do "great things", and the river of marketing telling you that you need fancier watches, shinier cars, the newest iPhone. **Being happy/content takes smarts and discipline that most people simply can't manage. Be one of the ones who can**.* - Tony Wright via [HN](https://news.ycombinator.com/item?id=8177830)
 
 This is why I love HN.  Do checkout the rest of the [discussion](https://news.ycombinator.com/item?id=8177259). It's awesome.
