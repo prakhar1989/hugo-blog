@@ -13,6 +13,17 @@ image:
 I believe that the best way to learn is by working on projects. Below is a growing list of projects that I have shipped across various technologies listed in reverse chronological order.
 
 <ul class="projects-list unstyled-list">
+
+<li>
+	<div class="project-item">
+		<h3><a href="http://montepie.herokuapp.com/">Monte Pi</a></h3>
+		<p class="stack">CoffeeScript, P5.js (Processing)</p>
+		<p>Monte Pi is a simple data visualization to understand Monte Carlo simulations. This experiment specifically demonstrates how Monte Carlo simulations can be used to approximate value of Pi. Monte Pi is built in Coffeescript using <a href="http://p5js.org">p5.js</a> which is a pure javascript port of the awesome <a href="https://www.processing.org/">Processing</a> project. See the related blog post for <a href="http://prakhar.me/articles/pi-approximations-using-monte-carlo/">more</a> info.
+		</p>
+	</div>
+</li>
+
+
 <li>
 	<div class="project-item">
 		<h3><a href="https://www.npmjs.org/package/newman">Newman</a></h3>
