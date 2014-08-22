@@ -48,19 +48,19 @@ How do you use it? Let us assume you have a `User` object that stores informatio
 
 {% highlight scala %}
 func findById(id: Int, users: User[]) -> User? {
-	for u in Users {
-		if u.id == id {
-			return u
-		}	
-	}
-	return nil
+  for u in Users {
+    if u.id == id {
+      return u
+    }	
+  }
+  return nil
 }
 
 // user is bound to value in case nil is not returned
 if let user = findById(1, users) {
-	println("user found: \(user.name)")
+  println("user found: \(user.name)")
 } else {
-	println("user not found")
+  println("user not found")
 }
 {% endhighlight %}
 
