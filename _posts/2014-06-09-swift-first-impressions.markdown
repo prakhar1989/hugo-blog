@@ -68,9 +68,9 @@ One last thing that might trip up beginners is the user `!` to force unwrapping 
 
 {% highlight scala %}
 if findById(1, users) {
-	println("user found: \(findById(1, users)!.name)")
+  println("user found: \(findById(1, users)!.name)")
 } else {
-	println("user not found")
+  println("user not found")
 }
 {% endhighlight %}
 
@@ -83,17 +83,17 @@ Very simple and straightforward - ranges are my most preferred way of iterating 
 {% highlight scala %}
 // Swift
 for i in 0..10 {
-	println(i)
+  println(i)
 }
 
 // Python
 for i in range(0, 10) {
-	print(i)
+  print(i)
 }
 
 // Ruby
 for i in 0..10 {
-	print i
+  print i
 }
 {% endhighlight %}
 
@@ -106,7 +106,7 @@ One thing that both Go and Swift share (w.r.t. ranges) is ignoring values using 
 {% highlight scala %}
 var (n, answer, base) = (4, 10, 2)
 for _ in 0..n {
-	answer += base
+  answer += base
 }
 {% endhighlight %}
 
@@ -128,7 +128,7 @@ Let me illustrate the points below with a practical example. We will use the `so
 let fruits = ["apples", "oranges", "banana", "pear"]
 
 func longest(s1: String, s2: String) -> Bool {
-	return countElements(s1) > countElements(s2)
+  return countElements(s1) > countElements(s2)
 }
 
 // returns ["oranges", "banana", "apples", "pear"]
@@ -138,7 +138,7 @@ sort(fruits, longest)
 The equivalent closure for to accomplish the above would be - 
 {% highlight scala %}
 sort(fruits, { (s1: String, s2: String) -> Bool in
-	return countElements(s1) > countElements(s2)
+  return countElements(s1) > countElements(s2)
 })
 {% endhighlight %}
 The code after `in` begins the closure. We will see how the features provided by Swift makes it much much easier to do the same thing.
@@ -147,7 +147,7 @@ The code after `in` begins the closure. We will see how the features provided by
 {% highlight scala %}
 // removing the type information
 sort(fruits, { (s1, s2) in 
-	return countElements(s1) > countElements(s2)
+  return countElements(s1) > countElements(s2)
 })
 {% endhighlight %}
 
@@ -155,7 +155,7 @@ sort(fruits, { (s1, s2) in
 {% highlight scala %}
 // remove the explicit return
 sort(fruits, { (s1, s2) in  
-	countElements(s1) > countElements(s2)
+  countElements(s1) > countElements(s2)
 })
 {% endhighlight %}
 **Shorthand argument names**
