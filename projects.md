@@ -14,6 +14,21 @@ I believe that the best way to learn is by working on projects. Below is a growi
 
 <ul class="projects-list unstyled-list">
 
+
+<li>
+	<div class="project-item">
+		<h3><a href="http://www.xcite.com/">Xcite Checkout</a></h3>
+		<p class="stack">Angular JS, Node, Jasmine, Grunt</p>
+		<figure>
+			<a href="#"><img src="/images/angular.png"></a>
+		</figure>
+		<p>
+		One of the first work projects to be included in this page as this is a project I'm particularly proud of. In this project I acted as a sole front-end engineer and was responsible for bringing a new technology - Angular.js in our stack of tools. The business proposition thorough this 2-month long project was to enable Guest checkout that would allow a faster and a more seamless checkout for customers who don't wish to register. In the process we made the checkout process as a single-page application and moved from an entangled jQuery codebase to a one in Angular.js. To learn more feel free to go through a few <a href="articles/choosing-angular/">blog</a> <a href="articles/organizing-angular-apps-for-testing/">posts</a> that I've shared on the topic.
+		</p>
+	</div>
+</li>
+
+
 <li>
 	<div class="project-item">
 		<h3><a href="http://montepie.herokuapp.com/">Monte Pi</a></h3>
