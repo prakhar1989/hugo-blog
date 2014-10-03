@@ -91,7 +91,7 @@ task :publish do
   config = YAML.load_file(filename)
   abort("Please change the URL to #{CONFIG['url']} before publishing ") unless config["url"] == CONFIG["url"]
 
-  system "git add ."
+  system "git add _posts"
   system "git commit -am '#{commit_message}'"
   system "git push -u origin master"
 end
