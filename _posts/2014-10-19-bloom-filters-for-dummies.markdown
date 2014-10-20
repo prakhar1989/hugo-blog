@@ -17,18 +17,17 @@ Before we talk about what a Bloom Filter is and how it actually works let me mak
 3. For each URL on that page check if this URL has not been crawled already
 4. Take the new URL that you encounter and go to Step 1.
 
-As you can see, a crawler's work in theory is quite simple - just keep scraping content for any previously unseen URLs (webpages). The step we are going to focus on is step 3 in the above algorithm. If you've taken your data structures class you know that to maintain a list of all URLs to check for membership is a bad idea (`O(n)` lookup time). So what you instead do is a use a set (or a hash-table) in memory so that allows you do quick lookups and test for membership of a URL. Now this works fine as long as your hash-table can reside in the memory. Consider the case for Google for example - clearly there is no way a hash table for a billion plus URLs can reside in main memory. You can surely use the disk for storing and querying but since that is significantly slower compared to accessing the main memory we are not going to consider that case for now.
+As you can see, a crawler's work in theory is quite simple - just keep scraping content for any previously unseen URLs (webpages). The step we are going to focus on is step 3 in the above algorithm. If you've taken your data structures class you know that to maintain a list of all URLs to check for membership is a bad idea (`O(n)` lookup time). So what you instead do is a use a set (or a hash-table) in memory that allows you do quick lookups and test for membership of a URL. Now this works fine as long as your hash-table can reside in the memory. Consider the case for Google for example - clearly there is no way a hash table for a billion plus URLs can reside in main memory. You can surely use the disk for storing and querying but since that is significantly slower compared to accessing the main memory we are not going to consider that case for now.
 
 ### Bloom Filters
 
-This is were bloom filters come in. Bloom filters allow us to use a much lesser space and lesser time to answer the queries for set membership. More precisely
+How do you tackle the above situation? Is there a data structure that can be stored in main memory and still hold vast amount of data? This is where bloom filters come in.Bloom filters use much lesser space and constant time to answer the queries for set membership. More precisely
 
-> Bloom filters is a data structure that is used to check for membership of an element `x` in a set of `m` elements.
+> A Bloom filter is a data structure that is used to check for membership of an element `x` in a set of `m` elements.
 
 Bloom filters have a strong space advantage over other data structures like sets, hash tables or binary search trees. Bloom filters also have the property that the time taken to add an item or to check for membership is a constant `O(k)` and is independent of the number of items in the filter. 
 
 What's the catch you might ask? Well, the catch is that bloom filters trade exactness for this efficiency meaning that there are false-positives - i.e. elements that are not a part of set but are claimed to be part of the set. However, as we shall soon see, the rate of false positives depends upon the application and can be lowered at the expense of  amount of memory required. Like everything else in computer science, there is a trade-off and in this case between exactness and amount of memory. 
-
 
 ### Algorithm
 
@@ -86,7 +85,7 @@ map(lambda x: (h(x), g(x)), (25, 159, 585))
 # [(5, 2), (0, 7), (7, 9)]
 {% endhighlight %}
 
-As its quite clear, the bit array now becomes `10100101000`. How about lookups? Lets say that the new value that comes to our filter is`118`. We compute `h(118)` and `g(118)` and find these values to be `5` and `3` respectively. The next thing we do is the check in value of the bit array at these indices and find that 
+As its quite clear, the bit array now becomes `10100101010`. How about lookups? Lets say that the new value that comes to our filter is`118`. We compute `h(118)` and `g(118)` and find these values to be `5` and `3` respectively. The next thing we do is the check in value of the bit array at these indices and find that 
 
 {% highlight python %}
 array[5] = 1
