@@ -49,10 +49,10 @@ Lets just jump to an example[^1]. We start by defining the hash functions. To ke
 `h(x)`:
 
 1. Convert `x` to its binary equivalent. Lets call it `b`.
-2. Take the odd numbered bit in `b` and generate a new number `y` with these bits.
+2. Take the odd numbered bits in `b` and generate a new number `y` with these bits.
 3. Return the value of `y modulo 11`.
 
-`g(x)` is same as `h(x)`, the only difference being that instead of taking the odd numbered bit we take every even numbered bit.
+`g(x)` is same as `h(x)`, the only difference being that instead of taking the odd numbered bits we take the even numbered bits.
 
 *Quick example*: Let `x = 25`. Then `b = 11001`. Taking every odd bit gives us a binary number `101` which is binary for `5`. Similarly taking every even bit gives us `10` which is binary for `2`. Hence `h(x) = 5 % 11 = 5` and `g(x) = 2 % 11 = 2`.
 
@@ -100,10 +100,10 @@ Getting back to the caveat that was pointed out earlier - let me use an example 
 Assume the next value that comes to our filter is `162`. Calculating the hash functions we find that `h(162)` is `2` and `g(162)` is `0`. Looking for the values in our bit array we find that both of these indices are set to `1`. Hence, in this case the bloom filter will wrongly report that the value `162` exists in our set.
 
 ### Performance
-If you are reading the above and thinking to yourself that we just need to reduce the number of collisions to reduce the rate of false positives then you are right. A simple improvement in the above example is to use more hash functions and have a large bit array. If instead of 11 bits we had 100 bits and instead of just 2 hash functions `h(x)` and `g(x)` we had a few more, the probability that a non-existing value to hash to all the set bits would have reduced thereby reducing the rate of false positives. 
+If after reading the above you are thinking to yourself that we just need to reduce the number of collisions to reduce the rate of false positives then you are right. A simple improvement in the above example is to use more hash functions and have a large bit array. If instead of 11 bits we had 100 bits and instead of just 2 hash functions `h(x)` and `g(x)` we had a few more, the probability that a non-existing value to hash to all the set bits would have reduced, thereby, reducing the rate of false positives. 
 
 #### A numerical example
-Let's do some math to corroborate our above intuition. If you feel the above statement is intuitive enough feel free to skip this section. 
+Let's do some math to corroborate our intuition above. If you feel the above statement is intuitive enough feel free to skip this section. 
 
 From the example in the previous section it will be clear that a false positive arrives whenever all the positions outputted by the `k` hash functions. Hence we can say that, the probability of a false positive depends on the density of `1`s in the array and the number of hash functions. More the number of `1s` the higher the probability of a false positive. Likewise, fewer the hash functions, higher the probability of a collision.
 
