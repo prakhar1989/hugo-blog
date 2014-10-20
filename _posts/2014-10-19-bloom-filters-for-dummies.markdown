@@ -105,7 +105,7 @@ If after reading the above you are thinking to yourself that we just need to red
 #### A numerical example
 Let's do some math to corroborate our intuition above. If you feel the above statement is intuitive enough feel free to skip this section. 
 
-From the example in the previous section it will be clear that a false positive arrives whenever all the positions outputted by the `k` hash functions. Hence we can say that, the probability of a false positive depends on the density of `1`s in the array and the number of hash functions. More the number of `1s` the higher the probability of a false positive. Likewise, fewer the hash functions, higher the probability of a collision.
+From the example in the previous section it will be clear that a false positive arrives whenever all the positions output by the `k` hash functions. Hence we can say that, the probability of a false positive depends on the density of `1`s in the array and the number of hash functions. More the number of `1s` the higher the probability of a false positive. Likewise, fewer the hash functions, higher the probability of a collision.
 
 Also, roughly we can say the following about the number of ones -
 
@@ -136,7 +136,7 @@ The space advantage in a Bloom Filter comes from the compactness from the data s
 
 ### Implementations
 
-Hopefully, if you've come this long you are probably sold on giving the data structure a shot. Armon Dadgar's [bloomd](https://github.com/armon/bloomd) is excellent implementation inspired by Memcached. There are also a good number of client libraries available in popular languages.
+Hopefully, if you've come this long you are probably sold on giving the data structure a shot. Armon Dadgar's [bloomd](https://github.com/armon/bloomd) is excellent implementation inspired by Memcached. There are also a good number of client libraries available in popular languages. If you're using [Redis](http://redis.io/) you can use the `SETBIT` and `GETBIT` functions to have a redis backed bloom filter. The [documentation](http://redis.io/topics/data-types) has some helpful examples to help you.
 
 ### Conclusion
 
