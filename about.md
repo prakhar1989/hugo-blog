@@ -12,7 +12,7 @@ image:
 
 ### Hi there.
 
-I love building things (mostly for the web) and celebrating the joy of programming. In my free time I enjoy gaming[^1], [doing courses](https://www.coursera.org/user/i/72f3afb24222d9d322512cbd34b4df08) and trying out new programming languages. 
+I love building things (mostly for the web) and celebrating the joy of programming. In my free time I enjoy gaming[^1], [doing courses](https://www.class-central.com/u/14552) and trying out new programming languages. 
 
 Like the `/dev/null`[^2], I use this blog as a place to redirect <del>un</del>wanted streams of thoughts, ideas and rants about software development, programming and other things that interest me.
 
