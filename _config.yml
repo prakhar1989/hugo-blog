@@ -1,6 +1,6 @@
 title:            cat /dev/null
 tagline:          A short tagline
-description:      A web log about my journey through the trenches of software development 
+description:      My name is Prakhar Srivastav and I build stuff. I love programming, Python, Vim and ice tea, not necessarily in that order. 
 #url:              http://prakhar1989.github.io
 #url:              http://localhost:4000
 url:              http://prakhar.me
@@ -9,7 +9,7 @@ url:              http://prakhar.me
 owner:
   name:           Prakhar Srivastav
   avatar:         mugshot-001.jpg
-  bio:            "Programmer, Geek, Polyglot, Vim-addict."
+  bio:            "I build stuff."
   email:          prakhar1989@gmail.com
   github:         prakhar1989
   linkedin:       prakharsrivastav
