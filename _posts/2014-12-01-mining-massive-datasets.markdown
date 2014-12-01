@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mining of Massive DataSets - A Review
+title: Mining of Massive DataSets
 description: A Course Review
 category: articles
 tags: [rant]
