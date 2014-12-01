@@ -1,16 +1,16 @@
 ---
 layout: post
-title: Mining Massive DataSets
-description: A Course Review
+title: Mining of Massive DataSets - A Review
+description: My take on Stanford's Data Mining Course
 category: articles
 tags: [rant]
 ---
 
-If you've been keeping track, I've hardly published a single article in the last month. In my defense, the last 7 months have been extremely hectic. High work pressure and a rather dense online course kept most of the drafts from seeing the light of day. Before I jump in reviewing the course i.e. Mining Massive DataSets (MMDS), here's a quick short story for some context.
+If you've been keeping track, I've hardly published a single article in the last month. In my defense, the last 7 months have been extremely hectic. High work pressure and a rather dense online course kept most of the drafts from seeing the light of day. Before I jump in reviewing the course i.e. [Mining Massive DataSets (MMDS)](https://www.coursera.org/course/mmds), here's a quick short story for some context.
 
-MMDS or [CS246](http://mmds.org/) (as its called in Stanford) is a graduate level course on (you guessed it) data mining. I stumbled onto this course in early 2012 when I had recently finished Andrew Ng's course on Machine Learning. With professors like Anand Rajaraman (of Amazon) and Jeff Ullman teaching the course and making their book freely available, I got quite interested and wished that it be offered on Coursera some day. Fast forward 2 years and I see a mail from Coursera informing me that the course is up for grabs. Without hesitating, I hurriedly signed up and waited eagerly for the course to start.
+I first stumbled onto MMDS or [CS246](http://mmds.org/) (as its called in Stanford), a graduate level course on (you guessed it) data mining in early 2012 when I had recently finished Andrew Ng's course on Machine Learning. With professors like Anand Rajaraman (of Amazon) and Jeff Ullman teaching the course and making their book freely available, I got quite interested and wished that it be offered on Coursera some day. Fast forward 2 years and I see a mail from Coursera informing me that the course is up for grabs. Without hesitating, I hurriedly signed up and waited eagerly for the course to start.
 
-With that out of the way, lets jump to the review. For the impatient ones a TL;DR - If you're interested in Machine Learning and Data Mining and want to learn with what kind of challenges are posed by huge datasets in applying standard algorithms, then you'll find this course extremely valuable.
+The course lasted for around 8 weeks comprising of long lectures, quizzes and a final exam which I gave just a couple of days back. MMDS came on HN where I also posted a similar review. I'm reposting it here with minor changes. For the impatient ones a TL;DR - If you're interested in Machine Learning and Data Mining and want to learn with what kind of challenges are posed by huge datasets in applying standard algorithms, then you'll find this course extremely valuable.
 
 For the rest of you, here's a bit more detailed out set of pros and cons.
 
@@ -46,4 +46,6 @@ The course is primarily theoretical in both its presentation and exercises. This
 
 In sharp contrast to Andrew Ng's course, there are no compulsory programming assignments. The exercises are all quizzes which check how well you have understood the concepts. There is just one programming assignment which is also optional.
 
-Overall, I'm really glad for this course. The professors emphasize citing industry examples wherever necessary (the PageRank algorithm and accompanying Google's implementation was covered for 3 lectures), which is a welcome change from other CS courses. Along with the book, I believe the course is a wonderful primer to the field of Data Mining.
+## Conclusion
+Overall, I'm really glad I did this course. The professors emphasize citing industry examples wherever necessary (the PageRank algorithm and accompanying Google's implementation was covered for 3 lectures), which is a welcome change from other CS courses. Along with the book, I believe the course is a wonderful primer to the field of Data Mining.
+
