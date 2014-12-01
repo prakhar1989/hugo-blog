@@ -14,6 +14,21 @@ I believe that the best way to learn is by working on projects. Below is a growi
 
 <ul class="projects-list unstyled-list">
 
+<li>
+	<div class="project-item">
+		<h3><a href="https://play.google.com/store/apps/details?id=com.prakharme.prakharsriv.colorphun">ColorPhun</a></h3>
+		<p class="stack">Android</p>
+		<figure>
+			<a href="#"><img src="/images/colorphun.png"></a>
+		</figure>
+		<p> I love playing games and have always marvelled about building one of my own. While I was enrolled for the <a href="https://www.udacity.com/course/ud853">Android</a> class at Udacity I came up with an idea of a simple and fun color game. For the next few weeks, I locked myself in a room in order to build and release my first Android app. </p>
+
+<p>I was pleasantly surprised to find my apprehensions (of mobile development being tedious, slow etc.) being laid to rest by Google's awesome tooling. Android studio was a delight to use and very quickly I found the quick feedback loop of compiling, building and running the app on my phone quite gratifying. Although Google's play game services API did lead to some hair pulling but at the end of the day, like it always is with shipping software, it was worth it!  To top it all, friend of mine also ported the game to <a href="https://itunes.apple.com/us/app/id927911215">iOS.</a> </p>
+
+<p>The Android code is available on <a href="https://github.com/prakhar1989/ColorPhun/">Github</a> for you to fork, contribute and (hopefully) learn from.</p>
+	</div>
+</li>
+
 
 <li>
 	<div class="project-item">
