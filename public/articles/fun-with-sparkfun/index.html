@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    Fun with SparkFun // cat /dev/random
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+
+
+  <meta property="og:title" content="Fun with SparkFun" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://192.241.186.225/articles/fun-with-sparkfun/" />
+
+
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="http://192.241.186.225/css/normalize.css">
+  <link rel="stylesheet" href="http://192.241.186.225/css/skeleton.css">
+  <link rel="stylesheet" href="http://192.241.186.225/css/main.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
+
+  
+  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/railscasts.css">
+  <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  
+</head>
+
+
+<body>
+  <div class="container">
+    <div class="row">
+
+      <div class="content">
+      
+
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/articles/fun-with-sparkfun/">Fun with SparkFun</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+
+        
+          <small class="post-date-day">Published on 14</small>
+          <small class="post-date-month">July, </small> 
+          <small class="post-date-year">2014</small>
+        
+
+			
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+            <a class="post-tag post-tag-javascript" href="http://192.241.186.225/tags/javascript">javascript</a>,
+          
+				</div>
+			
+
+			
+
+			
+
+            <p>This is about a quick hack that I did. Couple of days back, I came across a cool project called <a href="https://data.sparkfun.com/">SparkFun</a> on <a href="https://news.ycombinator.com/item?id=8015354">HN</a> which is free online service to push your data. It allows you to create streams and then push data via a simple HTTP call. The primary motivation behind the service is to enable devices connected via Internet of Things to push data online easily.</p>
+
+<p>I had been crawling a few websites to need of latest remittance rates to my home country (the rates offered for remittance differ quite substantially from the current spot rates). Its a <a href="http://casperjs.org/">casperjs</a> script that crawls the page and sends me an email. Clearly, email was getting hard to analyse trends and see history - but I was quite lazy to work on setting up persistence for this quick hack. When I saw Sparkfun I instantly knew how I could achieve logging.</p>
+
+<p>In case you&rsquo;re wondering on the architecture, here&rsquo;s a <a href="https://news.ycombinator.com/item?id=8016011">comment</a> by one of the founders -</p>
+
+<p><em>By default it writes metadata about the stream (title, description, etc) using a file based db called nedb, and it appends the actual logged data to CSV files that are split into 500k chunks. When the user requests their logged data, all of the files are stitched back together, converted into the requested format (JSON, CSV, etc), and streamed to the user’s web client.
+For the production server, we are currently using MongoDb for metadata storage and the same CSV module for logged data storage.</em></p>
+
+<p>Here&rsquo;s the <a href="https://data.sparkfun.com/streams/0llnrLvRyOFYXyv3yDD6">stream</a> that you can check for remittance rates. This is updated every 4 hours (as the bank itself updates the rates 5-6 times a day).  And below is the code that makes it possible -</p>
+
+<pre><code>var casper = require('casper').create();
+ 
+var home_url = &quot;https://applications2.almullagroup.com/onlineremit/faces/infrastructure/EXLogin.jspx&quot;;
+var sparkfun_url = &quot;https://data.sparkfun.com/input/XCVB?private_key=ABCD&amp;INR=&quot;
+ 
+casper.start(home_url);
+
+casper.waitForSelector(&quot;form#form1&quot;);
+ 
+casper.then(function() {
+  this.fill('form[name=&quot;form1&quot;]',{ 'showrate' : '2'});
+  this.click('input[type=submit]')
+});
+ 
+casper.then(function(){
+  var rate = this.getHTML('tr:nth-child(4) td:nth-child(4) span');
+  this.echo(&quot;AMX REMIT RATE - Rs.&quot; +  rate); // later sent as an email as well
+  this.open(sparkfun_url + rate);
+});
+ 
+casper.run();
+</code></pre>
+
+<p><em>Special thanks to <a href="http://dushyantrao.github.io/">Dushyant</a> for introducing me to CasperJs</em></p>
+
+	
+			
+
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/articles/heidi-roizen-on-etl/">Heidi Roizen on ETL</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/articles/swift-first-impressions/">Swift - First Impressions</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2014. All rights reserved. </p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+    </div>
+  </div>
+</body>
+</html>

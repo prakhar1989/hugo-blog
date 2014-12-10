@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    Checksum // cat /dev/random
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="The Kuwait Civil ID Checksum">
+<meta name="keywords" content="">
+<meta name="author" content="">
+
+
+  <meta property="og:title" content="Checksum" />
+<meta property="og:description" content="The Kuwait Civil ID Checksum" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://192.241.186.225/articles/2014-02-14-kuwait-civil-id-checksum/" />
+
+
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="http://192.241.186.225/css/normalize.css">
+  <link rel="stylesheet" href="http://192.241.186.225/css/skeleton.css">
+  <link rel="stylesheet" href="http://192.241.186.225/css/main.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
+
+  
+  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/railscasts.css">
+  <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  
+</head>
+
+
+<body>
+  <div class="container">
+    <div class="row">
+
+      <div class="content">
+      
+
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/articles/2014-02-14-kuwait-civil-id-checksum/">Checksum</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+
+        
+          <small class="post-date-day">Published on 1</small>
+          <small class="post-date-month">January, </small> 
+          <small class="post-date-year">0001</small>
+        
+
+			
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+            <a class="post-tag post-tag-math" href="http://192.241.186.225/tags/math">math</a>,
+          
+            <a class="post-tag post-tag-checksum" href="http://192.241.186.225/tags/checksum">checksum</a>,
+          
+				</div>
+			
+
+			
+
+			
+
+            
+
+<p>It&rsquo;s been around 8 months since I&rsquo;ve started working in Kuwait &amp; I can still vividly remember the hoopla we had to go through in order to get our Civil IDs. The Kuwaiti Government assigns a unique identification number to each and every resident of Kuwait which is called the Civil ID. This is quite similar to how it works in all the countries, however, the process in Kuwait is protracted and quite laborious for expats.</p>
+
+<p>Recently, we were building an application that required the user to enter his or her civil id. The app was supposed to be a mobile app and the Civil ID being a long <strong>12 digit</strong> number, we were certain that typos would be quite common. To our luck, we discovered that the Kuwaiti system uses a Checksum to validate for correctness.</p>
+
+<h2 id="what:6e8e56555c28b648efd3e38e29b3df17">What?</h2>
+
+<p>Checksums are simply an arbitary size of digital data that is meant for the purpose of detecting errors in storage or transmission of the original data.</p>
+
+<p>By comparing the checksum of the original and the transmitted data checksums can be used to verify whether the transmitted data is indeed correct. Checksums are quite common whenever numbers are being transmitted or stored.</p>
+
+<p>Credit card number follow a famous checksum algorigthm called <a href="http://en.wikipedia.org/wiki/Luhn_algorithm">Luhn Check</a> which was created by an IBM scientist - Peter Luhn. The ISBN or the <a href="http://en.wikipedia.org/wiki/International_Standard_Book_Number">International Standard Book Number</a>, which is an identification scheme used for books uses a very simple 10 digit checksum for the very same purpose.</p>
+
+<h2 id="civil-id-checksum:6e8e56555c28b648efd3e38e29b3df17">Civil ID Checksum</h2>
+
+<p>The formula for checksum for the Kuwaiti Civil ID goes like this -</p>
+
+<p>{% raw %}
+11 – Mod(( c1 * 2 ) + ( c2 * 1 ) + ( c3 * 6 ) + ( c4 * 3 ) + ( c5 * 7 ) +
+( c6 * 9 ) + ( c7 * 10 ) + ( c8 * 5 ) + ( c9 * 8 ) + ( c10 * 4 ) + ( c11 * 2 )),11) =
+The 12th Digit
+{% endraw %}</p>
+
+<p>For the more, mathematically oriented here&rsquo;s the formula (where c1, c2 etc are the 12 digits of the civil ID number)</p>
+
+<p>{% raw %}
+(2,1,6,3,7,9,10,5,8,4,2)⋅c1 … 11+ c12 = 0 (mod11)
+{% endraw %}</p>
+
+<p>The checksum is quite simple, it just uses the modulus 11 (since 11 is a prime number) and a set of a coefficients to compute the 12th digit. Basically, the last digit in the Civil ID holds the checkum value.</p>
+
+<p>The javascript code to test the checksum is quite straightforward -</p>
+
+<p>{% highlight javascript %}
+var calculate = function(number) {
+  var coeff  = [2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2],
+      sum = 0;
+  for (var i = 0; i &lt; number.length - 1; i++) {
+    // assuming number is a 12 character string
+    sum += parseInt(number[i]) * coeff[i];
+  }
+  return (number.length == 12) &amp;&amp;
+         (11 - (sum % 11) == number[number.length-1]);
+}
+{% endhighlight %}</p>
+
+<p>If you&rsquo;re like me you probably are wondering about those coefficients in the above formula. Thanks to the wonderful stackexchange network, I got the answer almost instantly by a few math nerds over <a href="http://math.stackexchange.com/questions/672303/logic-behind-the-id-checksum/672374#672374">here</a>.</p>
+
+<p>It turns out the coefficients are (2^N modulus 11)</p>
+
+<p>{% raw %}
+2 = 2^1 % 11</p>
+
+<p>1 = 2^0 % 11</p>
+
+<p>6 = 2^9 % 11</p>
+
+<p>3 = 2^8 % 11</p>
+
+<p>7 = 2^7 % 11
+&hellip;
+{% endraw %}</p>
+
+<p>You are encouraged to follow up the thread on math.stackexchange and learn more about how this order comes from computing the <a href="http://en.wikipedia.org/wiki/First_difference">first differences</a>.</p>
+
+<p>See you next time!</p>
+
+	
+			
+
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/articles/2014-02-10-quantity/">Quantity</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/articles/2014-03-07-flask-on-nginx-and-gunicorn/">Flask on Nginx and Gunicorn</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2014. All rights reserved. </p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+    </div>
+  </div>
+</body>
+</html>

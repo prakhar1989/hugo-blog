@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    Demystifying Decorators // cat /dev/random
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+
+
+  <meta property="og:title" content="Demystifying Decorators" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://192.241.186.225/articles/demistifying-decorators/" />
+
+
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="http://192.241.186.225/css/normalize.css">
+  <link rel="stylesheet" href="http://192.241.186.225/css/skeleton.css">
+  <link rel="stylesheet" href="http://192.241.186.225/css/main.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
+
+  
+  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/railscasts.css">
+  <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  
+</head>
+
+
+<body>
+  <div class="container">
+    <div class="row">
+
+      <div class="content">
+      
+
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/articles/demistifying-decorators/">Demystifying Decorators</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+
+        
+          <small class="post-date-day">Published on 3</small>
+          <small class="post-date-month">November, </small> 
+          <small class="post-date-year">2014</small>
+        
+
+			
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+            <a class="post-tag post-tag-python" href="http://192.241.186.225/tags/python">python</a>,
+          
+            <a class="post-tag post-tag-decorators" href="http://192.241.186.225/tags/decorators">decorators</a>,
+          
+				</div>
+			
+
+			
+
+			
+
+            
+
+<p>If you&rsquo;ve been programming in Python for some time chances are you have come across decorators. Even though you might not know what decorators are and how they work, you&rsquo;ve surely used them as most of popular Python libraries use decorators (the familiar <code>@</code> syntax) to make beautiful APIs.</p>
+
+<p><a href="http://flask.pocoo.org/">Flask</a>, for example, exposes decorators for setting routes. <a href="https://www.djangoproject.com/">Django</a> has a familiar <code>login_required</code> decorator that allows the user to force authentication for a view.</p>
+
+<pre><code># Flask Example
+@app.route('/') # a decorator
+def main():
+    return render_template('index.html')
+</code></pre>
+
+<pre><code># Django Example
+from django.contrib.auth.decorators import login_required
+
+@login_required # a decorator
+def my_view(request):
+    ...
+</code></pre>
+
+<p>What are <strong>decorators</strong>? Quite simply,</p>
+
+<blockquote>
+<p>Decorators are <a href="http://en.wikipedia.org/wiki/Syntactic_sugar">syntatic sugar</a> for executing code before and after the function you decorate</p>
+</blockquote>
+
+<p>Quite a few articles have been written about decorators for beginner and experienced programmers alike. However, what I&rsquo;ve found generally missing is they are littered with fake examples that are hard to relate to. As a result, although you do understand decorators conceptually, its hard to use that knowledge into your next program.</p>
+
+<p>In this blog post, I intend that cover a very realistic example that I encountered while recently working on a project at my workplace. Hopefully, this will help you understand on how decorators can be used to design more intuitive abstractions in fewer lines of code.</p>
+
+<h3 id="the-problem:a8729dfc7d8d6429c71315b7183203ea">The Problem</h3>
+
+<p>Well lets just say that you are required to make a CRUD app. You are required to just query the database and show the results on a webpage. But this time, you are not allowed to use an ORM as your boss hates everything that has a 3-letter acronym. Your only option now is to write plain-old SQL<sup class="footnote-ref" id="fnref:a8729dfc7d8d6429c71315b7183203ea:1"><a rel="footnote" href="#fn:a8729dfc7d8d6429c71315b7183203ea:1">1</a></sup> to build this app.</p>
+
+<p>If you&rsquo;ve been not spoiled by using ORM you&rsquo;d remember that too query a DB you need to do the following</p>
+
+<ul>
+<li>Get a connection to the DB</li>
+<li>Request for a reference to a cursor from the DB object</li>
+<li>Execute the SQL on the cursor reference</li>
+<li>For a <code>READ</code>- Fetch the results from the cursor</li>
+<li>For a <code>WRITE</code>- Commit the transaction</li>
+</ul>
+
+<p>With that in mind, this is how my db functions looked like -</p>
+
+<pre><code>from MySQL.db.cursor import DictCursor
+
+def get_deals(id):
+    db = get_db()
+    c = db.cursor(DictCursor)
+    c.execute(&quot;select id, deal, duedate from deals where id = '%s'&quot; % (id, ))
+    results = c.fetchall()
+    return results
+
+def get_account(account):
+    db = get_db()
+    c = db.cursor(DictCursor)
+    c.execute(&quot;select name, account from accounts where id = '%s'&quot; % (account,))
+    result = c.fetchone()
+    return result
+...
+</code></pre>
+
+<p>As evident from above, I had to write quite a few functions for every query that I wanted to fire on the database. For demonstration, the queries shown above are quite simple, in reality, I had to write a query spanning multiple joins so that there&rsquo;s just one query fired for every page load.</p>
+
+<p>I&rsquo;m sure the problem is clearly evident. Duplicating code across a number of functions is quite problematic. Right off your head, you are thinking that this can be solved by declaring a simple wrapper function but if you look closely, doing anything fancy with the results or customizing the query will not be flexible.</p>
+
+<h3 id="decorators:a8729dfc7d8d6429c71315b7183203ea">Decorators</h3>
+
+<p>Lets see how we can use decorators to remove the code duplication while ensuring flexibility.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:a8729dfc7d8d6429c71315b7183203ea:1">You see what I did there?
+ <a class="footnote-return" href="#fnref:a8729dfc7d8d6429c71315b7183203ea:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+	
+			
+
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/articles/mining-of-massive-datasets---a-review/">Mining of Massive DataSets - A Review</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/articles/bloom-filters-for-dummies/">Bloom Filters for Dummies</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2014. All rights reserved. </p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+    </div>
+  </div>
+</body>
+</html>

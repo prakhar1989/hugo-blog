@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    Debugging Akamai Headers // cat /dev/random
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="Is my content being cached on Akamai?">
+<meta name="keywords" content="">
+<meta name="author" content="">
+
+
+  <meta property="og:title" content="Debugging Akamai Headers" />
+<meta property="og:description" content="Is my content being cached on Akamai?" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://192.241.186.225/articles/2014-02-07-debugging-akamai/" />
+
+
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="http://192.241.186.225/css/normalize.css">
+  <link rel="stylesheet" href="http://192.241.186.225/css/skeleton.css">
+  <link rel="stylesheet" href="http://192.241.186.225/css/main.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
+
+  
+  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/railscasts.css">
+  <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  
+</head>
+
+
+<body>
+  <div class="container">
+    <div class="row">
+
+      <div class="content">
+      
+
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/articles/2014-02-07-debugging-akamai/">Debugging Akamai Headers</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+
+        
+          <small class="post-date-day">Published on 1</small>
+          <small class="post-date-month">January, </small> 
+          <small class="post-date-year">0001</small>
+        
+
+			
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+            <a class="post-tag post-tag-akamai" href="http://192.241.186.225/tags/akamai">akamai</a>,
+          
+            <a class="post-tag post-tag-tips" href="http://192.241.186.225/tags/tips">tips</a>,
+          
+				</div>
+			
+
+			
+
+			
+
+            
+
+<p>If you&rsquo;ve got anything to do with Akamai&rsquo;s caching, surely there must have come a time where you needed to find out whether your content is being cached at Akamai.</p>
+
+<h2 id="pragma-headers:d836348edc51b33fb2353b7b58094272">Pragma Headers</h2>
+
+<p>The easiest way to test whether your content is cached at Akamai is to do via custom Pragma headers. What are Pragma headers you might say? The HTTP Specification has a simple definition of Pragma headers.</p>
+
+<blockquote>
+<p>The Pragma general-header field is used to include implementation-specific directives that might apply to any recipient along the request/response chain. All pragma directives specify optional behavior from the viewpoint of the protocol.</p>
+</blockquote>
+
+<p>In short, Pragma headers specific cache headers<sup class="footnote-ref" id="fnref:d836348edc51b33fb2353b7b58094272:1"><a rel="footnote" href="#fn:d836348edc51b33fb2353b7b58094272:1">1</a></sup> that are can be used by any party in the entire chain from request-response (in our case Akamai) to communicate specific caching functionality.</p>
+
+<p>Here&rsquo;s how you can do it -</p>
+
+<p>{% highlight bash %}
+~ curl -H &ldquo;Pragma: akamai-x-cache-on&rdquo; -H &ldquo;Pragma: akamai-x-check-cacheable&rdquo; -I &ldquo;<a href="http://static.xcite.com/skin/frontend/orange/default/images/xcite_logo.png&quot;">http://static.xcite.com/skin/frontend/orange/default/images/xcite_logo.png&quot;</a></p>
+
+<p>HTTP/1.1 200 OK
+Server: nginx/0.8.55
+Content-Type: image/png
+Last-Modified: Sun, 02 Feb 2014 00:29:51 GMT
+ETag: &ldquo;26d8eb2-1c43-4f16181581dc0&rdquo;
+Accept-Ranges: bytes
+Content-Length: 7235
+Cache-Control: max-age=2142389
+Expires: Tue, 04 Mar 2014 04:06:26 GMT
+Date: Fri, 07 Feb 2014 08:59:57 GMT
+Connection: keep-alive
+X-Cache: TCP_MEM_HIT from a168-187-253-133 (AkamaiGHost/6.14.4-12151432) (-)
+X-Check-Cacheable: YES
+{% endhighlight %}</p>
+
+<p>In the above curl request we are sending <strong>Akamai Specific</strong> Pragma headers to fetch a static <code>png</code> file from a URL that is on Akamai. The two key response headers that important here are the last two <code>X-Cache</code> and <code>X-Check-Cacheable</code>. Below is a curl request to a asset which is not cached by Akamai.</p>
+
+<p>{% highlight bash %}
+ ~  curl -H &ldquo;Pragma: akamai-x-cache-on&rdquo; -H &ldquo;Pragma: akamai-x-check-cacheable&rdquo; -I &ldquo;<a href="http://www.xcite.com&quot;">http://www.xcite.com&quot;</a></p>
+
+<p>HTTP/1.1 200 OK
+Server: nginx/0.8.55
+Content-Type: text/html; charset=UTF-8
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Pragma: no-cache
+X-Served-By: 381172-web1 1.0-1549
+X-Frame-Options: sameorigin
+Date: Fri, 07 Feb 2014 09:09:22 GMT
+Set-Cookie: frontend=kbpnphh3o3ohbmvu9j83ioigv6; expires=Fri, 07-Feb-2014 10:09:21 GMT; path=/; domain=.xcite.com; HttpOnly
+X-Cache: TCP_MISS from a217-243-192-27.deploy.akamaitechnologies.com (AkamaiGHost/6.14.3.5-12122608) (-)
+X-Check-Cacheable: NO
+{% endhighlight %}</p>
+
+<p>As you can see, <code>X-Check-Cacheable</code> here is <code>NO</code> which indicates that content is not cached on Akamai.</p>
+
+<p>I just used 2 pragma headers for testing, there are few others pragma headers that you can use to get even more information</p>
+
+<ul>
+<li>akamai-x-cache-on</li>
+<li>akamai-x-cache-remote-on</li>
+<li>akamai-x-check-cacheable</li>
+<li>akamai-x-get-cache-key</li>
+<li>akamai-x-get-extracted-values</li>
+<li>akamai-x-get-nonces</li>
+<li>akamai-x-get-ssl-client-session-id</li>
+<li>akamai-x-get-true-cache-key</li>
+<li>akamai-x-serial-no</li>
+</ul>
+
+<p>See you next time!</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:d836348edc51b33fb2353b7b58094272:1">To learn more about caching and headers go through this <a href="http://www.mnot.net/cache_docs/">awesome blog post</a>
+ <a class="footnote-return" href="#fnref:d836348edc51b33fb2353b7b58094272:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+	
+			
+
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/articles/2013-05-09-class-based-views/">Class Based Views</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/articles/2014-02-08-making-the-blog-instant/">Making the Blog Instant</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2014. All rights reserved. </p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+    </div>
+  </div>
+</body>
+</html>
