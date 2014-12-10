@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Decorators on cat /dev/random</title>
+    <link>http://localhost:1313/tags/decorators/</link>
+    <description>Recent content in Decorators on cat /dev/random</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    
+    <lastBuildDate>Mon, 03 Nov 2014 12:34:58 AST</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/decorators/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Demystifying Decorators</title>
+      <link>http://localhost:1313/articles/demistifying-decorators/</link>
+      <pubDate>Mon, 03 Nov 2014 12:34:58 AST</pubDate>
+      
+      <guid>http://localhost:1313/articles/demistifying-decorators/</guid>
+      <description>
+
+&lt;p&gt;If you&amp;rsquo;ve been programming in Python for some time chances are you have come across decorators. Even though you might not know what decorators are and how they work, you&amp;rsquo;ve surely used them as most of popular Python libraries use decorators (the familiar &lt;code&gt;@&lt;/code&gt; syntax) to make beautiful APIs.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://flask.pocoo.org/&#34;&gt;Flask&lt;/a&gt;, for example, exposes decorators for setting routes. &lt;a href=&#34;https://www.djangoproject.com/&#34;&gt;Django&lt;/a&gt; has a familiar &lt;code&gt;login_required&lt;/code&gt; decorator that allows the user to force authentication for a view.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Flask Example
+@app.route(&#39;/&#39;) # a decorator
+def main():
+    return render_template(&#39;index.html&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;# Django Example
+from django.contrib.auth.decorators import login_required
+
+@login_required # a decorator
+def my_view(request):
+    ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;What are &lt;strong&gt;decorators&lt;/strong&gt;? Quite simply,&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Decorators are &lt;a href=&#34;http://en.wikipedia.org/wiki/Syntactic_sugar&#34;&gt;syntatic sugar&lt;/a&gt; for executing code before and after the function you decorate&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Quite a few articles have been written about decorators for beginner and experienced programmers alike. However, what I&amp;rsquo;ve found generally missing is they are littered with fake examples that are hard to relate to. As a result, although you do understand decorators conceptually, its hard to use that knowledge into your next program.&lt;/p&gt;
+
+&lt;p&gt;In this blog post, I intend that cover a very realistic example that I encountered while recently working on a project at my workplace. Hopefully, this will help you understand on how decorators can be used to design more intuitive abstractions in fewer lines of code.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-problem:a8729dfc7d8d6429c71315b7183203ea&#34;&gt;The Problem&lt;/h3&gt;
+
+&lt;p&gt;Well lets just say that you are required to make a CRUD app. You are required to just query the database and show the results on a webpage. But this time, you are not allowed to use an ORM as your boss hates everything that has a 3-letter acronym. Your only option now is to write plain-old SQL&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:a8729dfc7d8d6429c71315b7183203ea:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:a8729dfc7d8d6429c71315b7183203ea:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; to build this app.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;ve been not spoiled by using ORM you&amp;rsquo;d remember that too query a DB you need to do the following&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Get a connection to the DB&lt;/li&gt;
+&lt;li&gt;Request for a reference to a cursor from the DB object&lt;/li&gt;
+&lt;li&gt;Execute the SQL on the cursor reference&lt;/li&gt;
+&lt;li&gt;For a &lt;code&gt;READ&lt;/code&gt;- Fetch the results from the cursor&lt;/li&gt;
+&lt;li&gt;For a &lt;code&gt;WRITE&lt;/code&gt;- Commit the transaction&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;With that in mind, this is how my db functions looked like -&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from MySQL.db.cursor import DictCursor
+
+def get_deals(id):
+    db = get_db()
+    c = db.cursor(DictCursor)
+    c.execute(&amp;quot;select id, deal, duedate from deals where id = &#39;%s&#39;&amp;quot; % (id, ))
+    results = c.fetchall()
+    return results
+
+def get_account(account):
+    db = get_db()
+    c = db.cursor(DictCursor)
+    c.execute(&amp;quot;select name, account from accounts where id = &#39;%s&#39;&amp;quot; % (account,))
+    result = c.fetchone()
+    return result
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As evident from above, I had to write quite a few functions for every query that I wanted to fire on the database. For demonstration, the queries shown above are quite simple, in reality, I had to write a query spanning multiple joins so that there&amp;rsquo;s just one query fired for every page load.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m sure the problem is clearly evident. Duplicating code across a number of functions is quite problematic. Right off your head, you are thinking that this can be solved by declaring a simple wrapper function but if you look closely, doing anything fancy with the results or customizing the query will not be flexible.&lt;/p&gt;
+
+&lt;h3 id=&#34;decorators:a8729dfc7d8d6429c71315b7183203ea&#34;&gt;Decorators&lt;/h3&gt;
+
+&lt;p&gt;Lets see how we can use decorators to remove the code duplication while ensuring flexibility.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:a8729dfc7d8d6429c71315b7183203ea:1&#34;&gt;You see what I did there?
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:a8729dfc7d8d6429c71315b7183203ea:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Startups on cat /dev/random</title>
+    <link>http://localhost:1313/tags/startups/</link>
+    <description>Recent content in Startups on cat /dev/random</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    
+    <lastBuildDate>Sat, 19 Jul 2014 12:34:58 AST</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/startups/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Heidi Roizen on ETL</title>
+      <link>http://localhost:1313/articles/heidi-roizen-on-etl/</link>
+      <pubDate>Sat, 19 Jul 2014 12:34:58 AST</pubDate>
+      
+      <guid>http://localhost:1313/articles/heidi-roizen-on-etl/</guid>
+      <description>
+
+&lt;p&gt;Last week, &lt;a href=&#34;http://marco.org&#34;&gt;Marco Arment&lt;/a&gt; launched a new product on &lt;a href=&#34;https://news.ycombinator.com/item?id=8042352&#34;&gt;HN&lt;/a&gt;, &lt;a href=&#34;http://overcast.fm&#34;&gt;Overcast&lt;/a&gt; - An iPhone app that makes listening to podcasts much easier (and more fun).&lt;/p&gt;
+
+&lt;p&gt;There was a lot of productive discussion which made me realize that I need to give podcasts a serious chance. Given that I would be travelling soon, I went ahead, downloaded the &lt;a href=&#34;http://www.doggcatcher.com/&#34;&gt;most popular podcast&lt;/a&gt; app for Android and added a couple of feeds (thanks to &lt;a href=&#34;https://news.ycombinator.com/item?id=8041789&#34;&gt;this&lt;/a&gt; HN thread for recommendations).&lt;/p&gt;
+
+&lt;p&gt;For the next 8 hours, I was completely tuned into talks by speakers on Stanford Enterprenuership Thought Leader series, highly entertaining discussions by Radiolab and interesting interviews on Software Engineering Radio. There&amp;rsquo;s one ETL talk that I particularly liked and wanted to write it down so that I don&amp;rsquo;t forget the lessons.&lt;/p&gt;
+
+&lt;p&gt;Heidi Roizen talks about a list of ten things that she learnt from her experience as an entrepreneur and venture capitalist. The talk is awesome, I highly recommend you to give it a listen.&lt;/p&gt;
+
+&lt;h3 id=&#34;ten-things:a9291618c63fff43ed0c75f3a65ae0fe&#34;&gt;Ten Things&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;If you&amp;rsquo;re not doing something hard you&amp;rsquo;re wasting your time.&lt;/li&gt;
+&lt;li&gt;Don&amp;rsquo;t compromise on ethics.&lt;/li&gt;
+&lt;li&gt;Trust your gut.&lt;/li&gt;
+&lt;li&gt;Most important thing you will do as an entrepreneur is &lt;strong&gt;pick your team&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;The art of negotiation is finding maximal intersection of &lt;strong&gt;mutual need&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;The key to happiness to &lt;strong&gt;lower your expectations&lt;/strong&gt;. Expect life to be messy.&lt;/li&gt;
+&lt;li&gt;Its not how many times you fall down but how you many times you get up. If you fall down and stay down, you&amp;rsquo;ll be that way for the rest of your life.&lt;/li&gt;
+&lt;li&gt;Allow for randomness in life - a lot of good things will happen to you.&lt;/li&gt;
+&lt;li&gt;If you ask people that in the last 5 years what is the worst thing that happened to you and what is the best thing that happened to you - for many people they are the &lt;strong&gt;same thing&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;The 20-40-60 rule: At 20, you&amp;rsquo;re constantly worrying what other people think of you, at 40 you say that you&amp;rsquo;re not going to give a damn of what other people think of you and at 60 you come to realize that no one&amp;rsquo;s actually thinking of you. In reality: &lt;strong&gt;No one is actually thinking about you&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;See the full talk &lt;a href=&#34;http://ecorner.stanford.edu/author/heidi_roizen&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Why We Dont Sell Ads</title>
+      <link>http://localhost:1313/articles/2014-02-20-why-we-dont-sell-ads/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/articles/2014-02-20-why-we-dont-sell-ads/</guid>
+      <description>&lt;p&gt;I found this great statement made by the WhatsApp founders on their blog about why they don&amp;rsquo;t rely on ads and instead charge customers for the service. This is getting recirculated now that WhatsApp is looking at being acquired by Facebook at a valuation of around $19B. It interesting to see that while tons of apps rely on advertising as a key part of their business model there are companies who strive to go against it. Whats surprising is that their experience of working at an advertising behemoth, Yahoo, strengthened their resolve even more.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;em&gt;Advertising isn’t just the disruption of aesthetics, the insults to your intelligence and the interruption of your train of thought. At every company that sells ads, a significant portion of their engineering team spends their day tuning data mining, writing better code to collect all your personal data, upgrading the servers that hold all the data and making sure it’s all being logged and collated and sliced and packaged and shipped out … And at the end of the day the result of it all is a slightly different advertising banner in your browser or on your mobile screen.&lt;/em&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Remember, when advertising is involved you the user are the product.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;At WhatsApp, our engineers spend all their time fixing bugs, adding new features and ironing out all the little intricacies in our task of bringing rich, affordable, reliable messaging to every phone in the world. That’s our product and that’s our passion. Your data isn’t even in the picture. We are simply not interested in any of it.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.whatsapp.com/index.php/2012/06/why-we-dont-sell-ads/&#34;&gt;Source&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

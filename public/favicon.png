@@ -1,0 +1,11 @@
+--2014-12-10 14:19:25--  https://d30y9cdsu7xlg0.cloudfront.net/png/45367-42.png
+Resolving d30y9cdsu7xlg0.cloudfront.net... 54.239.164.21, 54.230.197.203, 54.230.196.213, ...
+Connecting to d30y9cdsu7xlg0.cloudfront.net|54.239.164.21|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 346 [image/png]
+Saving to: '45367-42.png'
+
+     0K                                                       100% 30.0M=0s
+
+2014-12-10 14:19:26 (30.0 MB/s) - '45367-42.png' saved [346/346]
+

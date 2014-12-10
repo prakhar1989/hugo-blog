@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    GOOOAL // cat /dev/random
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+
+
+  <meta property="og:title" content="GOOOAL" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://localhost:1313/articles/goooal/" />
+
+
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="http://localhost:1313/css/normalize.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/skeleton.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/main.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/highlight/railscasts.css">
+  <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  
+</head>
+
+
+<body>
+  <div class="container">
+    <div class="row">
+
+      <div class="content">
+      
+
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/articles/goooal/">GOOOAL</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+
+        
+          <small class="post-date-day">Published on 30</small>
+          <small class="post-date-month">July, </small> 
+          <small class="post-date-year">2014</small>
+        
+
+			
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+            <a class="post-tag post-tag-functional-programming" href="http://localhost:1313/tags/functional-programming">functional programming</a>,
+          
+				</div>
+			
+
+			
+
+			
+
+            
+
+<p>Today morning while browsing <a href="http://thechangelog.com/can-your-favorite-programming-language-score-a-goal/">The Changelog</a>, I came across this interesting project called - <a href="https://github.com/eatnumber1/goal">Goal</a>.</p>
+
+<blockquote>
+<p>g()(&lsquo;al&rsquo;) is a challenge whereby you need to write in as many languages as possible code which enables the code g()(&lsquo;al&rsquo;) to return the string &ldquo;goal&rdquo;, the code g()()(&lsquo;al&rsquo;) to return the string &ldquo;gooal&rdquo;, the code g()()()(&lsquo;al&rsquo;) return the string &ldquo;goooal&rdquo;, etc.</p>
+</blockquote>
+
+<p>This sounded a good way to kill a couple of hours on a lazy holiday so I decided to give this a shot in a couple of programming languages I know.</p>
+
+<h3 id="higher-order-functions:fa9361b7b4f89a417f4a35df62daa89b">Higher Order Functions</h3>
+
+<p>The project is interesting because it is a fun way to demonstrate support for higher order functions in your favorite language. Getting to see how this is accomplished in all kinds of languages (and languages where it&rsquo;s not possible) is quite useful. The key idea to solve this problem is indeed simple -</p>
+
+<ol>
+<li>Create a function <code>g</code> that takes two arguments. One to check for the suffix and other to count the number of &lsquo;o&rsquo;s to insert</li>
+<li>If the function <code>g</code> is called without a suffix e.g. <code>g()</code> return a function that returns the function <code>g</code> with the count incremented</li>
+<li>If the function <code>g</code> is called with a suffix e.g. <code>g()('al')</code> return the final string by concatenating &lsquo;g&rsquo;, the numbers of &lsquo;o&rsquo;s and the suffix.</li>
+</ol>
+
+<p>Programming languages where functions can be returned make this problem very easy to solve. Languages where this is not possible, there are techniques like <a href="https://github.com/eatnumber1/goal/blob/dff31f6544c619d897477dc4b1d23c707cadbc0c/solutions/complete/zsh/o11c/goal.zsh#L10-L11">regex matching</a>, <a href="https://github.com/eatnumber1/goal/blob/dff31f6544c619d897477dc4b1d23c707cadbc0c/solutions/complete/ruby/mastfish/goal.rb#L2-L5">metaprogramming</a>, or <a href="https://github.com/eatnumber1/goal/blob/dff31f6544c619d897477dc4b1d23c707cadbc0c/solutions/complete/c/tolmasky/goal.c#L14-L17">preprocessing</a> to solve the problem.</p>
+
+<h3 id="python:fa9361b7b4f89a417f4a35df62daa89b">Python</h3>
+
+<p>The code below in Python is a literal translation of the above pseudo-code and pretty readable.</p>
+
+<pre><code>def g(al=None, count=0):
+    if al:
+        return 'g' + (count * 'o') + al
+    else:
+        return lambda al=None: g(al, count+1)
+
+print(g('al'))       # gal
+print(g()('al'))     # goal
+print(g()()('al'))   # gooal
+print(g()()()('al')) # goooal
+</code></pre>
+
+<p>Here&rsquo;s the <a href="https://en.wikipedia.org/wiki/Code_golf">golfed</a> version (in case you&rsquo;re into golfing)</p>
+
+<pre><code>def g(al=None,c=0):
+    return 'g'+c*'o'+al if al else lambda al=None: g(al, c+1)
+</code></pre>
+
+<p>Must-Read Python submissions</p>
+
+<ul>
+<li><a href="https://github.com/eatnumber1/goal/blob/master/solutions/complete/python/panzi/goal.py">This</a> one uses partial functions to return a new function using the <code>functools</code> module.</li>
+<li><a href="https://github.com/eatnumber1/goal/blob/master/solutions/complete/python/orf/goal.py">This</a> one uses the <code>inspect</code> module to regex match through the stack trace.</li>
+</ul>
+
+<h3 id="javascript:fa9361b7b4f89a417f4a35df62daa89b">Javascript</h3>
+
+<p>The same thing is implemented below in Javascript but with a slight change. Since, javascript does not provide support for default arguments a neat way is to keep updating the second argument with repeated &lsquo;o&rsquo;s.</p>
+
+<pre><code>function g(al,o) {
+  if (al === undefined) {
+    return function(al) {
+      return g(al, ((o||'')+'o'))
+    }
+  } else {
+    return 'g' + (o||'') + al
+  }
+}
+console.log(g('al'))       // gal
+console.log(g()('al'))     // goal
+console.log(g()()('al'))   // gooal
+console.log(g()()()('al')) // goooal
+</code></pre>
+
+<p>This can be made much shorter by using <a href="http://coffeescript.org/#try:g%20%3D%20(al%2Co">coffeescript</a>%20-%3E%20return%20if%20al%20then%20&rsquo;g&rsquo;%2B(o%7C%7C&rdquo;)%2Bal%20else%20(al)%20-%3E%20return%20g(al%2C%20((o%7C%7C&rdquo;)%2B&rsquo;o&rsquo;))%0A%0Aalert%20g()()(&lsquo;al&rsquo;)%0Aalert%20g()()()()()(&lsquo;al&rsquo;)%0A) (thanks to the <code>-&gt;</code> syntax)</p>
+
+<pre><code>g = (al,o) -&gt; return if al then 'g'+(o||'')+al else (al) -&gt; return g(al,((o||'')+'o'))
+</code></pre>
+
+<h3 id="ocaml:fa9361b7b4f89a417f4a35df62daa89b">OCaml</h3>
+
+<p>OCaml is a language that I&rsquo;ve been <a href="https://github.com/prakhar1989/ocaml-experiments">learning lately</a>. Being functional, this seemed a rather easy task to accomplish. Unfortunately, due to lexical reasons you can&rsquo;t use the <code>g()()</code> syntax for function calls (without hacking the parser). However, below is the code that does something similar.</p>
+
+<pre><code>let g f = f &quot;g&quot;
+let al x = x ^ &quot;al&quot;
+let o x f = f (x ^ &quot;o&quot;)
+
+let () =
+  print_endline (g al);       (* gal *)
+  print_endline (g o al);     (* goal *)
+  print_endline (g o o o al); (* goooal *)
+</code></pre>
+
+<p>Note: The OCaml solution has been picked up from this <a href="http://www.reddit.com/r/programming/comments/2btrvt/gal/cj8yj2k">reddit thread</a>.</p>
+
+<h3 id="other-languages:fa9361b7b4f89a417f4a35df62daa89b">Other Languages</h3>
+
+<ul>
+<li>Not surprisingly, both Java and PHP do not have a solution (atleast a solution that follows all the <a href="https://github.com/eatnumber1/goal#rules">rules</a>)</li>
+<li>The <a href="https://github.com/eatnumber1/goal/blob/master/solutions/complete/nimrod/dom96/goal.nim">nimrod</a> submission defines a new operator and comes up with a brilliantly clever solution</li>
+<li>The <a href="https://github.com/eatnumber1/goal/blob/master/solutions/complete/scala/lopopolo/goal.scala">scala</a> code defines a case class to concisely run the constructor every time <code>()</code> is seen.</li>
+</ul>
+
+<p>For more exciting solutions do check out the <a href="https://github.com/eatnumber1/goal#previous-solutions">github repo</a> and the <a href="https://github.com/eatnumber1/goal/pulls">pull requests</a>.</p>
+
+	
+			
+
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/articles/organizing-angular-apps-for-testing/">Organizing Angular Apps for Testing</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/articles/the-string-rotation-problem/">The String Rotation Problem</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2014. All rights reserved. </p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+    </div>
+  </div>
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

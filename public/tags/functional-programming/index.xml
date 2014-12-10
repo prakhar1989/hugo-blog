@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Functional Programming on cat /dev/random</title>
+    <link>http://localhost:1313/tags/functional-programming/</link>
+    <description>Recent content in Functional Programming on cat /dev/random</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    
+    <lastBuildDate>Wed, 30 Jul 2014 12:34:58 AST</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/functional-programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>GOOOAL</title>
+      <link>http://localhost:1313/articles/goooal/</link>
+      <pubDate>Wed, 30 Jul 2014 12:34:58 AST</pubDate>
+      
+      <guid>http://localhost:1313/articles/goooal/</guid>
+      <description>
+
+&lt;p&gt;Today morning while browsing &lt;a href=&#34;http://thechangelog.com/can-your-favorite-programming-language-score-a-goal/&#34;&gt;The Changelog&lt;/a&gt;, I came across this interesting project called - &lt;a href=&#34;https://github.com/eatnumber1/goal&#34;&gt;Goal&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;g()(&amp;lsquo;al&amp;rsquo;) is a challenge whereby you need to write in as many languages as possible code which enables the code g()(&amp;lsquo;al&amp;rsquo;) to return the string &amp;ldquo;goal&amp;rdquo;, the code g()()(&amp;lsquo;al&amp;rsquo;) to return the string &amp;ldquo;gooal&amp;rdquo;, the code g()()()(&amp;lsquo;al&amp;rsquo;) return the string &amp;ldquo;goooal&amp;rdquo;, etc.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This sounded a good way to kill a couple of hours on a lazy holiday so I decided to give this a shot in a couple of programming languages I know.&lt;/p&gt;
+
+&lt;h3 id=&#34;higher-order-functions:fa9361b7b4f89a417f4a35df62daa89b&#34;&gt;Higher Order Functions&lt;/h3&gt;
+
+&lt;p&gt;The project is interesting because it is a fun way to demonstrate support for higher order functions in your favorite language. Getting to see how this is accomplished in all kinds of languages (and languages where it&amp;rsquo;s not possible) is quite useful. The key idea to solve this problem is indeed simple -&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Create a function &lt;code&gt;g&lt;/code&gt; that takes two arguments. One to check for the suffix and other to count the number of &amp;lsquo;o&amp;rsquo;s to insert&lt;/li&gt;
+&lt;li&gt;If the function &lt;code&gt;g&lt;/code&gt; is called without a suffix e.g. &lt;code&gt;g()&lt;/code&gt; return a function that returns the function &lt;code&gt;g&lt;/code&gt; with the count incremented&lt;/li&gt;
+&lt;li&gt;If the function &lt;code&gt;g&lt;/code&gt; is called with a suffix e.g. &lt;code&gt;g()(&#39;al&#39;)&lt;/code&gt; return the final string by concatenating &amp;lsquo;g&amp;rsquo;, the numbers of &amp;lsquo;o&amp;rsquo;s and the suffix.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Programming languages where functions can be returned make this problem very easy to solve. Languages where this is not possible, there are techniques like &lt;a href=&#34;https://github.com/eatnumber1/goal/blob/dff31f6544c619d897477dc4b1d23c707cadbc0c/solutions/complete/zsh/o11c/goal.zsh#L10-L11&#34;&gt;regex matching&lt;/a&gt;, &lt;a href=&#34;https://github.com/eatnumber1/goal/blob/dff31f6544c619d897477dc4b1d23c707cadbc0c/solutions/complete/ruby/mastfish/goal.rb#L2-L5&#34;&gt;metaprogramming&lt;/a&gt;, or &lt;a href=&#34;https://github.com/eatnumber1/goal/blob/dff31f6544c619d897477dc4b1d23c707cadbc0c/solutions/complete/c/tolmasky/goal.c#L14-L17&#34;&gt;preprocessing&lt;/a&gt; to solve the problem.&lt;/p&gt;
+
+&lt;h3 id=&#34;python:fa9361b7b4f89a417f4a35df62daa89b&#34;&gt;Python&lt;/h3&gt;
+
+&lt;p&gt;The code below in Python is a literal translation of the above pseudo-code and pretty readable.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def g(al=None, count=0):
+    if al:
+        return &#39;g&#39; + (count * &#39;o&#39;) + al
+    else:
+        return lambda al=None: g(al, count+1)
+
+print(g(&#39;al&#39;))       # gal
+print(g()(&#39;al&#39;))     # goal
+print(g()()(&#39;al&#39;))   # gooal
+print(g()()()(&#39;al&#39;)) # goooal
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here&amp;rsquo;s the &lt;a href=&#34;https://en.wikipedia.org/wiki/Code_golf&#34;&gt;golfed&lt;/a&gt; version (in case you&amp;rsquo;re into golfing)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def g(al=None,c=0):
+    return &#39;g&#39;+c*&#39;o&#39;+al if al else lambda al=None: g(al, c+1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Must-Read Python submissions&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eatnumber1/goal/blob/master/solutions/complete/python/panzi/goal.py&#34;&gt;This&lt;/a&gt; one uses partial functions to return a new function using the &lt;code&gt;functools&lt;/code&gt; module.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eatnumber1/goal/blob/master/solutions/complete/python/orf/goal.py&#34;&gt;This&lt;/a&gt; one uses the &lt;code&gt;inspect&lt;/code&gt; module to regex match through the stack trace.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;javascript:fa9361b7b4f89a417f4a35df62daa89b&#34;&gt;Javascript&lt;/h3&gt;
+
+&lt;p&gt;The same thing is implemented below in Javascript but with a slight change. Since, javascript does not provide support for default arguments a neat way is to keep updating the second argument with repeated &amp;lsquo;o&amp;rsquo;s.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function g(al,o) {
+  if (al === undefined) {
+    return function(al) {
+      return g(al, ((o||&#39;&#39;)+&#39;o&#39;))
+    }
+  } else {
+    return &#39;g&#39; + (o||&#39;&#39;) + al
+  }
+}
+console.log(g(&#39;al&#39;))       // gal
+console.log(g()(&#39;al&#39;))     // goal
+console.log(g()()(&#39;al&#39;))   // gooal
+console.log(g()()()(&#39;al&#39;)) // goooal
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This can be made much shorter by using &lt;a href=&#34;http://coffeescript.org/#try:g%20%3D%20(al%2Co&#34;&gt;coffeescript&lt;/a&gt;%20-%3E%20return%20if%20al%20then%20&amp;rsquo;g&amp;rsquo;%2B(o%7C%7C&amp;rdquo;)%2Bal%20else%20(al)%20-%3E%20return%20g(al%2C%20((o%7C%7C&amp;rdquo;)%2B&amp;rsquo;o&amp;rsquo;))%0A%0Aalert%20g()()(&amp;lsquo;al&amp;rsquo;)%0Aalert%20g()()()()()(&amp;lsquo;al&amp;rsquo;)%0A) (thanks to the &lt;code&gt;-&amp;gt;&lt;/code&gt; syntax)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;g = (al,o) -&amp;gt; return if al then &#39;g&#39;+(o||&#39;&#39;)+al else (al) -&amp;gt; return g(al,((o||&#39;&#39;)+&#39;o&#39;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;ocaml:fa9361b7b4f89a417f4a35df62daa89b&#34;&gt;OCaml&lt;/h3&gt;
+
+&lt;p&gt;OCaml is a language that I&amp;rsquo;ve been &lt;a href=&#34;https://github.com/prakhar1989/ocaml-experiments&#34;&gt;learning lately&lt;/a&gt;. Being functional, this seemed a rather easy task to accomplish. Unfortunately, due to lexical reasons you can&amp;rsquo;t use the &lt;code&gt;g()()&lt;/code&gt; syntax for function calls (without hacking the parser). However, below is the code that does something similar.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;let g f = f &amp;quot;g&amp;quot;
+let al x = x ^ &amp;quot;al&amp;quot;
+let o x f = f (x ^ &amp;quot;o&amp;quot;)
+
+let () =
+  print_endline (g al);       (* gal *)
+  print_endline (g o al);     (* goal *)
+  print_endline (g o o o al); (* goooal *)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note: The OCaml solution has been picked up from this &lt;a href=&#34;http://www.reddit.com/r/programming/comments/2btrvt/gal/cj8yj2k&#34;&gt;reddit thread&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;other-languages:fa9361b7b4f89a417f4a35df62daa89b&#34;&gt;Other Languages&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Not surprisingly, both Java and PHP do not have a solution (atleast a solution that follows all the &lt;a href=&#34;https://github.com/eatnumber1/goal#rules&#34;&gt;rules&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;The &lt;a href=&#34;https://github.com/eatnumber1/goal/blob/master/solutions/complete/nimrod/dom96/goal.nim&#34;&gt;nimrod&lt;/a&gt; submission defines a new operator and comes up with a brilliantly clever solution&lt;/li&gt;
+&lt;li&gt;The &lt;a href=&#34;https://github.com/eatnumber1/goal/blob/master/solutions/complete/scala/lopopolo/goal.scala&#34;&gt;scala&lt;/a&gt; code defines a case class to concisely run the constructor every time &lt;code&gt;()&lt;/code&gt; is seen.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For more exciting solutions do check out the &lt;a href=&#34;https://github.com/eatnumber1/goal#previous-solutions&#34;&gt;github repo&lt;/a&gt; and the &lt;a href=&#34;https://github.com/eatnumber1/goal/pulls&#34;&gt;pull requests&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

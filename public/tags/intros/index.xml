@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Intros on cat /dev/random</title>
+    <link>http://localhost:1313/tags/intros/</link>
+    <description>Recent content in Intros on cat /dev/random</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 UTC</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/intros/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Beginning Flask</title>
+      <link>http://localhost:1313/articles/2013-05-06-beginning-flask/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/articles/2013-05-06-beginning-flask/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been meaning to start a write a series on &lt;a href=&#34;http://flask.pooco.org&#34;&gt;Flask&lt;/a&gt; which is a micro-framework for developing web applications in python. In Ruby parlance, flask is to &lt;a href=&#34;http://www.sinatrarb.com/&#34;&gt;Sinatra&lt;/a&gt; what Django is to Rails.&lt;/p&gt;
+
+&lt;p&gt;The nicest thing (and most confusing for beginners) about Flask is that its quite barebones on the onset. A simple &lt;code&gt;hello world&lt;/code&gt; application in Flask is just about 7 lines as shown below. However, going from hello world to full fledged application is a daunting task in itself for a beginner.&lt;/p&gt;
+
+&lt;p&gt;{% highlight python %}
+from flask import Flask
+app = Flask(&lt;strong&gt;name&lt;/strong&gt;)
+@app.route(&amp;lsquo;/&amp;rsquo;)
+def hello():
+  return &amp;ldquo;hello world&amp;rdquo;
+if &lt;strong&gt;name&lt;/strong&gt; == &amp;ldquo;&lt;strong&gt;main&lt;/strong&gt;&amp;ldquo;:
+  app.run()
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Almost all of the material found in this guide will be available from other sources namely flask&amp;rsquo;s excellent documentation and the countless flask projects on Github. However, I&amp;rsquo;ll try my best to write a comprehensive post on each topic for that day the matter for which will be collected through the flask docs, projects on github and the mailing list.&lt;/p&gt;
+
+&lt;p&gt;As a disclaimer: I&amp;rsquo;m new to flask myself and I&amp;rsquo;m constantly learning. While building a couple of apps in flask I&amp;rsquo;ve found myself stumbling on a few aspects like project organization, ORM and deployment very frequently. Having a lot of choices at your disposal might not always be best for productivity. Through this guide, I aim to help you in making the right choices by sharing the best practices involved in building flask apps.&lt;/p&gt;
+
+&lt;p&gt;The idea is to write on a topic each day, detailed with code examples
+and references for further reading. To get the most out of each post, it
+is expected that you&amp;rsquo;ll type out the code for yourself. The best way to
+learn is by doing.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ll start the series with &lt;strong&gt;Project Structure and Organization&lt;/strong&gt;. See you next time!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

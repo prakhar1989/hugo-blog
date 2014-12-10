@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    Flask on Nginx and Gunicorn // cat /dev/random
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="No BS guide to deploying a Flask app">
+<meta name="keywords" content="">
+<meta name="author" content="">
+
+
+  <meta property="og:title" content="Flask on Nginx and Gunicorn" />
+<meta property="og:description" content="No BS guide to deploying a Flask app" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://localhost:1313/articles/2014-03-07-flask-on-nginx-and-gunicorn/" />
+
+
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="http://localhost:1313/css/normalize.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/skeleton.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/main.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/highlight/railscasts.css">
+  <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  
+</head>
+
+
+<body>
+  <div class="container">
+    <div class="row">
+
+      <div class="content">
+      
+
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/articles/2014-03-07-flask-on-nginx-and-gunicorn/">Flask on Nginx and Gunicorn</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+
+        
+          <small class="post-date-day">Published on 1</small>
+          <small class="post-date-month">January, </small> 
+          <small class="post-date-year">0001</small>
+        
+
+			
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+            <a class="post-tag post-tag-nginx" href="http://localhost:1313/tags/nginx">nginx</a>,
+          
+            <a class="post-tag post-tag-flask" href="http://localhost:1313/tags/flask">flask</a>,
+          
+            <a class="post-tag post-tag-python" href="http://localhost:1313/tags/python">python</a>,
+          
+            <a class="post-tag post-tag-deployment" href="http://localhost:1313/tags/deployment">deployment</a>,
+          
+				</div>
+			
+
+			
+
+			
+
+            
+
+<p>Even after deploying a number of <a href="http://flask.pocoo.org/">Flask</a> apps I always find myself googling up blog posts on how to get the trio of nginx, gunicorn and supervisor working together. Below is simple, straight, no-nonsense guide on how to deploy a flask app on a Linux server using Nginx, Gunicorn and Supervisor.</p>
+
+<p>A disclaimer: this guide will not tell you what these technologies are. Specifically, I will not talk about why you should use <code>nginx</code> + <code>gunicorn</code> instead of <code>apache</code> + <code>mod_wsgi</code>. There is plenty of good documentation online which already does that. This is my preferred setup for deploying flask applications and it is extremely simple to get started.</p>
+
+<h3 id="setup:00ff5c88b12b9080c9e8198a979d9ba0">Setup</h3>
+
+<p>First off setup a virtualenv. I&rsquo;m a big fan of virtualenv as it helps you keep your global system environment clean.
+{% highlight bash %}
+$ cd flask_app
+$ virtualenv flask_env
+$ source flask_env/bin/activate
+(flask_env)$ pip install flask &amp;&amp; pip install gunicorn
+{% endhighlight %}</p>
+
+<h3 id="gunicorn:00ff5c88b12b9080c9e8198a979d9ba0">Gunicorn</h3>
+
+<p>With that done, lets create a <code>bash</code> file called <code>gunicorn_start</code>. The contents of this file are below. What this basically does is sets up the virtualenv and starts the gunicorn server on <code>http://127.0.0.1:8000</code>. Do remember to customize the variables below as per your setup.</p>
+
+<p>{% highlight bash %}
+#!/bin/bash</p>
+
+<p>NAME=&ldquo;my cool flask app&rdquo;
+FLASKDIR=/Code/flask_app
+VENVDIR=/Code/flask_app/flask_env
+SOCKFILE=/Code/flask_app/sock
+USER=captain
+GROUP=captain
+NUM_WORKERS=3</p>
+
+<p>echo &ldquo;Starting $NAME&rdquo;</p>
+
+<h1 id="activate-the-virtualenv:00ff5c88b12b9080c9e8198a979d9ba0">activate the virtualenv</h1>
+
+<p>cd $VENVDIR
+source bin/activate</p>
+
+<p>export PYTHONPATH=$FLASKDIR:$PYTHONPATH</p>
+
+<h1 id="create-the-run-directory-if-it-doesn-t-exist:00ff5c88b12b9080c9e8198a979d9ba0">Create the run directory if it doesn&rsquo;t exist</h1>
+
+<p>RUNDIR=$(dirname $SOCKFILE)
+test -d $RUNDIR || mkdir -p $RUNDIR</p>
+
+<h1 id="start-your-unicorn:00ff5c88b12b9080c9e8198a979d9ba0">Start your unicorn</h1>
+
+<p>exec gunicorn main:app -b 127.0.0.1:8000 \
+  &ndash;name $NAME \
+  &ndash;workers $NUM_WORKERS \
+  &ndash;user=$USER &ndash;group=$GROUP \
+  &ndash;log-level=debug \
+  &ndash;bind=unix:$SOCKFILE
+{% endhighlight %}</p>
+
+<p>To make sure everything is running, attempt a <code>sudo ./gunicorn_start</code> command<sup class="footnote-ref" id="fnref:00ff5c88b12b9080c9e8198a979d9ba0:1"><a rel="footnote" href="#fn:00ff5c88b12b9080c9e8198a979d9ba0:1">1</a></sup>. If gunicorn starts up perfectly and doesn&rsquo;t cough any errors you are good to go.</p>
+
+<h3 id="nginx:00ff5c88b12b9080c9e8198a979d9ba0">Nginx</h3>
+
+<p>Now that <code>gunicorn</code> is setup properly we can now move our focus to Nginx. The configuration is quite simple to get it started. The couple of lines below simply tell Nginx to act as a reverse proxy.</p>
+
+<p><strong>Contents of flaskconfig</strong><sup class="footnote-ref" id="fnref:00ff5c88b12b9080c9e8198a979d9ba0:2"><a rel="footnote" href="#fn:00ff5c88b12b9080c9e8198a979d9ba0:2">2</a></sup>
+{% highlight bash %}
+server {
+    location / {
+        proxy_pass <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>;
+    }
+}
+{% endhighlight %}</p>
+
+<p>To run this configuration you need to save this in <code>/etc/nginx/sites-available</code>. Assuming your file is <code>flaskconfig</code>, you need to create a symbolic link in the <code>sites-enabled</code> directory.</p>
+
+<p>{% highlight bash %}
+$ cd /etc/nginx
+$ ln -s /etc/nginx/sites-available/flaskconfig /etc/nginx/sites-enabled/flaskconfig
+{% endhighlight %}</p>
+
+<p>To test everything is working fine, restart nginx - hopefully the server should restart without any server errors<sup class="footnote-ref" id="fnref:00ff5c88b12b9080c9e8198a979d9ba0:3"><a rel="footnote" href="#fn:00ff5c88b12b9080c9e8198a979d9ba0:3">3</a></sup>. Now <code>cd</code> into the project directory and start the <code>gunicorn_start</code> command. Now head over to the domain name and you should see your application running.</p>
+
+<h3 id="supervisor:00ff5c88b12b9080c9e8198a979d9ba0">Supervisor</h3>
+
+<p>Supervisor is a client/server system that allows its users to monitor and control a number of processes on UNIX-like operating systems. In simple words, rather than manually starting and stopping <code>gunicorn</code> you can use supervisor to create a daemon that is easy to manage. Create a new configuration file in <code>/etc/supervisor/conf.d</code>. To manage supervisor you can use the familiar <code>sudo service supervisor restart</code> command.</p>
+
+<p>{% highlight bash %}
+[program:flask_app]
+command = /Code/flask_app/gunicorn_start
+user = root
+stdout_logfile = /Code/flask_app/logs/gunicorn_supervisor.log
+redirect_stderr = true
+{% endhighlight %}</p>
+
+<h3 id="fabric:00ff5c88b12b9080c9e8198a979d9ba0">Fabric</h3>
+
+<p>Fabric is a really cool python library that can be used for application deployment and systems administration. Using nothing but <code>python</code> you can create deployment / automation scripts. You can have a look at a <code>fabfile</code> I created for deploying a django application.</p>
+
+<p>{% highlight python %}
+from fabric.api import *
+from contextlib import contextmanager as _contextmanager</p>
+
+<p>env.user = &ldquo;captain&rdquo;
+env.activate = &ldquo;source /Code/flask_app/flask_env/bin/activate&rdquo;
+env.directory = &ldquo;/Code/flask_app/&rdquo;
+env.hosts = [&ldquo;33.33.33.33&rdquo;]</p>
+
+<p>def prepare_deploy():
+    local(&ldquo;echo &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&rdquo;)
+    local(&ldquo;echo DEPLOYING APP TO PRODUCTION&rdquo;)
+    local(&ldquo;git add . &amp;&amp; git commit&rdquo;)
+    local(&ldquo;git push -u origin master&rdquo;)
+    local(&ldquo;echo APP PUSHED TO PRODUCTION&rdquo;)
+    local(&ldquo;echo &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&rdquo;)</p>
+
+<p>def commit(msg):
+    local(&ldquo;git add . &amp;&amp; git commit -am %s&rdquo; % msg)</p>
+
+<p>def deploy():
+    prepare_deploy()
+    with cd(env.directory):
+        run(&ldquo;git pull&rdquo;)
+    restart_service()</p>
+
+<p>def restart_service():
+    run(&ldquo;sudo supervisorctl restart flask_app&rdquo;)</p>
+
+<p>{% endhighlight %}</p>
+
+<p>Hopefully, this post has been helpful in giving you a good idea of how you can deploy flask apps on Nginx &amp; Gunicorn. If you have any queries feel free to contact me.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:00ff5c88b12b9080c9e8198a979d9ba0:1">Do remember to give the <code>gunicorn_start</code> script the executable status with the <code>chmod +x gunicorn_start</code> command.
+ <a class="footnote-return" href="#fnref:00ff5c88b12b9080c9e8198a979d9ba0:1"><sup>[return]</sup></a></li>
+<li id="fn:00ff5c88b12b9080c9e8198a979d9ba0:2">For a more elaborate configuration for a production server, refer to the <a href="http://gunicorn-docs.readthedocs.org/en/latest/deploy.html">gunicorn documentation</a>
+ <a class="footnote-return" href="#fnref:00ff5c88b12b9080c9e8198a979d9ba0:2"><sup>[return]</sup></a></li>
+<li id="fn:00ff5c88b12b9080c9e8198a979d9ba0:3">You can use <code>sudo nginx -t</code> to identify any configuration related errors.
+ <a class="footnote-return" href="#fnref:00ff5c88b12b9080c9e8198a979d9ba0:3"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+	
+			
+
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/articles/2014-04-10-write-code-everyday/">Write Code Everyday</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/articles/2014-04-05-thinking-for-programmers/">Thinking For Programmers</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2014. All rights reserved. </p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+    </div>
+  </div>
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

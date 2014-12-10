@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    Deal With It // cat /dev/random
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="Vim saves the day">
+<meta name="keywords" content="">
+<meta name="author" content="">
+
+
+  <meta property="og:title" content="Deal With It" />
+<meta property="og:description" content="Vim saves the day" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://localhost:1313/articles/2014-02-22-deal-with-it/" />
+
+
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="http://localhost:1313/css/normalize.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/skeleton.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/main.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/highlight/railscasts.css">
+  <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  
+</head>
+
+
+<body>
+  <div class="container">
+    <div class="row">
+
+      <div class="content">
+      
+
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/articles/2014-02-22-deal-with-it/">Deal With It</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+
+        
+          <small class="post-date-day">Published on 1</small>
+          <small class="post-date-month">January, </small> 
+          <small class="post-date-year">0001</small>
+        
+
+			
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+            <a class="post-tag post-tag-rant" href="http://localhost:1313/tags/rant">rant</a>,
+          
+            <a class="post-tag post-tag-vim" href="http://localhost:1313/tags/vim">vim</a>,
+          
+            <a class="post-tag post-tag-unix" href="http://localhost:1313/tags/unix">unix</a>,
+          
+				</div>
+			
+
+			
+
+			
+
+            <p>Hilarious fable on HN featuring the superhero Unix and its trusted sidekick - Vim!</p>
+
+<p><strong>ring ring ring</strong></p>
+
+<p><em>yeah, what&rsquo;s up?</em></p>
+
+<p><em><ins><a href="http://www.nagios.org/">Nagios</a></ins> is paging, something with that code you pushed live a couple hours ago is throwing a fit&hellip; looks like half the web cluster is on the verge of <ins><a href="https://help.ubuntu.com/community/SwapFaq/#What_is_swappiness_and_how_do_I_change_it.3F">going to swap</a></ins>, can you look into it? asap!</em></p>
+
+<p><em>Well, I&rsquo;m on at the bus stop and won&rsquo;t be near a computer for at least an hour&hellip;yeah, I&rsquo;ll sort it out, will text you when we can push fix live.</em></p>
+
+<ul>
+<li>pulls out <a href="http://www.samsung.com/global/microsite/galaxynote3-gear/">Note 3</a>, shitty 3G coverage</li>
+<li>connects to VPN</li>
+<li>ssh into dev env with <a href="https://play.google.com/store/apps/details?id=org.connectbot&amp;hl=en">connectbot</a></li>
+<li>switches to <a href="https://play.google.com/store/apps/details?id=org.pocketworkstation.pckeyboard">hackerkeyboard</a> for input mode</li>
+<li><a href="https://kb.iu.edu/data/acuy.html">screen -dr dev</a></li>
+<li><em>Ctrl+c</em> <code>tail join IRC channel that dumps syslogs from production cluster</code><sup class="footnote-ref" id="fnref:dbc271c6a37f1f7f89c8f6ceae38e912:1"><a rel="footnote" href="#fn:dbc271c6a37f1f7f89c8f6ceae38e912:1">1</a></sup></li>
+<li><em>sees error</em></li>
+<li><em>Ctrl+c</em> <code>vim the/file/causing/the/unexpected/problem</code></li>
+</ul>
+
+<p><strong>fix the problem</strong>
+<code>:wq</code><sup class="footnote-ref" id="fnref:dbc271c6a37f1f7f89c8f6ceae38e912:2"><a rel="footnote" href="#fn:dbc271c6a37f1f7f89c8f6ceae38e912:2">2</a></sup></p>
+
+<p>{% highlight bash %}
+git stash
+git pull
+git stash apply
+git commit
+git push
+{% endhighlight %}</p>
+
+<p><em>Ctrl+d</em>, exit</p>
+
+<blockquote>
+<p>sends text message &ldquo;good to go!&rdquo;</p>
+</blockquote>
+
+<p>deal with it.</p>
+
+<p><a href="https://news.ycombinator.com/item?id=7280853">Source</a></p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:dbc271c6a37f1f7f89c8f6ceae38e912:1">the <code>tail</code> command is used to print the last lines of a text file. <code>tail -f server_log</code> is a knee-jerk reaction to any server issue.
+ <a class="footnote-return" href="#fnref:dbc271c6a37f1f7f89c8f6ceae38e912:1"><sup>[return]</sup></a></li>
+<li id="fn:dbc271c6a37f1f7f89c8f6ceae38e912:2"><code>wq</code> saves a files in vim and closes the text editor
+ <a class="footnote-return" href="#fnref:dbc271c6a37f1f7f89c8f6ceae38e912:2"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+	
+			
+
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/articles/2014-02-14-kuwait-civil-id-checksum/">Checksum</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/articles/2014-02-20-why-we-dont-sell-ads/">Why We Dont Sell Ads</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2014. All rights reserved. </p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+    </div>
+  </div>
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>
