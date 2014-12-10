@@ -20,24 +20,24 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:url" content="http://192.241.186.225/tags/vim/" />
+<meta property="og:url" content="http://localhost:1313/tags/vim/" />
 
 
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="http://192.241.186.225/css/normalize.css">
-  <link rel="stylesheet" href="http://192.241.186.225/css/skeleton.css">
-  <link rel="stylesheet" href="http://192.241.186.225/css/main.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/normalize.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/skeleton.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/main.css">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  <link href="http://192.241.186.225/tags/vim/index.xml" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
+  <link href="http://localhost:1313/tags/vim/index.xml" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
 
   
-  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/railscasts.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/highlight/railscasts.css">
   <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
@@ -56,7 +56,7 @@
 
     <nav class="nav">
       <ul class="nav-list">
-        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://192.241.186.225">Home</a></li>
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://localhost:1313">Home</a></li>
         
       </ul>
     </nav>
@@ -81,19 +81,26 @@
             </header>
             <p class="post-meta">
             	
+              <span class="post-tag"> Published on  <span>
 		          <span class="post-date">
                 <span class="post-date-month">January</span> 
 		            <span class="post-date-day"> 1, </span>
                 <span class="post-date-year">0001</span>
-		          </span>
-      				
-      				
-      					
-      				
+              </span> 
+              <span class="post-tag"> in <span>
               
                 
-              
+                  
+                    <a class="post-tag post-tag-rant" href="http://localhost:1313/tags/rant">rant</a>
+                  
+                    <a class="post-tag post-tag-vim" href="http://localhost:1313/tags/vim">vim</a>
+                  
+                    <a class="post-tag post-tag-unix" href="http://localhost:1313/tags/unix">unix</a>
+                  
+                
       				
+
+
             </p>
             <article class="post-summary">
             	Hilarious fable on HN featuring the superhero Unix and its trusted sidekick - Vim! ring ring ring yeah, what&rsquo;s up? Nagios is paging, something with that code you pushed live a couple hours ago is throwing a fit&hellip; looks like half the web cluster is on the verge of going to swap, can you look into it? asap! Well, I&rsquo;m on at the bus stop and won&rsquo;t be near a computer for at least an hour&hellip;yeah, I&rsquo;ll sort it out, will text you when we can push fix live.
@@ -120,5 +127,8 @@
   
     </div>
   </div>
-</body>
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
 </html>

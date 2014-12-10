@@ -1,7 +1,6 @@
 ---
-title: A Mature Engineer
-description: Being a senior engineer
-tags: [quotes, inspiration]
+title: Being A Senior Engineer
+tags: [inspiration]
 date: 2014-03-31T12:34:58+03:00
 ---
 

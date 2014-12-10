@@ -1,9 +1,7 @@
 ---
-layout: post
 title: It Ends
-description: End of a 64 day streak
-category: articles
-tags: [github]
+date: 2014-05-27T12:34:58+03:00
+tags: [rant]
 ---
 
 <figure>

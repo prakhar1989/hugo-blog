@@ -1,9 +1,7 @@
 ---
-layout: post
 title: Making the Blog Instant
-description: InstantClick to the rescue
-category: articles
-tags: [javascript, performance, blog]
+tags: [javascript]
+date: 2014-02-08T12:34:58+03:00
 ---
 
 [InstantClick.js](http://instantclick.io/) was [released](https://news.ycombinator.com/item?id=7201353) on Hacker News today and I thought I will give it a whirl on my blog. 

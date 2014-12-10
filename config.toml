@@ -1,3 +1,3 @@
-baseurl = "http://localhost:4000"
+baseurl = "http://192.241.186.225"
 languageCode = "en-us"
 title = "cat /dev/random"

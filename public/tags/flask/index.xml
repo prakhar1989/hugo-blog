@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Flask on cat /dev/random</title>
-    <link>http://192.241.186.225/tags/flask/</link>
+    <link>http://localhost:1313/tags/flask/</link>
     <description>Recent content in Flask on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Mon, 01 Jan 0001 00:00:00 UTC</lastBuildDate>
-    <atom:link href="http://192.241.186.225/tags/flask/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/flask/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Application Structure</title>
-      <link>http://192.241.186.225/articles/2013-05-07-application-structure/</link>
+      <link>http://localhost:1313/articles/2013-05-07-application-structure/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
-      <guid>http://192.241.186.225/articles/2013-05-07-application-structure/</guid>
+      <guid>http://localhost:1313/articles/2013-05-07-application-structure/</guid>
       <description>
 
 &lt;p&gt;In this post, we&amp;rsquo;re going to talk about a seemingly easy but an important topic - organizing and structuring your flask applications.&lt;/p&gt;
@@ -203,10 +203,10 @@ issues feel free to email me.&lt;/p&gt;
     
     <item>
       <title>Beginning Flask</title>
-      <link>http://192.241.186.225/articles/2013-05-06-beginning-flask/</link>
+      <link>http://localhost:1313/articles/2013-05-06-beginning-flask/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
-      <guid>http://192.241.186.225/articles/2013-05-06-beginning-flask/</guid>
+      <guid>http://localhost:1313/articles/2013-05-06-beginning-flask/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve been meaning to start a write a series on &lt;a href=&#34;http://flask.pooco.org&#34;&gt;Flask&lt;/a&gt; which is a micro-framework for developing web applications in python. In Ruby parlance, flask is to &lt;a href=&#34;http://www.sinatrarb.com/&#34;&gt;Sinatra&lt;/a&gt; what Django is to Rails.&lt;/p&gt;
 
 &lt;p&gt;The nicest thing (and most confusing for beginners) about Flask is that its quite barebones on the onset. A simple &lt;code&gt;hello world&lt;/code&gt; application in Flask is just about 7 lines as shown below. However, going from hello world to full fledged application is a daunting task in itself for a beginner.&lt;/p&gt;
@@ -236,10 +236,10 @@ learn is by doing.&lt;/p&gt;
     
     <item>
       <title>Class Based Views</title>
-      <link>http://192.241.186.225/articles/2013-05-09-class-based-views/</link>
+      <link>http://localhost:1313/articles/2013-05-09-class-based-views/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
-      <guid>http://192.241.186.225/articles/2013-05-09-class-based-views/</guid>
+      <guid>http://localhost:1313/articles/2013-05-09-class-based-views/</guid>
       <description>
 
 &lt;p&gt;If you&amp;rsquo;ve used Django before, one of the things that you surely miss (apart from the django-admin, of course) is class based (or generic) views. Class based views allow you to structure your views and reuse code by harnessing inheritance and mixins. This allows you to create generic views for routine tasks and simply inherit from them for similar views.&lt;/p&gt;
@@ -431,10 +431,10 @@ know that its time for a class based view. Don&amp;rsquo;t forget to refer to th
     
     <item>
       <title>Flask on Nginx and Gunicorn</title>
-      <link>http://192.241.186.225/articles/2014-03-07-flask-on-nginx-and-gunicorn/</link>
+      <link>http://localhost:1313/articles/2014-03-07-flask-on-nginx-and-gunicorn/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
-      <guid>http://192.241.186.225/articles/2014-03-07-flask-on-nginx-and-gunicorn/</guid>
+      <guid>http://localhost:1313/articles/2014-03-07-flask-on-nginx-and-gunicorn/</guid>
       <description>
 
 &lt;p&gt;Even after deploying a number of &lt;a href=&#34;http://flask.pocoo.org/&#34;&gt;Flask&lt;/a&gt; apps I always find myself googling up blog posts on how to get the trio of nginx, gunicorn and supervisor working together. Below is simple, straight, no-nonsense guide on how to deploy a flask app on a Linux server using Nginx, Gunicorn and Supervisor.&lt;/p&gt;
@@ -580,10 +580,10 @@ env.hosts = [&amp;ldquo;33.33.33.33&amp;rdquo;]&lt;/p&gt;
     
     <item>
       <title>Using Blueprints</title>
-      <link>http://192.241.186.225/articles/2013-05-08-using-blueprints/</link>
+      <link>http://localhost:1313/articles/2013-05-08-using-blueprints/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
-      <guid>http://192.241.186.225/articles/2013-05-08-using-blueprints/</guid>
+      <guid>http://localhost:1313/articles/2013-05-08-using-blueprints/</guid>
       <description>
 
 &lt;p&gt;In today&amp;rsquo;s short lesson we&amp;rsquo;ll continue where we left off and completely wrap up the topic of code organization by learning about blueprints. &lt;a href=&#34;http://flask.pocoo.org/docs/blueprints/&#34;&gt;Blueprints&lt;/a&gt; have been a rather recent addition to flask (introduced in version 0.7) and were added to help users structure large applications into reusable components.&lt;/p&gt;

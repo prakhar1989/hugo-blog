@@ -1,6 +1,6 @@
 ---
 title: Why Do You Want To Do Great Things?
-tags: [quotes, inspiration]
+tags: [inspiration]
 date: 2014-08-14T12:34:58+03:00
 ---
 

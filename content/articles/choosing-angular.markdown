@@ -1,9 +1,7 @@
 ---
-layout: post
 title: Choosing Angular
-description: Why we are choosing Angular over jQuery
-category: articles
-tags: [angular]
+date: 2014-07-06T12:34:58+03:00
+tags: [angularjs]
 ---
 
 For the last couple of weeks I've spent a good deal of time on building a

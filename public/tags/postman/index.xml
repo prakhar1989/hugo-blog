@@ -2,24 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Postman on cat /dev/random</title>
-    <link>http://192.241.186.225/tags/postman/</link>
+    <link>http://localhost:1313/tags/postman/</link>
     <description>Recent content in Postman on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
-    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 UTC</lastBuildDate>
-    <atom:link href="http://192.241.186.225/tags/postman/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 May 2014 12:34:58 AST</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/postman/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Automated Testing With Newman</title>
-      <link>http://192.241.186.225/articles/2014-05-24-automated-testing-with-newman/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      <link>http://localhost:1313/articles/automated-testing-with-newman/</link>
+      <pubDate>Sat, 24 May 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/2014-05-24-automated-testing-with-newman/</guid>
-      <description>
-
-&lt;p&gt;Steve Klabnik, the developer at Balanced recently put up a post on the company blog talking about doing &lt;a href=&#34;http://blog.balancedpayments.com/tdd-your-api/&#34;&gt;TDD for APIs&lt;/a&gt; where he advocates a strong case for following Test Driven Development for APIs. For a lot of companies like Balanced, Stripe, Parse etc the API is their primary product. Hence, it makes sense to have strong development and testing practices for these APIs.&lt;/p&gt;
+      <guid>http://localhost:1313/articles/automated-testing-with-newman/</guid>
+      <description>&lt;p&gt;Steve Klabnik, the developer at Balanced recently put up a post on the company blog talking about doing &lt;a href=&#34;http://blog.balancedpayments.com/tdd-your-api/&#34;&gt;TDD for APIs&lt;/a&gt; where he advocates a strong case for following Test Driven Development for APIs. For a lot of companies like Balanced, Stripe, Parse etc the API is their primary product. Hence, it makes sense to have strong development and testing practices for these APIs.&lt;/p&gt;
 
 &lt;p&gt;TDD has taken off quite well with DHH and the ruby community strongly making claims of it solving a lot of problems and guaranteeing robust code. With tools like rspec and cucumber the ruby community has certainly been one of the most vocal proponents of this development methodology.&lt;/p&gt;
 
@@ -34,80 +32,73 @@ writing simple JS code to run after the API gets a response seems extremely easy
 
 &lt;p&gt;Here&amp;rsquo;s how we can do it with Newman.&lt;/p&gt;
 
-&lt;p&gt;Lets setup a simple script called &lt;code&gt;run_newman&lt;/code&gt; to run our tests
-{% highlight bash %}
-#!/bin/bash&lt;/p&gt;
+&lt;p&gt;Lets setup a simple script called &lt;code&gt;run_newman&lt;/code&gt; to run our tests&lt;/p&gt;
 
-&lt;p&gt;timestamp=$(date +&amp;ldquo;%s&amp;rdquo;)
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+
+timestamp=$(date +&amp;quot;%s&amp;quot;) 
 collection=/var/www/myapp/tests/collection.json
-env=/var/www/myapp/tests/envfile.json&lt;/p&gt;
+env=/var/www/myapp/tests/envfile.json
 
-&lt;h1 id=&#34;create-separate-outfile-for-each-run:5fd66c45c1b279efca5e9cb083d2900f&#34;&gt;create separate outfile for each run&lt;/h1&gt;
+# create separate outfile for each run
+outfile=/var/www/myapp/tests/outfile-$timestamp.json
 
-&lt;p&gt;outfile=/var/www/myapp/tests/outfile-$timestamp.json&lt;/p&gt;
+# redirect all output to /dev/null
+newman -c $collection -c $env -o $outfile &amp;gt; /dev/null2&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;redirect-all-output-to-dev-null:5fd66c45c1b279efca5e9cb083d2900f&#34;&gt;redirect all output to /dev/null&lt;/h1&gt;
+&lt;p&gt;Make it an executable&lt;/p&gt;
 
-&lt;p&gt;newman -c $collection -c $env -o $outfile &amp;gt; /dev/null2&amp;gt;&amp;amp;1
-{% endhighlight %}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ chmod +x run_newman
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Make it an executable
-{% highlight bash %}
-$ chmod +x run_newman
-{% endhighlight %}&lt;/p&gt;
+&lt;p&gt;To run Newman every hour, run &lt;code&gt;crontab -e&lt;/code&gt; and enter the following -&lt;/p&gt;
 
-&lt;p&gt;To run Newman every hour, run &lt;code&gt;crontab -e&lt;/code&gt; and enter the following -
-{% highlight bash %}
+&lt;pre&gt;&lt;code&gt;0 * * * * /path/to/run_newman
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Check your &lt;code&gt;cron&lt;/code&gt; if it has been setup&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ crontab -l
 0 * * * * /path/to/run_newman
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;Check your &lt;code&gt;cron&lt;/code&gt; if it has been setup
-{% highlight bash %}
-$ crontab -l
-0 * * * * /path/to/run_newman
-{% endhighlight %}&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;With this, we have Newman ready to run automatically every hour and test our APIs. Do note that instructions of setting up cron vary upon the specific *nix distribution. Make sure to google on how to setup cron for your distribution.&lt;/p&gt;
 
 &lt;p&gt;Lets have it to do one more thing - send us email alerts in case our tests fail. Newman allows users to use a &lt;code&gt;-s&lt;/code&gt; flag to signal a STDERR and halts the run in case any of the tests fail. This makes it very easy to have simple alert logic in the cron script itself.&lt;/p&gt;
 
-&lt;p&gt;{% highlight bash %}
-#!/bin/bash&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
 
-&lt;p&gt;timestamp=$(date +&amp;ldquo;%s&amp;rdquo;)
+timestamp=$(date +&amp;quot;%s&amp;quot;) 
 collection=/var/www/myapp/tests/collection.json
-env=/var/www/myapp/tests/envfile.json&lt;/p&gt;
+env=/var/www/myapp/tests/envfile.json
 
-&lt;h1 id=&#34;mail-settings:5fd66c45c1b279efca5e9cb083d2900f&#34;&gt;mail settings&lt;/h1&gt;
+# mail settings
+RCVR=&amp;quot;rcvr@example.com&amp;quot;
+SUBJ=&amp;quot;Test Failed&amp;quot;
 
-&lt;p&gt;RCVR=&amp;ldquo;rcvr@example.com&amp;rdquo;
-SUBJ=&amp;ldquo;Test Failed&amp;rdquo;&lt;/p&gt;
+# create separate outfile for each run
+outfile=/var/www/myapp/tests/outfile-$timestamp.json
 
-&lt;h1 id=&#34;create-separate-outfile-for-each-run-1:5fd66c45c1b279efca5e9cb083d2900f&#34;&gt;create separate outfile for each run&lt;/h1&gt;
+# capture newman STDERR status
+command=&amp;quot;$(newman -c $collection -c $env -o $outfile 2&amp;gt;&amp;amp;1 &amp;gt; /dev/null)&amp;quot;
 
-&lt;p&gt;outfile=/var/www/myapp/tests/outfile-$timestamp.json&lt;/p&gt;
-
-&lt;h1 id=&#34;capture-newman-stderr-status:5fd66c45c1b279efca5e9cb083d2900f&#34;&gt;capture newman STDERR status&lt;/h1&gt;
-
-&lt;p&gt;command=&amp;ldquo;$(newman -c $collection -c $env -o $outfile 2&amp;gt;&amp;amp;1 &amp;gt; /dev/null)&amp;rdquo;&lt;/p&gt;
-
-&lt;h1 id=&#34;send-mail-if-stderr-is-not-0:5fd66c45c1b279efca5e9cb083d2900f&#34;&gt;send mail if STDERR is not 0&lt;/h1&gt;
-
-&lt;p&gt;if [ &amp;ldquo;$?&amp;rdquo; -ne &amp;ldquo;0&amp;rdquo; ]; then
-    mail $RCVR -s &amp;ldquo;$SUBJ&amp;rdquo;
+# send mail if STDERR is not 0
+if [ &amp;quot;$?&amp;quot; -ne &amp;quot;0&amp;quot; ]; then
+	mail $RCVR -s &amp;quot;$SUBJ&amp;quot;
 fi
-{% endhighlight %}&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;As you can see, Newman is an extremely useful tool that you can use with Postman to automate testing of your APIs!&lt;/p&gt;
+&lt;p&gt;I hope you agree that Newman is an extremely useful tool that you can use with Postman to automate testing of your APIs!&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Newman Is Live</title>
-      <link>http://192.241.186.225/articles/2014-05-05-newman-is-live/</link>
+      <link>http://localhost:1313/articles/2014-05-05-newman-is-live/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
-      <guid>http://192.241.186.225/articles/2014-05-05-newman-is-live/</guid>
+      <guid>http://localhost:1313/articles/2014-05-05-newman-is-live/</guid>
       <description>&lt;p&gt;And finally, after working non-stop on the project for 45 days &lt;a href=&#34;http://github.com/a85/Newman&#34;&gt;Newman&lt;/a&gt; is finally in beta. Newman is a command-line collection runner for &lt;a href=&#34;http://getpostman.com&#34;&gt;Postman&lt;/a&gt; built fully on Node.js. Newman is my first-ever node.js project and I&amp;rsquo;m extremely glad to have got a chance to build something useful and learn a new technology.&lt;/p&gt;
 
 &lt;figure&gt;

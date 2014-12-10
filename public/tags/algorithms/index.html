@@ -20,24 +20,24 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:url" content="http://192.241.186.225/tags/algorithms/" />
+<meta property="og:url" content="http://localhost:1313/tags/algorithms/" />
 
 
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="http://192.241.186.225/css/normalize.css">
-  <link rel="stylesheet" href="http://192.241.186.225/css/skeleton.css">
-  <link rel="stylesheet" href="http://192.241.186.225/css/main.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/normalize.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/skeleton.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/main.css">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  <link href="http://192.241.186.225/tags/algorithms/index.xml" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
+  <link href="http://localhost:1313/tags/algorithms/index.xml" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
 
   
-  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/railscasts.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/highlight/railscasts.css">
   <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
@@ -56,7 +56,7 @@
 
     <nav class="nav">
       <ul class="nav-list">
-        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://192.241.186.225">Home</a></li>
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://localhost:1313">Home</a></li>
         
       </ul>
     </nav>
@@ -81,19 +81,22 @@
             </header>
             <p class="post-meta">
             	
+              <span class="post-tag"> Published on  <span>
 		          <span class="post-date">
                 <span class="post-date-month">October</span> 
 		            <span class="post-date-day"> 19, </span>
                 <span class="post-date-year">2014</span>
-		          </span>
-      				
-      				
-      					
-      				
+              </span> 
+              <span class="post-tag"> in <span>
               
                 
-              
+                  
+                    <a class="post-tag post-tag-algorithms" href="http://localhost:1313/tags/algorithms">algorithms</a>
+                  
+                
       				
+
+
             </p>
             <article class="post-summary">
             	Bloom Filters is one of those data structures that you don&rsquo;t generally learn about in a typical data structures 101 class, but wish you had learnt once you know about them. Despite reading several articles on bloom filters I was still finding it hard to grasp the concepts until the last week when I decided to sit down and not get up until I get the hang of it. Below is an article where I attempt to explain what I understood in a clear way (hopefully) so that others can learn.
@@ -112,19 +115,22 @@
             </header>
             <p class="post-meta">
             	
+              <span class="post-tag"> Published on  <span>
 		          <span class="post-date">
                 <span class="post-date-month">July</span> 
 		            <span class="post-date-day"> 22, </span>
                 <span class="post-date-year">2014</span>
-		          </span>
-      				
-      				
-      					
-      				
+              </span> 
+              <span class="post-tag"> in <span>
               
                 
-              
+                  
+                    <a class="post-tag post-tag-algorithms" href="http://localhost:1313/tags/algorithms">algorithms</a>
+                  
+                
       				
+
+
             </p>
             <article class="post-summary">
             	On a recent (rather long) flight, while I was devouring Jon Bentley&rsquo;s Programming Pearls, I came across this rather interesting problem. The problem is simple - How will you a rotate a string of length n by i steps in place i.e. without using any extra space? The example shown below makes it quite clear. Now the easiest way to do this is to simply save the i chars in a separate vector, shift the remaining chars by i and finally, paste the initial i items at the back.
@@ -151,5 +157,8 @@
   
     </div>
   </div>
-</body>
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
 </html>

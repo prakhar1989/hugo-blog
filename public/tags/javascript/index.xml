@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javascript on cat /dev/random</title>
-    <link>http://192.241.186.225/tags/javascript/</link>
+    <link>http://localhost:1313/tags/javascript/</link>
     <description>Recent content in Javascript on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Sat, 02 Aug 2014 12:34:58 AST</lastBuildDate>
-    <atom:link href="http://192.241.186.225/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Organizing Angular Apps for Testing</title>
-      <link>http://192.241.186.225/articles/organizing-angular-apps-for-testing/</link>
+      <link>http://localhost:1313/articles/organizing-angular-apps-for-testing/</link>
       <pubDate>Sat, 02 Aug 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/organizing-angular-apps-for-testing/</guid>
+      <guid>http://localhost:1313/articles/organizing-angular-apps-for-testing/</guid>
       <description>
 
 &lt;p&gt;In the &lt;a href=&#34;/articles/choosing-angular&#34;&gt;last post&lt;/a&gt;, I talked about how we moved away from jQuery to Angularjs to power our single page application. To recap, the major problems with our existing code which convinced us to do a rewrite -&lt;/p&gt;
@@ -278,55 +278,11 @@ files: [
     </item>
     
     <item>
-      <title>Fun with SparkFun</title>
-      <link>http://192.241.186.225/articles/fun-with-sparkfun/</link>
-      <pubDate>Mon, 14 Jul 2014 12:34:58 AST</pubDate>
-      
-      <guid>http://192.241.186.225/articles/fun-with-sparkfun/</guid>
-      <description>&lt;p&gt;This is about a quick hack that I did. Couple of days back, I came across a cool project called &lt;a href=&#34;https://data.sparkfun.com/&#34;&gt;SparkFun&lt;/a&gt; on &lt;a href=&#34;https://news.ycombinator.com/item?id=8015354&#34;&gt;HN&lt;/a&gt; which is free online service to push your data. It allows you to create streams and then push data via a simple HTTP call. The primary motivation behind the service is to enable devices connected via Internet of Things to push data online easily.&lt;/p&gt;
-
-&lt;p&gt;I had been crawling a few websites to need of latest remittance rates to my home country (the rates offered for remittance differ quite substantially from the current spot rates). Its a &lt;a href=&#34;http://casperjs.org/&#34;&gt;casperjs&lt;/a&gt; script that crawls the page and sends me an email. Clearly, email was getting hard to analyse trends and see history - but I was quite lazy to work on setting up persistence for this quick hack. When I saw Sparkfun I instantly knew how I could achieve logging.&lt;/p&gt;
-
-&lt;p&gt;In case you&amp;rsquo;re wondering on the architecture, here&amp;rsquo;s a &lt;a href=&#34;https://news.ycombinator.com/item?id=8016011&#34;&gt;comment&lt;/a&gt; by one of the founders -&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;By default it writes metadata about the stream (title, description, etc) using a file based db called nedb, and it appends the actual logged data to CSV files that are split into 500k chunks. When the user requests their logged data, all of the files are stitched back together, converted into the requested format (JSON, CSV, etc), and streamed to the user’s web client.
-For the production server, we are currently using MongoDb for metadata storage and the same CSV module for logged data storage.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Here&amp;rsquo;s the &lt;a href=&#34;https://data.sparkfun.com/streams/0llnrLvRyOFYXyv3yDD6&#34;&gt;stream&lt;/a&gt; that you can check for remittance rates. This is updated every 4 hours (as the bank itself updates the rates 5-6 times a day).  And below is the code that makes it possible -&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;var casper = require(&#39;casper&#39;).create();
- 
-var home_url = &amp;quot;https://applications2.almullagroup.com/onlineremit/faces/infrastructure/EXLogin.jspx&amp;quot;;
-var sparkfun_url = &amp;quot;https://data.sparkfun.com/input/XCVB?private_key=ABCD&amp;amp;INR=&amp;quot;
- 
-casper.start(home_url);
-
-casper.waitForSelector(&amp;quot;form#form1&amp;quot;);
- 
-casper.then(function() {
-  this.fill(&#39;form[name=&amp;quot;form1&amp;quot;]&#39;,{ &#39;showrate&#39; : &#39;2&#39;});
-  this.click(&#39;input[type=submit]&#39;)
-});
- 
-casper.then(function(){
-  var rate = this.getHTML(&#39;tr:nth-child(4) td:nth-child(4) span&#39;);
-  this.echo(&amp;quot;AMX REMIT RATE - Rs.&amp;quot; +  rate); // later sent as an email as well
-  this.open(sparkfun_url + rate);
-});
- 
-casper.run();
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;em&gt;Special thanks to &lt;a href=&#34;http://dushyantrao.github.io/&#34;&gt;Dushyant&lt;/a&gt; for introducing me to CasperJs&lt;/em&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Making the Blog Instant</title>
-      <link>http://192.241.186.225/articles/2014-02-08-making-the-blog-instant/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      <link>http://localhost:1313/articles/making-the-blog-instant/</link>
+      <pubDate>Sat, 08 Feb 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/2014-02-08-making-the-blog-instant/</guid>
+      <guid>http://localhost:1313/articles/making-the-blog-instant/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://instantclick.io/&#34;&gt;InstantClick.js&lt;/a&gt; was &lt;a href=&#34;https://news.ycombinator.com/item?id=7201353&#34;&gt;released&lt;/a&gt; on Hacker News today and I thought I will give it a whirl on my blog.&lt;/p&gt;
 
 &lt;p&gt;InstantClick is a simple library takes makes your pages faster by prefetching the target URL on hover (&amp;amp; touchstart in case of mobile). Based on the concept of &lt;a href=&#34;https://github.com/rails/turbolinks&#34;&gt;Turbolinks&lt;/a&gt; and &lt;a href=&#34;http://pjax.heroku.com/&#34;&gt;PJAX&lt;/a&gt; it works by utilizing the 200ms-300ms difference between a hover and a click to fetch the target content via an Ajax call. The obvious downside to this is that the server will have to serve requests that the user never really clicks on. The library also provides a &lt;code&gt;mousedown&lt;/code&gt; event that can be used in place of &lt;code&gt;hover&lt;/code&gt; for prefetching which can serve to reduce load on the webserver and still make the site feel fast.&lt;/p&gt;

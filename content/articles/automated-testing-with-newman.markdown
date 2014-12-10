@@ -1,9 +1,7 @@
 ---
-layout: post
 title: Automated Testing With Newman
-description: Kicking ass with Cron & Newman
-category: articles
-tags: [postman, newman]
+date: 2014-05-24T12:34:58+03:00
+tags: [postman, nodejs]
 ---
 
 Steve Klabnik, the developer at Balanced recently put up a post on the company blog talking about doing [TDD for APIs](http://blog.balancedpayments.com/tdd-your-api/) where he advocates a strong case for following Test Driven Development for APIs. For a lot of companies like Balanced, Stripe, Parse etc the API is their primary product. Hence, it makes sense to have strong development and testing practices for these APIs. 
@@ -20,7 +18,8 @@ Until now, since all the tests run inside Postman this was not possible for Jetp
 Here's how we can do it with Newman.
 
 Lets setup a simple script called `run_newman` to run our tests
-{% highlight bash %}
+
+```
 #!/bin/bash
 
 timestamp=$(date +"%s") 
@@ -32,29 +31,29 @@ outfile=/var/www/myapp/tests/outfile-$timestamp.json
 
 # redirect all output to /dev/null
 newman -c $collection -c $env -o $outfile > /dev/null2>&1
-{% endhighlight %}
+```
 
 Make it an executable
-{% highlight bash %}
+```
 $ chmod +x run_newman
-{% endhighlight %}
+```
 
 To run Newman every hour, run `crontab -e` and enter the following - 
-{% highlight bash %}
+```
 0 * * * * /path/to/run_newman
-{% endhighlight %}
+```
 
 Check your `cron` if it has been setup
-{% highlight bash %}
+```
 $ crontab -l
 0 * * * * /path/to/run_newman
-{% endhighlight %}
+```
 
 With this, we have Newman ready to run automatically every hour and test our APIs. Do note that instructions of setting up cron vary upon the specific *nix distribution. Make sure to google on how to setup cron for your distribution.
 
 Lets have it to do one more thing - send us email alerts in case our tests fail. Newman allows users to use a `-s` flag to signal a STDERR and halts the run in case any of the tests fail. This makes it very easy to have simple alert logic in the cron script itself.
 
-{% highlight bash %}
+```
 #!/bin/bash
 
 timestamp=$(date +"%s") 
@@ -75,6 +74,6 @@ command="$(newman -c $collection -c $env -o $outfile 2>&1 > /dev/null)"
 if [ "$?" -ne "0" ]; then
 	mail $RCVR -s "$SUBJ"
 fi
-{% endhighlight %}
+```
 
-As you can see, Newman is an extremely useful tool that you can use with Postman to automate testing of your APIs!
+I hope you agree that Newman is an extremely useful tool that you can use with Postman to automate testing of your APIs!

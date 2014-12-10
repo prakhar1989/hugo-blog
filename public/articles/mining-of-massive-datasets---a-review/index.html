@@ -20,14 +20,14 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:url" content="http://192.241.186.225/articles/mining-of-massive-datasets---a-review/" />
+<meta property="og:url" content="http://localhost:1313/articles/mining-of-massive-datasets---a-review/" />
 
 
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="http://192.241.186.225/css/normalize.css">
-  <link rel="stylesheet" href="http://192.241.186.225/css/skeleton.css">
-  <link rel="stylesheet" href="http://192.241.186.225/css/main.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/normalize.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/skeleton.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/main.css">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
@@ -37,7 +37,7 @@
   <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
 
   
-  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/railscasts.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/highlight/railscasts.css">
   <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
@@ -73,9 +73,7 @@
 				<div class="tags-list">
 					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
 					
-            <a class="post-tag post-tag-courses" href="http://192.241.186.225/tags/courses">courses</a>,
-          
-            <a class="post-tag post-tag-review" href="http://192.241.186.225/tags/review">review</a>,
+            <a class="post-tag post-tag-courses" href="http://localhost:1313/tags/courses">courses</a>,
           
 				</div>
 			
@@ -142,6 +140,11 @@
 				<div class="paging">
 					<span class="paging-label">More Reading</span>
 					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/about/">about</a>
+		            </div>
+		            
 
 					
 					<div class="paging-older">
@@ -176,5 +179,8 @@
   
     </div>
   </div>
-</body>
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
 </html>

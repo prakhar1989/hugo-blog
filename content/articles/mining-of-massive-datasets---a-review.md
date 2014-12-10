@@ -1,7 +1,7 @@
 ---
 date: 2014-12-01T12:34:58+03:00
 title: Mining of Massive DataSets - A Review
-tags: [courses, review]
+tags: [courses]
 ---
 
 If you've been keeping track, I've hardly published a single article in the last month. In my defense, the last 7 months have been extremely hectic. High work pressure and a rather dense online course kept most of the drafts from seeing the light of day. Before I jump in reviewing the course i.e. [Mining Massive DataSets (MMDS)](https://www.coursera.org/course/mmds), here's a quick short story for some context.

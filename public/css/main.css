@@ -14,6 +14,7 @@ body {
 blockquote {
   background: #e9f2f7;
   padding: 2rem;
+  margin: 1rem 0 1rem 2rem;
 }
 
 blockquote p {
@@ -70,14 +71,12 @@ h1.post-title a {
 
 p.post-meta {
   margin: 1rem 0;
-  text-transform: uppercase;
   font-size: 1.2rem;
-  font-style: italic;
 }
 
-span.post-date {
-  padding: 0.5rem;
-  background: #e9f2f7;
+a.post-tag {
+  text-decoration: none;
+  font-weight: 800;
 }
 
 /* MEDIA QUERIES */

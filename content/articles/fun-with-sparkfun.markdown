@@ -1,7 +1,7 @@
 ---
 title: Fun with SparkFun
 date: 2014-07-14T12:34:58+03:00
-tags: [javascript]
+tags: [side-projects nodejs]
 ---
 
 This is about a quick hack that I did. Couple of days back, I came across a cool project called [SparkFun](https://data.sparkfun.com/) on [HN](https://news.ycombinator.com/item?id=8015354) which is free online service to push your data. It allows you to create streams and then push data via a simple HTTP call. The primary motivation behind the service is to enable devices connected via Internet of Things to push data online easily.

@@ -20,14 +20,14 @@
 <meta property="og:description" content="No BS guide to deploying a Flask app" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:url" content="http://192.241.186.225/articles/2014-03-07-flask-on-nginx-and-gunicorn/" />
+<meta property="og:url" content="http://localhost:1313/articles/2014-03-07-flask-on-nginx-and-gunicorn/" />
 
 
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="http://192.241.186.225/css/normalize.css">
-  <link rel="stylesheet" href="http://192.241.186.225/css/skeleton.css">
-  <link rel="stylesheet" href="http://192.241.186.225/css/main.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/normalize.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/skeleton.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/main.css">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
@@ -37,7 +37,7 @@
   <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
 
   
-  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/railscasts.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/highlight/railscasts.css">
   <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
@@ -73,13 +73,13 @@
 				<div class="tags-list">
 					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
 					
-            <a class="post-tag post-tag-nginx" href="http://192.241.186.225/tags/nginx">nginx</a>,
+            <a class="post-tag post-tag-nginx" href="http://localhost:1313/tags/nginx">nginx</a>,
           
-            <a class="post-tag post-tag-flask" href="http://192.241.186.225/tags/flask">flask</a>,
+            <a class="post-tag post-tag-flask" href="http://localhost:1313/tags/flask">flask</a>,
           
-            <a class="post-tag post-tag-python" href="http://192.241.186.225/tags/python">python</a>,
+            <a class="post-tag post-tag-python" href="http://localhost:1313/tags/python">python</a>,
           
-            <a class="post-tag post-tag-deployment" href="http://192.241.186.225/tags/deployment">deployment</a>,
+            <a class="post-tag post-tag-deployment" href="http://localhost:1313/tags/deployment">deployment</a>,
           
 				</div>
 			
@@ -239,14 +239,14 @@ env.hosts = [&ldquo;33.33.33.33&rdquo;]</p>
 					
 					<div class="paging-newer">
 						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
-						<a class="paging-link" href="/articles/2014-04-05-thinking-for-programmers/">Thinking For Programmers</a>
+						<a class="paging-link" href="/articles/2014-02-22-deal-with-it/">Deal With It</a>
 		            </div>
 		            
 
 					
 					<div class="paging-older">
 						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
-			            <a class="paging-link" href="/articles/2014-05-05-newman-is-live/">Newman Is Live</a>
+			            <a class="paging-link" href="/articles/2014-04-05-thinking-for-programmers/">Thinking For Programmers</a>
 		            </div>
 		            
 	            </div>
@@ -276,5 +276,8 @@ env.hosts = [&ldquo;33.33.33.33&rdquo;]</p>
   
     </div>
   </div>
-</body>
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
 </html>

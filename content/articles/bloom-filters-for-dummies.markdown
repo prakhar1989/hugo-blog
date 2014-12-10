@@ -1,7 +1,7 @@
 ---
 date: 2014-10-19T12:34:58+03:00
 title: Bloom Filters for Dummies
-tags: [algorithms, CS]
+tags: [algorithms]
 ---
 
 Bloom Filters is one of those data structures that you don't generally learn about in a typical data structures 101 class, but wish you had learnt once you know about them. Despite reading several articles on bloom filters I was still finding it hard to grasp the concepts until the last week when I decided to sit down and not get up until I get the hang of it. Below is an article where I attempt to explain what I understood in a clear way (hopefully) so that others can learn.

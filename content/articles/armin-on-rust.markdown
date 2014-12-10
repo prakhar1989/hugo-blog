@@ -1,7 +1,7 @@
 ---
 title: Armin on Rust
 date: 2014-10-01T12:34:58+03:00
-tags: [quotes, rust]
+tags: [rust]
 ---
 
 I've been trying out Rust for some time and have been totally loving it so far. Glad to see that Armin Ronacher, one of the programmers I highly respect [feels the same](http://lucumr.pocoo.org/2014/10/1/a-fresh-look-at-rust/)!

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Github on cat /dev/random</title>
-    <link>http://192.241.186.225/tags/github/</link>
+    <link>http://localhost:1313/tags/github/</link>
     <description>Recent content in Github on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Mon, 01 Jan 0001 00:00:00 UTC</lastBuildDate>
-    <atom:link href="http://192.241.186.225/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/github/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>It Ends</title>
-      <link>http://192.241.186.225/articles/2014-05-27-it-ends/</link>
+      <link>http://localhost:1313/articles/2014-05-27-it-ends/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
-      <guid>http://192.241.186.225/articles/2014-05-27-it-ends/</guid>
+      <guid>http://localhost:1313/articles/2014-05-27-it-ends/</guid>
       <description>&lt;figure&gt;
     &lt;a href=&#34;#&#34;&gt;&lt;img src=&#34;/images/github_streak.png&#34;&gt;&lt;/a&gt;
     &lt;figcaption&gt;&lt;a href=&#34;https://github.com/prakhar1989&#34; title=&#34;Newman Demo&#34;&gt;Github Streak&lt;/a&gt;.&lt;/figcaption&gt;

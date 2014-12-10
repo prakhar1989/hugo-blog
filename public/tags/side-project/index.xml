@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Side Project on cat /dev/random</title>
-    <link>http://192.241.186.225/tags/side-project/</link>
+    <link>http://localhost:1313/tags/side-project/</link>
     <description>Recent content in Side Project on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Mon, 11 Aug 2014 12:34:58 AST</lastBuildDate>
-    <atom:link href="http://192.241.186.225/tags/side-project/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/side-project/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Weekend Hack - Monte Pi</title>
-      <link>http://192.241.186.225/articles/pi-approximations-using-monte-carlo/</link>
+      <link>http://localhost:1313/articles/pi-approximations-using-monte-carlo/</link>
       <pubDate>Mon, 11 Aug 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/pi-approximations-using-monte-carlo/</guid>
+      <guid>http://localhost:1313/articles/pi-approximations-using-monte-carlo/</guid>
       <description>&lt;figure&gt; &lt;img src=&#34;https://raw.githubusercontent.com/prakhar1989/monte-pie/master/shot.png&#34;&gt; &lt;/figure&gt;
 
 &lt;p&gt;I spent this weekend building a cool visualization to better understand Monte Carlo methods. With [p5.js]() just being released last week, I was anxiously looking for a project idea that I could use this library for. Thanks to a &lt;a href=&#34;http://www.cs.princeton.edu/~dpw/courses/cos326-12/&#34;&gt;Functional Programming&lt;/a&gt; course that I was working on last week, the idea came soon enough.&lt;/p&gt;
