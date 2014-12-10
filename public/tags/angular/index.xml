@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Angular on cat /dev/random</title>
-    <link>http://localhost:1313/tags/angular/</link>
+    <link>http://192.241.186.225/tags/angular/</link>
     <description>Recent content in Angular on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Mon, 01 Jan 0001 00:00:00 UTC</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/angular/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://192.241.186.225/tags/angular/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Choosing Angular</title>
-      <link>http://localhost:1313/articles/2014-07-06-choosing-angular/</link>
+      <link>http://192.241.186.225/articles/2014-07-06-choosing-angular/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
-      <guid>http://localhost:1313/articles/2014-07-06-choosing-angular/</guid>
+      <guid>http://192.241.186.225/articles/2014-07-06-choosing-angular/</guid>
       <description>&lt;p&gt;For the last couple of weeks I&amp;rsquo;ve spent a good deal of time on building a
 brand new checkout for &lt;a href=&#34;http://www.xcite.com&#34;&gt;Xcite.com&lt;/a&gt;. Like other ecommerce
 websites, our website has a conventional 3 step checkout - login/signup,

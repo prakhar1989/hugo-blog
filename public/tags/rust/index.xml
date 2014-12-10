@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rust on cat /dev/random</title>
-    <link>http://localhost:1313/tags/rust/</link>
+    <link>http://192.241.186.225/tags/rust/</link>
     <description>Recent content in Rust on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Wed, 01 Oct 2014 12:34:58 AST</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://192.241.186.225/tags/rust/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Armin on Rust</title>
-      <link>http://localhost:1313/articles/armin-on-rust/</link>
+      <link>http://192.241.186.225/articles/armin-on-rust/</link>
       <pubDate>Wed, 01 Oct 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/armin-on-rust/</guid>
+      <guid>http://192.241.186.225/articles/armin-on-rust/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve been trying out Rust for some time and have been totally loving it so far. Glad to see that Armin Ronacher, one of the programmers I highly respect &lt;a href=&#34;http://lucumr.pocoo.org/2014/10/1/a-fresh-look-at-rust/&#34;&gt;feels the same&lt;/a&gt;!&lt;/p&gt;
 
 &lt;blockquote&gt;
