@@ -93,6 +93,11 @@
   </url>
   
   <url>
+    <loc>http://192.241.186.225/articles/2013-05-08-using-blueprints/</loc>
+    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://192.241.186.225/articles/2013-05-07-application-structure/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
@@ -103,7 +108,7 @@
   </url>
   
   <url>
-    <loc>http://192.241.186.225/articles/2013-05-08-using-blueprints/</loc>
+    <loc>http://192.241.186.225/articles/2013-05-09-class-based-views/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -113,17 +118,7 @@
   </url>
   
   <url>
-    <loc>http://192.241.186.225/articles/2013-05-09-class-based-views/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://192.241.186.225/articles/2014-02-07-debugging-akamai/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://192.241.186.225/articles/2014-02-08-making-the-blog-instant/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -133,7 +128,7 @@
   </url>
   
   <url>
-    <loc>http://192.241.186.225/articles/2014-02-22-deal-with-it/</loc>
+    <loc>http://192.241.186.225/articles/2014-02-08-making-the-blog-instant/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -143,27 +138,17 @@
   </url>
   
   <url>
-    <loc>http://192.241.186.225/articles/2014-02-14-kuwait-civil-id-checksum/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://192.241.186.225/articles/2014-03-07-flask-on-nginx-and-gunicorn/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://192.241.186.225/articles/2014-04-05-thinking-for-programmers/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://192.241.186.225/articles/2014-02-20-why-we-dont-sell-ads/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://192.241.186.225/articles/2014-05-05-newman-is-live/</loc>
+    <loc>http://192.241.186.225/articles/2014-02-14-kuwait-civil-id-checksum/</loc>
+    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.241.186.225/articles/2014-02-22-deal-with-it/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -173,7 +158,22 @@
   </url>
   
   <url>
-    <loc>http://192.241.186.225/articles/2014-05-27-it-ends/</loc>
+    <loc>http://192.241.186.225/articles/2014-03-07-flask-on-nginx-and-gunicorn/</loc>
+    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.241.186.225/articles/2014-05-05-newman-is-live/</loc>
+    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.241.186.225/articles/2014-04-05-thinking-for-programmers/</loc>
+    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.241.186.225/articles/2014-05-24-automated-testing-with-newman/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -183,12 +183,12 @@
   </url>
   
   <url>
-    <loc>http://192.241.186.225/articles/2014-05-31-no-excuses/</loc>
+    <loc>http://192.241.186.225/articles/2014-05-27-it-ends/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://192.241.186.225/articles/2014-05-24-automated-testing-with-newman/</loc>
+    <loc>http://192.241.186.225/articles/2014-05-31-no-excuses/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
