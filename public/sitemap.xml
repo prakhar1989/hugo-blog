@@ -2,203 +2,198 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2014-12-10T12:34:58+03:00</lastmod>
+    <loc>http://192.241.186.225/</loc>
+    <lastmod>2014-12-01T12:34:58+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/about/</loc>
-    <lastmod>2014-12-10T12:34:58+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/articles/mining-of-massive-datasets---a-review/</loc>
+    <loc>http://192.241.186.225/articles/mining-of-massive-datasets---a-review/</loc>
     <lastmod>2014-12-01T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/demistifying-decorators/</loc>
+    <loc>http://192.241.186.225/articles/demistifying-decorators/</loc>
     <lastmod>2014-11-03T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/bloom-filters-for-dummies/</loc>
+    <loc>http://192.241.186.225/articles/bloom-filters-for-dummies/</loc>
     <lastmod>2014-10-19T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/just-learn/</loc>
+    <loc>http://192.241.186.225/articles/just-learn/</loc>
     <lastmod>2014-10-02T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/armin-on-rust/</loc>
+    <loc>http://192.241.186.225/articles/armin-on-rust/</loc>
     <lastmod>2014-10-01T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/a-happy-accident/</loc>
+    <loc>http://192.241.186.225/articles/a-happy-accident/</loc>
     <lastmod>2014-09-13T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/why-do-you-want-to-do-great-things/</loc>
+    <loc>http://192.241.186.225/articles/why-do-you-want-to-do-great-things/</loc>
     <lastmod>2014-08-14T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/maciej-on-matasano/</loc>
+    <loc>http://192.241.186.225/articles/maciej-on-matasano/</loc>
     <lastmod>2014-08-12T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/pi-approximations-using-monte-carlo/</loc>
+    <loc>http://192.241.186.225/articles/pi-approximations-using-monte-carlo/</loc>
     <lastmod>2014-08-11T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/organizing-angular-apps-for-testing/</loc>
+    <loc>http://192.241.186.225/articles/organizing-angular-apps-for-testing/</loc>
     <lastmod>2014-08-02T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/goooal/</loc>
+    <loc>http://192.241.186.225/articles/goooal/</loc>
     <lastmod>2014-07-30T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/the-string-rotation-problem/</loc>
+    <loc>http://192.241.186.225/articles/the-string-rotation-problem/</loc>
     <lastmod>2014-07-22T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/heidi-roizen-on-etl/</loc>
+    <loc>http://192.241.186.225/articles/heidi-roizen-on-etl/</loc>
     <lastmod>2014-07-19T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/fun-with-sparkfun/</loc>
+    <loc>http://192.241.186.225/articles/fun-with-sparkfun/</loc>
     <lastmod>2014-07-14T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/choosing-angular/</loc>
+    <loc>http://192.241.186.225/articles/choosing-angular/</loc>
     <lastmod>2014-07-06T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/swift-first-impressions/</loc>
+    <loc>http://192.241.186.225/articles/swift-first-impressions/</loc>
     <lastmod>2014-06-09T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/no-excuses/</loc>
+    <loc>http://192.241.186.225/articles/no-excuses/</loc>
     <lastmod>2014-05-31T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/it-ends/</loc>
+    <loc>http://192.241.186.225/articles/it-ends/</loc>
     <lastmod>2014-05-27T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/evan-priestly-on-php/</loc>
+    <loc>http://192.241.186.225/articles/evan-priestly-on-php/</loc>
     <lastmod>2014-05-25T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/automated-testing-with-newman/</loc>
+    <loc>http://192.241.186.225/articles/automated-testing-with-newman/</loc>
     <lastmod>2014-05-24T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/being-a-senior-engineer/</loc>
+    <loc>http://192.241.186.225/articles/being-a-senior-engineer/</loc>
     <lastmod>2014-03-31T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/a-few-git-tricks/</loc>
+    <loc>http://192.241.186.225/articles/a-few-git-tricks/</loc>
     <lastmod>2014-02-27T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/kuwait-civil-id-checksum/</loc>
+    <loc>http://192.241.186.225/articles/kuwait-civil-id-checksum/</loc>
     <lastmod>2014-02-14T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/making-the-blog-instant/</loc>
+    <loc>http://192.241.186.225/articles/making-the-blog-instant/</loc>
     <lastmod>2014-02-08T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/2013-05-08-using-blueprints/</loc>
+    <loc>http://192.241.186.225/articles/2013-05-07-application-structure/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/2013-05-06-beginning-flask/</loc>
+    <loc>http://192.241.186.225/articles/2013-05-08-using-blueprints/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/2013-05-07-application-structure/</loc>
+    <loc>http://192.241.186.225/articles/2013-05-06-beginning-flask/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/2013-05-09-class-based-views/</loc>
+    <loc>http://192.241.186.225/articles/2013-05-09-class-based-views/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/2013-05-12-enums-in-python/</loc>
+    <loc>http://192.241.186.225/articles/2013-05-12-enums-in-python/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/2014-02-07-debugging-akamai/</loc>
+    <loc>http://192.241.186.225/articles/2014-02-07-debugging-akamai/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/2014-02-07-programming-is-hard/</loc>
+    <loc>http://192.241.186.225/articles/2014-02-07-programming-is-hard/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/2014-02-10-quantity/</loc>
+    <loc>http://192.241.186.225/articles/2014-02-10-quantity/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/2014-02-20-why-we-dont-sell-ads/</loc>
+    <loc>http://192.241.186.225/articles/2014-02-22-deal-with-it/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/2014-02-22-deal-with-it/</loc>
+    <loc>http://192.241.186.225/articles/2014-04-05-thinking-for-programmers/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/2014-04-05-thinking-for-programmers/</loc>
+    <loc>http://192.241.186.225/articles/2014-02-20-why-we-dont-sell-ads/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/2014-03-07-flask-on-nginx-and-gunicorn/</loc>
+    <loc>http://192.241.186.225/articles/2014-03-07-flask-on-nginx-and-gunicorn/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/2014-04-10-write-code-everyday/</loc>
+    <loc>http://192.241.186.225/articles/2014-04-10-write-code-everyday/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/articles/2014-05-05-newman-is-live/</loc>
+    <loc>http://192.241.186.225/articles/2014-05-05-newman-is-live/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
