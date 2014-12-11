@@ -133,7 +133,7 @@
   </url>
   
   <url>
-    <loc>http://192.241.186.225/articles/2013-05-06-beginning-flask/</loc>
+    <loc>http://192.241.186.225/articles/2013-05-08-using-blueprints/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -143,7 +143,7 @@
   </url>
   
   <url>
-    <loc>http://192.241.186.225/articles/2013-05-08-using-blueprints/</loc>
+    <loc>http://192.241.186.225/articles/2013-05-06-beginning-flask/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -163,11 +163,6 @@
   </url>
   
   <url>
-    <loc>http://192.241.186.225/articles/2014-02-07-debugging-akamai/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://192.241.186.225/articles/2014-02-20-why-we-dont-sell-ads/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
@@ -183,17 +178,22 @@
   </url>
   
   <url>
+    <loc>http://192.241.186.225/articles/2014-03-07-flask-on-nginx-and-gunicorn/</loc>
+    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.241.186.225/articles/2014-02-07-debugging-akamai/</loc>
+    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://192.241.186.225/articles/2014-04-10-write-code-everyday/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://192.241.186.225/articles/2014-05-05-newman-is-live/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://192.241.186.225/articles/2014-03-07-flask-on-nginx-and-gunicorn/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
