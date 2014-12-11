@@ -4,7 +4,7 @@ body {
 
 .container {
   background: white;
-  max-width: 760px;
+  max-width: 700px;
   position: relative;
   margin: 0 auto;
   padding: 3rem;
@@ -13,7 +13,7 @@ body {
 
 .post-header {
   border-bottom: 1px solid #eee;
-  background: #f36c3d;
+  background: #f0e7db;
 }
 
 .post-header .container {
@@ -28,7 +28,7 @@ body {
 }
 
 .post-header a {
-  color: white;
+  color: #c2a070;
   text-decoration: none;
 }
 
@@ -127,11 +127,15 @@ section.post {
 }
 
 section ol, section ul {
-  padding-left: 1.5rem;
+  padding-left: 2.0rem;
+}
+
+ol {
+  list-style: decimal outside;
 }
 
 ul {
-  list-style: disc inside;
+  list-style: disc outside;
 }
 
 div.post-title a.title {
@@ -165,7 +169,7 @@ h1.post-title a {
   margin-right: 2.7rem;
   letter-spacing: 0.2rem;
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
 }
 
 p.post-meta {
@@ -230,13 +234,13 @@ div.post-meta, .paging {
 
   .nav-list li a {
     margin-right: 0rem;
-    margin-left: 3.2rem;
+    margin-left: 1.5rem;
   }
 }
 
 @media (min-width: 420px) {
   .nav-list li a {
     margin-right: 0rem;
-    margin-left: 3.2rem;
+    margin-left: 1.5rem;
   }
 }
