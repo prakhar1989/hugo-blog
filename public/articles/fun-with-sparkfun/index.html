@@ -37,8 +37,9 @@
   <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
 
   
-  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/railscasts.css">
-  <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/github.css">
+  <script src="http://192.241.186.225/js/highlight.min.js"></script>
+
   <script>hljs.initHighlightingOnLoad();</script>
 
   
@@ -46,13 +47,28 @@
 
 
 <body>
+      <div class="post-header">
+  <div class="container">
+    <div class="row">
+      <div class="eight columns">
+        <h4><a href="/">CAT /DEV/RANDOM</a></h4>
+      </div>
+      <div class="four columns">
+        <ul class="nav-list">
+          <li><a href="/about">About</a></li>
+          <li><a href="/articles">Blog</a></li>
+          <li><a href="/projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
   <div class="container">
     <div class="row">
 
-      <div class="content">
-      
-
-  		<section class="post">
+      <section>
             <h1 class="post-title">
               <a href="/articles/fun-with-sparkfun/">Fun with SparkFun</a>
             </h1>
@@ -60,28 +76,33 @@
             	
             </h3>
 
-        
-          <span class="post-tag"> Published on  <span>
-          <span class="post-date">
-            <span class="post-date-month">July</span> 
-            <span class="post-date-day"> 14, </span>
-            <span class="post-date-year">2014</span>
-          </span> 
-        
+          <div class="post-content-meta">
+
+            
+              <span class="post-tag"> Published on  </span>
+              <span class="post-date">
+                <span class="post-date-month">July</span> 
+                <span class="post-date-day"> 14, </span>
+                <span class="post-date-year">2014</span>
+              </span> 
+            
+
+            
+              <span class="post-tag"> in </span>
+            
+                
+                  <a class="post-tag post-tag-side-projects-nodejs" href="http://192.241.186.225/tags/side-projects-nodejs">side-projects nodejs</a>
+                
+            
+
+         </div>
 
 			
-        <span class="post-tag"> in <span>
-			
-					
-            <a class="post-tag post-tag-side-projects-nodejs" href="http://192.241.186.225/tags/side-projects-nodejs">side-projects nodejs</a>
-          
-			
 
 			
 
-			
-
-            <p>This is about a quick hack that I did. Couple of days back, I came across a cool project called <a href="https://data.sparkfun.com/">SparkFun</a> on <a href="https://news.ycombinator.com/item?id=8015354">HN</a> which is free online service to push your data. It allows you to create streams and then push data via a simple HTTP call. The primary motivation behind the service is to enable devices connected via Internet of Things to push data online easily.</p>
+      <div class="post-content">
+        <p>This is about a quick hack that I did. Couple of days back, I came across a cool project called <a href="https://data.sparkfun.com/">SparkFun</a> on <a href="https://news.ycombinator.com/item?id=8015354">HN</a> which is free online service to push your data. It allows you to create streams and then push data via a simple HTTP call. The primary motivation behind the service is to enable devices connected via Internet of Things to push data online easily.</p>
 
 <p>I had been crawling a few websites to need of latest remittance rates to my home country (the rates offered for remittance differ quite substantially from the current spot rates). Its a <a href="http://casperjs.org/">casperjs</a> script that crawls the page and sends me an email. Clearly, email was getting hard to analyse trends and see history - but I was quite lazy to work on setting up persistence for this quick hack. When I saw Sparkfun I instantly knew how I could achieve logging.</p>
 
@@ -117,16 +138,17 @@ casper.run();
 
 <p><em>Special thanks to <a href="http://dushyantrao.github.io/">Dushyant</a> for introducing me to CasperJs</em></p>
 
+      </div>
 	
 			
 
       </div>
 
-      <div class="row">
+      <div class="row paging">
 			
           
-          <div class="paging-older six columns">
-            <span class="dark-red">&larr;</span>
+          <div class="six columns">
+            <span>&larr;</span>
             <a class="paging-link" href="/articles/choosing-angular/">Choosing Angular</a>
           </div>
           
@@ -134,7 +156,7 @@ casper.run();
 					
           <div class="paging-newer six columns">
             <a class="paging-link" href="/articles/heidi-roizen-on-etl/">Heidi Roizen on ETL</a>
-            <span class="dark-red">&rarr;</span>
+            <span>&rarr;</span>
           </div>
           
 
@@ -147,14 +169,9 @@ casper.run();
           
       <div class="footer">
 	<hr class="thin" />
-	<div class="pure-menu pure-menu-horizontal pure-menu-open">
-		<ul class="footer-menu">
-		
-		</ul>
-	</div>
-
-	<p>&copy; 2014. All rights reserved. </p>
+  <p>Designed with ♥ by Prakhar Srivastav. Powered by <a href="http://gohugo.io">Hugo</a>.</p>
 </div>
+
     </div>
   </div>
 	

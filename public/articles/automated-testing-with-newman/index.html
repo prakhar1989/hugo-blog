@@ -37,8 +37,9 @@
   <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
 
   
-  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/railscasts.css">
-  <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/github.css">
+  <script src="http://192.241.186.225/js/highlight.min.js"></script>
+
   <script>hljs.initHighlightingOnLoad();</script>
 
   
@@ -46,13 +47,28 @@
 
 
 <body>
+      <div class="post-header">
+  <div class="container">
+    <div class="row">
+      <div class="eight columns">
+        <h4><a href="/">CAT /DEV/RANDOM</a></h4>
+      </div>
+      <div class="four columns">
+        <ul class="nav-list">
+          <li><a href="/about">About</a></li>
+          <li><a href="/articles">Blog</a></li>
+          <li><a href="/projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
   <div class="container">
     <div class="row">
 
-      <div class="content">
-      
-
-  		<section class="post">
+      <section>
             <h1 class="post-title">
               <a href="/articles/automated-testing-with-newman/">Automated Testing With Newman</a>
             </h1>
@@ -60,30 +76,35 @@
             	
             </h3>
 
-        
-          <span class="post-tag"> Published on  <span>
-          <span class="post-date">
-            <span class="post-date-month">May</span> 
-            <span class="post-date-day"> 24, </span>
-            <span class="post-date-year">2014</span>
-          </span> 
-        
+          <div class="post-content-meta">
+
+            
+              <span class="post-tag"> Published on  </span>
+              <span class="post-date">
+                <span class="post-date-month">May</span> 
+                <span class="post-date-day"> 24, </span>
+                <span class="post-date-year">2014</span>
+              </span> 
+            
+
+            
+              <span class="post-tag"> in </span>
+            
+                
+                  <a class="post-tag post-tag-postman" href="http://192.241.186.225/tags/postman">postman</a>
+                
+                  <a class="post-tag post-tag-nodejs" href="http://192.241.186.225/tags/nodejs">nodejs</a>
+                
+            
+
+         </div>
 
 			
-        <span class="post-tag"> in <span>
-			
-					
-            <a class="post-tag post-tag-postman" href="http://192.241.186.225/tags/postman">postman</a>
-          
-            <a class="post-tag post-tag-nodejs" href="http://192.241.186.225/tags/nodejs">nodejs</a>
-          
-			
 
 			
 
-			
-
-            <p>Steve Klabnik, the developer at Balanced recently put up a post on the company blog talking about doing <a href="http://blog.balancedpayments.com/tdd-your-api/">TDD for APIs</a> where he advocates a strong case for following Test Driven Development for APIs. For a lot of companies like Balanced, Stripe, Parse etc the API is their primary product. Hence, it makes sense to have strong development and testing practices for these APIs.</p>
+      <div class="post-content">
+        <p>Steve Klabnik, the developer at Balanced recently put up a post on the company blog talking about doing <a href="http://blog.balancedpayments.com/tdd-your-api/">TDD for APIs</a> where he advocates a strong case for following Test Driven Development for APIs. For a lot of companies like Balanced, Stripe, Parse etc the API is their primary product. Hence, it makes sense to have strong development and testing practices for these APIs.</p>
 
 <p>TDD has taken off quite well with DHH and the ruby community strongly making claims of it solving a lot of problems and guaranteeing robust code. With tools like rspec and cucumber the ruby community has certainly been one of the most vocal proponents of this development methodology.</p>
 
@@ -157,16 +178,17 @@ fi
 
 <p>I hope you agree that Newman is an extremely useful tool that you can use with Postman to automate testing of your APIs!</p>
 
+      </div>
 	
 			
 
       </div>
 
-      <div class="row">
+      <div class="row paging">
 			
           
-          <div class="paging-older six columns">
-            <span class="dark-red">&larr;</span>
+          <div class="six columns">
+            <span>&larr;</span>
             <a class="paging-link" href="/articles/being-a-senior-engineer/">Being A Senior Engineer</a>
           </div>
           
@@ -174,7 +196,7 @@ fi
 					
           <div class="paging-newer six columns">
             <a class="paging-link" href="/articles/evan-priestly-on-php/">Evan Priestly on PHP</a>
-            <span class="dark-red">&rarr;</span>
+            <span>&rarr;</span>
           </div>
           
 
@@ -187,14 +209,9 @@ fi
           
       <div class="footer">
 	<hr class="thin" />
-	<div class="pure-menu pure-menu-horizontal pure-menu-open">
-		<ul class="footer-menu">
-		
-		</ul>
-	</div>
-
-	<p>&copy; 2014. All rights reserved. </p>
+  <p>Designed with ♥ by Prakhar Srivastav. Powered by <a href="http://gohugo.io">Hugo</a>.</p>
 </div>
+
     </div>
   </div>
 	

@@ -37,8 +37,9 @@
   <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
 
   
-  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/railscasts.css">
-  <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/github.css">
+  <script src="http://192.241.186.225/js/highlight.min.js"></script>
+
   <script>hljs.initHighlightingOnLoad();</script>
 
   
@@ -46,13 +47,28 @@
 
 
 <body>
+      <div class="post-header">
+  <div class="container">
+    <div class="row">
+      <div class="eight columns">
+        <h4><a href="/">CAT /DEV/RANDOM</a></h4>
+      </div>
+      <div class="four columns">
+        <ul class="nav-list">
+          <li><a href="/about">About</a></li>
+          <li><a href="/articles">Blog</a></li>
+          <li><a href="/projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
   <div class="container">
     <div class="row">
 
-      <div class="content">
-      
-
-  		<section class="post">
+      <section>
             <h1 class="post-title">
               <a href="/articles/pi-approximations-using-monte-carlo/">Weekend Hack - Monte Pi</a>
             </h1>
@@ -60,30 +76,35 @@
             	
             </h3>
 
-        
-          <span class="post-tag"> Published on  <span>
-          <span class="post-date">
-            <span class="post-date-month">August</span> 
-            <span class="post-date-day"> 11, </span>
-            <span class="post-date-year">2014</span>
-          </span> 
-        
+          <div class="post-content-meta">
+
+            
+              <span class="post-tag"> Published on  </span>
+              <span class="post-date">
+                <span class="post-date-month">August</span> 
+                <span class="post-date-day"> 11, </span>
+                <span class="post-date-year">2014</span>
+              </span> 
+            
+
+            
+              <span class="post-tag"> in </span>
+            
+                
+                  <a class="post-tag post-tag-visualization" href="http://192.241.186.225/tags/visualization">visualization</a>
+                
+                  <a class="post-tag post-tag-side-project" href="http://192.241.186.225/tags/side-project">side-project</a>
+                
+            
+
+         </div>
 
 			
-        <span class="post-tag"> in <span>
-			
-					
-            <a class="post-tag post-tag-visualization" href="http://192.241.186.225/tags/visualization">visualization</a>
-          
-            <a class="post-tag post-tag-side-project" href="http://192.241.186.225/tags/side-project">side-project</a>
-          
-			
 
 			
 
-			
-
-            <figure> <img src="https://raw.githubusercontent.com/prakhar1989/monte-pie/master/shot.png"> </figure>
+      <div class="post-content">
+        <figure> <img src="https://raw.githubusercontent.com/prakhar1989/monte-pie/master/shot.png"> </figure>
 
 <p>I spent this weekend building a cool visualization to better understand Monte Carlo methods. With [p5.js]() just being released last week, I was anxiously looking for a project idea that I could use this library for. Thanks to a <a href="http://www.cs.princeton.edu/~dpw/courses/cos326-12/">Functional Programming</a> course that I was working on last week, the idea came soon enough.</p>
 
@@ -91,16 +112,17 @@
 
 <p>Much to my surprise, the project came on the front-page of Hacker News and received a lot of <a href="https://news.ycombinator.com/item?id=8159010">interesting comments</a>!</p>
 
+      </div>
 	
 			
 
       </div>
 
-      <div class="row">
+      <div class="row paging">
 			
           
-          <div class="paging-older six columns">
-            <span class="dark-red">&larr;</span>
+          <div class="six columns">
+            <span>&larr;</span>
             <a class="paging-link" href="/articles/organizing-angular-apps-for-testing/">Organizing Angular Apps for Testing</a>
           </div>
           
@@ -108,7 +130,7 @@
 					
           <div class="paging-newer six columns">
             <a class="paging-link" href="/articles/maciej-on-matasano/">Maciej on Matasano</a>
-            <span class="dark-red">&rarr;</span>
+            <span>&rarr;</span>
           </div>
           
 
@@ -121,14 +143,9 @@
           
       <div class="footer">
 	<hr class="thin" />
-	<div class="pure-menu pure-menu-horizontal pure-menu-open">
-		<ul class="footer-menu">
-		
-		</ul>
-	</div>
-
-	<p>&copy; 2014. All rights reserved. </p>
+  <p>Designed with ♥ by Prakhar Srivastav. Powered by <a href="http://gohugo.io">Hugo</a>.</p>
 </div>
+
     </div>
   </div>
 	

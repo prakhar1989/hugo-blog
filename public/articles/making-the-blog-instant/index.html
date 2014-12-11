@@ -37,8 +37,9 @@
   <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
 
   
-  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/railscasts.css">
-  <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/github.css">
+  <script src="http://192.241.186.225/js/highlight.min.js"></script>
+
   <script>hljs.initHighlightingOnLoad();</script>
 
   
@@ -46,13 +47,28 @@
 
 
 <body>
+      <div class="post-header">
+  <div class="container">
+    <div class="row">
+      <div class="eight columns">
+        <h4><a href="/">CAT /DEV/RANDOM</a></h4>
+      </div>
+      <div class="four columns">
+        <ul class="nav-list">
+          <li><a href="/about">About</a></li>
+          <li><a href="/articles">Blog</a></li>
+          <li><a href="/projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
   <div class="container">
     <div class="row">
 
-      <div class="content">
-      
-
-  		<section class="post">
+      <section>
             <h1 class="post-title">
               <a href="/articles/making-the-blog-instant/">Making the Blog Instant</a>
             </h1>
@@ -60,28 +76,33 @@
             	
             </h3>
 
-        
-          <span class="post-tag"> Published on  <span>
-          <span class="post-date">
-            <span class="post-date-month">February</span> 
-            <span class="post-date-day"> 8, </span>
-            <span class="post-date-year">2014</span>
-          </span> 
-        
+          <div class="post-content-meta">
+
+            
+              <span class="post-tag"> Published on  </span>
+              <span class="post-date">
+                <span class="post-date-month">February</span> 
+                <span class="post-date-day"> 8, </span>
+                <span class="post-date-year">2014</span>
+              </span> 
+            
+
+            
+              <span class="post-tag"> in </span>
+            
+                
+                  <a class="post-tag post-tag-javascript" href="http://192.241.186.225/tags/javascript">javascript</a>
+                
+            
+
+         </div>
 
 			
-        <span class="post-tag"> in <span>
-			
-					
-            <a class="post-tag post-tag-javascript" href="http://192.241.186.225/tags/javascript">javascript</a>
-          
-			
 
 			
 
-			
-
-            <p><a href="http://instantclick.io/">InstantClick.js</a> was <a href="https://news.ycombinator.com/item?id=7201353">released</a> on Hacker News today and I thought I will give it a whirl on my blog.</p>
+      <div class="post-content">
+        <p><a href="http://instantclick.io/">InstantClick.js</a> was <a href="https://news.ycombinator.com/item?id=7201353">released</a> on Hacker News today and I thought I will give it a whirl on my blog.</p>
 
 <p>InstantClick is a simple library takes makes your pages faster by prefetching the target URL on hover (&amp; touchstart in case of mobile). Based on the concept of <a href="https://github.com/rails/turbolinks">Turbolinks</a> and <a href="http://pjax.heroku.com/">PJAX</a> it works by utilizing the 200ms-300ms difference between a hover and a click to fetch the target content via an Ajax call. The obvious downside to this is that the server will have to serve requests that the user never really clicks on. The library also provides a <code>mousedown</code> event that can be used in place of <code>hover</code> for prefetching which can serve to reduce load on the webserver and still make the site feel fast.</p>
 
@@ -89,24 +110,25 @@
 
 <p>Now that the library is integrated the posts on blog seem to load instantly! Thanks open-source!</p>
 
+      </div>
 	
 			
 
       </div>
 
-      <div class="row">
+      <div class="row paging">
 			
           
-          <div class="paging-older six columns">
-            <span class="dark-red">&larr;</span>
-            <a class="paging-link" href="/articles/2013-05-07-application-structure/">Application Structure</a>
+          <div class="six columns">
+            <span>&larr;</span>
+            <a class="paging-link" href="/articles/2013-05-08-using-blueprints/">Using Blueprints</a>
           </div>
           
 
 					
           <div class="paging-newer six columns">
             <a class="paging-link" href="/articles/kuwait-civil-id-checksum/">Checksum</a>
-            <span class="dark-red">&rarr;</span>
+            <span>&rarr;</span>
           </div>
           
 
@@ -119,14 +141,9 @@
           
       <div class="footer">
 	<hr class="thin" />
-	<div class="pure-menu pure-menu-horizontal pure-menu-open">
-		<ul class="footer-menu">
-		
-		</ul>
-	</div>
-
-	<p>&copy; 2014. All rights reserved. </p>
+  <p>Designed with ♥ by Prakhar Srivastav. Powered by <a href="http://gohugo.io">Hugo</a>.</p>
 </div>
+
     </div>
   </div>
 	
