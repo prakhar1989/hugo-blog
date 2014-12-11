@@ -1,5 +1,5 @@
 body {
-  color: #3d4950;
+  color: #283035;
 }
 
 .container {
@@ -12,7 +12,7 @@ body {
 }
 
 .post-header {
-  background: #a2b1b9;
+  border-bottom: 1px solid #eee;
 }
 
 .post-header .container {
@@ -27,7 +27,7 @@ body {
 }
 
 .post-header a {
-  color: #f9fafb;
+  color: #a2b1b9;
   text-decoration: none;
 }
 
@@ -85,7 +85,7 @@ section.post {
   margin-top: 5rem;
 }
 
-ol, ul {
+section ol, section ul {
   padding-left: 1.5rem;
 }
 
@@ -93,10 +93,19 @@ ul {
   list-style: disc inside;
 }
 
-h1.post-title a {
+div.post-title a.title {
   color: #526F7F;
   text-decoration: none;
   font-weight: 600;
+  font-size: 1.5rem;
+}
+
+h1.post-title a {
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.2rem;
+  text-decoration: none;
+  color: #69808c;
 }
 
 .nav-list li {
@@ -107,8 +116,12 @@ h1.post-title a {
   margin-top: 1rem;
 }
 
+.nav-list ul {
+  padding-left: 0;
+}
+
 .nav-list li a {
-  margin-left: 2.7rem;
+  margin-right: 2.7rem;
   letter-spacing: 0.2rem;
   text-transform: uppercase;
   font-size: 0.8rem;
@@ -119,17 +132,28 @@ p.post-meta {
   font-size: 1.2rem;
 }
 
-a.post-tag {
-  text-decoration: none;
-  font-weight: 800;
+div.post-meta {
+  text-align: right;
 }
 
-.paging {
+a.post-tag {
+  text-decoration: none;
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+div.post-meta, .paging {
   display: none;
 }
 
 .paging-newer {
   text-align: right;
+}
+
+.post-date {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .post-content {
@@ -157,7 +181,19 @@ a.post-tag {
   h5 { font-size: 1.2rem; }
   h6 { font-size: 1.2rem; }
   
-  .paging {
+  div.post-meta, .paging {
     display: block;
+  }
+
+  .nav-list li a {
+    margin-right: 0rem;
+    margin-left: 3.2rem;
+  }
+}
+
+@media (min-width: 420px) {
+  .nav-list li a {
+    margin-right: 0rem;
+    margin-left: 3.2rem;
   }
 }
