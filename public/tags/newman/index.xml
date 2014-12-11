@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Newman on cat /dev/random</title>
-    <link>http://localhost:1313/tags/newman/</link>
+    <link>http://192.241.186.225/tags/newman/</link>
     <description>Recent content in Newman on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Mon, 01 Jan 0001 00:00:00 UTC</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/newman/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://192.241.186.225/tags/newman/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Newman Is Live</title>
-      <link>http://localhost:1313/articles/2014-05-05-newman-is-live/</link>
+      <link>http://192.241.186.225/articles/2014-05-05-newman-is-live/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
-      <guid>http://localhost:1313/articles/2014-05-05-newman-is-live/</guid>
+      <guid>http://192.241.186.225/articles/2014-05-05-newman-is-live/</guid>
       <description>&lt;p&gt;And finally, after working non-stop on the project for 45 days &lt;a href=&#34;http://github.com/a85/Newman&#34;&gt;Newman&lt;/a&gt; is finally in beta. Newman is a command-line collection runner for &lt;a href=&#34;http://getpostman.com&#34;&gt;Postman&lt;/a&gt; built fully on Node.js. Newman is my first-ever node.js project and I&amp;rsquo;m extremely glad to have got a chance to build something useful and learn a new technology.&lt;/p&gt;
 
 &lt;figure&gt;

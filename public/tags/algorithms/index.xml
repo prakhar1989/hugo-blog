@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Algorithms on cat /dev/random</title>
-    <link>http://localhost:1313/tags/algorithms/</link>
+    <link>http://192.241.186.225/tags/algorithms/</link>
     <description>Recent content in Algorithms on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Sun, 19 Oct 2014 12:34:58 AST</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/algorithms/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://192.241.186.225/tags/algorithms/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Bloom Filters for Dummies</title>
-      <link>http://localhost:1313/articles/bloom-filters-for-dummies/</link>
+      <link>http://192.241.186.225/articles/bloom-filters-for-dummies/</link>
       <pubDate>Sun, 19 Oct 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/bloom-filters-for-dummies/</guid>
+      <guid>http://192.241.186.225/articles/bloom-filters-for-dummies/</guid>
       <description>
 
 &lt;p&gt;Bloom Filters is one of those data structures that you don&amp;rsquo;t generally learn about in a typical data structures 101 class, but wish you had learnt once you know about them. Despite reading several articles on bloom filters I was still finding it hard to grasp the concepts until the last week when I decided to sit down and not get up until I get the hang of it. Below is an article where I attempt to explain what I understood in a clear way (hopefully) so that others can learn.&lt;/p&gt;
@@ -216,10 +216,10 @@ P(no dart hits the target) = e^(-d/t) = e^(-0.5) = 0.607
     
     <item>
       <title>The String Rotation Problem</title>
-      <link>http://localhost:1313/articles/the-string-rotation-problem/</link>
+      <link>http://192.241.186.225/articles/the-string-rotation-problem/</link>
       <pubDate>Tue, 22 Jul 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/the-string-rotation-problem/</guid>
+      <guid>http://192.241.186.225/articles/the-string-rotation-problem/</guid>
       <description>&lt;p&gt;On a recent (rather long) flight, while I was devouring Jon Bentley&amp;rsquo;s &lt;a href=&#34;http://www.cs.bell-labs.com/cm/cs/pearls/&#34;&gt;Programming Pearls&lt;/a&gt;, I came across this rather interesting problem.&lt;/p&gt;
 
 &lt;p&gt;The problem is simple - How will you a rotate a string of length &lt;code&gt;n&lt;/code&gt; by &lt;code&gt;i&lt;/code&gt; steps in place i.e. without using any extra space?&lt;/p&gt;

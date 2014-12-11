@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Articles on cat /dev/random</title>
-    <link>http://localhost:1313/articles/</link>
+    <link>http://192.241.186.225/articles/</link>
     <description>Recent content in Articles on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Mon, 01 Dec 2014 12:34:58 AST</lastBuildDate>
-    <atom:link href="http://localhost:1313/articles/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://192.241.186.225/articles/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Mining of Massive DataSets - A Review</title>
-      <link>http://localhost:1313/articles/mining-of-massive-datasets---a-review/</link>
+      <link>http://192.241.186.225/articles/mining-of-massive-datasets---a-review/</link>
       <pubDate>Mon, 01 Dec 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/mining-of-massive-datasets---a-review/</guid>
+      <guid>http://192.241.186.225/articles/mining-of-massive-datasets---a-review/</guid>
       <description>
 
 &lt;p&gt;If you&amp;rsquo;ve been keeping track, I&amp;rsquo;ve hardly published a single article in the last month. In my defense, the last 7 months have been extremely hectic. High work pressure and a rather dense online course kept most of the drafts from seeing the light of day. Before I jump in reviewing the course i.e. &lt;a href=&#34;https://www.coursera.org/course/mmds&#34;&gt;Mining Massive DataSets (MMDS)&lt;/a&gt;, here&amp;rsquo;s a quick short story for some context.&lt;/p&gt;
@@ -69,10 +69,10 @@
     
     <item>
       <title>Demystifying Decorators</title>
-      <link>http://localhost:1313/articles/demistifying-decorators/</link>
+      <link>http://192.241.186.225/articles/demistifying-decorators/</link>
       <pubDate>Mon, 03 Nov 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/demistifying-decorators/</guid>
+      <guid>http://192.241.186.225/articles/demistifying-decorators/</guid>
       <description>
 
 &lt;p&gt;If you&amp;rsquo;ve been programming in Python for some time chances are you have come across decorators. Even though you might not know what decorators are and how they work, you&amp;rsquo;ve surely used them as most of popular Python libraries use decorators (the familiar &lt;code&gt;@&lt;/code&gt; syntax) to make beautiful APIs.&lt;/p&gt;
@@ -158,10 +158,10 @@ def get_account(account):
     
     <item>
       <title>Bloom Filters for Dummies</title>
-      <link>http://localhost:1313/articles/bloom-filters-for-dummies/</link>
+      <link>http://192.241.186.225/articles/bloom-filters-for-dummies/</link>
       <pubDate>Sun, 19 Oct 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/bloom-filters-for-dummies/</guid>
+      <guid>http://192.241.186.225/articles/bloom-filters-for-dummies/</guid>
       <description>
 
 &lt;p&gt;Bloom Filters is one of those data structures that you don&amp;rsquo;t generally learn about in a typical data structures 101 class, but wish you had learnt once you know about them. Despite reading several articles on bloom filters I was still finding it hard to grasp the concepts until the last week when I decided to sit down and not get up until I get the hang of it. Below is an article where I attempt to explain what I understood in a clear way (hopefully) so that others can learn.&lt;/p&gt;
@@ -361,10 +361,10 @@ P(no dart hits the target) = e^(-d/t) = e^(-0.5) = 0.607
     
     <item>
       <title>Just Learn</title>
-      <link>http://localhost:1313/articles/just-learn/</link>
+      <link>http://192.241.186.225/articles/just-learn/</link>
       <pubDate>Thu, 02 Oct 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/just-learn/</guid>
+      <guid>http://192.241.186.225/articles/just-learn/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;So strangely enough the optimal thing do to in college if you want to be a successful startup founder is not some sort of new, vocational version of college focused on &amp;ldquo;entrepreneurship.&amp;rdquo; It&amp;rsquo;s the classic version of college as education for its own sake. If you want to start a startup after college, what you should do in college is learn powerful things. And if you have genuine intellectual curiosity, that&amp;rsquo;s what you&amp;rsquo;ll naturally tend to do if you just follow your own inclinations.&lt;/p&gt;
 
@@ -379,10 +379,10 @@ P(no dart hits the target) = e^(-d/t) = e^(-0.5) = 0.607
     
     <item>
       <title>Armin on Rust</title>
-      <link>http://localhost:1313/articles/armin-on-rust/</link>
+      <link>http://192.241.186.225/articles/armin-on-rust/</link>
       <pubDate>Wed, 01 Oct 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/armin-on-rust/</guid>
+      <guid>http://192.241.186.225/articles/armin-on-rust/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve been trying out Rust for some time and have been totally loving it so far. Glad to see that Armin Ronacher, one of the programmers I highly respect &lt;a href=&#34;http://lucumr.pocoo.org/2014/10/1/a-fresh-look-at-rust/&#34;&gt;feels the same&lt;/a&gt;!&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -411,10 +411,10 @@ P(no dart hits the target) = e^(-d/t) = e^(-0.5) = 0.607
     
     <item>
       <title>A Happy Accident</title>
-      <link>http://localhost:1313/articles/a-happy-accident/</link>
+      <link>http://192.241.186.225/articles/a-happy-accident/</link>
       <pubDate>Sat, 13 Sep 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/a-happy-accident/</guid>
+      <guid>http://192.241.186.225/articles/a-happy-accident/</guid>
       <description>&lt;p&gt;Last week, I was pleasantly surprised to find an email by a correspondent of &lt;a href=&#34;http://economictimes.indiatimes.com/&#34;&gt;Economic Times&lt;/a&gt; (a leading newspaper in India) asking for permission to quote a comment I made on &lt;a href=&#34;https://news.ycombinator.com/item?id=7698688&#34;&gt;Hacker News&lt;/a&gt; in the newspaper&amp;rsquo;s front page!&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -429,10 +429,10 @@ P(no dart hits the target) = e^(-d/t) = e^(-0.5) = 0.607
     
     <item>
       <title>Why Do You Want To Do Great Things?</title>
-      <link>http://localhost:1313/articles/why-do-you-want-to-do-great-things/</link>
+      <link>http://192.241.186.225/articles/why-do-you-want-to-do-great-things/</link>
       <pubDate>Thu, 14 Aug 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/why-do-you-want-to-do-great-things/</guid>
+      <guid>http://192.241.186.225/articles/why-do-you-want-to-do-great-things/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Why do you want to do great things? Seriously, dig into it. When I ask a lot of people in startups this question and dig long enough, it comes down to money&amp;ndash; they want to be rich, they want to be free.&lt;/p&gt;
 
@@ -455,10 +455,10 @@ P(no dart hits the target) = e^(-d/t) = e^(-0.5) = 0.607
     
     <item>
       <title>Maciej on Matasano</title>
-      <link>http://localhost:1313/articles/maciej-on-matasano/</link>
+      <link>http://192.241.186.225/articles/maciej-on-matasano/</link>
       <pubDate>Tue, 12 Aug 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/maciej-on-matasano/</guid>
+      <guid>http://192.241.186.225/articles/maciej-on-matasano/</guid>
       <description>&lt;p&gt;Just when you promise yourself that you are going to work on &lt;a href=&#34;http://csapp.cs.cmu.edu/&#34;&gt;systems&lt;/a&gt; for a couple of weeks and not get diverted, you get to hear about new ways to kill time learning &lt;a href=&#34;http://cryptopals.com/&#34;&gt;crypto&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -469,10 +469,10 @@ P(no dart hits the target) = e^(-d/t) = e^(-0.5) = 0.607
     
     <item>
       <title>Weekend Hack - Monte Pi</title>
-      <link>http://localhost:1313/articles/pi-approximations-using-monte-carlo/</link>
+      <link>http://192.241.186.225/articles/pi-approximations-using-monte-carlo/</link>
       <pubDate>Mon, 11 Aug 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/pi-approximations-using-monte-carlo/</guid>
+      <guid>http://192.241.186.225/articles/pi-approximations-using-monte-carlo/</guid>
       <description>&lt;figure&gt; &lt;img src=&#34;https://raw.githubusercontent.com/prakhar1989/monte-pie/master/shot.png&#34;&gt; &lt;/figure&gt;
 
 &lt;p&gt;I spent this weekend building a cool visualization to better understand Monte Carlo methods. With [p5.js]() just being released last week, I was anxiously looking for a project idea that I could use this library for. Thanks to a &lt;a href=&#34;http://www.cs.princeton.edu/~dpw/courses/cos326-12/&#34;&gt;Functional Programming&lt;/a&gt; course that I was working on last week, the idea came soon enough.&lt;/p&gt;
@@ -485,10 +485,10 @@ P(no dart hits the target) = e^(-d/t) = e^(-0.5) = 0.607
     
     <item>
       <title>Organizing Angular Apps for Testing</title>
-      <link>http://localhost:1313/articles/organizing-angular-apps-for-testing/</link>
+      <link>http://192.241.186.225/articles/organizing-angular-apps-for-testing/</link>
       <pubDate>Sat, 02 Aug 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/organizing-angular-apps-for-testing/</guid>
+      <guid>http://192.241.186.225/articles/organizing-angular-apps-for-testing/</guid>
       <description>
 
 &lt;p&gt;In the &lt;a href=&#34;/articles/choosing-angular&#34;&gt;last post&lt;/a&gt;, I talked about how we moved away from jQuery to Angularjs to power our single page application. To recap, the major problems with our existing code which convinced us to do a rewrite -&lt;/p&gt;
@@ -751,10 +751,10 @@ files: [
     
     <item>
       <title>GOOOAL</title>
-      <link>http://localhost:1313/articles/goooal/</link>
+      <link>http://192.241.186.225/articles/goooal/</link>
       <pubDate>Wed, 30 Jul 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/goooal/</guid>
+      <guid>http://192.241.186.225/articles/goooal/</guid>
       <description>
 
 &lt;p&gt;Today morning while browsing &lt;a href=&#34;http://thechangelog.com/can-your-favorite-programming-language-score-a-goal/&#34;&gt;The Changelog&lt;/a&gt;, I came across this interesting project called - &lt;a href=&#34;https://github.com/eatnumber1/goal&#34;&gt;Goal&lt;/a&gt;.&lt;/p&gt;
@@ -860,10 +860,10 @@ let () =
     
     <item>
       <title>The String Rotation Problem</title>
-      <link>http://localhost:1313/articles/the-string-rotation-problem/</link>
+      <link>http://192.241.186.225/articles/the-string-rotation-problem/</link>
       <pubDate>Tue, 22 Jul 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/the-string-rotation-problem/</guid>
+      <guid>http://192.241.186.225/articles/the-string-rotation-problem/</guid>
       <description>&lt;p&gt;On a recent (rather long) flight, while I was devouring Jon Bentley&amp;rsquo;s &lt;a href=&#34;http://www.cs.bell-labs.com/cm/cs/pearls/&#34;&gt;Programming Pearls&lt;/a&gt;, I came across this rather interesting problem.&lt;/p&gt;
 
 &lt;p&gt;The problem is simple - How will you a rotate a string of length &lt;code&gt;n&lt;/code&gt; by &lt;code&gt;i&lt;/code&gt; steps in place i.e. without using any extra space?&lt;/p&gt;
@@ -916,10 +916,10 @@ if __name__ == &amp;quot;__main__&amp;quot;:
     
     <item>
       <title>Heidi Roizen on ETL</title>
-      <link>http://localhost:1313/articles/heidi-roizen-on-etl/</link>
+      <link>http://192.241.186.225/articles/heidi-roizen-on-etl/</link>
       <pubDate>Sat, 19 Jul 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/heidi-roizen-on-etl/</guid>
+      <guid>http://192.241.186.225/articles/heidi-roizen-on-etl/</guid>
       <description>
 
 &lt;p&gt;Last week, &lt;a href=&#34;http://marco.org&#34;&gt;Marco Arment&lt;/a&gt; launched a new product on &lt;a href=&#34;https://news.ycombinator.com/item?id=8042352&#34;&gt;HN&lt;/a&gt;, &lt;a href=&#34;http://overcast.fm&#34;&gt;Overcast&lt;/a&gt; - An iPhone app that makes listening to podcasts much easier (and more fun).&lt;/p&gt;
@@ -951,10 +951,10 @@ if __name__ == &amp;quot;__main__&amp;quot;:
     
     <item>
       <title>Fun with SparkFun</title>
-      <link>http://localhost:1313/articles/fun-with-sparkfun/</link>
+      <link>http://192.241.186.225/articles/fun-with-sparkfun/</link>
       <pubDate>Mon, 14 Jul 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/fun-with-sparkfun/</guid>
+      <guid>http://192.241.186.225/articles/fun-with-sparkfun/</guid>
       <description>&lt;p&gt;This is about a quick hack that I did. Couple of days back, I came across a cool project called &lt;a href=&#34;https://data.sparkfun.com/&#34;&gt;SparkFun&lt;/a&gt; on &lt;a href=&#34;https://news.ycombinator.com/item?id=8015354&#34;&gt;HN&lt;/a&gt; which is free online service to push your data. It allows you to create streams and then push data via a simple HTTP call. The primary motivation behind the service is to enable devices connected via Internet of Things to push data online easily.&lt;/p&gt;
 
 &lt;p&gt;I had been crawling a few websites to need of latest remittance rates to my home country (the rates offered for remittance differ quite substantially from the current spot rates). Its a &lt;a href=&#34;http://casperjs.org/&#34;&gt;casperjs&lt;/a&gt; script that crawls the page and sends me an email. Clearly, email was getting hard to analyse trends and see history - but I was quite lazy to work on setting up persistence for this quick hack. When I saw Sparkfun I instantly knew how I could achieve logging.&lt;/p&gt;
@@ -995,10 +995,10 @@ casper.run();
     
     <item>
       <title>Choosing Angular</title>
-      <link>http://localhost:1313/articles/choosing-angular/</link>
+      <link>http://192.241.186.225/articles/choosing-angular/</link>
       <pubDate>Sun, 06 Jul 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/choosing-angular/</guid>
+      <guid>http://192.241.186.225/articles/choosing-angular/</guid>
       <description>&lt;p&gt;For the last couple of weeks I&amp;rsquo;ve spent a good deal of time on building a
 brand new checkout for &lt;a href=&#34;http://www.xcite.com&#34;&gt;Xcite.com&lt;/a&gt;. Like other ecommerce
 websites, our website has a conventional 3 step checkout - login/signup,
