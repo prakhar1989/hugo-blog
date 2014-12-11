@@ -12,9 +12,7 @@ The course lasted for around 8 weeks comprising of long lectures, quizzes and a 
 
 > If you're interested in Machine Learning and Data Mining and want to learn with what kind of challenges are posed by huge datasets in applying standard algorithms, then you'll find this course extremely valuable.
 
-For the rest of you, here's a bit more detailed out set of pros and cons.
-
-## Pros
+For the rest of you, here's a few things that I liked - 
 
 ### Faculty
 
@@ -36,7 +34,7 @@ The accompanying MMDS book is just awesome and the lectures build upon the conte
 
 This was my first course where there was a final exam and in my opinion it made the experience more rewarding. Two exams of 3 hours and 2 hours did take a toll but revising the content at the end helped build a mental model of the concepts and grasp the big picture better, all of which at the end of the day made the learning experience more rewarding and fruitful.
 
-## Cons
+And a few things which could've been better - 
 
 ### Theoretical
 

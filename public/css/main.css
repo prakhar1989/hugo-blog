@@ -31,6 +31,46 @@ body {
   text-decoration: none;
 }
 
+#terminal {
+  background: black;
+  color: white;
+  font-family: monospace;
+  padding: 2.2rem;
+  margin-bottom: 2rem;
+}
+
+
+#terminal span {
+  animation: blink 1s infinite;
+  -webkit-animation: blink 1s infinite;
+}
+
+#terminal h1 {
+  font-size: 2.4rem;
+  margin:0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 30em;
+  animation: type 4s steps(60, end); 
+  -webkit-animation: type 4s steps(60, end); 
+}
+
+@keyframes type {
+  from { width: 0; } 
+} 
+
+@-webkit-keyframes type {
+  from { width: 0; } 
+} 
+
+@keyframes blink {
+  to { opacity: .0; }
+}
+
+@-webkit-keyframes blink {
+  to { opacity: .0; }
+}
+
 .post-header h4 a {
   font-weight: 800;
 }
@@ -76,8 +116,7 @@ section.post {
   background-image: url('http://prakhar.me/images/texture-feature-01.jpg');
   background-size: cover;
   background-position: center center;
-  background-attachment: fixed;
-  height: 35rem;
+  height: 25rem;
   box-shadow: inset 0 0 15px rgba(0,0,0,.5)
 }
 

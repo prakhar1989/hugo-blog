@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Courses on cat /dev/random</title>
-    <link>http://192.241.186.225/tags/courses/</link>
+    <link>http://localhost:1313/tags/courses/</link>
     <description>Recent content in Courses on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Mon, 01 Dec 2014 12:34:58 AST</lastBuildDate>
-    <atom:link href="http://192.241.186.225/tags/courses/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/courses/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Mining of Massive DataSets - A Review</title>
-      <link>http://192.241.186.225/articles/mining-of-massive-datasets---a-review/</link>
+      <link>http://localhost:1313/articles/mining-of-massive-datasets---a-review/</link>
       <pubDate>Mon, 01 Dec 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/mining-of-massive-datasets---a-review/</guid>
+      <guid>http://localhost:1313/articles/mining-of-massive-datasets---a-review/</guid>
       <description>
 
 &lt;p&gt;If you&amp;rsquo;ve been keeping track, I&amp;rsquo;ve hardly published a single article in the last month. In my defense, the last 7 months have been extremely hectic. High work pressure and a rather dense online course kept most of the drafts from seeing the light of day. Before I jump in reviewing the course i.e. &lt;a href=&#34;https://www.coursera.org/course/mmds&#34;&gt;Mining Massive DataSets (MMDS)&lt;/a&gt;, here&amp;rsquo;s a quick short story for some context.&lt;/p&gt;
