@@ -2,21 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>cat /dev/random</title>
-    <link>http://192.241.186.225/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
-    <lastBuildDate>Mon, 01 Dec 2014 12:34:58 AST</lastBuildDate>
-    <atom:link href="http://192.241.186.225/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Dec 2014 12:34:58 AST</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>about</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Wed, 10 Dec 2014 12:34:58 AST</pubDate>
+      
+      <guid>http://localhost:1313/about/</guid>
+      <description>
+
+&lt;h1 id=&#34;hi-there:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Hi there.&lt;/h1&gt;
+
+&lt;p&gt;I love building things (mostly for the web) and celebrating the joy of programming. In my free time I enjoy gaming[^1], doing courses and trying out new programming languages.&lt;/p&gt;
+
+&lt;p&gt;Like the &lt;code&gt;/dev/null&lt;/code&gt;[^2], I use this blog as a place to redirect unwanted streams of thoughts, ideas and rants about software development, programming and other things that interest me.&lt;/p&gt;
+
+&lt;p&gt;If you’d like to connect, feel free to reach out on my &lt;a href=&#34;prakhar1989@gmail.com&#34;&gt;email&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;second-heading:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Second heading&lt;/h1&gt;
+
+&lt;h2 id=&#34;third-heading:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Third heading&lt;/h2&gt;
+
+&lt;h1 id=&#34;fourth-there:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Fourth there.&lt;/h1&gt;
+</description>
+    </item>
     
     <item>
       <title>Mining of Massive DataSets - A Review</title>
-      <link>http://192.241.186.225/articles/mining-of-massive-datasets---a-review/</link>
+      <link>http://localhost:1313/articles/mining-of-massive-datasets---a-review/</link>
       <pubDate>Mon, 01 Dec 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/mining-of-massive-datasets---a-review/</guid>
+      <guid>http://localhost:1313/articles/mining-of-massive-datasets---a-review/</guid>
       <description>
 
 &lt;p&gt;If you&amp;rsquo;ve been keeping track, I&amp;rsquo;ve hardly published a single article in the last month. In my defense, the last 7 months have been extremely hectic. High work pressure and a rather dense online course kept most of the drafts from seeing the light of day. Before I jump in reviewing the course i.e. &lt;a href=&#34;https://www.coursera.org/course/mmds&#34;&gt;Mining Massive DataSets (MMDS)&lt;/a&gt;, here&amp;rsquo;s a quick short story for some context.&lt;/p&gt;
@@ -71,10 +95,10 @@
     
     <item>
       <title>Demystifying Decorators</title>
-      <link>http://192.241.186.225/articles/demistifying-decorators/</link>
+      <link>http://localhost:1313/articles/demistifying-decorators/</link>
       <pubDate>Mon, 03 Nov 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/demistifying-decorators/</guid>
+      <guid>http://localhost:1313/articles/demistifying-decorators/</guid>
       <description>
 
 &lt;p&gt;If you&amp;rsquo;ve been programming in Python for some time chances are you have come across decorators. Even though you might not know what decorators are and how they work, you&amp;rsquo;ve surely used them as most of popular Python libraries use decorators (the familiar &lt;code&gt;@&lt;/code&gt; syntax) to make beautiful APIs.&lt;/p&gt;
@@ -160,10 +184,10 @@ def get_account(account):
     
     <item>
       <title>Bloom Filters for Dummies</title>
-      <link>http://192.241.186.225/articles/bloom-filters-for-dummies/</link>
+      <link>http://localhost:1313/articles/bloom-filters-for-dummies/</link>
       <pubDate>Sun, 19 Oct 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/bloom-filters-for-dummies/</guid>
+      <guid>http://localhost:1313/articles/bloom-filters-for-dummies/</guid>
       <description>
 
 &lt;p&gt;Bloom Filters is one of those data structures that you don&amp;rsquo;t generally learn about in a typical data structures 101 class, but wish you had learnt once you know about them. Despite reading several articles on bloom filters I was still finding it hard to grasp the concepts until the last week when I decided to sit down and not get up until I get the hang of it. Below is an article where I attempt to explain what I understood in a clear way (hopefully) so that others can learn.&lt;/p&gt;
@@ -363,10 +387,10 @@ P(no dart hits the target) = e^(-d/t) = e^(-0.5) = 0.607
     
     <item>
       <title>Just Learn</title>
-      <link>http://192.241.186.225/articles/just-learn/</link>
+      <link>http://localhost:1313/articles/just-learn/</link>
       <pubDate>Thu, 02 Oct 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/just-learn/</guid>
+      <guid>http://localhost:1313/articles/just-learn/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;So strangely enough the optimal thing do to in college if you want to be a successful startup founder is not some sort of new, vocational version of college focused on &amp;ldquo;entrepreneurship.&amp;rdquo; It&amp;rsquo;s the classic version of college as education for its own sake. If you want to start a startup after college, what you should do in college is learn powerful things. And if you have genuine intellectual curiosity, that&amp;rsquo;s what you&amp;rsquo;ll naturally tend to do if you just follow your own inclinations.&lt;/p&gt;
 
@@ -381,10 +405,10 @@ P(no dart hits the target) = e^(-d/t) = e^(-0.5) = 0.607
     
     <item>
       <title>Armin on Rust</title>
-      <link>http://192.241.186.225/articles/armin-on-rust/</link>
+      <link>http://localhost:1313/articles/armin-on-rust/</link>
       <pubDate>Wed, 01 Oct 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/armin-on-rust/</guid>
+      <guid>http://localhost:1313/articles/armin-on-rust/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve been trying out Rust for some time and have been totally loving it so far. Glad to see that Armin Ronacher, one of the programmers I highly respect &lt;a href=&#34;http://lucumr.pocoo.org/2014/10/1/a-fresh-look-at-rust/&#34;&gt;feels the same&lt;/a&gt;!&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -413,10 +437,10 @@ P(no dart hits the target) = e^(-d/t) = e^(-0.5) = 0.607
     
     <item>
       <title>A Happy Accident</title>
-      <link>http://192.241.186.225/articles/a-happy-accident/</link>
+      <link>http://localhost:1313/articles/a-happy-accident/</link>
       <pubDate>Sat, 13 Sep 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/a-happy-accident/</guid>
+      <guid>http://localhost:1313/articles/a-happy-accident/</guid>
       <description>&lt;p&gt;Last week, I was pleasantly surprised to find an email by a correspondent of &lt;a href=&#34;http://economictimes.indiatimes.com/&#34;&gt;Economic Times&lt;/a&gt; (a leading newspaper in India) asking for permission to quote a comment I made on &lt;a href=&#34;https://news.ycombinator.com/item?id=7698688&#34;&gt;Hacker News&lt;/a&gt; in the newspaper&amp;rsquo;s front page!&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -431,10 +455,10 @@ P(no dart hits the target) = e^(-d/t) = e^(-0.5) = 0.607
     
     <item>
       <title>Why Do You Want To Do Great Things?</title>
-      <link>http://192.241.186.225/articles/why-do-you-want-to-do-great-things/</link>
+      <link>http://localhost:1313/articles/why-do-you-want-to-do-great-things/</link>
       <pubDate>Thu, 14 Aug 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/why-do-you-want-to-do-great-things/</guid>
+      <guid>http://localhost:1313/articles/why-do-you-want-to-do-great-things/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Why do you want to do great things? Seriously, dig into it. When I ask a lot of people in startups this question and dig long enough, it comes down to money&amp;ndash; they want to be rich, they want to be free.&lt;/p&gt;
 
@@ -457,10 +481,10 @@ P(no dart hits the target) = e^(-d/t) = e^(-0.5) = 0.607
     
     <item>
       <title>Maciej on Matasano</title>
-      <link>http://192.241.186.225/articles/maciej-on-matasano/</link>
+      <link>http://localhost:1313/articles/maciej-on-matasano/</link>
       <pubDate>Tue, 12 Aug 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/maciej-on-matasano/</guid>
+      <guid>http://localhost:1313/articles/maciej-on-matasano/</guid>
       <description>&lt;p&gt;Just when you promise yourself that you are going to work on &lt;a href=&#34;http://csapp.cs.cmu.edu/&#34;&gt;systems&lt;/a&gt; for a couple of weeks and not get diverted, you get to hear about new ways to kill time learning &lt;a href=&#34;http://cryptopals.com/&#34;&gt;crypto&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -471,10 +495,10 @@ P(no dart hits the target) = e^(-d/t) = e^(-0.5) = 0.607
     
     <item>
       <title>Weekend Hack - Monte Pi</title>
-      <link>http://192.241.186.225/articles/pi-approximations-using-monte-carlo/</link>
+      <link>http://localhost:1313/articles/pi-approximations-using-monte-carlo/</link>
       <pubDate>Mon, 11 Aug 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/pi-approximations-using-monte-carlo/</guid>
+      <guid>http://localhost:1313/articles/pi-approximations-using-monte-carlo/</guid>
       <description>&lt;figure&gt; &lt;img src=&#34;https://raw.githubusercontent.com/prakhar1989/monte-pie/master/shot.png&#34;&gt; &lt;/figure&gt;
 
 &lt;p&gt;I spent this weekend building a cool visualization to better understand Monte Carlo methods. With [p5.js]() just being released last week, I was anxiously looking for a project idea that I could use this library for. Thanks to a &lt;a href=&#34;http://www.cs.princeton.edu/~dpw/courses/cos326-12/&#34;&gt;Functional Programming&lt;/a&gt; course that I was working on last week, the idea came soon enough.&lt;/p&gt;
@@ -487,10 +511,10 @@ P(no dart hits the target) = e^(-d/t) = e^(-0.5) = 0.607
     
     <item>
       <title>Organizing Angular Apps for Testing</title>
-      <link>http://192.241.186.225/articles/organizing-angular-apps-for-testing/</link>
+      <link>http://localhost:1313/articles/organizing-angular-apps-for-testing/</link>
       <pubDate>Sat, 02 Aug 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/organizing-angular-apps-for-testing/</guid>
+      <guid>http://localhost:1313/articles/organizing-angular-apps-for-testing/</guid>
       <description>
 
 &lt;p&gt;In the &lt;a href=&#34;/articles/choosing-angular&#34;&gt;last post&lt;/a&gt;, I talked about how we moved away from jQuery to Angularjs to power our single page application. To recap, the major problems with our existing code which convinced us to do a rewrite -&lt;/p&gt;
@@ -753,10 +777,10 @@ files: [
     
     <item>
       <title>GOOOAL</title>
-      <link>http://192.241.186.225/articles/goooal/</link>
+      <link>http://localhost:1313/articles/goooal/</link>
       <pubDate>Wed, 30 Jul 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/goooal/</guid>
+      <guid>http://localhost:1313/articles/goooal/</guid>
       <description>
 
 &lt;p&gt;Today morning while browsing &lt;a href=&#34;http://thechangelog.com/can-your-favorite-programming-language-score-a-goal/&#34;&gt;The Changelog&lt;/a&gt;, I came across this interesting project called - &lt;a href=&#34;https://github.com/eatnumber1/goal&#34;&gt;Goal&lt;/a&gt;.&lt;/p&gt;
@@ -862,10 +886,10 @@ let () =
     
     <item>
       <title>The String Rotation Problem</title>
-      <link>http://192.241.186.225/articles/the-string-rotation-problem/</link>
+      <link>http://localhost:1313/articles/the-string-rotation-problem/</link>
       <pubDate>Tue, 22 Jul 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/the-string-rotation-problem/</guid>
+      <guid>http://localhost:1313/articles/the-string-rotation-problem/</guid>
       <description>&lt;p&gt;On a recent (rather long) flight, while I was devouring Jon Bentley&amp;rsquo;s &lt;a href=&#34;http://www.cs.bell-labs.com/cm/cs/pearls/&#34;&gt;Programming Pearls&lt;/a&gt;, I came across this rather interesting problem.&lt;/p&gt;
 
 &lt;p&gt;The problem is simple - How will you a rotate a string of length &lt;code&gt;n&lt;/code&gt; by &lt;code&gt;i&lt;/code&gt; steps in place i.e. without using any extra space?&lt;/p&gt;
@@ -918,10 +942,10 @@ if __name__ == &amp;quot;__main__&amp;quot;:
     
     <item>
       <title>Heidi Roizen on ETL</title>
-      <link>http://192.241.186.225/articles/heidi-roizen-on-etl/</link>
+      <link>http://localhost:1313/articles/heidi-roizen-on-etl/</link>
       <pubDate>Sat, 19 Jul 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/heidi-roizen-on-etl/</guid>
+      <guid>http://localhost:1313/articles/heidi-roizen-on-etl/</guid>
       <description>
 
 &lt;p&gt;Last week, &lt;a href=&#34;http://marco.org&#34;&gt;Marco Arment&lt;/a&gt; launched a new product on &lt;a href=&#34;https://news.ycombinator.com/item?id=8042352&#34;&gt;HN&lt;/a&gt;, &lt;a href=&#34;http://overcast.fm&#34;&gt;Overcast&lt;/a&gt; - An iPhone app that makes listening to podcasts much easier (and more fun).&lt;/p&gt;
@@ -953,10 +977,10 @@ if __name__ == &amp;quot;__main__&amp;quot;:
     
     <item>
       <title>Fun with SparkFun</title>
-      <link>http://192.241.186.225/articles/fun-with-sparkfun/</link>
+      <link>http://localhost:1313/articles/fun-with-sparkfun/</link>
       <pubDate>Mon, 14 Jul 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/fun-with-sparkfun/</guid>
+      <guid>http://localhost:1313/articles/fun-with-sparkfun/</guid>
       <description>&lt;p&gt;This is about a quick hack that I did. Couple of days back, I came across a cool project called &lt;a href=&#34;https://data.sparkfun.com/&#34;&gt;SparkFun&lt;/a&gt; on &lt;a href=&#34;https://news.ycombinator.com/item?id=8015354&#34;&gt;HN&lt;/a&gt; which is free online service to push your data. It allows you to create streams and then push data via a simple HTTP call. The primary motivation behind the service is to enable devices connected via Internet of Things to push data online easily.&lt;/p&gt;
 
 &lt;p&gt;I had been crawling a few websites to need of latest remittance rates to my home country (the rates offered for remittance differ quite substantially from the current spot rates). Its a &lt;a href=&#34;http://casperjs.org/&#34;&gt;casperjs&lt;/a&gt; script that crawls the page and sends me an email. Clearly, email was getting hard to analyse trends and see history - but I was quite lazy to work on setting up persistence for this quick hack. When I saw Sparkfun I instantly knew how I could achieve logging.&lt;/p&gt;
@@ -992,56 +1016,6 @@ casper.run();
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;em&gt;Special thanks to &lt;a href=&#34;http://dushyantrao.github.io/&#34;&gt;Dushyant&lt;/a&gt; for introducing me to CasperJs&lt;/em&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Choosing Angular</title>
-      <link>http://192.241.186.225/articles/choosing-angular/</link>
-      <pubDate>Sun, 06 Jul 2014 12:34:58 AST</pubDate>
-      
-      <guid>http://192.241.186.225/articles/choosing-angular/</guid>
-      <description>&lt;p&gt;For the last couple of weeks I&amp;rsquo;ve spent a good deal of time on building a
-brand new checkout for &lt;a href=&#34;http://www.xcite.com&#34;&gt;Xcite.com&lt;/a&gt;. Like other ecommerce
-websites, our website has a conventional 3 step checkout - login/signup,
-delivery and finally, payment. As a part of new project our goal is to allow
-customers to checkout as guests i.e. without the need of creating an account
-with Xcite. This allows us to reduce a step for customers who just want
-quickly purchase something off the website and be on their way.&lt;/p&gt;
-
-&lt;p&gt;Being an ecommerce website, user experience is something that is of paramount importance to us. Above all, the checkout process has to be smooth, easy and just work for the user. At any stage if the user is not satisfied, the website risks loosing the sale and all the dollars spent in bringing the user to the store, coaxing him to fill his basket go for naught.&lt;/p&gt;
-
-&lt;p&gt;With that in mind, our focus has always been to make the checkout process as fluid as possible. The current process, for example, behaves as a &lt;a href=&#34;http://en.wikipedia.org/wiki/Single-page_application&#34;&gt;SPA (Single-page web app)&lt;/a&gt; and allows the user to seamlessly transition between the three steps and finally onto the payment gateway. However, from a software perspective it is a maintenance nightmare. The code powering the application is 2.5k lines of jQuery with tons of &lt;code&gt;on&lt;/code&gt;, &lt;code&gt;bind&lt;/code&gt; and &lt;code&gt;trigger&lt;/code&gt; strewn in. Clearly, weilding jquery, which is great for DOM manipulation, is an absolute disaster for making a SPA where the UI is closely bound to the data.&lt;/p&gt;
-
-&lt;figure&gt;
-    &lt;a href=&#34;http://singlepageappbook.com&#34;&gt;&lt;img src=&#34;http://singlepageappbook.com/assets/overview.png&#34;&gt;&lt;/a&gt;
-    &lt;figcaption&gt;&lt;a href=&#34;http://singlepageappbook.com/&#34; title=&#34;Single Page App Book&#34;&gt;Structure of modern SPAs. Courtesy - Single Page App Book&lt;/a&gt;.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;So finally when the chance to restructure the checkout process came in we decided to let of the jQuery baggage and rewrite the application in something more suited to our needs. Now the &lt;a href=&#34;http://programmers.stackexchange.com/questions/6268/when-is-a-big-rewrite-the-answer&#34;&gt;rewrite vs refactor&lt;/a&gt; debate is a long standing one in software engineering which I&amp;rsquo;m sure most of you are not alien to. Lots of words have been written, battles been fought and blood has been shed on the topic to decide whether the team should throw the technical baggage and begin afresh or should they try harder to carve a diamond out of existing coal.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;They did it by making the single worst strategic mistake that any software company can make: They decided to rewrite the code from scratch. - Joel Spolsky&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Joel makes a lot of well reasoned arguments in his &lt;a href=&#34;http://www.joelonsoftware.com/articles/fog0000000069.html&#34;&gt;article&lt;/a&gt; (which I suggest you should definitely read). In our case, however, our team had solid reasons in favour of a rewrite.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;The existing code was written by a team which was no longer with the project. No one on the existing team had a strong understanding of how the code worked.&lt;/li&gt;
-&lt;li&gt;Without any structure, the code was extremely hard to maintain and understand. Having a huge javascript file with more than 1500 lines of code was a complete nightmare.&lt;/li&gt;
-&lt;li&gt;There were no tests at all which made refactoring a very hard exercise. Whenever a bug was reported the team used to be scared to break something that was already working.&lt;/li&gt;
-&lt;li&gt;It used a technology (jQuery) which was totally not suited to the problem. This meant that adding any new features on the existing application would result in a lot more code which while using a better technology could be accomplished with much lesser.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In my opinion, these are very strong reasons that encourage a rewrite. With that out of the way, the next question on the team&amp;rsquo;s mind was which technology to pick. Javascript MVC frameworks have been cropping by the dozen and we wanted to be sure to pick something that was stable, battle-tested, had a strong community and ready help available.&lt;/p&gt;
-
-&lt;p&gt;Being the only front-end engineer on the team, I had a strong say in choosing the framework to build the application on. Despite having substantial experience working with Backbone.js, given the complexity and needs of the checkout application, I was in favour of going for a framework that had, among other things, first class support for 2 way data binding.&lt;/p&gt;
-
-&lt;p&gt;With these features in mind, it was not hard to make a choice and settle on &lt;a href=&#34;https://angularjs.org/&#34;&gt;Angularjs&lt;/a&gt;. With features like dependancy injection, 2 way data binding and awesome support for unit and end-to-end testing, Angular seemed like a great choice.&lt;/p&gt;
-
-&lt;p&gt;In the next set of posts, I will talk more about what challenges I faced while building the new checkout application. I&amp;rsquo;m certainly hoping that I will have fun with Angular and learn something along the way!&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Disclaimer: Views and opinions presented in this article are purely mine and do not represent those of my employer&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>
     

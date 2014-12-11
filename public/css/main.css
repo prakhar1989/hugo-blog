@@ -14,7 +14,7 @@ body {
 blockquote {
   background: #e9f2f7;
   padding: 2rem;
-  margin: 1rem 0 1rem 2rem;
+  margin: 1rem 0;
 }
 
 blockquote p {
@@ -45,10 +45,10 @@ section.post {
 }
 
 .hero {
-  margin-top: 6rem;
   background-image: url('http://prakhar.me/images/texture-feature-01.jpg');
   background-size: cover;
-  height: 30rem;
+  height: 35rem;
+  box-shadow: inset 0 0 15px rgba(0,0,0,.5)
 }
 
 .mast {
@@ -64,7 +64,7 @@ ul {
 }
 
 h1.post-title a {
-  color: #f36c3d;
+  color: #526F7F;
   text-decoration: none;
   font-weight: 600;
 }
@@ -77,6 +77,10 @@ p.post-meta {
 a.post-tag {
   text-decoration: none;
   font-weight: 800;
+}
+
+.paging-newer {
+  text-align: right;
 }
 
 /* MEDIA QUERIES */

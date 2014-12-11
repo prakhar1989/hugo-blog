@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Inspiration on cat /dev/random</title>
-    <link>http://192.241.186.225/tags/inspiration/</link>
+    <link>http://localhost:1313/tags/inspiration/</link>
     <description>Recent content in Inspiration on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Thu, 02 Oct 2014 12:34:58 AST</lastBuildDate>
-    <atom:link href="http://192.241.186.225/tags/inspiration/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/inspiration/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Just Learn</title>
-      <link>http://192.241.186.225/articles/just-learn/</link>
+      <link>http://localhost:1313/articles/just-learn/</link>
       <pubDate>Thu, 02 Oct 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/just-learn/</guid>
+      <guid>http://localhost:1313/articles/just-learn/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;So strangely enough the optimal thing do to in college if you want to be a successful startup founder is not some sort of new, vocational version of college focused on &amp;ldquo;entrepreneurship.&amp;rdquo; It&amp;rsquo;s the classic version of college as education for its own sake. If you want to start a startup after college, what you should do in college is learn powerful things. And if you have genuine intellectual curiosity, that&amp;rsquo;s what you&amp;rsquo;ll naturally tend to do if you just follow your own inclinations.&lt;/p&gt;
 
@@ -31,10 +31,10 @@
     
     <item>
       <title>Why Do You Want To Do Great Things?</title>
-      <link>http://192.241.186.225/articles/why-do-you-want-to-do-great-things/</link>
+      <link>http://localhost:1313/articles/why-do-you-want-to-do-great-things/</link>
       <pubDate>Thu, 14 Aug 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/why-do-you-want-to-do-great-things/</guid>
+      <guid>http://localhost:1313/articles/why-do-you-want-to-do-great-things/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Why do you want to do great things? Seriously, dig into it. When I ask a lot of people in startups this question and dig long enough, it comes down to money&amp;ndash; they want to be rich, they want to be free.&lt;/p&gt;
 
@@ -57,10 +57,10 @@
     
     <item>
       <title>No Excuses</title>
-      <link>http://192.241.186.225/articles/no-excuses/</link>
+      <link>http://localhost:1313/articles/no-excuses/</link>
       <pubDate>Sat, 31 May 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/no-excuses/</guid>
+      <guid>http://localhost:1313/articles/no-excuses/</guid>
       <description>
 
 &lt;h3 id=&#34;stop-making-excuses-go-build-something:b88914358eb6c6dee8e053191d6b1e49&#34;&gt;Stop Making Excuses. Go Build Something&lt;/h3&gt;
@@ -75,10 +75,10 @@
     
     <item>
       <title>Being A Senior Engineer</title>
-      <link>http://192.241.186.225/articles/being-a-senior-engineer/</link>
+      <link>http://localhost:1313/articles/being-a-senior-engineer/</link>
       <pubDate>Mon, 31 Mar 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/being-a-senior-engineer/</guid>
+      <guid>http://localhost:1313/articles/being-a-senior-engineer/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.kitchensoap.com/2012/10/25/on-being-a-senior-engineer/&#34;&gt;Brilliant article&lt;/a&gt; on what differentiates senior engineers.&lt;/p&gt;
 
 &lt;blockquote&gt;
