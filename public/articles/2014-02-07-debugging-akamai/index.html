@@ -20,14 +20,14 @@
 <meta property="og:description" content="Is my content being cached on Akamai?" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:url" content="http://192.241.186.225/articles/2014-02-07-debugging-akamai/" />
+<meta property="og:url" content="http://localhost:1313/articles/2014-02-07-debugging-akamai/" />
 
 
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="http://192.241.186.225/css/normalize.css">
-  <link rel="stylesheet" href="http://192.241.186.225/css/skeleton.css">
-  <link rel="stylesheet" href="http://192.241.186.225/css/main.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/normalize.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/skeleton.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/main.css">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
@@ -37,8 +37,8 @@
   <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
 
   
-  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/github.css">
-  <script src="http://192.241.186.225/js/highlight.min.js"></script>
+  <link rel="stylesheet" href="http://localhost:1313/css/highlight/github.css">
+  <script src="http://localhost:1313/js/highlight.min.js"></script>
 
   <script>hljs.initHighlightingOnLoad();</script>
 
@@ -88,9 +88,9 @@
               <span class="post-tag"> in </span>
             
                 
-                  <a class="post-tag post-tag-akamai" href="http://192.241.186.225/tags/akamai">#akamai</a>
+                  <a class="post-tag post-tag-akamai" href="http://localhost:1313/tags/akamai">#akamai</a>
                 
-                  <a class="post-tag post-tag-tips" href="http://192.241.186.225/tags/tips">#tips</a>
+                  <a class="post-tag post-tag-tips" href="http://localhost:1313/tags/tips">#tips</a>
                 
             
 
@@ -192,13 +192,13 @@ X-Check-Cacheable: NO
           
           <div class="six columns">
             <span>&larr;</span>
-            <a class="paging-link" href="/articles/2014-02-22-deal-with-it/">Deal With It</a>
+            <a class="paging-link" href="/articles/2014-02-07-programming-is-hard/">Programming is Hard</a>
           </div>
           
 
 					
           <div class="paging-newer six columns">
-            <a class="paging-link" href="/articles/2014-02-10-quantity/">Quantity</a>
+            <a class="paging-link" href="/articles/2013-05-12-enums-in-python/">Enums in Python</a>
             <span>&rarr;</span>
           </div>
           
@@ -223,5 +223,8 @@ X-Check-Cacheable: NO
 </div>
 
   </div>
-</body>
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
 </html>

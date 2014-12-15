@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Akamai on cat /dev/random</title>
-    <link>http://192.241.186.225/tags/akamai/</link>
+    <link>http://localhost:1313/tags/akamai/</link>
     <description>Recent content in Akamai on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Mon, 01 Jan 0001 00:00:00 UTC</lastBuildDate>
-    <atom:link href="http://192.241.186.225/tags/akamai/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/akamai/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Debugging Akamai Headers</title>
-      <link>http://192.241.186.225/articles/2014-02-07-debugging-akamai/</link>
+      <link>http://localhost:1313/articles/2014-02-07-debugging-akamai/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
-      <guid>http://192.241.186.225/articles/2014-02-07-debugging-akamai/</guid>
+      <guid>http://localhost:1313/articles/2014-02-07-debugging-akamai/</guid>
       <description>
 
 &lt;p&gt;If you&amp;rsquo;ve got anything to do with Akamai&amp;rsquo;s caching, surely there must have come a time where you needed to find out whether your content is being cached at Akamai.&lt;/p&gt;
