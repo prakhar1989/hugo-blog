@@ -19,7 +19,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .post-header {
   border-bottom: 1px solid #eee;
-  background: #f0e7db;
 }
 
 .post-header .container {
@@ -34,7 +33,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .post-header a {
-  color: #c2a070;
+  color: #69808c;
   text-decoration: none;
 }
 
@@ -155,9 +154,10 @@ div.post-title a.title {
 h1.post-title a {
   text-transform: uppercase;
   font-weight: 800;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.1rem;
   text-decoration: none;
   color: #69808c;
+  font-size: 2.4rem;
 }
 
 .nav-list li {
@@ -166,6 +166,7 @@ h1.post-title a {
   position: relative;
   margin-bottom: 0rem;
   margin-top: 1rem;
+  font-family: "Raleway", sans-serif;
 }
 
 .nav-list ul {
@@ -209,12 +210,13 @@ div.post-meta, .paging {
 }
 
 .post-content {
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 .post-content-meta {
   color: #a2b1b9;
   font-style: italic;
+  font-weight: 1.3rem;
 }
 
 .footer {
