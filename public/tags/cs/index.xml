@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cs on cat /dev/random</title>
-    <link>http://localhost:1313/tags/cs/</link>
+    <link>http://192.241.186.225/tags/cs/</link>
     <description>Recent content in Cs on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Fri, 14 Feb 2014 12:34:58 AST</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://192.241.186.225/tags/cs/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Checksum</title>
-      <link>http://localhost:1313/articles/kuwait-civil-id-checksum/</link>
+      <link>http://192.241.186.225/articles/kuwait-civil-id-checksum/</link>
       <pubDate>Fri, 14 Feb 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/kuwait-civil-id-checksum/</guid>
+      <guid>http://192.241.186.225/articles/kuwait-civil-id-checksum/</guid>
       <description>
 
 &lt;p&gt;It&amp;rsquo;s been around 8 months since I&amp;rsquo;ve started working in Kuwait &amp;amp; I can still vividly remember the hoopla we had to go through in order to get our Civil IDs. The Kuwaiti Government assigns a unique identification number to each and every resident of Kuwait which is called the Civil ID. This is quite similar to how it works in all the countries, however, the process in Kuwait is protracted and quite laborious for expats.&lt;/p&gt;

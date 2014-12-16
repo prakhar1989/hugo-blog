@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rant on cat /dev/random</title>
-    <link>http://localhost:1313/tags/rant/</link>
+    <link>http://192.241.186.225/tags/rant/</link>
     <description>Recent content in Rant on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Sat, 13 Sep 2014 12:34:58 AST</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/rant/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://192.241.186.225/tags/rant/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>A Happy Accident</title>
-      <link>http://localhost:1313/articles/a-happy-accident/</link>
+      <link>http://192.241.186.225/articles/a-happy-accident/</link>
       <pubDate>Sat, 13 Sep 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/a-happy-accident/</guid>
+      <guid>http://192.241.186.225/articles/a-happy-accident/</guid>
       <description>&lt;p&gt;Last week, I was pleasantly surprised to find an email by a correspondent of &lt;a href=&#34;http://economictimes.indiatimes.com/&#34;&gt;Economic Times&lt;/a&gt; (a leading newspaper in India) asking for permission to quote a comment I made on &lt;a href=&#34;https://news.ycombinator.com/item?id=7698688&#34;&gt;Hacker News&lt;/a&gt; in the newspaper&amp;rsquo;s front page!&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -31,10 +31,10 @@
     
     <item>
       <title>Maciej on Matasano</title>
-      <link>http://localhost:1313/articles/maciej-on-matasano/</link>
+      <link>http://192.241.186.225/articles/maciej-on-matasano/</link>
       <pubDate>Tue, 12 Aug 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/maciej-on-matasano/</guid>
+      <guid>http://192.241.186.225/articles/maciej-on-matasano/</guid>
       <description>&lt;p&gt;Just when you promise yourself that you are going to work on &lt;a href=&#34;http://csapp.cs.cmu.edu/&#34;&gt;systems&lt;/a&gt; for a couple of weeks and not get diverted, you get to hear about new ways to kill time learning &lt;a href=&#34;http://cryptopals.com/&#34;&gt;crypto&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -45,10 +45,10 @@
     
     <item>
       <title>It Ends</title>
-      <link>http://localhost:1313/articles/it-ends/</link>
+      <link>http://192.241.186.225/articles/it-ends/</link>
       <pubDate>Tue, 27 May 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/it-ends/</guid>
+      <guid>http://192.241.186.225/articles/it-ends/</guid>
       <description>&lt;figure&gt;
     &lt;a href=&#34;#&#34;&gt;&lt;img src=&#34;/images/github_streak.png&#34;&gt;&lt;/a&gt;
     &lt;figcaption&gt;&lt;a href=&#34;https://github.com/prakhar1989&#34; title=&#34;Newman Demo&#34;&gt;Github Streak&lt;/a&gt;.&lt;/figcaption&gt;
@@ -70,10 +70,10 @@
     
     <item>
       <title>Evan Priestly on PHP</title>
-      <link>http://localhost:1313/articles/evan-priestly-on-php/</link>
+      <link>http://192.241.186.225/articles/evan-priestly-on-php/</link>
       <pubDate>Sun, 25 May 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/evan-priestly-on-php/</guid>
+      <guid>http://192.241.186.225/articles/evan-priestly-on-php/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;At Facebook, I described myself as &amp;ldquo;the engineer who hates PHP the least&amp;rdquo; and have also been called a &amp;ldquo;PHP idiot savant&amp;rdquo;. While I&amp;rsquo;m not really a fan of PHP, my understanding of it is extremely deep so there&amp;rsquo;s a huge activation energy for me to learn something else. I also think language choice is far less important than most people make it out to be; in my experience, the people who I have encountered who scoff the hardest at PHP and cry the most loudly about the importance of languages tend to also be really bad at doing any useful work in the languages they advocate.  - Evan Priestly&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -84,10 +84,10 @@
     
     <item>
       <title>Deal With It</title>
-      <link>http://localhost:1313/articles/2014-02-22-deal-with-it/</link>
+      <link>http://192.241.186.225/articles/2014-02-22-deal-with-it/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
-      <guid>http://localhost:1313/articles/2014-02-22-deal-with-it/</guid>
+      <guid>http://192.241.186.225/articles/2014-02-22-deal-with-it/</guid>
       <description>&lt;p&gt;Hilarious fable on HN featuring the superhero Unix and its trusted sidekick - Vim!&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;ring ring ring&lt;/strong&gt;&lt;/p&gt;
@@ -145,10 +145,10 @@ git push
     
     <item>
       <title>Programming is Hard</title>
-      <link>http://localhost:1313/articles/2014-02-07-programming-is-hard/</link>
+      <link>http://192.241.186.225/articles/2014-02-07-programming-is-hard/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
-      <guid>http://localhost:1313/articles/2014-02-07-programming-is-hard/</guid>
+      <guid>http://192.241.186.225/articles/2014-02-07-programming-is-hard/</guid>
       <description>&lt;p&gt;When Joe Armstrong, the creator of Erlang, &lt;a href=&#34;http://joearms.github.io/2014/02/07/why-programming-is-difficult.html&#34;&gt;writes a post&lt;/a&gt; on &amp;ldquo;Programming is Hard&amp;rdquo; you cant help but say to yourself - You&amp;rsquo;re not alone!&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -163,10 +163,10 @@ git push
     
     <item>
       <title>Quantity</title>
-      <link>http://localhost:1313/articles/2014-02-10-quantity/</link>
+      <link>http://192.241.186.225/articles/2014-02-10-quantity/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
-      <guid>http://localhost:1313/articles/2014-02-10-quantity/</guid>
+      <guid>http://192.241.186.225/articles/2014-02-10-quantity/</guid>
       <description>&lt;p&gt;The ceramics teacher announced on opening day that he was dividing the class into two groups. All those on the left side of the studio, he said, would be graded solely on the quantity of work they produced, all those on the right solely on its quality. His procedure was simple: on the final day of class he would bring in his bathroom scales and weigh the work of the “quantity” group: fifty pound of pots rated an “A”, forty pounds a “B”, and so on. Those being graded on “quality”, however, needed to produce only one pot — albeit a perfect one — to get an “A”.&lt;/p&gt;
 
 &lt;p&gt;Well, came grading time and a curious fact emerged: the works of highest quality were all produced by the group being graded for quantity.&lt;/p&gt;
@@ -181,10 +181,10 @@ git push
     
     <item>
       <title>Thinking For Programmers</title>
-      <link>http://localhost:1313/articles/2014-04-05-thinking-for-programmers/</link>
+      <link>http://192.241.186.225/articles/2014-04-05-thinking-for-programmers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
-      <guid>http://localhost:1313/articles/2014-04-05-thinking-for-programmers/</guid>
+      <guid>http://192.241.186.225/articles/2014-04-05-thinking-for-programmers/</guid>
       <description>&lt;p&gt;Leslie Lamport, the creator the famous Paxos&amp;rsquo; Algorithm and LaTeX, in his paper talks about what programmers are doing wrong?&lt;/p&gt;
 
 &lt;p&gt;Answer: Not thinking enough&lt;/p&gt;
@@ -199,10 +199,10 @@ For quite a while, I’ve been disturbed by the emphasis on language in computer
     
     <item>
       <title>Why We Dont Sell Ads</title>
-      <link>http://localhost:1313/articles/2014-02-20-why-we-dont-sell-ads/</link>
+      <link>http://192.241.186.225/articles/2014-02-20-why-we-dont-sell-ads/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
-      <guid>http://localhost:1313/articles/2014-02-20-why-we-dont-sell-ads/</guid>
+      <guid>http://192.241.186.225/articles/2014-02-20-why-we-dont-sell-ads/</guid>
       <description>&lt;p&gt;I found this great statement made by the WhatsApp founders on their blog about why they don&amp;rsquo;t rely on ads and instead charge customers for the service. This is getting recirculated now that WhatsApp is looking at being acquired by Facebook at a valuation of around $19B. It interesting to see that while tons of apps rely on advertising as a key part of their business model there are companies who strive to go against it. Whats surprising is that their experience of working at an advertising behemoth, Yahoo, strengthened their resolve even more.&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -221,10 +221,10 @@ For quite a while, I’ve been disturbed by the emphasis on language in computer
     
     <item>
       <title>Write Code Everyday</title>
-      <link>http://localhost:1313/articles/2014-04-10-write-code-everyday/</link>
+      <link>http://192.241.186.225/articles/2014-04-10-write-code-everyday/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
-      <guid>http://localhost:1313/articles/2014-04-10-write-code-everyday/</guid>
+      <guid>http://192.241.186.225/articles/2014-04-10-write-code-everyday/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;It’s important to note that that I don’t particularly care about the outward perception of the above Github chart. I think that’s the most important take away from this experiment: this is about a change that you’re making in your life for yourself not a change that you’re making to satisfy someone else’s perception of your work. The same goes for any form of dieting or exercise: if you don’t care about improving yourself then you’ll never actually succeed. - John Resig&lt;/p&gt;
 &lt;/blockquote&gt;

@@ -1,10 +1,16 @@
 body {
   color: #283035;
+  font-family: "Source Serif Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.8rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif;
 }
 
 .container {
   background: white;
-  max-width: 700px;
+  max-width: 760px;
   position: relative;
   margin: 0 auto;
   padding: 3rem;
@@ -99,6 +105,7 @@ h3 {
   font-size: 1.4rem;
   letter-spacing: 0.2rem;
   text-transform: uppercase;
+  border-bottom: 1px solid #ddd;
   font-weight: 600;
 }
 
