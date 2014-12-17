@@ -101,434 +101,16 @@ def get_account(account):
     </item>
     
     <item>
-      <title>Application Structure</title>
-      <link>http://192.241.186.225/articles/2013-05-07-application-structure/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>http://192.241.186.225/articles/2013-05-07-application-structure/</guid>
-      <description>
-
-&lt;p&gt;In this post, we&amp;rsquo;re going to talk about a seemingly easy but an important topic - organizing and structuring your flask applications.&lt;/p&gt;
-
-&lt;p&gt;As mentioned earlier, getting started with flask is super easy. Unlike django, flask doesn&amp;rsquo;t follow a directory structure when you start a new app. Flask will not complain even if all of your code resides in a single &lt;code&gt;main.py&lt;/code&gt; file. But we all know that that is not the way to go. Having all your code in one file makes it messy and unmaintainable.&lt;/p&gt;
-
-&lt;p&gt;Lets assume that you&amp;rsquo;ve gone through the throughly explained &lt;a href=&#34;http://flask.pocoo.org/docs/tutorial/&#34;&gt;flaskr tutorial&lt;/a&gt; (which you definitely should in case you haven&amp;rsquo;t) and unable to contain the excitement you start a new flask app. As you keep writing more code and see it working you start getting that nice feeling about the awesomeness of flask. However, as your code keeps growing and since its all in a single file you start getting frustrated. Configurations, models, views etc. should definitely go in separate files, you think, so that your application is kept modular. But where do you start?&lt;/p&gt;
-
-&lt;p&gt;This post will provide you an answer and show you a good way of structuring your apps. For starters, the flask &lt;a href=&#34;http://flask.pocoo.org/docs/patterns/packages/&#34;&gt;patterns site&lt;/a&gt; provides an easy-to-follow tutorial for structuring an app. This post will cover that and will go beyond by covering configuration module and an extension called &lt;a href=&#34;http://flask-script.readthedocs.org/en/latest/&#34;&gt;flask-script&lt;/a&gt;. Lets get started!&lt;/p&gt;
-
-&lt;h3 id=&#34;packages:525b40148a9479e24bac6a1071f90cd4&#34;&gt;Packages&lt;/h3&gt;
-
-&lt;p&gt;For larger applications going the packages way is generally a good idea.  A small app might look like this -&lt;/p&gt;
-
-&lt;p&gt;{% highlight python %}
-- myapp
-  |- static
-  |- templates
-  |- main.py
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;To change this into a python module all you need to do is move the files in a separate folder and create a new file ( or rename the existing &lt;code&gt;main.py&lt;/code&gt; ) &lt;code&gt;__init__.py&lt;/code&gt; so that python can interpret the folder as a module. After re-structuring your app will look like this -&lt;/p&gt;
-
-&lt;p&gt;{% highlight python %}
-- myapp
-  |- hello
-    |&amp;ndash; &lt;strong&gt;init&lt;/strong&gt;.py
-    |&amp;ndash; static
-    |&amp;ndash; templates
-    |&amp;ndash; main.py
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;The next step is to separate app initialization, models and views declaration from your &lt;code&gt;__init__.py&lt;/code&gt;. To do that write the following code in your &lt;code&gt;__init__.py&lt;/code&gt;. Note: I&amp;rsquo;m assuming that you&amp;rsquo;re assuming sqlalchemy as your ORM. Additionally, I&amp;rsquo;ve used hello as the name of the app folder.&lt;/p&gt;
-
-&lt;p&gt;{% highlight python %}&lt;/p&gt;
-
-&lt;h1 id=&#34;flask-imports-go-here:525b40148a9479e24bac6a1071f90cd4&#34;&gt;flask imports go here&lt;/h1&gt;
-
-&lt;p&gt;from flask import Flask
-from flask.ext.sqlalchemy import SQLAlchemy
-import os&lt;/p&gt;
-
-&lt;h1 id=&#34;declaring-the-app:525b40148a9479e24bac6a1071f90cd4&#34;&gt;declaring the app&lt;/h1&gt;
-
-&lt;p&gt;app = Flask(&lt;strong&gt;name&lt;/strong&gt;)&lt;/p&gt;
-
-&lt;h1 id=&#34;get-the-base-dir:525b40148a9479e24bac6a1071f90cd4&#34;&gt;get the base dir&lt;/h1&gt;
-
-&lt;p&gt;base_dir = os.path.dirname(os.path.abspath(&lt;strong&gt;file&lt;/strong&gt;))
-app.config.from_pyfile(os.path.join(base_dir, &amp;lsquo;../app.cfg&amp;rsquo;))&lt;/p&gt;
-
-&lt;h1 id=&#34;create-db:525b40148a9479e24bac6a1071f90cd4&#34;&gt;create db&lt;/h1&gt;
-
-&lt;p&gt;db = SQLAlchemy(app)&lt;/p&gt;
-
-&lt;h1 id=&#34;importing-views:525b40148a9479e24bac6a1071f90cd4&#34;&gt;importing views&lt;/h1&gt;
-
-&lt;p&gt;import hello.views&lt;/p&gt;
-
-&lt;h1 id=&#34;import-models:525b40148a9479e24bac6a1071f90cd4&#34;&gt;import models&lt;/h1&gt;
-
-&lt;p&gt;from hello.models.person import Person
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;In this code, you&amp;rsquo;ll notice that &lt;code&gt;hello.views&lt;/code&gt;, &lt;code&gt;hello.models.person&lt;/code&gt; and &lt;code&gt;app.cfg&lt;/code&gt; are missing files. Don&amp;rsquo;t worry, we&amp;rsquo;ll create them soon. The rest of the code is self-explainatory. We get the base directory so that we can easily reference the config file to instantiate our app.&lt;/p&gt;
-
-&lt;h3 id=&#34;application-configuration:525b40148a9479e24bac6a1071f90cd4&#34;&gt;Application Configuration&lt;/h3&gt;
-
-&lt;p&gt;The next step is to create the missing files. In your app (in my case -
-hello) folder, create a new folder called &lt;code&gt;models&lt;/code&gt; and add your models
-(either separately or all in single file).  Dont forget to create a
-blank &lt;code&gt;__init__.py&lt;/code&gt; file in this folder as well. Next, create a file
-called &lt;code&gt;app.cfg&lt;/code&gt; to store your configuration. This file should reside
-alongside your app (or hello) folder. Finally, inside your app (or
-hello) folder add all your views in a file &lt;code&gt;views.py&lt;/code&gt;. Below is a sample
-excerpt of how your files should look like.&lt;/p&gt;
-
-&lt;p&gt;{% highlight python %}&lt;/p&gt;
-
-&lt;h1 id=&#34;sample-app-cfg:525b40148a9479e24bac6a1071f90cd4&#34;&gt;sample app.cfg&lt;/h1&gt;
-
-&lt;p&gt;DEBUG = True
-SECRET= &amp;ldquo;mysupersecretkey&amp;rdquo;&lt;/p&gt;
-
-&lt;h1 id=&#34;dummy-model-inside-models-folder:525b40148a9479e24bac6a1071f90cd4&#34;&gt;dummy model inside models folder&lt;/h1&gt;
-
-&lt;h1 id=&#34;filename-hello-models-dummy-py:525b40148a9479e24bac6a1071f90cd4&#34;&gt;filename hello/models/dummy.py&lt;/h1&gt;
-
-&lt;p&gt;from hello import db
-class Dummy(db.Model):
-  pass&lt;/p&gt;
-
-&lt;h1 id=&#34;views-inside-hello-views-py:525b40148a9479e24bac6a1071f90cd4&#34;&gt;views inside hello/views.py&lt;/h1&gt;
-
-&lt;p&gt;from hello import app
-from hello.models.dummy import Dummy
-from flask import render_template
-@app.route(&amp;lsquo;/&amp;rsquo;)
-def hello():
-  return render_template(&amp;lsquo;index.html&amp;rsquo;)
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;At this stage this is how your structure looks like -&lt;/p&gt;
-
-&lt;p&gt;{% highlight python %}
-- myapp
-  |- app.cfg
-  |- hello
-    |&amp;ndash; &lt;strong&gt;init&lt;/strong&gt;.py
-    |&amp;ndash; static/
-    |&amp;ndash; templates/
-    |&amp;ndash; views.py
-    |&amp;ndash; models/
-      |&amp;mdash; &lt;strong&gt;init&lt;/strong&gt;.py
-      |&amp;mdash; dummy.py
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;If you&amp;rsquo;ve noticed we still haven&amp;rsquo;t told our app to run. To do that, create
-a new file called &lt;code&gt;manage.py&lt;/code&gt; alongside &lt;code&gt;app.cfg&lt;/code&gt; and enter the
-following code -&lt;/p&gt;
-
-&lt;p&gt;{% highlight python %}
-from hello import app
-from hello import db&lt;/p&gt;
-
-&lt;p&gt;if &lt;strong&gt;name&lt;/strong&gt; == &amp;ldquo;&lt;strong&gt;main&lt;/strong&gt;&amp;ldquo;:
-  app.run()
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;Now that you have everything setup, your app should work. Give it a go by running &lt;code&gt;python manage.py&lt;/code&gt;
-and make sure there aren&amp;rsquo;t any import errors.&lt;/p&gt;
-
-&lt;h3 id=&#34;flask-script:525b40148a9479e24bac6a1071f90cd4&#34;&gt;Flask Script&lt;/h3&gt;
-
-&lt;p&gt;One last thing I need to introduce before we wrap up is a flask extension called
-&lt;a href=&#34;http://flask-script.readthedocs.org/en/latest/&#34;&gt;flask-script&lt;/a&gt;. The
-flask-script extensions provides support for writing scripts and makes
-it super easy to add commands that can runserver, open shell, manage
-cronjobs and other things right from the terminal. The documentation for
-the extension is very easy to follow and I encourage you to give it a
-read. I&amp;rsquo;ve edited the &lt;code&gt;manage.py&lt;/code&gt; file and added support for
-flask-script.&lt;/p&gt;
-
-&lt;p&gt;{% highlight python %}
-from flask.ext.script import Manager, Server, Shell
-from hello import app
-from hello import db&lt;/p&gt;
-
-&lt;h1 id=&#34;optional-include-models-if-you-want-to:525b40148a9479e24bac6a1071f90cd4&#34;&gt;(optional) - include models if you want to!&lt;/h1&gt;
-
-&lt;p&gt;import hello.models as models&lt;/p&gt;
-
-&lt;p&gt;def _make_context():
-  &amp;ldquo;&amp;rdquo;&amp;rdquo; context for passing into to the shell command &amp;ldquo;&amp;rdquo;&amp;rdquo;
-  return dict(app=app, db=db, models=models)&lt;/p&gt;
-
-&lt;h1 id=&#34;set-manager:525b40148a9479e24bac6a1071f90cd4&#34;&gt;set manager&lt;/h1&gt;
-
-&lt;p&gt;manager = Manager(app)&lt;/p&gt;
-
-&lt;h1 id=&#34;add-commands:525b40148a9479e24bac6a1071f90cd4&#34;&gt;add commands&lt;/h1&gt;
-
-&lt;p&gt;manager.add_command(&amp;ldquo;runserver&amp;rdquo;, Server())
-manager.add_command(&amp;ldquo;shell&amp;rdquo;, Shell(make_context = _make_context))&lt;/p&gt;
-
-&lt;p&gt;if &lt;strong&gt;name&lt;/strong&gt; == &amp;ldquo;&lt;strong&gt;main&lt;/strong&gt;&amp;ldquo;:
-  manager.run()
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;After making these changes, simply run &lt;code&gt;python manage.py runserver&lt;/code&gt; to
-run the app and &lt;code&gt;python manage.py shell&lt;/code&gt; to jump into a python shell
-with your application context, db and models loaded!&lt;/p&gt;
-
-&lt;p&gt;I hope this has been a fun tutorial for you to follow. If there are any
-issues feel free to email me.&lt;/p&gt;
-
-&lt;p&gt;The code for this lesson is available on my &lt;a href=&#34;https://github.com/prakhar1989/flask-tuts/tree/master/lesson-1/hello&#34;&gt;github&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;In the next post we&amp;rsquo;re going to delve further into the topic of project structure by taking a look at &lt;strong&gt;blueprints in Flask&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;See you next time!&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Beginning Flask</title>
-      <link>http://192.241.186.225/articles/2013-05-06-beginning-flask/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>http://192.241.186.225/articles/2013-05-06-beginning-flask/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve been meaning to start a write a series on &lt;a href=&#34;http://flask.pooco.org&#34;&gt;Flask&lt;/a&gt; which is a micro-framework for developing web applications in python. In Ruby parlance, flask is to &lt;a href=&#34;http://www.sinatrarb.com/&#34;&gt;Sinatra&lt;/a&gt; what Django is to Rails.&lt;/p&gt;
-
-&lt;p&gt;The nicest thing (and most confusing for beginners) about Flask is that its quite barebones on the onset. A simple &lt;code&gt;hello world&lt;/code&gt; application in Flask is just about 7 lines as shown below. However, going from hello world to full fledged application is a daunting task in itself for a beginner.&lt;/p&gt;
-
-&lt;p&gt;{% highlight python %}
-from flask import Flask
-app = Flask(&lt;strong&gt;name&lt;/strong&gt;)
-@app.route(&amp;lsquo;/&amp;rsquo;)
-def hello():
-  return &amp;ldquo;hello world&amp;rdquo;
-if &lt;strong&gt;name&lt;/strong&gt; == &amp;ldquo;&lt;strong&gt;main&lt;/strong&gt;&amp;ldquo;:
-  app.run()
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;Almost all of the material found in this guide will be available from other sources namely flask&amp;rsquo;s excellent documentation and the countless flask projects on Github. However, I&amp;rsquo;ll try my best to write a comprehensive post on each topic for that day the matter for which will be collected through the flask docs, projects on github and the mailing list.&lt;/p&gt;
-
-&lt;p&gt;As a disclaimer: I&amp;rsquo;m new to flask myself and I&amp;rsquo;m constantly learning. While building a couple of apps in flask I&amp;rsquo;ve found myself stumbling on a few aspects like project organization, ORM and deployment very frequently. Having a lot of choices at your disposal might not always be best for productivity. Through this guide, I aim to help you in making the right choices by sharing the best practices involved in building flask apps.&lt;/p&gt;
-
-&lt;p&gt;The idea is to write on a topic each day, detailed with code examples
-and references for further reading. To get the most out of each post, it
-is expected that you&amp;rsquo;ll type out the code for yourself. The best way to
-learn is by doing.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;ll start the series with &lt;strong&gt;Project Structure and Organization&lt;/strong&gt;. See you next time!&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Class Based Views</title>
-      <link>http://192.241.186.225/articles/2013-05-09-class-based-views/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>http://192.241.186.225/articles/2013-05-09-class-based-views/</guid>
-      <description>
-
-&lt;p&gt;If you&amp;rsquo;ve used Django before, one of the things that you surely miss (apart from the django-admin, of course) is class based (or generic) views. Class based views allow you to structure your views and reuse code by harnessing inheritance and mixins. This allows you to create generic views for routine tasks and simply inherit from them for similar views.&lt;/p&gt;
-
-&lt;p&gt;In flask 0.7 class based views were introduced which act similar to generic
-views in Django. In this tutorial we&amp;rsquo;ll cover how to use class based views to
-make extendable views. We&amp;rsquo;ll also see how we can use &lt;code&gt;MethodView&lt;/code&gt; (a type of
-class based view) to create a RESTful API.&lt;/p&gt;
-
-&lt;p&gt;Lets get started. I have a basic starter template that looks like this -&lt;/p&gt;
-
-&lt;p&gt;{% highlight python %}
-|&amp;ndash; static/
-    |- jquery.js
-|&amp;ndash; templates/
-    |&amp;ndash; index.html
-    |&amp;ndash; about.html
-    |&amp;ndash; base.html
-    |&amp;ndash; users.html
-|&amp;ndash; main.py
-|&amp;ndash; user.db
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;Since the app is only for demo purposes, I&amp;rsquo;ve added all my models and views in a
-single file - &lt;code&gt;main.py&lt;/code&gt;. I have a single model called &lt;code&gt;User&lt;/code&gt; and I&amp;rsquo;ve used SQLAlchemy as the ORM. The &lt;code&gt;user.db&lt;/code&gt; file is the SQLITE db that I&amp;rsquo;m using for this app. To begin with, these are the kinds of views that our app needs to have -&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;There are a few views that simply need to return a template - like index and about.&lt;/li&gt;
-&lt;li&gt;There are a couple of models in our application and we need to have views that display
-the model data as a list by passing that data to a template.&lt;/li&gt;
-&lt;li&gt;Lastly, we need to have consolidated view for making a API instead of flooding
-our view with ifs&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;{% highlight python %}
-@app.route(&amp;lsquo;/users/&amp;rsquo;)
-def users():
-  if request.method == &amp;ldquo;GET&amp;rdquo;:
-    pass
-  else:
-    pass&lt;br /&gt;
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;{% highlight python %}
-@app.route(&amp;lsquo;/users/&lt;a href=&#34;int:post_id&#34;&gt;int:post_id&lt;/a&gt;&amp;rsquo;)
-def user():
-  if request.method == &amp;ldquo;GET&amp;rdquo;:
-    pass
-  elif request.method == &amp;ldquo;PUT&amp;rdquo;:
-    pass
-  elif request.method == &amp;ldquo;DELETE&amp;rdquo;:
-    pass
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;Lets begin with the first requirement. Instead of just repeating code to
-render a template we&amp;rsquo;ll a create class based view akin to a &lt;a href=&#34;https://docs.djangoproject.com/en/dev/ref/class-based-views/base/#django.views.generic.base.TemplateView&#34;&gt;TemplateView&lt;/a&gt; in
-django&lt;/p&gt;
-
-&lt;p&gt;{% highlight python %}
-from flask.views import View&lt;/p&gt;
-
-&lt;p&gt;class RenderTemplateView(View):
-    def &lt;strong&gt;init&lt;/strong&gt;(self, template_name):
-        self.template_name = template_name&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;def dispatch_request(self):
-    return render_template(self.template_name)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;What we&amp;rsquo;ve done here is that we&amp;rsquo;ve just subclassed the &lt;code&gt;flask.views.View&lt;/code&gt; class
-and implemented a &lt;code&gt;dispatch_request&lt;/code&gt; method. All subclasses that inherit from the
-&lt;code&gt;flask.view&lt;/code&gt; class need to override this method to implement the actual view
-code.&lt;/p&gt;
-
-&lt;p&gt;This allows us to create template views like this -&lt;/p&gt;
-
-&lt;p&gt;{% highlight python %}&lt;/p&gt;
-
-&lt;h1 id=&#34;urls-for-rendering-simple-templates:500547a4dcb2c1f7f0b3455a9db17249&#34;&gt;urls for rendering simple templates&lt;/h1&gt;
-
-&lt;p&gt;app.add_url_rule(&amp;lsquo;/about&amp;rsquo;, view_func = RenderTemplateView.as_view(&amp;lsquo;about_page&amp;rsquo;, template_name=&amp;ldquo;about.html&amp;rdquo;))
-app.add_url_rule(&amp;lsquo;/&amp;rsquo;, view_func = RenderTemplateView.as_view(&amp;lsquo;index_page&amp;rsquo;, template_name=&amp;ldquo;index.html&amp;rdquo;))
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;The first argument to the &lt;code&gt;as_view&lt;/code&gt; function is the URL endpoint and second
-being the name of the template that needs to be passed.&lt;/p&gt;
-
-&lt;p&gt;With that out of way, lets jump to the second requirement - building a listview.
-Now in my app, I just have one model but in apps where there are lots of models
-and you find yourself repeatedly implementing a view that returns a list of the
-objects of that model which is then passed to a template, you can implement your
-listview class. Lets see how that is done -&lt;/p&gt;
-
-&lt;p&gt;{% highlight python %}
-class ListView(View):
-    def get_template_name(self):
-        raise NotImplementedError()&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;def render_template(self, context):
-    # a custom render_template method that passes in the 
-    # template name and the modified template context
-    return render_template(self.get_template_name(), **context)
-
-def dispatch_request(self):
-    # self.get_context returns a modified context which is
-    # then passed to our render_template method
-    context = self.get_context()
-    return self.render_template(context)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;subclass-from-the-listview-class:500547a4dcb2c1f7f0b3455a9db17249&#34;&gt;subclass from the listview class&lt;/h1&gt;
-
-&lt;p&gt;class UserListView(ListView):
-    def get_template_name(self):
-        return &amp;ldquo;users.html&amp;rdquo;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;def get_context(self):
-    context = {&#39;objects&#39;: User.query.all(), &#39;time&#39;: datetime.now()}
-    return context
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;urls-for-list-views:500547a4dcb2c1f7f0b3455a9db17249&#34;&gt;urls for list views&lt;/h1&gt;
-
-&lt;p&gt;app.add_url_rule(&amp;lsquo;/userlist/&amp;rsquo;, view_func = UserListView.as_view(&amp;lsquo;user_list&amp;rsquo;))
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;The idea here is similar. We implmenent a custom &lt;code&gt;render_template&lt;/code&gt; function so
-that we can pass in a custom context to the template. This pattern can then be
-easily extended for multiple models.&lt;/p&gt;
-
-&lt;p&gt;Lastly, lets see how we can use &lt;code&gt;MethodView&lt;/code&gt; to make a RESTful API. &lt;code&gt;MethodView&lt;/code&gt;
-allows us to manage method-based dispatching like so -&lt;/p&gt;
-
-&lt;p&gt;{% highlight python %}
-from flask.views import MethodView
-class UserAPI(MethodView):
-    def get(self, user_id):
-        if user_id is None:
-            users = User.query.all()
-            json_results = [{&amp;lsquo;name&amp;rsquo;: u.name, &amp;lsquo;age&amp;rsquo;: u.age} for u in users]
-        else:
-            user = User.query.get_or_404(user_id)
-            json_results = [{&amp;lsquo;name&amp;rsquo;: user.name, &amp;lsquo;age&amp;rsquo;: user.age}]
-        return jsonify(item=json_results)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;def post(self):
-  pass
-
-def delete(self, user_id):
-  pass
-
-def put(self, user_id):
-  pass
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;As you can see, each HTTP method maps to a function with the same name. This way
-you dont have to provide separate &lt;code&gt;method&lt;/code&gt; attribute as its automagically
-deciphered from the title of the method.&lt;/p&gt;
-
-&lt;p&gt;To hook this up to a routing system we just provides multiple routes to the same
-view like this -&lt;/p&gt;
-
-&lt;p&gt;{% highlight python %}&lt;/p&gt;
-
-&lt;h1 id=&#34;urls-for-user-api:500547a4dcb2c1f7f0b3455a9db17249&#34;&gt;urls for User API&lt;/h1&gt;
-
-&lt;p&gt;user_api_view = UserAPI.as_view(&amp;lsquo;user_api&amp;rsquo;)
-app.add_url_rule(&amp;lsquo;/users/&amp;rsquo;, defaults={&amp;lsquo;user_id&amp;rsquo;: None},
-                 view_func = user_api_view, methods=[&amp;ldquo;GET&amp;rdquo;,])
-app.add_url_rule(&amp;lsquo;/users/&amp;rsquo;, view_func = user_api_view, methods=[&amp;ldquo;POST&amp;rdquo;,])
-app.add_url_rule(&amp;lsquo;/users/&lt;a href=&#34;int:user_id&#34;&gt;int:user_id&lt;/a&gt;&amp;rsquo;, view_func = user_api_view,
-                 methods=[&amp;ldquo;GET&amp;rdquo;, &amp;ldquo;PUT&amp;rdquo;, &amp;ldquo;DELETE&amp;rdquo;])
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;If you&amp;rsquo;ve been following along you can check the code on my &lt;a href=&#34;https://github.com/prakhar1989/flask-tuts/tree/master/lesson-3&#34;&gt;github&lt;/a&gt; which contains a working API and accompanying jquery ajax calls for testing the API for your reference.&lt;/p&gt;
-
-&lt;p&gt;I hope this tutorial has helped you in understanding when you use class based
-views. Basically, whenever you see yourself repeating view functionality you
-know that its time for a class based view. Don&amp;rsquo;t forget to refer to the
-&lt;a href=&#34;http://flask.pocoo.org/docs/views/&#34;&gt;official docs&lt;/a&gt; to get a clearer picture.&lt;/p&gt;
-
-&lt;p&gt;See you next time!&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Enums in Python</title>
-      <link>http://192.241.186.225/articles/2013-05-12-enums-in-python/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      <link>http://192.241.186.225/articles/enums-in-python/</link>
+      <pubDate>Mon, 12 May 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/2013-05-12-enums-in-python/</guid>
+      <guid>http://192.241.186.225/articles/enums-in-python/</guid>
       <description>
 
 &lt;p&gt;On 12th May 2013, Guido accepted the Python Enhancement Proposal 435 which suggests adding an Enum type to the Python standard library. The news caused a lot of commotion in the Python community and generated (mostly) healthy discussions on &lt;a href=&#34;https://news.ycombinator.com/item?id=5685903&#34;&gt;Hacker News&lt;/a&gt;. In this post I&amp;rsquo;ll give an introduction to what enums are and talk about how you can use them in your programs.&lt;/p&gt;
 
-&lt;h3 id=&#34;enumerated-types:f270d7a06ced02040967745a0bab63a7&#34;&gt;Enumerated Types&lt;/h3&gt;
+&lt;h3 id=&#34;enumerated-types:e3148644896893fddfa65ad9cd139576&#34;&gt;Enumerated Types&lt;/h3&gt;
 
 &lt;p&gt;According to &lt;a href=&#34;http://en.wikipedia.org/wiki/Enumerated_type&#34;&gt;Wikipedia&lt;/a&gt;, an enumerated type is a data type consisting of a set of named values called elements, members or enumerators of the type. The enumerator names are usually identifiers that behave as constants in the language.&lt;/p&gt;
 
@@ -537,50 +119,44 @@ defining an &lt;strong&gt;immutable&lt;/strong&gt;, &lt;strong&gt;related&lt;/st
 
 &lt;p&gt;For example, an enumerated type called &lt;code&gt;Days_of_Week&lt;/code&gt; may be defined to consist of &lt;code&gt;sunday&lt;/code&gt;, &lt;code&gt;monday&lt;/code&gt;, &lt;code&gt;tuesday&lt;/code&gt;, &lt;code&gt;wednesday&lt;/code&gt; etc. Or an enumerated class for &lt;code&gt;Roles&lt;/code&gt; might contain &lt;code&gt;admin&lt;/code&gt;, &lt;code&gt;user&lt;/code&gt; and &lt;code&gt;guest&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;why-enums:f270d7a06ced02040967745a0bab63a7&#34;&gt;Why Enums?&lt;/h3&gt;
+&lt;h3 id=&#34;why-enums:e3148644896893fddfa65ad9cd139576&#34;&gt;Why Enums?&lt;/h3&gt;
 
 &lt;p&gt;Why do we need Enums? Aren&amp;rsquo;t the constructs already available in the
 language capable of doing this? To answer the second question first, its true that similar functionality is possible. Developers all this while have been using a constants defined as INTS for this very purpose.  For example, check out &lt;a href=&#34;https://github.com/mitsuhiko/flask/wiki/Large-app-how-to#first-model-and-its-constants-file&#34;&gt;this&lt;/a&gt; definition of a model in SqlAlchemy.
 Armin, the creator of flask, declares a few constants in the &lt;code&gt;constants.py&lt;/code&gt; file which look like this&lt;/p&gt;
 
-&lt;p&gt;{% highlight python %}&lt;/p&gt;
-
-&lt;h1 id=&#34;user-role:f270d7a06ced02040967745a0bab63a7&#34;&gt;User role&lt;/h1&gt;
-
-&lt;p&gt;ADMIN = 0
+&lt;pre&gt;&lt;code&gt;# User role
+ADMIN = 0
 STAFF = 1
 USER = 2
 ROLE = {
-  ADMIN: &amp;lsquo;admin&amp;rsquo;,
-  STAFF: &amp;lsquo;staff&amp;rsquo;,
-  USER: &amp;lsquo;user&amp;rsquo;,
-}&lt;/p&gt;
+  ADMIN: &#39;admin&#39;,
+  STAFF: &#39;staff&#39;,
+  USER: &#39;user&#39;,
+}
 
-&lt;h1 id=&#34;user-status:f270d7a06ced02040967745a0bab63a7&#34;&gt;user status&lt;/h1&gt;
-
-&lt;p&gt;INACTIVE = 0
+# user status
+INACTIVE = 0
 NEW = 1
 ACTIVE = 2
 STATUS = {
-  INACTIVE: &amp;lsquo;inactive&amp;rsquo;,
-  NEW: &amp;lsquo;new&amp;rsquo;,
-  ACTIVE: &amp;lsquo;active&amp;rsquo;,
-}
-{% endhighlight %}&lt;/p&gt;
+  INACTIVE: &#39;inactive&#39;,
+  NEW: &#39;new&#39;,
+  ACTIVE: &#39;active&#39;,
+} 
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;The problem with this, however, is that these are ultimately integers. You can do a number of operations on them, which logically do not make sense. To point out another problem, imagine there are 100s of such roles. While debugging&lt;/p&gt;
 
-&lt;p&gt;{% highlight python %}
-&amp;gt;&amp;gt;&amp;gt; print user.role
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; print user.role
 0
-{% endhighlight %}&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;makes much less sense that&lt;/p&gt;
 
-&lt;p&gt;{% highlight python %}
-&amp;gt;&amp;gt;&amp;gt; print user.role
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; print user.role
 Roles.admin #type enum
-{% endhighlight %}&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Finally, if there&amp;rsquo;s another set of constants which need the same values
 (employee roles, for example) in which case these definitions might clash.&lt;/p&gt;
@@ -590,27 +166,24 @@ accounted for.
 - Enums can have values distinct from each other.
 - Operations (like multiplication) are not defined for these values&lt;/p&gt;
 
-&lt;h3 id=&#34;usage:f270d7a06ced02040967745a0bab63a7&#34;&gt;Usage&lt;/h3&gt;
+&lt;h3 id=&#34;usage:e3148644896893fddfa65ad9cd139576&#34;&gt;Usage&lt;/h3&gt;
 
 &lt;p&gt;I&amp;rsquo;ll encourage you to the check out the &lt;a href=&#34;http://www.python.org/dev/peps/pep-0435/&#34;&gt;PEP&lt;/a&gt; for detailed (proposed) syntax but here a few examples.&lt;/p&gt;
 
-&lt;p&gt;{% highlight python %}
-from emum import Emum&lt;/p&gt;
-
-&lt;p&gt;Class Roles(Enum):
+&lt;pre&gt;&lt;code&gt;from emum import Emum
+ 
+Class Roles(Enum):
   admin = 0
   staff = 1
-  user = 2&lt;/p&gt;
+  user = 2
 
-&lt;p&gt;print(Roles.admin)               # &amp;gt;&amp;gt;&amp;gt; Roles.admin
-print(repr(Roles.admin))         # &amp;gt;&amp;gt;&amp;gt; &lt;Roles.admin: 0&gt;
-{% endhighlight %}&lt;/p&gt;
+print(Roles.admin)               # &amp;gt;&amp;gt;&amp;gt; Roles.admin
+print(repr(Roles.admin))         # &amp;gt;&amp;gt;&amp;gt; &amp;lt;Roles.admin: 0&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Make no mistake, the numbers indicated here are just values that are
 assigned to the enum members and dont stand for anything. As mentioned in the PEP -
 &lt;em&gt;Using integers is short and handy (and provided by default by the Functional API), but not strictly enforced. In the vast majority of use-cases, one doesn&amp;rsquo;t care what the actual value of an enumeration is. But if the value is important, enumerations can have arbitrary values.&lt;/em&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;highlights:f270d7a06ced02040967745a0bab63a7&#34;&gt;Highlights&lt;/h3&gt;
 
 &lt;p&gt;Below is a list of important features as defined in the PEP&lt;/p&gt;
 
@@ -631,165 +204,16 @@ understanding in what the hullaboo is all about!&lt;/p&gt;
     </item>
     
     <item>
-      <title>Flask on Nginx and Gunicorn</title>
-      <link>http://192.241.186.225/articles/2014-03-07-flask-on-nginx-and-gunicorn/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>http://192.241.186.225/articles/2014-03-07-flask-on-nginx-and-gunicorn/</guid>
-      <description>
-
-&lt;p&gt;Even after deploying a number of &lt;a href=&#34;http://flask.pocoo.org/&#34;&gt;Flask&lt;/a&gt; apps I always find myself googling up blog posts on how to get the trio of nginx, gunicorn and supervisor working together. Below is simple, straight, no-nonsense guide on how to deploy a flask app on a Linux server using Nginx, Gunicorn and Supervisor.&lt;/p&gt;
-
-&lt;p&gt;A disclaimer: this guide will not tell you what these technologies are. Specifically, I will not talk about why you should use &lt;code&gt;nginx&lt;/code&gt; + &lt;code&gt;gunicorn&lt;/code&gt; instead of &lt;code&gt;apache&lt;/code&gt; + &lt;code&gt;mod_wsgi&lt;/code&gt;. There is plenty of good documentation online which already does that. This is my preferred setup for deploying flask applications and it is extremely simple to get started.&lt;/p&gt;
-
-&lt;h3 id=&#34;setup:00ff5c88b12b9080c9e8198a979d9ba0&#34;&gt;Setup&lt;/h3&gt;
-
-&lt;p&gt;First off setup a virtualenv. I&amp;rsquo;m a big fan of virtualenv as it helps you keep your global system environment clean.
-{% highlight bash %}
-$ cd flask_app
-$ virtualenv flask_env
-$ source flask_env/bin/activate
-(flask_env)$ pip install flask &amp;amp;&amp;amp; pip install gunicorn
-{% endhighlight %}&lt;/p&gt;
-
-&lt;h3 id=&#34;gunicorn:00ff5c88b12b9080c9e8198a979d9ba0&#34;&gt;Gunicorn&lt;/h3&gt;
-
-&lt;p&gt;With that done, lets create a &lt;code&gt;bash&lt;/code&gt; file called &lt;code&gt;gunicorn_start&lt;/code&gt;. The contents of this file are below. What this basically does is sets up the virtualenv and starts the gunicorn server on &lt;code&gt;http://127.0.0.1:8000&lt;/code&gt;. Do remember to customize the variables below as per your setup.&lt;/p&gt;
-
-&lt;p&gt;{% highlight bash %}
-#!/bin/bash&lt;/p&gt;
-
-&lt;p&gt;NAME=&amp;ldquo;my cool flask app&amp;rdquo;
-FLASKDIR=/Code/flask_app
-VENVDIR=/Code/flask_app/flask_env
-SOCKFILE=/Code/flask_app/sock
-USER=captain
-GROUP=captain
-NUM_WORKERS=3&lt;/p&gt;
-
-&lt;p&gt;echo &amp;ldquo;Starting $NAME&amp;rdquo;&lt;/p&gt;
-
-&lt;h1 id=&#34;activate-the-virtualenv:00ff5c88b12b9080c9e8198a979d9ba0&#34;&gt;activate the virtualenv&lt;/h1&gt;
-
-&lt;p&gt;cd $VENVDIR
-source bin/activate&lt;/p&gt;
-
-&lt;p&gt;export PYTHONPATH=$FLASKDIR:$PYTHONPATH&lt;/p&gt;
-
-&lt;h1 id=&#34;create-the-run-directory-if-it-doesn-t-exist:00ff5c88b12b9080c9e8198a979d9ba0&#34;&gt;Create the run directory if it doesn&amp;rsquo;t exist&lt;/h1&gt;
-
-&lt;p&gt;RUNDIR=$(dirname $SOCKFILE)
-test -d $RUNDIR || mkdir -p $RUNDIR&lt;/p&gt;
-
-&lt;h1 id=&#34;start-your-unicorn:00ff5c88b12b9080c9e8198a979d9ba0&#34;&gt;Start your unicorn&lt;/h1&gt;
-
-&lt;p&gt;exec gunicorn main:app -b 127.0.0.1:8000 \
-  &amp;ndash;name $NAME \
-  &amp;ndash;workers $NUM_WORKERS \
-  &amp;ndash;user=$USER &amp;ndash;group=$GROUP \
-  &amp;ndash;log-level=debug \
-  &amp;ndash;bind=unix:$SOCKFILE
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;To make sure everything is running, attempt a &lt;code&gt;sudo ./gunicorn_start&lt;/code&gt; command&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:00ff5c88b12b9080c9e8198a979d9ba0:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:00ff5c88b12b9080c9e8198a979d9ba0:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;. If gunicorn starts up perfectly and doesn&amp;rsquo;t cough any errors you are good to go.&lt;/p&gt;
-
-&lt;h3 id=&#34;nginx:00ff5c88b12b9080c9e8198a979d9ba0&#34;&gt;Nginx&lt;/h3&gt;
-
-&lt;p&gt;Now that &lt;code&gt;gunicorn&lt;/code&gt; is setup properly we can now move our focus to Nginx. The configuration is quite simple to get it started. The couple of lines below simply tell Nginx to act as a reverse proxy.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Contents of flaskconfig&lt;/strong&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:00ff5c88b12b9080c9e8198a979d9ba0:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:00ff5c88b12b9080c9e8198a979d9ba0:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;
-{% highlight bash %}
-server {
-    location / {
-        proxy_pass &lt;a href=&#34;http://127.0.0.1:8000&#34;&gt;http://127.0.0.1:8000&lt;/a&gt;;
-    }
-}
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;To run this configuration you need to save this in &lt;code&gt;/etc/nginx/sites-available&lt;/code&gt;. Assuming your file is &lt;code&gt;flaskconfig&lt;/code&gt;, you need to create a symbolic link in the &lt;code&gt;sites-enabled&lt;/code&gt; directory.&lt;/p&gt;
-
-&lt;p&gt;{% highlight bash %}
-$ cd /etc/nginx
-$ ln -s /etc/nginx/sites-available/flaskconfig /etc/nginx/sites-enabled/flaskconfig
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;To test everything is working fine, restart nginx - hopefully the server should restart without any server errors&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:00ff5c88b12b9080c9e8198a979d9ba0:3&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:00ff5c88b12b9080c9e8198a979d9ba0:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;. Now &lt;code&gt;cd&lt;/code&gt; into the project directory and start the &lt;code&gt;gunicorn_start&lt;/code&gt; command. Now head over to the domain name and you should see your application running.&lt;/p&gt;
-
-&lt;h3 id=&#34;supervisor:00ff5c88b12b9080c9e8198a979d9ba0&#34;&gt;Supervisor&lt;/h3&gt;
-
-&lt;p&gt;Supervisor is a client/server system that allows its users to monitor and control a number of processes on UNIX-like operating systems. In simple words, rather than manually starting and stopping &lt;code&gt;gunicorn&lt;/code&gt; you can use supervisor to create a daemon that is easy to manage. Create a new configuration file in &lt;code&gt;/etc/supervisor/conf.d&lt;/code&gt;. To manage supervisor you can use the familiar &lt;code&gt;sudo service supervisor restart&lt;/code&gt; command.&lt;/p&gt;
-
-&lt;p&gt;{% highlight bash %}
-[program:flask_app]
-command = /Code/flask_app/gunicorn_start
-user = root
-stdout_logfile = /Code/flask_app/logs/gunicorn_supervisor.log
-redirect_stderr = true
-{% endhighlight %}&lt;/p&gt;
-
-&lt;h3 id=&#34;fabric:00ff5c88b12b9080c9e8198a979d9ba0&#34;&gt;Fabric&lt;/h3&gt;
-
-&lt;p&gt;Fabric is a really cool python library that can be used for application deployment and systems administration. Using nothing but &lt;code&gt;python&lt;/code&gt; you can create deployment / automation scripts. You can have a look at a &lt;code&gt;fabfile&lt;/code&gt; I created for deploying a django application.&lt;/p&gt;
-
-&lt;p&gt;{% highlight python %}
-from fabric.api import *
-from contextlib import contextmanager as _contextmanager&lt;/p&gt;
-
-&lt;p&gt;env.user = &amp;ldquo;captain&amp;rdquo;
-env.activate = &amp;ldquo;source /Code/flask_app/flask_env/bin/activate&amp;rdquo;
-env.directory = &amp;ldquo;/Code/flask_app/&amp;rdquo;
-env.hosts = [&amp;ldquo;33.33.33.33&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;def prepare_deploy():
-    local(&amp;ldquo;echo &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;rdquo;)
-    local(&amp;ldquo;echo DEPLOYING APP TO PRODUCTION&amp;rdquo;)
-    local(&amp;ldquo;git add . &amp;amp;&amp;amp; git commit&amp;rdquo;)
-    local(&amp;ldquo;git push -u origin master&amp;rdquo;)
-    local(&amp;ldquo;echo APP PUSHED TO PRODUCTION&amp;rdquo;)
-    local(&amp;ldquo;echo &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;rdquo;)&lt;/p&gt;
-
-&lt;p&gt;def commit(msg):
-    local(&amp;ldquo;git add . &amp;amp;&amp;amp; git commit -am %s&amp;rdquo; % msg)&lt;/p&gt;
-
-&lt;p&gt;def deploy():
-    prepare_deploy()
-    with cd(env.directory):
-        run(&amp;ldquo;git pull&amp;rdquo;)
-    restart_service()&lt;/p&gt;
-
-&lt;p&gt;def restart_service():
-    run(&amp;ldquo;sudo supervisorctl restart flask_app&amp;rdquo;)&lt;/p&gt;
-
-&lt;p&gt;{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;Hopefully, this post has been helpful in giving you a good idea of how you can deploy flask apps on Nginx &amp;amp; Gunicorn. If you have any queries feel free to contact me.&lt;/p&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-
-&lt;hr /&gt;
-
-&lt;ol&gt;
-&lt;li id=&#34;fn:00ff5c88b12b9080c9e8198a979d9ba0:1&#34;&gt;Do remember to give the &lt;code&gt;gunicorn_start&lt;/code&gt; script the executable status with the &lt;code&gt;chmod +x gunicorn_start&lt;/code&gt; command.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:00ff5c88b12b9080c9e8198a979d9ba0:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:00ff5c88b12b9080c9e8198a979d9ba0:2&#34;&gt;For a more elaborate configuration for a production server, refer to the &lt;a href=&#34;http://gunicorn-docs.readthedocs.org/en/latest/deploy.html&#34;&gt;gunicorn documentation&lt;/a&gt;
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:00ff5c88b12b9080c9e8198a979d9ba0:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:00ff5c88b12b9080c9e8198a979d9ba0:3&#34;&gt;You can use &lt;code&gt;sudo nginx -t&lt;/code&gt; to identify any configuration related errors.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:00ff5c88b12b9080c9e8198a979d9ba0:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Using Blueprints</title>
-      <link>http://192.241.186.225/articles/2013-05-08-using-blueprints/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      <link>http://192.241.186.225/articles/using-blueprints/</link>
+      <pubDate>Thu, 08 May 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/2013-05-08-using-blueprints/</guid>
+      <guid>http://192.241.186.225/articles/using-blueprints/</guid>
       <description>
 
 &lt;p&gt;In today&amp;rsquo;s short lesson we&amp;rsquo;ll continue where we left off and completely wrap up the topic of code organization by learning about blueprints. &lt;a href=&#34;http://flask.pocoo.org/docs/blueprints/&#34;&gt;Blueprints&lt;/a&gt; have been a rather recent addition to flask (introduced in version 0.7) and were added to help users structure large applications into reusable components.&lt;/p&gt;
 
-&lt;h3 id=&#34;blueprints:21455d0a010a0122b48ea7b91056f5fc&#34;&gt;Blueprints&lt;/h3&gt;
+&lt;h3 id=&#34;blueprints:f0cac9f26d40801131474de4fca3c0eb&#34;&gt;Blueprints&lt;/h3&gt;
 
 &lt;p&gt;What exactly are blueprints? Lets see what the official documentation has to say. &lt;em&gt;Flask uses a concept of blueprints for making application components and supporting common patterns within an application or across applications. Blueprints can greatly simplify how large applications work and provide a central means for Flask extensions to register operations on applications.&lt;/em&gt;&lt;/p&gt;
 
@@ -797,18 +221,17 @@ env.hosts = [&amp;ldquo;33.33.33.33&amp;rdquo;]&lt;/p&gt;
 
 &lt;p&gt;Lets get started. Lets start with a simple app which looks like this -&lt;/p&gt;
 
-&lt;p&gt;{% highlight python %}
-|&amp;ndash; blogs
-|  |&amp;ndash; &lt;strong&gt;init&lt;/strong&gt;.py
-|  |&amp;ndash; views.py
-|  |&amp;ndash; static/
-|  |&amp;ndash; templates/
-|  |  |&amp;ndash; admin/
-|  |  |  |&amp;ndash; index.html
-|  |  |&amp;ndash; posts/
-|  |  |  |&amp;ndash; index.html
-|&amp;ndash; runserver.py
-{% endhighlight %}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;|-- blogs
+|  |-- __init__.py
+|  |-- views.py
+|  |-- static/
+|  |-- templates/
+|  |  |-- admin/
+|  |  |  |-- index.html
+|  |  |-- posts/
+|  |  |  |-- index.html
+|-- runserver.py
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;I&amp;rsquo;m using the same structure as we discussed in the previous post, however,
 given the scale of the app, I&amp;rsquo;m not using flask-script and instead have a simple
@@ -816,24 +239,21 @@ given the scale of the app, I&amp;rsquo;m not using flask-script and instead hav
 
 &lt;p&gt;Contents of the &lt;code&gt;views.py&lt;/code&gt; file&lt;/p&gt;
 
-&lt;p&gt;{% highlight python %}
-from flask import render_template
-from blogs import app&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;from flask import render_template
+from blogs import app
 
-&lt;h1 id=&#34;routes-for-admin-section:21455d0a010a0122b48ea7b91056f5fc&#34;&gt;routes for admin section&lt;/h1&gt;
-
-&lt;p&gt;@app.route(&amp;lsquo;/admin&amp;rsquo;, defaults={&amp;lsquo;page&amp;rsquo;: &amp;lsquo;index&amp;rsquo;})
-@app.route(&amp;lsquo;/admin/&lt;page&gt;&amp;rsquo;)
+# routes for admin section
+@app.route(&#39;/admin&#39;, defaults={&#39;page&#39;: &#39;index&#39;})
+@app.route(&#39;/admin/&amp;lt;page&amp;gt;&#39;)
 def admin_show(page):
-  return render_template(&amp;lsquo;admin/index.html&amp;rsquo;, page=page)&lt;/p&gt;
+  return render_template(&#39;admin/index.html&#39;, page=page)
 
-&lt;h1 id=&#34;routes-for-the-posts-section:21455d0a010a0122b48ea7b91056f5fc&#34;&gt;routes for the posts section&lt;/h1&gt;
-
-&lt;p&gt;@app.route(&amp;lsquo;/posts&amp;rsquo;, defaults={&amp;lsquo;page&amp;rsquo;: &amp;lsquo;index&amp;rsquo;})
-@app.route(&amp;lsquo;/posts/&lt;page&gt;&amp;rsquo;)
+# routes for the posts section
+@app.route(&#39;/posts&#39;, defaults={&#39;page&#39;: &#39;index&#39;})
+@app.route(&#39;/posts/&amp;lt;page&amp;gt;&#39;)
 def posts_show(page):
-  return render_template(&amp;lsquo;posts/index.html&amp;rsquo;, page=page)
-{% endhighlight %}&lt;/p&gt;
+  return render_template(&#39;posts/index.html&#39;, page=page)
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Seeing the code above, I&amp;rsquo;m sure that the intent is quite clear. What I&amp;rsquo;m trying
 to do is structure the main components in my application, &lt;code&gt;admin&lt;/code&gt; and &lt;code&gt;posts&lt;/code&gt; in
@@ -841,58 +261,55 @@ this case, in a single file. In the real world, there will be many more such
 components which follow a common pattern and in such case having them all in
 one place will be a real mess.&lt;/p&gt;
 
-&lt;h3 id=&#34;restructuring:21455d0a010a0122b48ea7b91056f5fc&#34;&gt;Restructuring&lt;/h3&gt;
+&lt;h3 id=&#34;restructuring:f0cac9f26d40801131474de4fca3c0eb&#34;&gt;Restructuring&lt;/h3&gt;
 
 &lt;p&gt;Lets see how we solve this problem using blueprints. I&amp;rsquo;ve created two new
 folders - each for admin and posts and initialized with a blank &lt;code&gt;__init__.py&lt;/code&gt;
 file.&lt;/p&gt;
 
-&lt;p&gt;{% highlight python %}
-|&amp;ndash; blogs
-|  |&amp;ndash; &lt;strong&gt;init&lt;/strong&gt;.py
-|  |&amp;ndash; admin/
-|  |  |&amp;ndash; &lt;strong&gt;init&lt;/strong&gt;.py
-|  |  |&amp;ndash; views.py
-|  |&amp;ndash; posts/
-|  |  |&amp;ndash; &lt;strong&gt;init&lt;/strong&gt;.py
-|  |  |&amp;ndash; views.py
-|  |&amp;ndash; static/
-|  |&amp;ndash; templates/
-|  |  |&amp;ndash; admin/
-|  |  |  |&amp;ndash; index.html
-|  |  |&amp;ndash; posts/
-|  |  |  |&amp;ndash; index.html
-|&amp;ndash; runserver.py
-{% endhighlight %}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;|-- blogs
+|  |-- __init__.py
+|  |-- admin/
+|  |  |-- __init__.py
+|  |  |-- views.py
+|  |-- posts/
+|  |  |-- __init__.py
+|  |  |-- views.py
+|  |-- static/
+|  |-- templates/
+|  |  |-- admin/
+|  |  |  |-- index.html
+|  |  |-- posts/
+|  |  |  |-- index.html
+|-- runserver.py
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Additionally, I&amp;rsquo;ve added two new &lt;code&gt;views.py&lt;/code&gt; in each of the folders. Here are the
 contents of the two files&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;admin/views.py&lt;/code&gt;:
-{% highlight python %}
-from flask import Blueprint, render_template
-mod = Blueprint(&amp;lsquo;admin&amp;rsquo;, &lt;strong&gt;name&lt;/strong&gt;, url_prefix=&amp;lsquo;/admin&amp;rsquo;)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;admin/views.py&lt;/code&gt;:&lt;/p&gt;
 
-&lt;h1 id=&#34;route-handles-for-admin-and-admin-page:21455d0a010a0122b48ea7b91056f5fc&#34;&gt;route handles for /admin and /admin/page&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;from flask import Blueprint, render_template
+mod = Blueprint(&#39;admin&#39;, __name__, url_prefix=&#39;/admin&#39;)
 
-&lt;p&gt;@mod.route(&amp;lsquo;/&amp;rsquo;, defaults={&amp;lsquo;page&amp;rsquo;: &amp;lsquo;index&amp;rsquo;})
-@mod.route(&amp;lsquo;/&lt;page&gt;&amp;rsquo;)
+# route handles for /admin and /admin/page
+@mod.route(&#39;/&#39;, defaults={&#39;page&#39;: &#39;index&#39;})
+@mod.route(&#39;/&amp;lt;page&amp;gt;&#39;)
 def show(page):
-  return render_template(&amp;lsquo;admin/index.html&amp;rsquo;, page=page)
-{% endhighlight %}&lt;/p&gt;
+  return render_template(&#39;admin/index.html&#39;, page=page)
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;code&gt;posts/views.py&lt;/code&gt;:
-{% highlight python %}
-from flask import Blueprint, render_template
-mod = Blueprint(&amp;lsquo;posts&amp;rsquo;, &lt;strong&gt;name&lt;/strong&gt;, url_prefix=&amp;lsquo;/posts&amp;rsquo;)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;posts/views.py&lt;/code&gt;:&lt;/p&gt;
 
-&lt;h1 id=&#34;route-handles-for-posts-and-posts-page:21455d0a010a0122b48ea7b91056f5fc&#34;&gt;route handles for /posts and /posts/page&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;from flask import Blueprint, render_template
+mod = Blueprint(&#39;posts&#39;, __name__, url_prefix=&#39;/posts&#39;)
 
-&lt;p&gt;@mod.route(&amp;lsquo;/&amp;rsquo;, defaults={&amp;lsquo;page&amp;rsquo;: &amp;lsquo;index&amp;rsquo;})
-@mod.route(&amp;lsquo;/&lt;page&gt;&amp;rsquo;)
+# route handles for /posts and /posts/page
+@mod.route(&#39;/&#39;, defaults={&#39;page&#39;: &#39;index&#39;})
+@mod.route(&#39;/&amp;lt;page&amp;gt;&#39;)
 def show(page):
-  return render_template(&amp;lsquo;posts/index.html&amp;rsquo;, page=page)
-{% endhighlight %}&lt;/p&gt;
+  return render_template(&#39;posts/index.html&#39;, page=page)
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;What we&amp;rsquo;re trying to do here is a setup the component as a blueprint. When a new
 function is bound using the @mod.route decorator the blueprint will record the
@@ -906,28 +323,24 @@ Hence, in our admin blueprint will listen to the two endpoints - &lt;code&gt;/ad
 &lt;p&gt;Before we use our blueprints we need to register them on our app object. We can
 do this in our main &lt;code&gt;__init__.py&lt;/code&gt; file. These are its new contents -&lt;/p&gt;
 
-&lt;p&gt;{% highlight python %}
-from flask import Flask
-app = Flask(&lt;strong&gt;name&lt;/strong&gt;)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;from flask import Flask
+app = Flask(__name__)
 
-&lt;h1 id=&#34;importing-as-module-follow-this-pattern-to-include-more-modules:21455d0a010a0122b48ea7b91056f5fc&#34;&gt;importing as module.. follow this pattern to include more modules&lt;/h1&gt;
+# importing as module.. follow this pattern to include more modules
+from blogs.admin.views import mod as adminModule
+from blogs.posts.views import mod as postsModule
 
-&lt;p&gt;from blogs.admin.views import mod as adminModule
-from blogs.posts.views import mod as postsModule&lt;/p&gt;
+# registering the modules
+app.register_blueprint(adminModule)
+app.register_blueprint(postsModule)
 
-&lt;h1 id=&#34;registering-the-modules:21455d0a010a0122b48ea7b91056f5fc&#34;&gt;registering the modules&lt;/h1&gt;
-
-&lt;p&gt;app.register_blueprint(adminModule)
-app.register_blueprint(postsModule)&lt;/p&gt;
-
-&lt;h1 id=&#34;referencing-the-module-views-using-url-for:21455d0a010a0122b48ea7b91056f5fc&#34;&gt;referencing the module views using url_for&lt;/h1&gt;
-
-&lt;p&gt;@app.route(&amp;lsquo;/&amp;rsquo;)
+# referencing the module views using url_for
+@app.route(&#39;/&#39;)
 def index():
-    return &amp;ldquo;&lt;a href=&#39;%s&#39;&gt;Admin Section&lt;/a&gt; | \
-            &lt;a href=&#39;%s&#39;&gt;Posts Section&lt;/a&gt;&amp;rdquo; % (url_for(&amp;lsquo;admin.show&amp;rsquo;),
-                                               url_for(&amp;lsquo;posts.show&amp;rsquo;))
-{% endhighlight %}&lt;/p&gt;
+    return &amp;quot;&amp;lt;a href=&#39;%s&#39;&amp;gt;Admin Section&amp;lt;/a&amp;gt; | \
+            &amp;lt;a href=&#39;%s&#39;&amp;gt;Posts Section&amp;lt;/a&amp;gt;&amp;quot; % (url_for(&#39;admin.show&#39;),
+                                               url_for(&#39;posts.show&#39;))
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Now that we&amp;rsquo;ve registered our application, test the application and you&amp;rsquo;ll see
 how the blueprints have correctly registered our url endpoints.&lt;/p&gt;
@@ -948,6 +361,520 @@ you&amp;rsquo;re keen to checkout how a large app is done and see the techniques
 I encourage you to checkout this &lt;a href=&#34;https://github.com/mitsuhiko/flask/wiki/Large-app-how-to&#34;&gt;tutorial&lt;/a&gt; on flask wiki.&lt;/p&gt;
 
 &lt;p&gt;Next time we&amp;rsquo;ll talk about &lt;strong&gt;Class Based Views&lt;/strong&gt; in Flask. See you next time!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Flask on Nginx and Gunicorn</title>
+      <link>http://192.241.186.225/articles/flask-on-nginx-and-gunicorn/</link>
+      <pubDate>Fri, 07 Mar 2014 12:34:58 AST</pubDate>
+      
+      <guid>http://192.241.186.225/articles/flask-on-nginx-and-gunicorn/</guid>
+      <description>
+
+&lt;p&gt;Even after deploying a number of &lt;a href=&#34;http://flask.pocoo.org/&#34;&gt;Flask&lt;/a&gt; apps I always find myself googling up blog posts on how to get the trio of nginx, gunicorn and supervisor working together. Below is simple, straight, no-nonsense guide on how to deploy a flask app on a Linux server using Nginx, Gunicorn and Supervisor.&lt;/p&gt;
+
+&lt;p&gt;A disclaimer: this guide will not tell you what these technologies are. Specifically, I will not talk about why you should use &lt;code&gt;nginx&lt;/code&gt; + &lt;code&gt;gunicorn&lt;/code&gt; instead of &lt;code&gt;apache&lt;/code&gt; + &lt;code&gt;mod_wsgi&lt;/code&gt;. There is plenty of good documentation online which already does that. This is my preferred setup for deploying flask applications and it is extremely simple to get started.&lt;/p&gt;
+
+&lt;h3 id=&#34;setup:97e8e5fc5e66771175bb9d2622c52526&#34;&gt;Setup&lt;/h3&gt;
+
+&lt;p&gt;First off setup a virtualenv. I&amp;rsquo;m a big fan of virtualenv as it helps you keep your global system environment clean.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd flask_app
+$ virtualenv flask_env
+$ source flask_env/bin/activate
+(flask_env)$ pip install flask &amp;amp;&amp;amp; pip install gunicorn
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;gunicorn:97e8e5fc5e66771175bb9d2622c52526&#34;&gt;Gunicorn&lt;/h3&gt;
+
+&lt;p&gt;With that done, lets create a &lt;code&gt;bash&lt;/code&gt; file called &lt;code&gt;gunicorn_start&lt;/code&gt;. The contents of this file are below. What this basically does is sets up the virtualenv and starts the gunicorn server on &lt;code&gt;http://127.0.0.1:8000&lt;/code&gt;. Do remember to customize the variables below as per your setup.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+
+NAME=&amp;quot;my cool flask app&amp;quot;
+FLASKDIR=/Code/flask_app
+VENVDIR=/Code/flask_app/flask_env
+SOCKFILE=/Code/flask_app/sock
+USER=captain
+GROUP=captain
+NUM_WORKERS=3
+
+echo &amp;quot;Starting $NAME&amp;quot;
+
+# activate the virtualenv
+cd $VENVDIR
+source bin/activate
+
+export PYTHONPATH=$FLASKDIR:$PYTHONPATH
+
+# Create the run directory if it doesn&#39;t exist
+RUNDIR=$(dirname $SOCKFILE)
+test -d $RUNDIR || mkdir -p $RUNDIR
+
+# Start your unicorn
+exec gunicorn main:app -b 127.0.0.1:8000 \
+  --name $NAME \
+  --workers $NUM_WORKERS \
+  --user=$USER --group=$GROUP \
+  --log-level=debug \
+  --bind=unix:$SOCKFILE
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To make sure everything is running, attempt a &lt;code&gt;sudo ./gunicorn_start&lt;/code&gt; command&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:97e8e5fc5e66771175bb9d2622c52526:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:97e8e5fc5e66771175bb9d2622c52526:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;. If gunicorn starts up perfectly and doesn&amp;rsquo;t cough any errors you are good to go.&lt;/p&gt;
+
+&lt;h3 id=&#34;nginx:97e8e5fc5e66771175bb9d2622c52526&#34;&gt;Nginx&lt;/h3&gt;
+
+&lt;p&gt;Now that &lt;code&gt;gunicorn&lt;/code&gt; is setup properly we can now move our focus to Nginx. The configuration is quite simple to get it started. The couple of lines below simply tell Nginx to act as a reverse proxy.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Contents of flaskconfig&lt;/strong&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:97e8e5fc5e66771175bb9d2622c52526:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:97e8e5fc5e66771175bb9d2622c52526:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;server {
+    location / {
+        proxy_pass http://127.0.0.1:8000;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To run this configuration you need to save this in &lt;code&gt;/etc/nginx/sites-available&lt;/code&gt;. Assuming your file is &lt;code&gt;flaskconfig&lt;/code&gt;, you need to create a symbolic link in the &lt;code&gt;sites-enabled&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd /etc/nginx
+$ ln -s /etc/nginx/sites-available/flaskconfig /etc/nginx/sites-enabled/flaskconfig
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To test everything is working fine, restart nginx - hopefully the server should restart without any server errors&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:97e8e5fc5e66771175bb9d2622c52526:3&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:97e8e5fc5e66771175bb9d2622c52526:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;. Now &lt;code&gt;cd&lt;/code&gt; into the project directory and start the &lt;code&gt;gunicorn_start&lt;/code&gt; command. Now head over to the domain name and you should see your application running.&lt;/p&gt;
+
+&lt;h3 id=&#34;supervisor:97e8e5fc5e66771175bb9d2622c52526&#34;&gt;Supervisor&lt;/h3&gt;
+
+&lt;p&gt;Supervisor is a client/server system that allows its users to monitor and control a number of processes on UNIX-like operating systems. In simple words, rather than manually starting and stopping &lt;code&gt;gunicorn&lt;/code&gt; you can use supervisor to create a daemon that is easy to manage. Create a new configuration file in &lt;code&gt;/etc/supervisor/conf.d&lt;/code&gt;. To manage supervisor you can use the familiar &lt;code&gt;sudo service supervisor restart&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[program:flask_app]
+command = /Code/flask_app/gunicorn_start
+user = root
+stdout_logfile = /Code/flask_app/logs/gunicorn_supervisor.log
+redirect_stderr = true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;fabric:97e8e5fc5e66771175bb9d2622c52526&#34;&gt;Fabric&lt;/h3&gt;
+
+&lt;p&gt;Fabric is a really cool python library that can be used for application deployment and systems administration. Using nothing but &lt;code&gt;python&lt;/code&gt; you can create deployment / automation scripts. You can have a look at a &lt;code&gt;fabfile&lt;/code&gt; I created for deploying a django application.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from fabric.api import *
+from contextlib import contextmanager as _contextmanager
+
+env.user = &amp;quot;captain&amp;quot;
+env.activate = &amp;quot;source /Code/flask_app/flask_env/bin/activate&amp;quot;
+env.directory = &amp;quot;/Code/flask_app/&amp;quot;
+env.hosts = [&amp;quot;33.33.33.33&amp;quot;]
+
+def prepare_deploy():
+    local(&amp;quot;echo ------------------------&amp;quot;)
+    local(&amp;quot;echo DEPLOYING APP TO PRODUCTION&amp;quot;)
+    local(&amp;quot;git add . &amp;amp;&amp;amp; git commit&amp;quot;)
+    local(&amp;quot;git push -u origin master&amp;quot;)
+    local(&amp;quot;echo APP PUSHED TO PRODUCTION&amp;quot;)
+    local(&amp;quot;echo ------------------------&amp;quot;)
+
+def commit(msg):
+    local(&amp;quot;git add . &amp;amp;&amp;amp; git commit -am %s&amp;quot; % msg)
+
+def deploy():
+    prepare_deploy()
+    with cd(env.directory):
+        run(&amp;quot;git pull&amp;quot;)
+    restart_service()
+
+def restart_service():
+    run(&amp;quot;sudo supervisorctl restart flask_app&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Hopefully, this post has been helpful in giving you a good idea of how you can deploy flask apps on Nginx &amp;amp; Gunicorn. If you have any queries feel free to contact me.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:97e8e5fc5e66771175bb9d2622c52526:1&#34;&gt;Do remember to give the &lt;code&gt;gunicorn_start&lt;/code&gt; script the executable status with the &lt;code&gt;chmod +x gunicorn_start&lt;/code&gt; command.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:97e8e5fc5e66771175bb9d2622c52526:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:97e8e5fc5e66771175bb9d2622c52526:2&#34;&gt;For a more elaborate configuration for a production server, refer to the &lt;a href=&#34;http://gunicorn-docs.readthedocs.org/en/latest/deploy.html&#34;&gt;gunicorn documentation&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:97e8e5fc5e66771175bb9d2622c52526:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:97e8e5fc5e66771175bb9d2622c52526:3&#34;&gt;You can use &lt;code&gt;sudo nginx -t&lt;/code&gt; to identify any configuration related errors.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:97e8e5fc5e66771175bb9d2622c52526:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Class Based Views</title>
+      <link>http://192.241.186.225/articles/class-based-views/</link>
+      <pubDate>Thu, 09 May 2013 12:34:58 AST</pubDate>
+      
+      <guid>http://192.241.186.225/articles/class-based-views/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;ve used Django before, one of the things that you surely miss (apart from the django-admin, of course) is class based (or generic) views. Class based views allow you to structure your views and reuse code by harnessing inheritance and mixins. This allows you to create generic views for routine tasks and simply inherit from them for similar views.&lt;/p&gt;
+
+&lt;p&gt;In flask 0.7 class based views were introduced which act similar to generic
+views in Django. In this tutorial we&amp;rsquo;ll cover how to use class based views to
+make extendable views. We&amp;rsquo;ll also see how we can use &lt;code&gt;MethodView&lt;/code&gt; (a type of
+class based view) to create a RESTful API.&lt;/p&gt;
+
+&lt;p&gt;Lets get started. I have a basic starter template that looks like this -&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;|-- static/
+    |- jquery.js
+|-- templates/
+    |-- index.html
+    |-- about.html
+    |-- base.html
+    |-- users.html
+|-- main.py
+|-- user.db
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Since the app is only for demo purposes, I&amp;rsquo;ve added all my models and views in a
+single file - &lt;code&gt;main.py&lt;/code&gt;. I have a single model called &lt;code&gt;User&lt;/code&gt; and I&amp;rsquo;ve used SQLAlchemy as the ORM. The &lt;code&gt;user.db&lt;/code&gt; file is the SQLITE db that I&amp;rsquo;m using for this app. To begin with, these are the kinds of views that our app needs to have -&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;There are a few views that simply need to return a template - like index and about.&lt;/li&gt;
+&lt;li&gt;There are a couple of models in our application and we need to have views that display
+the model data as a list by passing that data to a template.&lt;/li&gt;
+&lt;li&gt;Lastly, we need to have consolidated view for making a API instead of flooding
+our view with ifs&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;@app.route(&#39;/users/&#39;)
+def users():
+  if request.method == &amp;quot;GET&amp;quot;:
+    pass
+  else:
+    pass  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;@app.route(&#39;/users/&amp;lt;int:post_id&amp;gt;&#39;)
+def user():
+  if request.method == &amp;quot;GET&amp;quot;:
+    pass
+  elif request.method == &amp;quot;PUT&amp;quot;:
+    pass
+  elif request.method == &amp;quot;DELETE&amp;quot;:
+    pass
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Lets begin with the first requirement. Instead of just repeating code to
+render a template we&amp;rsquo;ll a create class based view akin to a &lt;a href=&#34;https://docs.djangoproject.com/en/dev/ref/class-based-views/base/#django.views.generic.base.TemplateView&#34;&gt;TemplateView&lt;/a&gt; in
+django&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from flask.views import View
+
+class RenderTemplateView(View):
+    def __init__(self, template_name):
+        self.template_name = template_name
+
+    def dispatch_request(self):
+        return render_template(self.template_name)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;What we&amp;rsquo;ve done here is that we&amp;rsquo;ve just subclassed the &lt;code&gt;flask.views.View&lt;/code&gt; class
+and implemented a &lt;code&gt;dispatch_request&lt;/code&gt; method. All subclasses that inherit from the
+&lt;code&gt;flask.view&lt;/code&gt; class need to override this method to implement the actual view
+code.&lt;/p&gt;
+
+&lt;p&gt;This allows us to create template views like this -&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# urls for rendering simple templates
+app.add_url_rule(&#39;/about&#39;, view_func = RenderTemplateView.as_view(&#39;about_page&#39;, template_name=&amp;quot;about.html&amp;quot;))
+app.add_url_rule(&#39;/&#39;, view_func = RenderTemplateView.as_view(&#39;index_page&#39;, template_name=&amp;quot;index.html&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The first argument to the &lt;code&gt;as_view&lt;/code&gt; function is the URL endpoint and second
+being the name of the template that needs to be passed.&lt;/p&gt;
+
+&lt;p&gt;With that out of way, lets jump to the second requirement - building a listview.
+Now in my app, I just have one model but in apps where there are lots of models
+and you find yourself repeatedly implementing a view that returns a list of the
+objects of that model which is then passed to a template, you can implement your
+listview class. Lets see how that is done -&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;class ListView(View):
+    def get_template_name(self):
+        raise NotImplementedError()
+
+    def render_template(self, context):
+        # a custom render_template method that passes in the 
+        # template name and the modified template context
+        return render_template(self.get_template_name(), **context)
+
+    def dispatch_request(self):
+        # self.get_context returns a modified context which is
+        # then passed to our render_template method
+        context = self.get_context()
+        return self.render_template(context)
+
+# subclass from the listview class
+class UserListView(ListView):
+    def get_template_name(self):
+        return &amp;quot;users.html&amp;quot;
+
+    def get_context(self):
+        context = {&#39;objects&#39;: User.query.all(), &#39;time&#39;: datetime.now()}
+        return context
+
+# urls for list views
+app.add_url_rule(&#39;/userlist/&#39;, view_func = UserListView.as_view(&#39;user_list&#39;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The idea here is similar. We implmenent a custom &lt;code&gt;render_template&lt;/code&gt; function so
+that we can pass in a custom context to the template. This pattern can then be
+easily extended for multiple models.&lt;/p&gt;
+
+&lt;p&gt;Lastly, lets see how we can use &lt;code&gt;MethodView&lt;/code&gt; to make a RESTful API. &lt;code&gt;MethodView&lt;/code&gt;
+allows us to manage method-based dispatching like so -&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from flask.views import MethodView
+class UserAPI(MethodView):
+    def get(self, user_id):
+        if user_id is None:
+            users = User.query.all()
+            json_results = [{&#39;name&#39;: u.name, &#39;age&#39;: u.age} for u in users]
+        else:
+            user = User.query.get_or_404(user_id)
+            json_results = [{&#39;name&#39;: user.name, &#39;age&#39;: user.age}]
+        return jsonify(item=json_results)
+
+    def post(self):
+      pass
+
+    def delete(self, user_id):
+      pass
+
+    def put(self, user_id):
+      pass
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can see, each HTTP method maps to a function with the same name. This way
+you dont have to provide separate &lt;code&gt;method&lt;/code&gt; attribute as its automagically
+deciphered from the title of the method.&lt;/p&gt;
+
+&lt;p&gt;To hook this up to a routing system we just provides multiple routes to the same
+view like this -&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# urls for User API
+user_api_view = UserAPI.as_view(&#39;user_api&#39;)
+app.add_url_rule(&#39;/users/&#39;, defaults={&#39;user_id&#39;: None},
+                 view_func = user_api_view, methods=[&amp;quot;GET&amp;quot;,])
+app.add_url_rule(&#39;/users/&#39;, view_func = user_api_view, methods=[&amp;quot;POST&amp;quot;,])
+app.add_url_rule(&#39;/users/&amp;lt;int:user_id&amp;gt;&#39;, view_func = user_api_view,
+                 methods=[&amp;quot;GET&amp;quot;, &amp;quot;PUT&amp;quot;, &amp;quot;DELETE&amp;quot;])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you&amp;rsquo;ve been following along you can check the code on my &lt;a href=&#34;https://github.com/prakhar1989/flask-tuts/tree/master/lesson-3&#34;&gt;github&lt;/a&gt; which contains a working API and accompanying jquery ajax calls for testing the API for your reference.&lt;/p&gt;
+
+&lt;p&gt;I hope this tutorial has helped you in understanding when you use class based
+views. Basically, whenever you see yourself repeating view functionality you
+know that its time for a class based view. Don&amp;rsquo;t forget to refer to the
+&lt;a href=&#34;http://flask.pocoo.org/docs/views/&#34;&gt;official docs&lt;/a&gt; to get a clearer picture.&lt;/p&gt;
+
+&lt;p&gt;See you next time!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Application Structure</title>
+      <link>http://192.241.186.225/articles/application-structure/</link>
+      <pubDate>Tue, 07 May 2013 12:34:58 AST</pubDate>
+      
+      <guid>http://192.241.186.225/articles/application-structure/</guid>
+      <description>
+
+&lt;p&gt;In this post, we&amp;rsquo;re going to talk about a seemingly easy but an important topic - organizing and structuring your flask applications.&lt;/p&gt;
+
+&lt;p&gt;As mentioned earlier, getting started with flask is super easy. Unlike django, flask doesn&amp;rsquo;t follow a directory structure when you start a new app. Flask will not complain even if all of your code resides in a single &lt;code&gt;main.py&lt;/code&gt; file. But we all know that that is not the way to go. Having all your code in one file makes it messy and unmaintainable.&lt;/p&gt;
+
+&lt;p&gt;Lets assume that you&amp;rsquo;ve gone through the throughly explained &lt;a href=&#34;http://flask.pocoo.org/docs/tutorial/&#34;&gt;flaskr tutorial&lt;/a&gt; (which you definitely should in case you haven&amp;rsquo;t) and unable to contain the excitement you start a new flask app. As you keep writing more code and see it working you start getting that nice feeling about the awesomeness of flask. However, as your code keeps growing and since its all in a single file you start getting frustrated. Configurations, models, views etc. should definitely go in separate files, you think, so that your application is kept modular. But where do you start?&lt;/p&gt;
+
+&lt;p&gt;This post will provide you an answer and show you a good way of structuring your apps. For starters, the flask &lt;a href=&#34;http://flask.pocoo.org/docs/patterns/packages/&#34;&gt;patterns site&lt;/a&gt; provides an easy-to-follow tutorial for structuring an app. This post will cover that and will go beyond by covering configuration module and an extension called &lt;a href=&#34;http://flask-script.readthedocs.org/en/latest/&#34;&gt;flask-script&lt;/a&gt;. Lets get started!&lt;/p&gt;
+
+&lt;h3 id=&#34;packages:116daa917c1b6b0be75648eef414a7bf&#34;&gt;Packages&lt;/h3&gt;
+
+&lt;p&gt;For larger applications going the packages way is generally a good idea.  A small app might look like this -&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;- myapp
+  |- static
+  |- templates
+  |- main.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To change this into a python module all you need to do is move the files in a separate folder and create a new file ( or rename the existing &lt;code&gt;main.py&lt;/code&gt; ) &lt;code&gt;__init__.py&lt;/code&gt; so that python can interpret the folder as a module. After re-structuring your app will look like this -&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;- myapp
+  |- hello
+    |-- __init__.py
+    |-- static
+    |-- templates
+    |-- main.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The next step is to separate app initialization, models and views declaration from your &lt;code&gt;__init__.py&lt;/code&gt;. To do that write the following code in your &lt;code&gt;__init__.py&lt;/code&gt;. Note: I&amp;rsquo;m assuming that you&amp;rsquo;re assuming sqlalchemy as your ORM. Additionally, I&amp;rsquo;ve used hello as the name of the app folder.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# flask imports go here
+from flask import Flask
+from flask.ext.sqlalchemy import SQLAlchemy
+import os
+
+# declaring the app
+app = Flask(__name__)
+
+# get the base dir
+base_dir = os.path.dirname(os.path.abspath(__file__))
+app.config.from_pyfile(os.path.join(base_dir, &#39;../app.cfg&#39;))
+
+# create db
+db = SQLAlchemy(app)
+
+# importing views
+import hello.views
+
+# import models
+from hello.models.person import Person
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In this code, you&amp;rsquo;ll notice that &lt;code&gt;hello.views&lt;/code&gt;, &lt;code&gt;hello.models.person&lt;/code&gt; and &lt;code&gt;app.cfg&lt;/code&gt; are missing files. Don&amp;rsquo;t worry, we&amp;rsquo;ll create them soon. The rest of the code is self-explainatory. We get the base directory so that we can easily reference the config file to instantiate our app.&lt;/p&gt;
+
+&lt;h3 id=&#34;application-configuration:116daa917c1b6b0be75648eef414a7bf&#34;&gt;Application Configuration&lt;/h3&gt;
+
+&lt;p&gt;The next step is to create the missing files. In your app (in my case -
+hello) folder, create a new folder called &lt;code&gt;models&lt;/code&gt; and add your models
+(either separately or all in single file).  Dont forget to create a
+blank &lt;code&gt;__init__.py&lt;/code&gt; file in this folder as well. Next, create a file
+called &lt;code&gt;app.cfg&lt;/code&gt; to store your configuration. This file should reside
+alongside your app (or hello) folder. Finally, inside your app (or
+hello) folder add all your views in a file &lt;code&gt;views.py&lt;/code&gt;. Below is a sample
+excerpt of how your files should look like.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# sample app.cfg
+DEBUG = True
+SECRET= &amp;quot;mysupersecretkey&amp;quot;
+
+# dummy model inside models folder
+# filename hello/models/dummy.py
+from hello import db
+class Dummy(db.Model):
+  pass
+
+# views inside hello/views.py
+from hello import app
+from hello.models.dummy import Dummy
+from flask import render_template
+@app.route(&#39;/&#39;)
+def hello():
+  return render_template(&#39;index.html&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;At this stage this is how your structure looks like -&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;- myapp
+  |- app.cfg
+  |- hello
+    |-- __init__.py
+    |-- static/
+    |-- templates/
+    |-- views.py
+    |-- models/
+      |--- __init__.py
+      |--- dummy.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you&amp;rsquo;ve noticed we still haven&amp;rsquo;t told our app to run. To do that, create
+a new file called &lt;code&gt;manage.py&lt;/code&gt; alongside &lt;code&gt;app.cfg&lt;/code&gt; and enter the
+following code -&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from hello import app
+from hello import db
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+  app.run()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now that you have everything setup, your app should work. Give it a go by running &lt;code&gt;python manage.py&lt;/code&gt;
+and make sure there aren&amp;rsquo;t any import errors.&lt;/p&gt;
+
+&lt;h3 id=&#34;flask-script:116daa917c1b6b0be75648eef414a7bf&#34;&gt;Flask Script&lt;/h3&gt;
+
+&lt;p&gt;One last thing I need to introduce before we wrap up is a flask extension called
+&lt;a href=&#34;http://flask-script.readthedocs.org/en/latest/&#34;&gt;flask-script&lt;/a&gt;. The
+flask-script extensions provides support for writing scripts and makes
+it super easy to add commands that can runserver, open shell, manage
+cronjobs and other things right from the terminal. The documentation for
+the extension is very easy to follow and I encourage you to give it a
+read. I&amp;rsquo;ve edited the &lt;code&gt;manage.py&lt;/code&gt; file and added support for
+flask-script.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from flask.ext.script import Manager, Server, Shell
+from hello import app
+from hello import db
+
+# (optional) - include models if you want to!
+import hello.models as models
+
+def _make_context():
+  &amp;quot;&amp;quot;&amp;quot; context for passing into to the shell command &amp;quot;&amp;quot;&amp;quot;
+  return dict(app=app, db=db, models=models)
+
+# set manager
+manager = Manager(app)
+
+# add commands
+manager.add_command(&amp;quot;runserver&amp;quot;, Server())
+manager.add_command(&amp;quot;shell&amp;quot;, Shell(make_context = _make_context))
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+  manager.run()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After making these changes, simply run &lt;code&gt;python manage.py runserver&lt;/code&gt; to
+run the app and &lt;code&gt;python manage.py shell&lt;/code&gt; to jump into a python shell
+with your application context, db and models loaded!&lt;/p&gt;
+
+&lt;p&gt;I hope this has been a fun tutorial for you to follow. If there are any
+issues feel free to email me.&lt;/p&gt;
+
+&lt;p&gt;The code for this lesson is available on my &lt;a href=&#34;https://github.com/prakhar1989/flask-tuts/tree/master/lesson-1/hello&#34;&gt;github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In the next post we&amp;rsquo;re going to delve further into the topic of project structure by taking a look at &lt;strong&gt;blueprints in Flask&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;See you next time!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Beginning Flask</title>
+      <link>http://192.241.186.225/articles/beginning-flask/</link>
+      <pubDate>Mon, 06 May 2013 12:34:58 AST</pubDate>
+      
+      <guid>http://192.241.186.225/articles/beginning-flask/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been meaning to start a write a series on &lt;a href=&#34;http://flask.pooco.org&#34;&gt;Flask&lt;/a&gt; which is a micro-framework for developing web applications in python. In Ruby parlance, flask is to &lt;a href=&#34;http://www.sinatrarb.com/&#34;&gt;Sinatra&lt;/a&gt; what Django is to Rails.&lt;/p&gt;
+
+&lt;p&gt;The nicest thing (and most confusing for beginners) about Flask is that its quite barebones on the onset. A simple &lt;code&gt;hello world&lt;/code&gt; application in Flask is just about 7 lines as shown below. However, going from hello world to full fledged application is a daunting task in itself for a beginner.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from flask import Flask
+app = Flask(__name__)
+@app.route(&#39;/&#39;)
+def hello():
+  return &amp;quot;hello world&amp;quot;
+if __name__ == &amp;quot;__main__&amp;quot;:
+  app.run()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Almost all of the material found in this guide will be available from other sources namely flask&amp;rsquo;s excellent documentation and the countless flask projects on Github. However, I&amp;rsquo;ll try my best to write a comprehensive post on each topic for that day the matter for which will be collected through the flask docs, projects on github and the mailing list.&lt;/p&gt;
+
+&lt;p&gt;As a disclaimer: I&amp;rsquo;m new to flask myself and I&amp;rsquo;m constantly learning. While building a couple of apps in flask I&amp;rsquo;ve found myself stumbling on a few aspects like project organization, ORM and deployment very frequently. Having a lot of choices at your disposal might not always be best for productivity. Through this guide, I aim to help you in making the right choices by sharing the best practices involved in building flask apps.&lt;/p&gt;
+
+&lt;p&gt;The idea is to write on a topic each day, detailed with code examples
+and references for further reading. To get the most out of each post, it
+is expected that you&amp;rsquo;ll type out the code for yourself. The best way to
+learn is by doing.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ll start the series with &lt;strong&gt;Project Structure and Organization&lt;/strong&gt;. See you next time!&lt;/p&gt;
 </description>
     </item>
     

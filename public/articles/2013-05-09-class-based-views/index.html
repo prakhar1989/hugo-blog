@@ -11,24 +11,24 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-<meta name="description" content="Django&#39;s Class Based Views in Flask">
+<meta name="description" content="">
 <meta name="keywords" content="">
 <meta name="author" content="">
 
 
   <meta property="og:title" content="Class Based Views" />
-<meta property="og:description" content="Django&#39;s Class Based Views in Flask" />
+<meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:url" content="http://192.241.186.225/articles/2013-05-09-class-based-views/" />
+<meta property="og:url" content="http://localhost:1313/articles/2013-05-09-class-based-views/" />
 
 
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="http://192.241.186.225/css/normalize.css">
-  <link rel="stylesheet" href="http://192.241.186.225/css/skeleton.css">
-  <link rel="stylesheet" href="http://192.241.186.225/css/main.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/normalize.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/skeleton.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/main.css">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
@@ -38,8 +38,8 @@
   <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
 
   
-  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/github.css">
-  <script src="http://192.241.186.225/js/highlight.min.js"></script>
+  <link rel="stylesheet" href="http://localhost:1313/css/highlight/github.css">
+  <script src="http://localhost:1313/js/highlight.min.js"></script>
 
   <script>hljs.initHighlightingOnLoad();</script>
 
@@ -79,9 +79,9 @@
             
               <span class="post-tag"> Published on  </span>
               <span class="post-date">
-                <span class="post-date-month">January</span> 
-                <span class="post-date-day"> 1, </span>
-                <span class="post-date-year">0001</span>
+                <span class="post-date-month">May</span> 
+                <span class="post-date-day"> 9, </span>
+                <span class="post-date-year">2013</span>
               </span> 
             
 
@@ -89,11 +89,11 @@
               <span class="post-tag"> in </span>
             
                 
-                  <a class="post-tag post-tag-python" href="http://192.241.186.225/tags/python">#python</a>
+                  <a class="post-tag post-tag-python" href="http://localhost:1313/tags/python">#python</a>
                 
-                  <a class="post-tag post-tag-flask" href="http://192.241.186.225/tags/flask">#flask</a>
+                  <a class="post-tag post-tag-flask" href="http://localhost:1313/tags/flask">#flask</a>
                 
-                  <a class="post-tag post-tag-django" href="http://192.241.186.225/tags/django">#django</a>
+                  <a class="post-tag post-tag-django" href="http://localhost:1313/tags/django">#django</a>
                 
             
 
@@ -104,9 +104,7 @@
 			
 
       <div class="post-content">
-        
-
-<p>If you&rsquo;ve used Django before, one of the things that you surely miss (apart from the django-admin, of course) is class based (or generic) views. Class based views allow you to structure your views and reuse code by harnessing inheritance and mixins. This allows you to create generic views for routine tasks and simply inherit from them for similar views.</p>
+        <p>If you&rsquo;ve used Django before, one of the things that you surely miss (apart from the django-admin, of course) is class based (or generic) views. Class based views allow you to structure your views and reuse code by harnessing inheritance and mixins. This allows you to create generic views for routine tasks and simply inherit from them for similar views.</p>
 
 <p>In flask 0.7 class based views were introduced which act similar to generic
 views in Django. In this tutorial we&rsquo;ll cover how to use class based views to
@@ -115,17 +113,16 @@ class based view) to create a RESTful API.</p>
 
 <p>Lets get started. I have a basic starter template that looks like this -</p>
 
-<p>{% highlight python %}
-|&ndash; static/
+<pre><code>|-- static/
     |- jquery.js
-|&ndash; templates/
-    |&ndash; index.html
-    |&ndash; about.html
-    |&ndash; base.html
-    |&ndash; users.html
-|&ndash; main.py
-|&ndash; user.db
-{% endhighlight %}</p>
+|-- templates/
+    |-- index.html
+    |-- about.html
+    |-- base.html
+    |-- users.html
+|-- main.py
+|-- user.db
+</code></pre>
 
 <p>Since the app is only for demo purposes, I&rsquo;ve added all my models and views in a
 single file - <code>main.py</code>. I have a single model called <code>User</code> and I&rsquo;ve used SQLAlchemy as the ORM. The <code>user.db</code> file is the SQLITE db that I&rsquo;m using for this app. To begin with, these are the kinds of views that our app needs to have -</p>
@@ -138,42 +135,37 @@ the model data as a list by passing that data to a template.</li>
 our view with ifs</li>
 </ol>
 
-<p>{% highlight python %}
-@app.route(&lsquo;/users/&rsquo;)
+<pre><code>@app.route('/users/')
 def users():
-  if request.method == &ldquo;GET&rdquo;:
+  if request.method == &quot;GET&quot;:
     pass
   else:
-    pass<br />
-{% endhighlight %}</p>
+    pass  
+</code></pre>
 
-<p>{% highlight python %}
-@app.route(&lsquo;/users/<a href="int:post_id">int:post_id</a>&rsquo;)
+<pre><code>@app.route('/users/&lt;int:post_id&gt;')
 def user():
-  if request.method == &ldquo;GET&rdquo;:
+  if request.method == &quot;GET&quot;:
     pass
-  elif request.method == &ldquo;PUT&rdquo;:
+  elif request.method == &quot;PUT&quot;:
     pass
-  elif request.method == &ldquo;DELETE&rdquo;:
+  elif request.method == &quot;DELETE&quot;:
     pass
-{% endhighlight %}</p>
+</code></pre>
 
 <p>Lets begin with the first requirement. Instead of just repeating code to
 render a template we&rsquo;ll a create class based view akin to a <a href="https://docs.djangoproject.com/en/dev/ref/class-based-views/base/#django.views.generic.base.TemplateView">TemplateView</a> in
 django</p>
 
-<p>{% highlight python %}
-from flask.views import View</p>
+<pre><code>from flask.views import View
 
-<p>class RenderTemplateView(View):
-    def <strong>init</strong>(self, template_name):
-        self.template_name = template_name</p>
+class RenderTemplateView(View):
+    def __init__(self, template_name):
+        self.template_name = template_name
 
-<pre><code>def dispatch_request(self):
-    return render_template(self.template_name)
+    def dispatch_request(self):
+        return render_template(self.template_name)
 </code></pre>
-
-<p>{% endhighlight %}</p>
 
 <p>What we&rsquo;ve done here is that we&rsquo;ve just subclassed the <code>flask.views.View</code> class
 and implemented a <code>dispatch_request</code> method. All subclasses that inherit from the
@@ -182,13 +174,10 @@ code.</p>
 
 <p>This allows us to create template views like this -</p>
 
-<p>{% highlight python %}</p>
-
-<h1 id="urls-for-rendering-simple-templates:500547a4dcb2c1f7f0b3455a9db17249">urls for rendering simple templates</h1>
-
-<p>app.add_url_rule(&lsquo;/about&rsquo;, view_func = RenderTemplateView.as_view(&lsquo;about_page&rsquo;, template_name=&ldquo;about.html&rdquo;))
-app.add_url_rule(&lsquo;/&rsquo;, view_func = RenderTemplateView.as_view(&lsquo;index_page&rsquo;, template_name=&ldquo;index.html&rdquo;))
-{% endhighlight %}</p>
+<pre><code># urls for rendering simple templates
+app.add_url_rule('/about', view_func = RenderTemplateView.as_view('about_page', template_name=&quot;about.html&quot;))
+app.add_url_rule('/', view_func = RenderTemplateView.as_view('index_page', template_name=&quot;index.html&quot;))
+</code></pre>
 
 <p>The first argument to the <code>as_view</code> function is the URL endpoint and second
 being the name of the template that needs to be passed.</p>
@@ -199,38 +188,33 @@ and you find yourself repeatedly implementing a view that returns a list of the
 objects of that model which is then passed to a template, you can implement your
 listview class. Lets see how that is done -</p>
 
-<p>{% highlight python %}
-class ListView(View):
+<pre><code>class ListView(View):
     def get_template_name(self):
-        raise NotImplementedError()</p>
+        raise NotImplementedError()
 
-<pre><code>def render_template(self, context):
-    # a custom render_template method that passes in the 
-    # template name and the modified template context
-    return render_template(self.get_template_name(), **context)
+    def render_template(self, context):
+        # a custom render_template method that passes in the 
+        # template name and the modified template context
+        return render_template(self.get_template_name(), **context)
 
-def dispatch_request(self):
-    # self.get_context returns a modified context which is
-    # then passed to our render_template method
-    context = self.get_context()
-    return self.render_template(context)
-</code></pre>
+    def dispatch_request(self):
+        # self.get_context returns a modified context which is
+        # then passed to our render_template method
+        context = self.get_context()
+        return self.render_template(context)
 
-<h1 id="subclass-from-the-listview-class:500547a4dcb2c1f7f0b3455a9db17249">subclass from the listview class</h1>
-
-<p>class UserListView(ListView):
+# subclass from the listview class
+class UserListView(ListView):
     def get_template_name(self):
-        return &ldquo;users.html&rdquo;</p>
+        return &quot;users.html&quot;
 
-<pre><code>def get_context(self):
-    context = {'objects': User.query.all(), 'time': datetime.now()}
-    return context
+    def get_context(self):
+        context = {'objects': User.query.all(), 'time': datetime.now()}
+        return context
+
+# urls for list views
+app.add_url_rule('/userlist/', view_func = UserListView.as_view('user_list'))
 </code></pre>
-
-<h1 id="urls-for-list-views:500547a4dcb2c1f7f0b3455a9db17249">urls for list views</h1>
-
-<p>app.add_url_rule(&lsquo;/userlist/&rsquo;, view_func = UserListView.as_view(&lsquo;user_list&rsquo;))
-{% endhighlight %}</p>
 
 <p>The idea here is similar. We implmenent a custom <code>render_template</code> function so
 that we can pass in a custom context to the template. This pattern can then be
@@ -239,29 +223,26 @@ easily extended for multiple models.</p>
 <p>Lastly, lets see how we can use <code>MethodView</code> to make a RESTful API. <code>MethodView</code>
 allows us to manage method-based dispatching like so -</p>
 
-<p>{% highlight python %}
-from flask.views import MethodView
+<pre><code>from flask.views import MethodView
 class UserAPI(MethodView):
     def get(self, user_id):
         if user_id is None:
             users = User.query.all()
-            json_results = [{&lsquo;name&rsquo;: u.name, &lsquo;age&rsquo;: u.age} for u in users]
+            json_results = [{'name': u.name, 'age': u.age} for u in users]
         else:
             user = User.query.get_or_404(user_id)
-            json_results = [{&lsquo;name&rsquo;: user.name, &lsquo;age&rsquo;: user.age}]
-        return jsonify(item=json_results)</p>
+            json_results = [{'name': user.name, 'age': user.age}]
+        return jsonify(item=json_results)
 
-<pre><code>def post(self):
-  pass
+    def post(self):
+      pass
 
-def delete(self, user_id):
-  pass
+    def delete(self, user_id):
+      pass
 
-def put(self, user_id):
-  pass
+    def put(self, user_id):
+      pass
 </code></pre>
-
-<p>{% endhighlight %}</p>
 
 <p>As you can see, each HTTP method maps to a function with the same name. This way
 you dont have to provide separate <code>method</code> attribute as its automagically
@@ -270,17 +251,14 @@ deciphered from the title of the method.</p>
 <p>To hook this up to a routing system we just provides multiple routes to the same
 view like this -</p>
 
-<p>{% highlight python %}</p>
-
-<h1 id="urls-for-user-api:500547a4dcb2c1f7f0b3455a9db17249">urls for User API</h1>
-
-<p>user_api_view = UserAPI.as_view(&lsquo;user_api&rsquo;)
-app.add_url_rule(&lsquo;/users/&rsquo;, defaults={&lsquo;user_id&rsquo;: None},
-                 view_func = user_api_view, methods=[&ldquo;GET&rdquo;,])
-app.add_url_rule(&lsquo;/users/&rsquo;, view_func = user_api_view, methods=[&ldquo;POST&rdquo;,])
-app.add_url_rule(&lsquo;/users/<a href="int:user_id">int:user_id</a>&rsquo;, view_func = user_api_view,
-                 methods=[&ldquo;GET&rdquo;, &ldquo;PUT&rdquo;, &ldquo;DELETE&rdquo;])
-{% endhighlight %}</p>
+<pre><code># urls for User API
+user_api_view = UserAPI.as_view('user_api')
+app.add_url_rule('/users/', defaults={'user_id': None},
+                 view_func = user_api_view, methods=[&quot;GET&quot;,])
+app.add_url_rule('/users/', view_func = user_api_view, methods=[&quot;POST&quot;,])
+app.add_url_rule('/users/&lt;int:user_id&gt;', view_func = user_api_view,
+                 methods=[&quot;GET&quot;, &quot;PUT&quot;, &quot;DELETE&quot;])
+</code></pre>
 
 <p>If you&rsquo;ve been following along you can check the code on my <a href="https://github.com/prakhar1989/flask-tuts/tree/master/lesson-3">github</a> which contains a working API and accompanying jquery ajax calls for testing the API for your reference.</p>
 
@@ -302,13 +280,13 @@ know that its time for a class based view. Don&rsquo;t forget to refer to the
           
           <div class="six columns">
             <span>&larr;</span>
-            <a class="paging-link" href="/articles/2014-02-07-programming-is-hard/">Programming is Hard</a>
+            <a class="paging-link" href="/articles/2013-05-08-using-blueprints/">Using Blueprints</a>
           </div>
           
 
 					
           <div class="paging-newer six columns">
-            <a class="paging-link" href="/articles/2013-05-06-beginning-flask/">Beginning Flask</a>
+            <a class="paging-link" href="/articles/making-the-blog-instant/">Making the Blog Instant</a>
             <span>&rarr;</span>
           </div>
           
@@ -333,5 +311,8 @@ know that its time for a class based view. Don&rsquo;t forget to refer to the
 </div>
 
   </div>
-</body>
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
 </html>

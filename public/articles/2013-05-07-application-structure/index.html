@@ -11,24 +11,24 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-<meta name="description" content="Application Structure in Flask">
+<meta name="description" content="">
 <meta name="keywords" content="">
 <meta name="author" content="">
 
 
   <meta property="og:title" content="Application Structure" />
-<meta property="og:description" content="Application Structure in Flask" />
+<meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:url" content="http://192.241.186.225/articles/2013-05-07-application-structure/" />
+<meta property="og:url" content="http://localhost:1313/articles/2013-05-07-application-structure/" />
 
 
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="http://192.241.186.225/css/normalize.css">
-  <link rel="stylesheet" href="http://192.241.186.225/css/skeleton.css">
-  <link rel="stylesheet" href="http://192.241.186.225/css/main.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/normalize.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/skeleton.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/main.css">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
@@ -38,8 +38,8 @@
   <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
 
   
-  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/github.css">
-  <script src="http://192.241.186.225/js/highlight.min.js"></script>
+  <link rel="stylesheet" href="http://localhost:1313/css/highlight/github.css">
+  <script src="http://localhost:1313/js/highlight.min.js"></script>
 
   <script>hljs.initHighlightingOnLoad();</script>
 
@@ -79,9 +79,9 @@
             
               <span class="post-tag"> Published on  </span>
               <span class="post-date">
-                <span class="post-date-month">January</span> 
-                <span class="post-date-day"> 1, </span>
-                <span class="post-date-year">0001</span>
+                <span class="post-date-month">May</span> 
+                <span class="post-date-day"> 7, </span>
+                <span class="post-date-year">2013</span>
               </span> 
             
 
@@ -89,9 +89,9 @@
               <span class="post-tag"> in </span>
             
                 
-                  <a class="post-tag post-tag-python" href="http://192.241.186.225/tags/python">#python</a>
+                  <a class="post-tag post-tag-python" href="http://localhost:1313/tags/python">#python</a>
                 
-                  <a class="post-tag post-tag-flask" href="http://192.241.186.225/tags/flask">#flask</a>
+                  <a class="post-tag post-tag-flask" href="http://localhost:1313/tags/flask">#flask</a>
                 
             
 
@@ -116,55 +116,45 @@
 
 <p>For larger applications going the packages way is generally a good idea.  A small app might look like this -</p>
 
-<p>{% highlight python %}
-- myapp
+<pre><code>- myapp
   |- static
   |- templates
   |- main.py
-{% endhighlight %}</p>
+</code></pre>
 
 <p>To change this into a python module all you need to do is move the files in a separate folder and create a new file ( or rename the existing <code>main.py</code> ) <code>__init__.py</code> so that python can interpret the folder as a module. After re-structuring your app will look like this -</p>
 
-<p>{% highlight python %}
-- myapp
+<pre><code>- myapp
   |- hello
-    |&ndash; <strong>init</strong>.py
-    |&ndash; static
-    |&ndash; templates
-    |&ndash; main.py
-{% endhighlight %}</p>
+    |-- __init__.py
+    |-- static
+    |-- templates
+    |-- main.py
+</code></pre>
 
 <p>The next step is to separate app initialization, models and views declaration from your <code>__init__.py</code>. To do that write the following code in your <code>__init__.py</code>. Note: I&rsquo;m assuming that you&rsquo;re assuming sqlalchemy as your ORM. Additionally, I&rsquo;ve used hello as the name of the app folder.</p>
 
-<p>{% highlight python %}</p>
-
-<h1 id="flask-imports-go-here:525b40148a9479e24bac6a1071f90cd4">flask imports go here</h1>
-
-<p>from flask import Flask
+<pre><code># flask imports go here
+from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
-import os</p>
+import os
 
-<h1 id="declaring-the-app:525b40148a9479e24bac6a1071f90cd4">declaring the app</h1>
+# declaring the app
+app = Flask(__name__)
 
-<p>app = Flask(<strong>name</strong>)</p>
+# get the base dir
+base_dir = os.path.dirname(os.path.abspath(__file__))
+app.config.from_pyfile(os.path.join(base_dir, '../app.cfg'))
 
-<h1 id="get-the-base-dir:525b40148a9479e24bac6a1071f90cd4">get the base dir</h1>
+# create db
+db = SQLAlchemy(app)
 
-<p>base_dir = os.path.dirname(os.path.abspath(<strong>file</strong>))
-app.config.from_pyfile(os.path.join(base_dir, &lsquo;../app.cfg&rsquo;))</p>
+# importing views
+import hello.views
 
-<h1 id="create-db:525b40148a9479e24bac6a1071f90cd4">create db</h1>
-
-<p>db = SQLAlchemy(app)</p>
-
-<h1 id="importing-views:525b40148a9479e24bac6a1071f90cd4">importing views</h1>
-
-<p>import hello.views</p>
-
-<h1 id="import-models:525b40148a9479e24bac6a1071f90cd4">import models</h1>
-
-<p>from hello.models.person import Person
-{% endhighlight %}</p>
+# import models
+from hello.models.person import Person
+</code></pre>
 
 <p>In this code, you&rsquo;ll notice that <code>hello.views</code>, <code>hello.models.person</code> and <code>app.cfg</code> are missing files. Don&rsquo;t worry, we&rsquo;ll create them soon. The rest of the code is self-explainatory. We get the base directory so that we can easily reference the config file to instantiate our app.</p>
 
@@ -179,57 +169,49 @@ alongside your app (or hello) folder. Finally, inside your app (or
 hello) folder add all your views in a file <code>views.py</code>. Below is a sample
 excerpt of how your files should look like.</p>
 
-<p>{% highlight python %}</p>
+<pre><code># sample app.cfg
+DEBUG = True
+SECRET= &quot;mysupersecretkey&quot;
 
-<h1 id="sample-app-cfg:525b40148a9479e24bac6a1071f90cd4">sample app.cfg</h1>
-
-<p>DEBUG = True
-SECRET= &ldquo;mysupersecretkey&rdquo;</p>
-
-<h1 id="dummy-model-inside-models-folder:525b40148a9479e24bac6a1071f90cd4">dummy model inside models folder</h1>
-
-<h1 id="filename-hello-models-dummy-py:525b40148a9479e24bac6a1071f90cd4">filename hello/models/dummy.py</h1>
-
-<p>from hello import db
+# dummy model inside models folder
+# filename hello/models/dummy.py
+from hello import db
 class Dummy(db.Model):
-  pass</p>
+  pass
 
-<h1 id="views-inside-hello-views-py:525b40148a9479e24bac6a1071f90cd4">views inside hello/views.py</h1>
-
-<p>from hello import app
+# views inside hello/views.py
+from hello import app
 from hello.models.dummy import Dummy
 from flask import render_template
-@app.route(&lsquo;/&rsquo;)
+@app.route('/')
 def hello():
-  return render_template(&lsquo;index.html&rsquo;)
-{% endhighlight %}</p>
+  return render_template('index.html')
+</code></pre>
 
 <p>At this stage this is how your structure looks like -</p>
 
-<p>{% highlight python %}
-- myapp
+<pre><code>- myapp
   |- app.cfg
   |- hello
-    |&ndash; <strong>init</strong>.py
-    |&ndash; static/
-    |&ndash; templates/
-    |&ndash; views.py
-    |&ndash; models/
-      |&mdash; <strong>init</strong>.py
-      |&mdash; dummy.py
-{% endhighlight %}</p>
+    |-- __init__.py
+    |-- static/
+    |-- templates/
+    |-- views.py
+    |-- models/
+      |--- __init__.py
+      |--- dummy.py
+</code></pre>
 
 <p>If you&rsquo;ve noticed we still haven&rsquo;t told our app to run. To do that, create
 a new file called <code>manage.py</code> alongside <code>app.cfg</code> and enter the
 following code -</p>
 
-<p>{% highlight python %}
-from hello import app
-from hello import db</p>
+<pre><code>from hello import app
+from hello import db
 
-<p>if <strong>name</strong> == &ldquo;<strong>main</strong>&ldquo;:
+if __name__ == &quot;__main__&quot;:
   app.run()
-{% endhighlight %}</p>
+</code></pre>
 
 <p>Now that you have everything setup, your app should work. Give it a go by running <code>python manage.py</code>
 and make sure there aren&rsquo;t any import errors.</p>
@@ -245,31 +227,27 @@ the extension is very easy to follow and I encourage you to give it a
 read. I&rsquo;ve edited the <code>manage.py</code> file and added support for
 flask-script.</p>
 
-<p>{% highlight python %}
-from flask.ext.script import Manager, Server, Shell
+<pre><code>from flask.ext.script import Manager, Server, Shell
 from hello import app
-from hello import db</p>
+from hello import db
 
-<h1 id="optional-include-models-if-you-want-to:525b40148a9479e24bac6a1071f90cd4">(optional) - include models if you want to!</h1>
+# (optional) - include models if you want to!
+import hello.models as models
 
-<p>import hello.models as models</p>
+def _make_context():
+  &quot;&quot;&quot; context for passing into to the shell command &quot;&quot;&quot;
+  return dict(app=app, db=db, models=models)
 
-<p>def _make_context():
-  &ldquo;&rdquo;&rdquo; context for passing into to the shell command &ldquo;&rdquo;&rdquo;
-  return dict(app=app, db=db, models=models)</p>
+# set manager
+manager = Manager(app)
 
-<h1 id="set-manager:525b40148a9479e24bac6a1071f90cd4">set manager</h1>
+# add commands
+manager.add_command(&quot;runserver&quot;, Server())
+manager.add_command(&quot;shell&quot;, Shell(make_context = _make_context))
 
-<p>manager = Manager(app)</p>
-
-<h1 id="add-commands:525b40148a9479e24bac6a1071f90cd4">add commands</h1>
-
-<p>manager.add_command(&ldquo;runserver&rdquo;, Server())
-manager.add_command(&ldquo;shell&rdquo;, Shell(make_context = _make_context))</p>
-
-<p>if <strong>name</strong> == &ldquo;<strong>main</strong>&ldquo;:
+if __name__ == &quot;__main__&quot;:
   manager.run()
-{% endhighlight %}</p>
+</code></pre>
 
 <p>After making these changes, simply run <code>python manage.py runserver</code> to
 run the app and <code>python manage.py shell</code> to jump into a python shell
@@ -295,13 +273,13 @@ issues feel free to email me.</p>
           
           <div class="six columns">
             <span>&larr;</span>
-            <a class="paging-link" href="/articles/2013-05-08-using-blueprints/">Using Blueprints</a>
+            <a class="paging-link" href="/articles/2013-05-06-beginning-flask/">Beginning Flask</a>
           </div>
           
 
 					
           <div class="paging-newer six columns">
-            <a class="paging-link" href="/articles/making-the-blog-instant/">Making the Blog Instant</a>
+            <a class="paging-link" href="/articles/class-based-views/">Class Based Views</a>
             <span>&rarr;</span>
           </div>
           
@@ -326,5 +304,8 @@ issues feel free to email me.</p>
 </div>
 
   </div>
-</body>
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
 </html>

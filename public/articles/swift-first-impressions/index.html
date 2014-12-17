@@ -143,33 +143,31 @@ if msg {
 
 <p>How do you use it? Let us assume you have a <code>User</code> object that stores information about a user and you define a collection that stores a collection of the <code>User</code> object. You need to define a <code>findById</code> function that returns the User object associated with that <code>id</code>. Here&rsquo;s how you can do it</p>
 
-<p>{% highlight scala %}
-func findById(id: Int, users: User[]) -&gt; User? {
+<pre><code>func findById(id: Int, users: User[]) -&gt; User? {
   for u in Users {
     if u.id == id {
       return u
-    }<br />
+    }	
   }
   return nil
-}</p>
-
-<p>// user is bound to value in case nil is not returned
-if let user = findById(1, users) {
-  println(&ldquo;user found: (user.name)&ldquo;)
-} else {
-  println(&ldquo;user not found&rdquo;)
 }
-{% endhighlight %}</p>
+
+// user is bound to value in case nil is not returned
+if let user = findById(1, users) {
+  println(&quot;user found: \(user.name)&quot;)
+} else {
+  println(&quot;user not found&quot;)
+}
+</code></pre>
 
 <p>One last thing that might trip up beginners is the user <code>!</code> to force unwrapping of the optional. Using a <code>!</code> simply means that you&rsquo;re sure the optional contains a value and you want to access it.</p>
 
-<p>{% highlight scala %}
-if findById(1, users) {
-  println(&ldquo;user found: (findById(1, users)!.name)&ldquo;)
+<pre><code>if findById(1, users) {
+  println(&quot;user found: \(findById(1, users)!.name)&quot;)
 } else {
-  println(&ldquo;user not found&rdquo;)
+  println(&quot;user not found&quot;)
 }
-{% endhighlight %}</p>
+</code></pre>
 
 <p>Having optionals helps you keep your mind free from all these rules and helps eliminate potential bugs.</p>
 
@@ -177,22 +175,21 @@ if findById(1, users) {
 
 <p>Very simple and straightforward - ranges are my most preferred way of iterating through a collection of integers. Ranges are present in both Python and Ruby, and I&rsquo;d be lying if I say that I don&rsquo;t miss them in Javascript.</p>
 
-<p>{% highlight scala %}
-// Swift
+<pre><code>// Swift
 for i in 0..10 {
   println(i)
-}</p>
+}
 
-<p>// Python
+// Python
 for i in range(0, 10) {
   print(i)
-}</p>
+}
 
-<p>// Ruby
+// Ruby
 for i in 0..10 {
   print i
 }
-{% endhighlight %}</p>
+</code></pre>
 
 <p>Unfortunately usage of ranges in Go are different from the example above. Since there&rsquo;s no way to create an array (or a slice) by just specifying the start and end of the collection, <code>Range(1,20)</code> doesn&rsquo;t work. From the <a href="http://golang.org/ref/spec#RangeClause">documentation</a></p>
 
@@ -202,12 +199,11 @@ for i in 0..10 {
 
 <p>One thing that both Go and Swift share (w.r.t. ranges) is ignoring values using the <code>_</code></p>
 
-<p>{% highlight scala %}
-var (n, answer, base) = (4, 10, 2)
+<pre><code>var (n, answer, base) = (4, 10, 2)
 for _ in 0..n {
   answer += base
 }
-{% endhighlight %}</p>
+</code></pre>
 
 <p>This is a nice-to-have feature if you don&rsquo;t want to populate the local namespace.</p>
 
@@ -226,69 +222,68 @@ for _ in 0..n {
 
 <p>Let me illustrate the points below with a practical example. We will use the <code>sort</code> function which takes a collection and a function (closure) on which the function is sorted.</p>
 
-<p>{% highlight scala %}
-let fruits = [&ldquo;apples&rdquo;, &ldquo;oranges&rdquo;, &ldquo;banana&rdquo;, &ldquo;pear&rdquo;]</p>
+<pre><code>let fruits = [&quot;apples&quot;, &quot;oranges&quot;, &quot;banana&quot;, &quot;pear&quot;]
 
-<p>func longest(s1: String, s2: String) -&gt; Bool {
+func longest(s1: String, s2: String) -&gt; Bool {
   return countElements(s1) &gt; countElements(s2)
-}</p>
+}
 
-<p>// returns [&ldquo;oranges&rdquo;, &ldquo;banana&rdquo;, &ldquo;apples&rdquo;, &ldquo;pear&rdquo;]
+// returns [&quot;oranges&quot;, &quot;banana&quot;, &quot;apples&quot;, &quot;pear&quot;]
 sort(fruits, longest)
-{% endhighlight %}</p>
+</code></pre>
 
-<p>The equivalent closure for to accomplish the above would be -
-{% highlight scala %}
-sort(fruits, { (s1: String, s2: String) -&gt; Bool in
+<p>The equivalent closure for to accomplish the above would be -</p>
+
+<pre><code>sort(fruits, { (s1: String, s2: String) -&gt; Bool in
   return countElements(s1) &gt; countElements(s2)
 })
-{% endhighlight %}
-The code after <code>in</code> begins the closure. We will see how the features provided by Swift makes it much much easier to do the same thing.</p>
+</code></pre>
 
-<p><strong>Inferring parameter and return value types from context</strong>.
-{% highlight scala %}
-// removing the type information
-sort(fruits, { (s1, s2) in
+<p>The code after <code>in</code> begins the closure. We will see how the features provided by Swift makes it much much easier to do the same thing.</p>
+
+<p><strong>Inferring parameter and return value types from context</strong>.</p>
+
+<pre><code>// removing the type information
+sort(fruits, { (s1, s2) in 
   return countElements(s1) &gt; countElements(s2)
 })
-{% endhighlight %}</p>
+</code></pre>
 
-<p><strong>Implicit returns from single-expression closures</strong>
-{% highlight scala %}
-// remove the explicit return
-sort(fruits, { (s1, s2) in<br />
+<p><strong>Implicit returns from single-expression closures</strong></p>
+
+<pre><code>// remove the explicit return
+sort(fruits, { (s1, s2) in  
   countElements(s1) &gt; countElements(s2)
 })
-{% endhighlight %}
-<strong>Shorthand argument names</strong></p>
+</code></pre>
 
-<p>{% highlight scala %}
-// $0 refers to the first arg, $1 refers to the second
+<p><strong>Shorthand argument names</strong></p>
+
+<pre><code>// $0 refers to the first arg, $1 refers to the second
 sort(fruits, { countElements($0) &gt; countElements($1) })
-{% endhighlight %}</p>
+</code></pre>
 
-<p><strong>Trailing closure syntax</strong>
-{% highlight scala %}
-// syntactic sugar to allow passing a closure outside of a function call
+<p><strong>Trailing closure syntax</strong></p>
+
+<pre><code>// syntactic sugar to allow passing a closure outside of a function call
 sort(fruits) { countElements($0) &gt; countElements($1) }
-{% endhighlight %}</p>
+</code></pre>
 
 <h3 id="map-filter-and-reduce:9c765f6cd3c9cb3494c0676a5cd8e7b9">Map, Filter and Reduce</h3>
 
 <p>Directly incorporated from the functional programming world, the functions <code>map</code> and <code>filter</code> are available on all collections to help you iterate through a collection, perform an operation and return a new collection. The syntax is similar to closure so it is quite intuitive once you get a hang of it.</p>
 
-<p>{% highlight scala %}
-let numbers = [12, 49, 23, 44, 143]</p>
+<pre><code>let numbers = [12, 49, 23, 44, 143]
 
-<p>let squares = numbers.map { $0 * $0 } // squares of numbers
-// squares [144, 2401, 529, 1936, 20449]</p>
+let squares = numbers.map { $0 * $0 } // squares of numbers
+// squares [144, 2401, 529, 1936, 20449]
 
-<p>let even = numbers.filter { $0 % 2 == 0}  // filter all even
-// even [12, 44]</p>
+let even = numbers.filter { $0 % 2 == 0}  // filter all even
+// even [12, 44]
 
-<p>let sum = numbers.reduce(0, combine: {$0 + $1}) // finding the sum of the elements
+let sum = numbers.reduce(0, combine: {$0 + $1}) // finding the sum of the elements
 // sum 271
-{% endhighlight %}</p>
+</code></pre>
 
 <p>If you haven&rsquo;t tried Swift yet, I encourage you to give it a shot. Its a fun language and Apple&rsquo;s building a great ecosystem around it. Expect people to share their playground files with cool demos once Xcode 6 becomes stable. I am super excited to see what the future holds!</p>
 

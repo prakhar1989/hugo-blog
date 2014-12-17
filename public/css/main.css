@@ -147,10 +147,13 @@ ul {
 div.post-title a.title {
   color: #526F7F;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
+span.post-date {
+  font-size: 1.4rem;
+  color: #526F7F;
+}
 h1.post-title a {
   text-transform: uppercase;
   font-weight: 800;
@@ -195,6 +198,8 @@ div.post-meta {
 
 a.post-tag {
   text-decoration: none;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.4rem;
 }
 
 div.post-meta, .paging {

@@ -170,7 +170,7 @@ console.log(g()()('al'))   // gooal
 console.log(g()()()('al')) // goooal
 </code></pre>
 
-<p>This can be made much shorter by using <a href="http://coffeescript.org/#try:g%20%3D%20(al%2Co">coffeescript</a>%20-%3E%20return%20if%20al%20then%20&rsquo;g&rsquo;%2B(o%7C%7C&rdquo;)%2Bal%20else%20(al)%20-%3E%20return%20g(al%2C%20((o%7C%7C&rdquo;)%2B&rsquo;o&rsquo;))%0A%0Aalert%20g()()(&lsquo;al&rsquo;)%0Aalert%20g()()()()()(&lsquo;al&rsquo;)%0A) (thanks to the <code>-&gt;</code> syntax)</p>
+<p>This can be made much shorter by using coffeescript.</p>
 
 <pre><code>g = (al,o) -&gt; return if al then 'g'+(o||'')+al else (al) -&gt; return g(al,((o||'')+'o'))
 </code></pre>

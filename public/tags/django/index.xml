@@ -8,18 +8,16 @@
     <language>en-us</language>
     
     
-    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 UTC</lastBuildDate>
+    <lastBuildDate>Thu, 09 May 2013 12:34:58 AST</lastBuildDate>
     <atom:link href="http://192.241.186.225/tags/django/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Class Based Views</title>
-      <link>http://192.241.186.225/articles/2013-05-09-class-based-views/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      <link>http://192.241.186.225/articles/class-based-views/</link>
+      <pubDate>Thu, 09 May 2013 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/2013-05-09-class-based-views/</guid>
-      <description>
-
-&lt;p&gt;If you&amp;rsquo;ve used Django before, one of the things that you surely miss (apart from the django-admin, of course) is class based (or generic) views. Class based views allow you to structure your views and reuse code by harnessing inheritance and mixins. This allows you to create generic views for routine tasks and simply inherit from them for similar views.&lt;/p&gt;
+      <guid>http://192.241.186.225/articles/class-based-views/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;ve used Django before, one of the things that you surely miss (apart from the django-admin, of course) is class based (or generic) views. Class based views allow you to structure your views and reuse code by harnessing inheritance and mixins. This allows you to create generic views for routine tasks and simply inherit from them for similar views.&lt;/p&gt;
 
 &lt;p&gt;In flask 0.7 class based views were introduced which act similar to generic
 views in Django. In this tutorial we&amp;rsquo;ll cover how to use class based views to
@@ -28,17 +26,16 @@ class based view) to create a RESTful API.&lt;/p&gt;
 
 &lt;p&gt;Lets get started. I have a basic starter template that looks like this -&lt;/p&gt;
 
-&lt;p&gt;{% highlight python %}
-|&amp;ndash; static/
+&lt;pre&gt;&lt;code&gt;|-- static/
     |- jquery.js
-|&amp;ndash; templates/
-    |&amp;ndash; index.html
-    |&amp;ndash; about.html
-    |&amp;ndash; base.html
-    |&amp;ndash; users.html
-|&amp;ndash; main.py
-|&amp;ndash; user.db
-{% endhighlight %}&lt;/p&gt;
+|-- templates/
+    |-- index.html
+    |-- about.html
+    |-- base.html
+    |-- users.html
+|-- main.py
+|-- user.db
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Since the app is only for demo purposes, I&amp;rsquo;ve added all my models and views in a
 single file - &lt;code&gt;main.py&lt;/code&gt;. I have a single model called &lt;code&gt;User&lt;/code&gt; and I&amp;rsquo;ve used SQLAlchemy as the ORM. The &lt;code&gt;user.db&lt;/code&gt; file is the SQLITE db that I&amp;rsquo;m using for this app. To begin with, these are the kinds of views that our app needs to have -&lt;/p&gt;
@@ -51,42 +48,37 @@ the model data as a list by passing that data to a template.&lt;/li&gt;
 our view with ifs&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;{% highlight python %}
-@app.route(&amp;lsquo;/users/&amp;rsquo;)
+&lt;pre&gt;&lt;code&gt;@app.route(&#39;/users/&#39;)
 def users():
-  if request.method == &amp;ldquo;GET&amp;rdquo;:
+  if request.method == &amp;quot;GET&amp;quot;:
     pass
   else:
-    pass&lt;br /&gt;
-{% endhighlight %}&lt;/p&gt;
+    pass  
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;{% highlight python %}
-@app.route(&amp;lsquo;/users/&lt;a href=&#34;int:post_id&#34;&gt;int:post_id&lt;/a&gt;&amp;rsquo;)
+&lt;pre&gt;&lt;code&gt;@app.route(&#39;/users/&amp;lt;int:post_id&amp;gt;&#39;)
 def user():
-  if request.method == &amp;ldquo;GET&amp;rdquo;:
+  if request.method == &amp;quot;GET&amp;quot;:
     pass
-  elif request.method == &amp;ldquo;PUT&amp;rdquo;:
+  elif request.method == &amp;quot;PUT&amp;quot;:
     pass
-  elif request.method == &amp;ldquo;DELETE&amp;rdquo;:
+  elif request.method == &amp;quot;DELETE&amp;quot;:
     pass
-{% endhighlight %}&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Lets begin with the first requirement. Instead of just repeating code to
 render a template we&amp;rsquo;ll a create class based view akin to a &lt;a href=&#34;https://docs.djangoproject.com/en/dev/ref/class-based-views/base/#django.views.generic.base.TemplateView&#34;&gt;TemplateView&lt;/a&gt; in
 django&lt;/p&gt;
 
-&lt;p&gt;{% highlight python %}
-from flask.views import View&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;from flask.views import View
 
-&lt;p&gt;class RenderTemplateView(View):
-    def &lt;strong&gt;init&lt;/strong&gt;(self, template_name):
-        self.template_name = template_name&lt;/p&gt;
+class RenderTemplateView(View):
+    def __init__(self, template_name):
+        self.template_name = template_name
 
-&lt;pre&gt;&lt;code&gt;def dispatch_request(self):
-    return render_template(self.template_name)
+    def dispatch_request(self):
+        return render_template(self.template_name)
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;{% endhighlight %}&lt;/p&gt;
 
 &lt;p&gt;What we&amp;rsquo;ve done here is that we&amp;rsquo;ve just subclassed the &lt;code&gt;flask.views.View&lt;/code&gt; class
 and implemented a &lt;code&gt;dispatch_request&lt;/code&gt; method. All subclasses that inherit from the
@@ -95,13 +87,10 @@ code.&lt;/p&gt;
 
 &lt;p&gt;This allows us to create template views like this -&lt;/p&gt;
 
-&lt;p&gt;{% highlight python %}&lt;/p&gt;
-
-&lt;h1 id=&#34;urls-for-rendering-simple-templates:500547a4dcb2c1f7f0b3455a9db17249&#34;&gt;urls for rendering simple templates&lt;/h1&gt;
-
-&lt;p&gt;app.add_url_rule(&amp;lsquo;/about&amp;rsquo;, view_func = RenderTemplateView.as_view(&amp;lsquo;about_page&amp;rsquo;, template_name=&amp;ldquo;about.html&amp;rdquo;))
-app.add_url_rule(&amp;lsquo;/&amp;rsquo;, view_func = RenderTemplateView.as_view(&amp;lsquo;index_page&amp;rsquo;, template_name=&amp;ldquo;index.html&amp;rdquo;))
-{% endhighlight %}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# urls for rendering simple templates
+app.add_url_rule(&#39;/about&#39;, view_func = RenderTemplateView.as_view(&#39;about_page&#39;, template_name=&amp;quot;about.html&amp;quot;))
+app.add_url_rule(&#39;/&#39;, view_func = RenderTemplateView.as_view(&#39;index_page&#39;, template_name=&amp;quot;index.html&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;The first argument to the &lt;code&gt;as_view&lt;/code&gt; function is the URL endpoint and second
 being the name of the template that needs to be passed.&lt;/p&gt;
@@ -112,38 +101,33 @@ and you find yourself repeatedly implementing a view that returns a list of the
 objects of that model which is then passed to a template, you can implement your
 listview class. Lets see how that is done -&lt;/p&gt;
 
-&lt;p&gt;{% highlight python %}
-class ListView(View):
+&lt;pre&gt;&lt;code&gt;class ListView(View):
     def get_template_name(self):
-        raise NotImplementedError()&lt;/p&gt;
+        raise NotImplementedError()
 
-&lt;pre&gt;&lt;code&gt;def render_template(self, context):
-    # a custom render_template method that passes in the 
-    # template name and the modified template context
-    return render_template(self.get_template_name(), **context)
+    def render_template(self, context):
+        # a custom render_template method that passes in the 
+        # template name and the modified template context
+        return render_template(self.get_template_name(), **context)
 
-def dispatch_request(self):
-    # self.get_context returns a modified context which is
-    # then passed to our render_template method
-    context = self.get_context()
-    return self.render_template(context)
-&lt;/code&gt;&lt;/pre&gt;
+    def dispatch_request(self):
+        # self.get_context returns a modified context which is
+        # then passed to our render_template method
+        context = self.get_context()
+        return self.render_template(context)
 
-&lt;h1 id=&#34;subclass-from-the-listview-class:500547a4dcb2c1f7f0b3455a9db17249&#34;&gt;subclass from the listview class&lt;/h1&gt;
-
-&lt;p&gt;class UserListView(ListView):
+# subclass from the listview class
+class UserListView(ListView):
     def get_template_name(self):
-        return &amp;ldquo;users.html&amp;rdquo;&lt;/p&gt;
+        return &amp;quot;users.html&amp;quot;
 
-&lt;pre&gt;&lt;code&gt;def get_context(self):
-    context = {&#39;objects&#39;: User.query.all(), &#39;time&#39;: datetime.now()}
-    return context
+    def get_context(self):
+        context = {&#39;objects&#39;: User.query.all(), &#39;time&#39;: datetime.now()}
+        return context
+
+# urls for list views
+app.add_url_rule(&#39;/userlist/&#39;, view_func = UserListView.as_view(&#39;user_list&#39;))
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;urls-for-list-views:500547a4dcb2c1f7f0b3455a9db17249&#34;&gt;urls for list views&lt;/h1&gt;
-
-&lt;p&gt;app.add_url_rule(&amp;lsquo;/userlist/&amp;rsquo;, view_func = UserListView.as_view(&amp;lsquo;user_list&amp;rsquo;))
-{% endhighlight %}&lt;/p&gt;
 
 &lt;p&gt;The idea here is similar. We implmenent a custom &lt;code&gt;render_template&lt;/code&gt; function so
 that we can pass in a custom context to the template. This pattern can then be
@@ -152,29 +136,26 @@ easily extended for multiple models.&lt;/p&gt;
 &lt;p&gt;Lastly, lets see how we can use &lt;code&gt;MethodView&lt;/code&gt; to make a RESTful API. &lt;code&gt;MethodView&lt;/code&gt;
 allows us to manage method-based dispatching like so -&lt;/p&gt;
 
-&lt;p&gt;{% highlight python %}
-from flask.views import MethodView
+&lt;pre&gt;&lt;code&gt;from flask.views import MethodView
 class UserAPI(MethodView):
     def get(self, user_id):
         if user_id is None:
             users = User.query.all()
-            json_results = [{&amp;lsquo;name&amp;rsquo;: u.name, &amp;lsquo;age&amp;rsquo;: u.age} for u in users]
+            json_results = [{&#39;name&#39;: u.name, &#39;age&#39;: u.age} for u in users]
         else:
             user = User.query.get_or_404(user_id)
-            json_results = [{&amp;lsquo;name&amp;rsquo;: user.name, &amp;lsquo;age&amp;rsquo;: user.age}]
-        return jsonify(item=json_results)&lt;/p&gt;
+            json_results = [{&#39;name&#39;: user.name, &#39;age&#39;: user.age}]
+        return jsonify(item=json_results)
 
-&lt;pre&gt;&lt;code&gt;def post(self):
-  pass
+    def post(self):
+      pass
 
-def delete(self, user_id):
-  pass
+    def delete(self, user_id):
+      pass
 
-def put(self, user_id):
-  pass
+    def put(self, user_id):
+      pass
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;{% endhighlight %}&lt;/p&gt;
 
 &lt;p&gt;As you can see, each HTTP method maps to a function with the same name. This way
 you dont have to provide separate &lt;code&gt;method&lt;/code&gt; attribute as its automagically
@@ -183,17 +164,14 @@ deciphered from the title of the method.&lt;/p&gt;
 &lt;p&gt;To hook this up to a routing system we just provides multiple routes to the same
 view like this -&lt;/p&gt;
 
-&lt;p&gt;{% highlight python %}&lt;/p&gt;
-
-&lt;h1 id=&#34;urls-for-user-api:500547a4dcb2c1f7f0b3455a9db17249&#34;&gt;urls for User API&lt;/h1&gt;
-
-&lt;p&gt;user_api_view = UserAPI.as_view(&amp;lsquo;user_api&amp;rsquo;)
-app.add_url_rule(&amp;lsquo;/users/&amp;rsquo;, defaults={&amp;lsquo;user_id&amp;rsquo;: None},
-                 view_func = user_api_view, methods=[&amp;ldquo;GET&amp;rdquo;,])
-app.add_url_rule(&amp;lsquo;/users/&amp;rsquo;, view_func = user_api_view, methods=[&amp;ldquo;POST&amp;rdquo;,])
-app.add_url_rule(&amp;lsquo;/users/&lt;a href=&#34;int:user_id&#34;&gt;int:user_id&lt;/a&gt;&amp;rsquo;, view_func = user_api_view,
-                 methods=[&amp;ldquo;GET&amp;rdquo;, &amp;ldquo;PUT&amp;rdquo;, &amp;ldquo;DELETE&amp;rdquo;])
-{% endhighlight %}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# urls for User API
+user_api_view = UserAPI.as_view(&#39;user_api&#39;)
+app.add_url_rule(&#39;/users/&#39;, defaults={&#39;user_id&#39;: None},
+                 view_func = user_api_view, methods=[&amp;quot;GET&amp;quot;,])
+app.add_url_rule(&#39;/users/&#39;, view_func = user_api_view, methods=[&amp;quot;POST&amp;quot;,])
+app.add_url_rule(&#39;/users/&amp;lt;int:user_id&amp;gt;&#39;, view_func = user_api_view,
+                 methods=[&amp;quot;GET&amp;quot;, &amp;quot;PUT&amp;quot;, &amp;quot;DELETE&amp;quot;])
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;If you&amp;rsquo;ve been following along you can check the code on my &lt;a href=&#34;https://github.com/prakhar1989/flask-tuts/tree/master/lesson-3&#34;&gt;github&lt;/a&gt; which contains a working API and accompanying jquery ajax calls for testing the API for your reference.&lt;/p&gt;
 

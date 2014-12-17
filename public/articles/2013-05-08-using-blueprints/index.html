@@ -11,24 +11,24 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-<meta name="description" content="Organization with Blueprints">
+<meta name="description" content="">
 <meta name="keywords" content="">
 <meta name="author" content="">
 
 
   <meta property="og:title" content="Using Blueprints" />
-<meta property="og:description" content="Organization with Blueprints" />
+<meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:url" content="http://192.241.186.225/articles/2013-05-08-using-blueprints/" />
+<meta property="og:url" content="http://localhost:1313/articles/2013-05-08-using-blueprints/" />
 
 
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="http://192.241.186.225/css/normalize.css">
-  <link rel="stylesheet" href="http://192.241.186.225/css/skeleton.css">
-  <link rel="stylesheet" href="http://192.241.186.225/css/main.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/normalize.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/skeleton.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/main.css">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
@@ -38,8 +38,8 @@
   <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
 
   
-  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/github.css">
-  <script src="http://192.241.186.225/js/highlight.min.js"></script>
+  <link rel="stylesheet" href="http://localhost:1313/css/highlight/github.css">
+  <script src="http://localhost:1313/js/highlight.min.js"></script>
 
   <script>hljs.initHighlightingOnLoad();</script>
 
@@ -79,9 +79,9 @@
             
               <span class="post-tag"> Published on  </span>
               <span class="post-date">
-                <span class="post-date-month">January</span> 
-                <span class="post-date-day"> 1, </span>
-                <span class="post-date-year">0001</span>
+                <span class="post-date-month">May</span> 
+                <span class="post-date-day"> 8, </span>
+                <span class="post-date-year">2014</span>
               </span> 
             
 
@@ -89,9 +89,9 @@
               <span class="post-tag"> in </span>
             
                 
-                  <a class="post-tag post-tag-python" href="http://192.241.186.225/tags/python">#python</a>
+                  <a class="post-tag post-tag-python" href="http://localhost:1313/tags/python">#python</a>
                 
-                  <a class="post-tag post-tag-flask" href="http://192.241.186.225/tags/flask">#flask</a>
+                  <a class="post-tag post-tag-flask" href="http://localhost:1313/tags/flask">#flask</a>
                 
             
 
@@ -114,18 +114,17 @@
 
 <p>Lets get started. Lets start with a simple app which looks like this -</p>
 
-<p>{% highlight python %}
-|&ndash; blogs
-|  |&ndash; <strong>init</strong>.py
-|  |&ndash; views.py
-|  |&ndash; static/
-|  |&ndash; templates/
-|  |  |&ndash; admin/
-|  |  |  |&ndash; index.html
-|  |  |&ndash; posts/
-|  |  |  |&ndash; index.html
-|&ndash; runserver.py
-{% endhighlight %}</p>
+<pre><code>|-- blogs
+|  |-- __init__.py
+|  |-- views.py
+|  |-- static/
+|  |-- templates/
+|  |  |-- admin/
+|  |  |  |-- index.html
+|  |  |-- posts/
+|  |  |  |-- index.html
+|-- runserver.py
+</code></pre>
 
 <p>I&rsquo;m using the same structure as we discussed in the previous post, however,
 given the scale of the app, I&rsquo;m not using flask-script and instead have a simple
@@ -133,24 +132,21 @@ given the scale of the app, I&rsquo;m not using flask-script and instead have a 
 
 <p>Contents of the <code>views.py</code> file</p>
 
-<p>{% highlight python %}
-from flask import render_template
-from blogs import app</p>
+<pre><code>from flask import render_template
+from blogs import app
 
-<h1 id="routes-for-admin-section:21455d0a010a0122b48ea7b91056f5fc">routes for admin section</h1>
-
-<p>@app.route(&lsquo;/admin&rsquo;, defaults={&lsquo;page&rsquo;: &lsquo;index&rsquo;})
-@app.route(&lsquo;/admin/<page>&rsquo;)
+# routes for admin section
+@app.route('/admin', defaults={'page': 'index'})
+@app.route('/admin/&lt;page&gt;')
 def admin_show(page):
-  return render_template(&lsquo;admin/index.html&rsquo;, page=page)</p>
+  return render_template('admin/index.html', page=page)
 
-<h1 id="routes-for-the-posts-section:21455d0a010a0122b48ea7b91056f5fc">routes for the posts section</h1>
-
-<p>@app.route(&lsquo;/posts&rsquo;, defaults={&lsquo;page&rsquo;: &lsquo;index&rsquo;})
-@app.route(&lsquo;/posts/<page>&rsquo;)
+# routes for the posts section
+@app.route('/posts', defaults={'page': 'index'})
+@app.route('/posts/&lt;page&gt;')
 def posts_show(page):
-  return render_template(&lsquo;posts/index.html&rsquo;, page=page)
-{% endhighlight %}</p>
+  return render_template('posts/index.html', page=page)
+</code></pre>
 
 <p>Seeing the code above, I&rsquo;m sure that the intent is quite clear. What I&rsquo;m trying
 to do is structure the main components in my application, <code>admin</code> and <code>posts</code> in
@@ -164,52 +160,49 @@ one place will be a real mess.</p>
 folders - each for admin and posts and initialized with a blank <code>__init__.py</code>
 file.</p>
 
-<p>{% highlight python %}
-|&ndash; blogs
-|  |&ndash; <strong>init</strong>.py
-|  |&ndash; admin/
-|  |  |&ndash; <strong>init</strong>.py
-|  |  |&ndash; views.py
-|  |&ndash; posts/
-|  |  |&ndash; <strong>init</strong>.py
-|  |  |&ndash; views.py
-|  |&ndash; static/
-|  |&ndash; templates/
-|  |  |&ndash; admin/
-|  |  |  |&ndash; index.html
-|  |  |&ndash; posts/
-|  |  |  |&ndash; index.html
-|&ndash; runserver.py
-{% endhighlight %}</p>
+<pre><code>|-- blogs
+|  |-- __init__.py
+|  |-- admin/
+|  |  |-- __init__.py
+|  |  |-- views.py
+|  |-- posts/
+|  |  |-- __init__.py
+|  |  |-- views.py
+|  |-- static/
+|  |-- templates/
+|  |  |-- admin/
+|  |  |  |-- index.html
+|  |  |-- posts/
+|  |  |  |-- index.html
+|-- runserver.py
+</code></pre>
 
 <p>Additionally, I&rsquo;ve added two new <code>views.py</code> in each of the folders. Here are the
 contents of the two files</p>
 
-<p><code>admin/views.py</code>:
-{% highlight python %}
-from flask import Blueprint, render_template
-mod = Blueprint(&lsquo;admin&rsquo;, <strong>name</strong>, url_prefix=&lsquo;/admin&rsquo;)</p>
+<p><code>admin/views.py</code>:</p>
 
-<h1 id="route-handles-for-admin-and-admin-page:21455d0a010a0122b48ea7b91056f5fc">route handles for /admin and /admin/page</h1>
+<pre><code>from flask import Blueprint, render_template
+mod = Blueprint('admin', __name__, url_prefix='/admin')
 
-<p>@mod.route(&lsquo;/&rsquo;, defaults={&lsquo;page&rsquo;: &lsquo;index&rsquo;})
-@mod.route(&lsquo;/<page>&rsquo;)
+# route handles for /admin and /admin/page
+@mod.route('/', defaults={'page': 'index'})
+@mod.route('/&lt;page&gt;')
 def show(page):
-  return render_template(&lsquo;admin/index.html&rsquo;, page=page)
-{% endhighlight %}</p>
+  return render_template('admin/index.html', page=page)
+</code></pre>
 
-<p><code>posts/views.py</code>:
-{% highlight python %}
-from flask import Blueprint, render_template
-mod = Blueprint(&lsquo;posts&rsquo;, <strong>name</strong>, url_prefix=&lsquo;/posts&rsquo;)</p>
+<p><code>posts/views.py</code>:</p>
 
-<h1 id="route-handles-for-posts-and-posts-page:21455d0a010a0122b48ea7b91056f5fc">route handles for /posts and /posts/page</h1>
+<pre><code>from flask import Blueprint, render_template
+mod = Blueprint('posts', __name__, url_prefix='/posts')
 
-<p>@mod.route(&lsquo;/&rsquo;, defaults={&lsquo;page&rsquo;: &lsquo;index&rsquo;})
-@mod.route(&lsquo;/<page>&rsquo;)
+# route handles for /posts and /posts/page
+@mod.route('/', defaults={'page': 'index'})
+@mod.route('/&lt;page&gt;')
 def show(page):
-  return render_template(&lsquo;posts/index.html&rsquo;, page=page)
-{% endhighlight %}</p>
+  return render_template('posts/index.html', page=page)
+</code></pre>
 
 <p>What we&rsquo;re trying to do here is a setup the component as a blueprint. When a new
 function is bound using the @mod.route decorator the blueprint will record the
@@ -223,28 +216,24 @@ Hence, in our admin blueprint will listen to the two endpoints - <code>/admin/</
 <p>Before we use our blueprints we need to register them on our app object. We can
 do this in our main <code>__init__.py</code> file. These are its new contents -</p>
 
-<p>{% highlight python %}
-from flask import Flask
-app = Flask(<strong>name</strong>)</p>
+<pre><code>from flask import Flask
+app = Flask(__name__)
 
-<h1 id="importing-as-module-follow-this-pattern-to-include-more-modules:21455d0a010a0122b48ea7b91056f5fc">importing as module.. follow this pattern to include more modules</h1>
+# importing as module.. follow this pattern to include more modules
+from blogs.admin.views import mod as adminModule
+from blogs.posts.views import mod as postsModule
 
-<p>from blogs.admin.views import mod as adminModule
-from blogs.posts.views import mod as postsModule</p>
+# registering the modules
+app.register_blueprint(adminModule)
+app.register_blueprint(postsModule)
 
-<h1 id="registering-the-modules:21455d0a010a0122b48ea7b91056f5fc">registering the modules</h1>
-
-<p>app.register_blueprint(adminModule)
-app.register_blueprint(postsModule)</p>
-
-<h1 id="referencing-the-module-views-using-url-for:21455d0a010a0122b48ea7b91056f5fc">referencing the module views using url_for</h1>
-
-<p>@app.route(&lsquo;/&rsquo;)
+# referencing the module views using url_for
+@app.route('/')
 def index():
-    return &ldquo;<a href='%s'>Admin Section</a> | \
-            <a href='%s'>Posts Section</a>&rdquo; % (url_for(&lsquo;admin.show&rsquo;),
-                                               url_for(&lsquo;posts.show&rsquo;))
-{% endhighlight %}</p>
+    return &quot;&lt;a href='%s'&gt;Admin Section&lt;/a&gt; | \
+            &lt;a href='%s'&gt;Posts Section&lt;/a&gt;&quot; % (url_for('admin.show'),
+                                               url_for('posts.show'))
+</code></pre>
 
 <p>Now that we&rsquo;ve registered our application, test the application and you&rsquo;ll see
 how the blueprints have correctly registered our url endpoints.</p>
@@ -277,13 +266,13 @@ I encourage you to checkout this <a href="https://github.com/mitsuhiko/flask/wik
           
           <div class="six columns">
             <span>&larr;</span>
-            <a class="paging-link" href="/articles/2013-05-06-beginning-flask/">Beginning Flask</a>
+            <a class="paging-link" href="/articles/newman-is-live/">Newman Is Live</a>
           </div>
           
 
 					
           <div class="paging-newer six columns">
-            <a class="paging-link" href="/articles/2013-05-07-application-structure/">Application Structure</a>
+            <a class="paging-link" href="/articles/automated-testing-with-newman/">Automated Testing With Newman</a>
             <span>&rarr;</span>
           </div>
           
@@ -308,5 +297,8 @@ I encourage you to checkout this <a href="https://github.com/mitsuhiko/flask/wik
 </div>
 
   </div>
-</body>
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
 </html>

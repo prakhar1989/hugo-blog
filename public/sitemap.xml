@@ -113,8 +113,38 @@
   </url>
   
   <url>
+    <loc>http://192.241.186.225/articles/enums-in-python/</loc>
+    <lastmod>2014-05-12T12:34:58+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.241.186.225/articles/using-blueprints/</loc>
+    <lastmod>2014-05-08T12:34:58+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.241.186.225/articles/newman-is-live/</loc>
+    <lastmod>2014-05-05T12:34:58+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.241.186.225/articles/write-code-everyday/</loc>
+    <lastmod>2014-04-10T12:34:58+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.241.186.225/articles/thinking-for-programmers/</loc>
+    <lastmod>2014-04-05T12:34:58+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://192.241.186.225/articles/being-a-senior-engineer/</loc>
     <lastmod>2014-03-31T12:34:58+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.241.186.225/articles/flask-on-nginx-and-gunicorn/</loc>
+    <lastmod>2014-03-07T12:34:58+03:00</lastmod>
   </url>
   
   <url>
@@ -123,8 +153,23 @@
   </url>
   
   <url>
+    <loc>http://192.241.186.225/articles/deal-with-it/</loc>
+    <lastmod>2014-02-22T12:34:58+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.241.186.225/articles/why-we-dont-sell-ads/</loc>
+    <lastmod>2014-02-20T12:34:58+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://192.241.186.225/articles/kuwait-civil-id-checksum/</loc>
     <lastmod>2014-02-14T12:34:58+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.241.186.225/articles/quantity/</loc>
+    <lastmod>2014-02-10T12:34:58+03:00</lastmod>
   </url>
   
   <url>
@@ -133,73 +178,28 @@
   </url>
   
   <url>
-    <loc>http://192.241.186.225/articles/2013-05-07-application-structure/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
+    <loc>http://192.241.186.225/articles/debugging-akamai/</loc>
+    <lastmod>2014-02-07T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://192.241.186.225/articles/2013-05-08-using-blueprints/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
+    <loc>http://192.241.186.225/articles/programming-is-hard/</loc>
+    <lastmod>2014-02-07T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://192.241.186.225/articles/2013-05-06-beginning-flask/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
+    <loc>http://192.241.186.225/articles/class-based-views/</loc>
+    <lastmod>2013-05-09T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://192.241.186.225/articles/2013-05-09-class-based-views/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
+    <loc>http://192.241.186.225/articles/application-structure/</loc>
+    <lastmod>2013-05-07T12:34:58+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://192.241.186.225/articles/2014-02-07-programming-is-hard/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://192.241.186.225/articles/2014-02-07-debugging-akamai/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://192.241.186.225/articles/2013-05-12-enums-in-python/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://192.241.186.225/articles/2014-02-10-quantity/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://192.241.186.225/articles/2014-02-22-deal-with-it/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://192.241.186.225/articles/2014-03-07-flask-on-nginx-and-gunicorn/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://192.241.186.225/articles/2014-02-20-why-we-dont-sell-ads/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://192.241.186.225/articles/2014-04-05-thinking-for-programmers/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://192.241.186.225/articles/2014-04-10-write-code-everyday/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://192.241.186.225/articles/2014-05-05-newman-is-live/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
+    <loc>http://192.241.186.225/articles/beginning-flask/</loc>
+    <lastmod>2013-05-06T12:34:58+03:00</lastmod>
   </url>
   
 </urlset>

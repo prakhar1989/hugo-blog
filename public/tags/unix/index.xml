@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Unix on cat /dev/random</title>
-    <link>http://192.241.186.225/tags/unix/</link>
+    <link>http://localhost:1313/tags/unix/</link>
     <description>Recent content in Unix on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Mon, 01 Jan 0001 00:00:00 UTC</lastBuildDate>
-    <atom:link href="http://192.241.186.225/tags/unix/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/unix/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Deal With It</title>
-      <link>http://192.241.186.225/articles/2014-02-22-deal-with-it/</link>
+      <link>http://localhost:1313/articles/2014-02-22-deal-with-it/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
-      <guid>http://192.241.186.225/articles/2014-02-22-deal-with-it/</guid>
+      <guid>http://localhost:1313/articles/2014-02-22-deal-with-it/</guid>
       <description>&lt;p&gt;Hilarious fable on HN featuring the superhero Unix and its trusted sidekick - Vim!&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;ring ring ring&lt;/strong&gt;&lt;/p&gt;

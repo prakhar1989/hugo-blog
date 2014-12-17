@@ -8,15 +8,15 @@
     <language>en-us</language>
     
     
-    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 UTC</lastBuildDate>
+    <lastBuildDate>Sat, 22 Feb 2014 12:34:58 AST</lastBuildDate>
     <atom:link href="http://192.241.186.225/tags/vim/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Deal With It</title>
-      <link>http://192.241.186.225/articles/2014-02-22-deal-with-it/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      <link>http://192.241.186.225/articles/deal-with-it/</link>
+      <pubDate>Sat, 22 Feb 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/2014-02-22-deal-with-it/</guid>
+      <guid>http://192.241.186.225/articles/deal-with-it/</guid>
       <description>&lt;p&gt;Hilarious fable on HN featuring the superhero Unix and its trusted sidekick - Vim!&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;ring ring ring&lt;/strong&gt;&lt;/p&gt;
@@ -33,21 +33,20 @@
 &lt;li&gt;ssh into dev env with &lt;a href=&#34;https://play.google.com/store/apps/details?id=org.connectbot&amp;amp;hl=en&#34;&gt;connectbot&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;switches to &lt;a href=&#34;https://play.google.com/store/apps/details?id=org.pocketworkstation.pckeyboard&#34;&gt;hackerkeyboard&lt;/a&gt; for input mode&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://kb.iu.edu/data/acuy.html&#34;&gt;screen -dr dev&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Ctrl+c&lt;/em&gt; &lt;code&gt;tail join IRC channel that dumps syslogs from production cluster&lt;/code&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:dbc271c6a37f1f7f89c8f6ceae38e912:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:dbc271c6a37f1f7f89c8f6ceae38e912:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Ctrl+c&lt;/em&gt; &lt;code&gt;tail join IRC channel that dumps syslogs from production cluster&lt;/code&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:78cc5efcd25af8b0495bd97cbde42be4:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:78cc5efcd25af8b0495bd97cbde42be4:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;sees error&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Ctrl+c&lt;/em&gt; &lt;code&gt;vim the/file/causing/the/unexpected/problem&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;fix the problem&lt;/strong&gt;
-&lt;code&gt;:wq&lt;/code&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:dbc271c6a37f1f7f89c8f6ceae38e912:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:dbc271c6a37f1f7f89c8f6ceae38e912:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;code&gt;:wq&lt;/code&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:78cc5efcd25af8b0495bd97cbde42be4:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:78cc5efcd25af8b0495bd97cbde42be4:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
-&lt;p&gt;{% highlight bash %}
-git stash
-git pull
+&lt;pre&gt;&lt;code&gt;git stash
+git pull 
 git stash apply
 git commit
 git push
-{% endhighlight %}&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;em&gt;Ctrl+d&lt;/em&gt;, exit&lt;/p&gt;
 
@@ -63,10 +62,10 @@ git push
 &lt;hr /&gt;
 
 &lt;ol&gt;
-&lt;li id=&#34;fn:dbc271c6a37f1f7f89c8f6ceae38e912:1&#34;&gt;the &lt;code&gt;tail&lt;/code&gt; command is used to print the last lines of a text file. &lt;code&gt;tail -f server_log&lt;/code&gt; is a knee-jerk reaction to any server issue.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:dbc271c6a37f1f7f89c8f6ceae38e912:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:dbc271c6a37f1f7f89c8f6ceae38e912:2&#34;&gt;&lt;code&gt;wq&lt;/code&gt; saves a files in vim and closes the text editor
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:dbc271c6a37f1f7f89c8f6ceae38e912:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:78cc5efcd25af8b0495bd97cbde42be4:1&#34;&gt;the &lt;code&gt;tail&lt;/code&gt; command is used to print the last lines of a text file. &lt;code&gt;tail -f server_log&lt;/code&gt; is a knee-jerk reaction to any server issue.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:78cc5efcd25af8b0495bd97cbde42be4:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:78cc5efcd25af8b0495bd97cbde42be4:2&#34;&gt;&lt;code&gt;wq&lt;/code&gt; saves a files in vim and closes the text editor
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:78cc5efcd25af8b0495bd97cbde42be4:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>
