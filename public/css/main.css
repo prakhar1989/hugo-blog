@@ -1,7 +1,7 @@
 body {
   color: #283035;
   font-family: "Source Serif Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -180,6 +180,10 @@ h1.post-title a {
   font-size: 1.2rem;
 }
 
+.nav-list li a:hover {
+  border-bottom: 1px solid #69808c;
+}
+
 p.post-meta {
   margin: 1rem 0;
   font-size: 1.2rem;
@@ -191,8 +195,6 @@ div.post-meta {
 
 a.post-tag {
   text-decoration: none;
-  font-style: italic;
-  font-size: 1.2rem;
 }
 
 div.post-meta, .paging {
@@ -203,12 +205,6 @@ div.post-meta, .paging {
   text-align: right;
 }
 
-.post-date {
-  text-transform: uppercase;
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
 .post-content {
   margin-top: 3rem;
 }
@@ -216,7 +212,8 @@ div.post-meta, .paging {
 .post-content-meta {
   color: #a2b1b9;
   font-style: italic;
-  font-weight: 1.3rem;
+  font-size: 1.3rem;
+  font-family: "Raleway", sans-serif;
 }
 
 .footer {
@@ -228,6 +225,10 @@ div.post-meta, .paging {
 
 /* Larger than phablet */
 @media (min-width: 550px) {
+  body {
+    font-size: 1.8rem;
+  }
+
   h1 { font-size: 1.8rem; 
     margin-bottom: 0.4rem;
   }
