@@ -28,3 +28,9 @@ concurrency, functional languages, and so on. -  <span class="author">Jackson & 
   <h1><i class="ion-quote"></i></h1>
   <p>A distributed system is one in which the failure of a computer you didn't even know existed can render your own computer unusable. -  <span class="author">Leslie Lamport</span></p>
 </div>
+
+<div class="custom-quote">
+  <h1><i class="ion-quote"></i></h1>
+  <p>At its best, starting a startup is merely an ulterior motive for curiosity. And you’ll do it best if you introduce the ulterior motive toward the end of the process. So here is the ultimate advice for young would-be startup founders, boiled down to two words: just learn. - <span class="author">Paul Graham</span></p>
+</div>
+
