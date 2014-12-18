@@ -1,0 +1,321 @@
+body {
+  color: #283035;
+  font-family: "Source Serif Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+}
+
+a { text-decoration: none; }
+
+h1, h2, h3, h4, h5, h6, button, .button {
+  font-family: "Raleway", sans-serif;
+}
+
+input[type="email"] {
+  height: 24px;
+}
+
+.button.button-primary, 
+button.button-primary, 
+input[type="submit"].button-primary, 
+input[type="reset"].button-primary, 
+input[type="button"].button-primary {
+  border-color: rgb(105, 128, 140);
+  background: rgb(105, 128, 140);
+}
+
+.button.button-primary:hover, 
+button.button-primary:hover, 
+input[type="submit"].button-primary:hover,
+input[type="reset"].button-primary:hover, 
+input[type="button"].button-primary:hover, 
+.button.button-primary:focus,
+button.button-primary:focus,
+input[type="submit"].button-primary:focus,
+input[type="reset"].button-primary:focus,
+input[type="button"].button-primary:focus {
+  border-color: rgb(105, 128, 140);
+  background: #5a6e79;
+}
+
+input[type="email"]:focus, input[type="search"]:focus, input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
+  border-color: rgb(105, 128, 140);
+}
+
+.container {
+  background: white;
+  max-width: 760px;
+  position: relative;
+  margin: 0 auto;
+  padding: 3rem;
+  width: 80%;
+}
+
+.post-header {
+  border-bottom: 1px solid #eee;
+}
+
+.post-header .container {
+  background: none;
+  padding: 0rem;
+  color: white;
+  font-weight: 800;
+}
+
+.post-header .row {
+  margin-bottom: 0;
+}
+
+.post-header a {
+  color: #69808c;
+  text-decoration: none;
+}
+
+#terminal {
+  background: black;
+  color: white;
+  font-family: monospace;
+  padding: 2.2rem;
+  margin-bottom: 2rem;
+}
+
+
+#terminal span {
+  animation: blink 1s infinite;
+  -webkit-animation: blink 1s infinite;
+}
+
+#terminal h1 {
+  font-size: 2.4rem;
+  margin:0;
+  white-space: nowrap;
+  overflow: auto;
+  width: 12em;
+  /* animation: type 5s steps(300, end); 
+  -webkit-animation: type 5s steps(300, end); */
+}
+
+@keyframes type {
+  from { width: 0; } 
+} 
+
+@-webkit-keyframes type {
+  from { width: 0; } 
+} 
+
+@keyframes blink {
+  to { opacity: .0; }
+}
+
+@-webkit-keyframes blink {
+  to { opacity: .0; }
+}
+
+.post-header h4 a {
+  font-weight: 800;
+}
+
+.post-header h4 {
+  margin: 1.6rem 0;
+}
+
+blockquote {
+  background: #e9f2f7;
+  padding: 2rem;
+  margin: 1rem 0;
+}
+
+h1 { 
+  font-size: 1.8rem;
+}
+
+h3 {
+  line-height: 1.3;
+  font-size: 1.4rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ddd;
+  font-weight: 600;
+}
+
+section.post {
+  margin: 1.2rem 0;
+  padding: 2rem 0;
+}
+
+.read-more-link a {
+  margin: 0.4rem 0;
+  font-size: 1.3rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero {
+  background-image: url('http://prakhar.me/images/texture-feature-01.jpg');
+  background-size: cover;
+  background-position: center center;
+  height: 25rem;
+  box-shadow: inset 0 0 15px rgba(0,0,0,.5)
+}
+
+.mast {
+  margin-top: 5rem;
+}
+
+section ol, section ul {
+  padding-left: 2.0rem;
+}
+
+ol {
+  list-style: decimal outside;
+}
+
+ul {
+  list-style: disc outside;
+}
+
+div.post-title a.title {
+  color: #526F7F;
+  text-decoration: none;
+  font-size: 1.8rem;
+}
+
+span.post-date {
+  font-size: 1.4rem;
+  color: #526F7F;
+}
+h1.post-title a {
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  color: #69808c;
+  font-size: 2.4rem;
+}
+
+.nav-list li {
+  list-style-type: none;
+  float: left;
+  position: relative;
+  margin-bottom: 0rem;
+  margin-top: 1rem;
+  font-family: "Raleway", sans-serif;
+}
+
+.nav-list ul {
+  padding-left: 0;
+}
+
+.nav-list li a {
+  margin-right: 2.7rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  font-size: 2.2rem;
+}
+
+p.post-meta {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+
+div.post-meta {
+  text-align: right;
+}
+
+a.post-tag {
+  text-decoration: none;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.4rem;
+}
+
+div.post-meta, .paging {
+  display: none;
+}
+
+.paging-newer {
+  text-align: right;
+}
+
+.post-content {
+  margin-top: 3rem;
+}
+
+.post-content-meta {
+  color: #a2b1b9;
+  font-style: italic;
+  font-size: 1.3rem;
+  font-family: "Raleway", sans-serif;
+}
+
+.footer {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.paging a {
+  font-family: "Raleway", sans-serif;
+  text-decoration: none;
+  font-size: 1.6rem;
+}
+
+.paging i {
+  color: #1EAEDB;
+}
+
+div.custom-quote {
+  font-family: "Raleway", sans-serif;
+  position: relative;
+  padding: 15px 0 0 44px;
+}
+
+div.custom-quote h1 {
+  font-size: 4rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #dce2e5;
+}
+
+div.custom-quote span.author {
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* MEDIA QUERIES */
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+  body {
+    font-size: 1.8rem;
+  }
+
+  h1 { font-size: 1.8rem; 
+    margin-bottom: 0.4rem;
+  }
+  h2 { font-size: 2.0rem; }
+  h3 { font-size: 1.8rem; }
+  h4 { font-size: 1.5rem; }
+  h5 { font-size: 1.2rem; }
+  h6 { font-size: 1.2rem; }
+  
+  div.post-meta, .paging {
+    display: block;
+  }
+
+  .nav-list li a {
+    margin-right: 0rem;
+    margin-left: 1.5rem;
+  }
+}
+
+@media (min-width: 420px) {
+  .nav-list li a {
+    margin-right: 0rem;
+    margin-left: 3.5rem;
+  }
+}
+
+h1.social-me a {
+  font-size: 3rem;
+  margin-right: 2rem;
+  color: #5a6e79;
+}
