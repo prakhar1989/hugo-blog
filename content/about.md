@@ -10,6 +10,14 @@ I'm Prakhar Srivastav and I love building things (mostly for the web) and celebr
 
 I use this blog as a place to redirect random streams of thoughts (much like `/dev/random`), ideas and rants about software development, programming and other things that interest me.
 
+<p>If you’d like to connect, feel free to reach out on my <a href="mailto:prakhar1989@gmail.com">email</a> or stalk me elsewhere on the web - 
+<h1 class="social-me">
+  <a title="Github" href="http://github.com/prakhar1989"><i class="ion-social-octocat"></i></a> 
+  <a title="Hacker News" href="https://news.ycombinator.com/user?id=krat0sprakhar"><i class="ion-social-hackernews-outline"></i></a>
+  <a title="Twitter" href="https://twitter.com/prakharsriv9"><i class="ion-social-twitter"></i></a> 
+  <a title="LinkedIn" href="https://www.linkedin.com/in/prakharsrivastav"><i class="ion-social-linkedin-outline"></i></a> 
+</h1></p>
+
 ### Colophon
 
 This website would not have been possible without the open-source contributions of numerous programmers.  It is written in Vim and compiled into HTML 
