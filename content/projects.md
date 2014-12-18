@@ -67,7 +67,7 @@ I believe that the best way to learn is by working on projects. Below is a growi
     <a class="button" href="https://github.com/a85/newman">
       <i class="ion-fork-repo"></i> Fork on Github
     </a>
-    <a class="button button-primary nodejs" href="https://www.npmjs.org/package/newman">
+    <a class="button button-primary" href="https://www.npmjs.org/package/newman">
       <i class="ion-social-nodejs"></i> Get it on NPM
     </a>
 	</div>
@@ -174,36 +174,34 @@ I believe that the best way to learn is by working on projects. Below is a growi
 
 <li>
 <div class="project-item">
-	<h3><a href="http://jokastore.appspot.com">Jokastore</a></h3>
-	<p class="stack"><strong>Tshirt Design</strong>, Python, Webapp2, Google App Engine, Google API</p>
-	<p><a href="https://github.com/prakhar1989/Jokastore">Jokastore</a> is a mini-ecommerce store built from scratch for the entrepreneurship class at IIM Calcutta. Our team used the store to sell witty and minimally designed Tshirts to Jokars (students of IIMC). Jokastore is a simple e-commerce platform with tight social integration, Google login and traditional cart features. Being interested in design, I also designed the Tshirts in Photoshop and released a video charting the journey of an IIMC student as a sequence of Tshirts. The project went on to become extremely popular and also got us a mention on the National Daily!</p>
+	<h3>Jokastore</h3>
+	<p class="tech-stack">Python, Webapp2, Google App Engine, Google API</p>
+	<figure>
+		<a href="#"><img src="/images/joka.png"></a>
+    <figcaption>Jokastore - view the <a href="http://jokastore.appspot.com">demo</a> here</figcaption>
+	</figure>
+	<p><a href="http://jokastore.appspot.com">Jokastore</a> is a mini-ecommerce store built from scratch for the entrepreneurship class at IIM Calcutta. Our team used the store to sell witty and minimally designed Tshirts to Jokars (students of IIMC). Jokastore is a simple e-commerce platform with tight social integration, Google login and traditional cart features.</p>
+  <p>Being interested in design, I also designed the Tshirts in Photoshop and released a video charting the journey of an IIMC student as a sequence of Tshirts. The project went on to become extremely popular and also got us a mention on the National Daily!</p>
+  <a class="button" href="https://github.com/prakhar1989/jokastore"> <i class="ion-fork-repo"></i> Fork on Github </a>
 </div>
 </li>
 
 <li>
 <div class="project-item">
-	<h3><a href="https://github.com/prakhar1989/Color-palette">Color Palette</a></h3>
-	<p class="stack">Python, lxml</p>
+	<h3>Color Palette</h3>
+	<p class="tech-stack">Python, lxml</p>
 	<p>Uses the fabulous LXML library to traverse a website's stylesheets and get the dominant colors used in it. It generates an HTML file containing the colors sorted by their frequency. This probably needs to be expanded to generate website screenshots and apply clustering to get a better "feel" for the color like Apple's iTunes!</p>
+  <a class="button" href="https://github.com/prakhar1989/Color-palette"> <i class="ion-fork-repo"></i> Fork on Github </a>
 </div>
 </li>
 
 <li>
 <div class="project-item">
-	<h3><a href="https://github.com/prakhar1989/pastie">Pastie</a></h3>
-	<p class="stack">Sinatra, Ruby, Datamapper</p>
+	<h3>Pastie</h3>
+	<p class="tech-stack">Sinatra, Ruby, Datamapper</p>
 	<p>Pastie was born in the wee hours of the night when I was trying to learn how to use Sinatra and DataMapper. You can use it to save snippets of code to share it with others. As an added bonus: it adds beautiful syntax coloring to it as well. Just paste your fugly code and press Ctrl-s to save. Inspired by <a href="http://hastebin.com">Hastebin.</a></p>
+  <a class="button" href="https://github.com/prakhar1989/pastie"> <i class="ion-fork-repo"></i> Fork on Github </a>
 </div>
 </li>
 
 </ul>
-
-## Courses
-
-I'm quite passionate about improving as a programmer and regularly seek the help of courses to keep in touch with theory and learn new concepts in Computer Science. I consider myself extremely lucky to be alive and have the resources to be part of the educational revolution (read <a href="http://en.wikipedia.org/wiki/Massive_open_online_course">MOOCs</a>) that is sweeping over the world. Below is a small but ever-growing list of courses that I've successfully completed!
-
-* [Developing Web Applications](https://www.udacity.com/course/cs253)
-* [Functional Programming in Scala](https://www.coursera.org/course/progfun)
-* [Algorithms with Tim Roughgarden](https://www.coursera.org/course/algo) 
-* [Computing for Data Analytics in R](https://www.coursera.org/course/compdata)
-* [Machine Learning](https://www.coursera.org/course/ml)
