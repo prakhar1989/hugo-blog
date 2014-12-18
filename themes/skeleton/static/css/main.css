@@ -280,6 +280,31 @@ div.custom-quote span.author {
   font-weight: 600;
 }
 
+figure img {
+  width: 100%;
+  max-width: 740px;
+  height: auto!important;
+}
+
+figcaption {
+  text-align: center;
+  font-size: 1.4rem;
+  font-family: "Raleway", sans-serif;
+  font-style: italic;
+}
+
+blockquote p {
+  margin-bottom: 0;
+}
+
+ul#projects-list {
+  padding-left: 0;
+}
+
+ul#projects-list li {
+  list-style-type: none;
+}
+
 /* MEDIA QUERIES */
 
 /* Larger than phablet */
