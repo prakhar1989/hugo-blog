@@ -1,9 +1,7 @@
 ---
-layout: post
 title: Enums in Python 
-description: "Understanding enumerated types in Python"
-category: articles
-tags: [python, core]
+date: 2014-05-12T12:34:58+03:00
+tags: [python]
 ---
 
 On 12th May 2013, Guido accepted the Python Enhancement Proposal 435 which suggests adding an Enum type to the Python standard library. The news caused a lot of commotion in the Python community and generated (mostly) healthy discussions on [Hacker News](https://news.ycombinator.com/item?id=5685903). In this post I'll give an introduction to what enums are and talk about how you can use them in your programs. 
@@ -21,7 +19,7 @@ Why do we need Enums? Aren't the constructs already available in the
 language capable of doing this? To answer the second question first, its true that similar functionality is possible. Developers all this while have been using a constants defined as INTS for this very purpose.  For example, check out [this](https://github.com/mitsuhiko/flask/wiki/Large-app-how-to#first-model-and-its-constants-file) definition of a model in SqlAlchemy. 
 Armin, the creator of flask, declares a few constants in the `constants.py` file which look like this
 
-{% highlight python %}
+```
 # User role
 ADMIN = 0
 STAFF = 1
@@ -41,21 +39,21 @@ STATUS = {
   NEW: 'new',
   ACTIVE: 'active',
 } 
-{% endhighlight %}
+```
 
 The problem with this, however, is that these are ultimately integers. You can do a number of operations on them, which logically do not make sense. To point out another problem, imagine there are 100s of such roles. While debugging 
 
-{% highlight python %}
+```
 >>> print user.role
 0
-{% endhighlight %}
+```
 
 makes much less sense that 
 
-{% highlight python %}
+```
 >>> print user.role
 Roles.admin #type enum
-{% endhighlight %}
+```
 
 Finally, if there's another set of constants which need the same values
 (employee roles, for example) in which case these definitions might clash. 
@@ -69,7 +67,7 @@ accounted for.
 ### Usage
 I'll encourage you to the check out the [PEP](http://www.python.org/dev/peps/pep-0435/) for detailed (proposed) syntax but here a few examples. 
 
-{% highlight python %}
+```
 from emum import Emum
  
 Class Roles(Enum):
@@ -79,13 +77,12 @@ Class Roles(Enum):
 
 print(Roles.admin)               # >>> Roles.admin
 print(repr(Roles.admin))         # >>> <Roles.admin: 0>
-{% endhighlight %}
+```
 
 Make no mistake, the numbers indicated here are just values that are
 assigned to the enum members and dont stand for anything. As mentioned in the PEP - 
 *Using integers is short and handy (and provided by default by the Functional API), but not strictly enforced. In the vast majority of use-cases, one doesn't care what the actual value of an enumeration is. But if the value is important, enumerations can have arbitrary values.*
 
-### Highlights
 Below is a list of important features as defined in the PEP
 
 - Enums support iteration in definition order 

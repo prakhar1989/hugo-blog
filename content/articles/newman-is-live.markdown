@@ -1,8 +1,6 @@
 ---
-layout: post
 title: Newman Is Live
-description: The Postman Collection Runner is shipped!
-category: articles
+date: 2014-05-05T12:34:58+03:00
 tags: [postman, newman]
 ---
 

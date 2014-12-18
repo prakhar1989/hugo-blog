@@ -1,9 +1,7 @@
 ---
-layout: post
 title: Quantity
-description: A Shipping Manifesto
-category: articles
-tags: [rant]
+date: 2014-02-10T12:34:58+03:00
+tags: [inspiration]
 ---
 
 The ceramics teacher announced on opening day that he was dividing the class into two groups. All those on the left side of the studio, he said, would be graded solely on the quantity of work they produced, all those on the right solely on its quality. His procedure was simple: on the final day of class he would bring in his bathroom scales and weigh the work of the “quantity” group: fifty pound of pots rated an “A”, forty pounds a “B”, and so on. Those being graded on “quality”, however, needed to produce only one pot — albeit a perfect one — to get an “A”. 

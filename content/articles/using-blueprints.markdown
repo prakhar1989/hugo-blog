@@ -1,8 +1,6 @@
 ---
-layout: post
 title: Using Blueprints
-description: "Organization with Blueprints"
-category: articles
+date: 2014-05-08T12:34:58+03:00
 tags: [python, flask]
 ---
 
@@ -16,7 +14,7 @@ In other words, blueprints are essential to building a Flask site larger than a 
 
 Lets get started. Lets start with a simple app which looks like this -
 
-{% highlight python %}
+```
 |-- blogs
 |  |-- __init__.py
 |  |-- views.py
@@ -27,7 +25,7 @@ Lets get started. Lets start with a simple app which looks like this -
 |  |  |-- posts/
 |  |  |  |-- index.html
 |-- runserver.py
-{% endhighlight %}
+```
 
 I'm using the same structure as we discussed in the previous post, however,
 given the scale of the app, I'm not using flask-script and instead have a simple
@@ -35,7 +33,7 @@ given the scale of the app, I'm not using flask-script and instead have a simple
 
 Contents of the `views.py` file 
 
-{% highlight python %}
+```
 from flask import render_template
 from blogs import app
 
@@ -50,7 +48,7 @@ def admin_show(page):
 @app.route('/posts/<page>')
 def posts_show(page):
   return render_template('posts/index.html', page=page)
-{% endhighlight %}
+```
 
 Seeing the code above, I'm sure that the intent is quite clear. What I'm trying
 to do is structure the main components in my application, `admin` and `posts` in
@@ -64,7 +62,7 @@ Lets see how we solve this problem using blueprints. I've created two new
 folders - each for admin and posts and initialized with a blank `__init__.py`
 file. 
 
-{% highlight python %}
+```
 |-- blogs
 |  |-- __init__.py
 |  |-- admin/
@@ -80,13 +78,13 @@ file.
 |  |  |-- posts/
 |  |  |  |-- index.html
 |-- runserver.py
-{% endhighlight %}
+```
 
 Additionally, I've added two new `views.py` in each of the folders. Here are the
 contents of the two files
 
 `admin/views.py`:
-{% highlight python %}
+```
 from flask import Blueprint, render_template
 mod = Blueprint('admin', __name__, url_prefix='/admin')
 
@@ -95,10 +93,10 @@ mod = Blueprint('admin', __name__, url_prefix='/admin')
 @mod.route('/<page>')
 def show(page):
   return render_template('admin/index.html', page=page)
-{% endhighlight %}
+```
 
 `posts/views.py`:
-{% highlight python %}
+```
 from flask import Blueprint, render_template
 mod = Blueprint('posts', __name__, url_prefix='/posts')
 
@@ -107,7 +105,7 @@ mod = Blueprint('posts', __name__, url_prefix='/posts')
 @mod.route('/<page>')
 def show(page):
   return render_template('posts/index.html', page=page)
-{% endhighlight %}
+```
 
 What we're trying to do here is a setup the component as a blueprint. When a new
 function is bound using the @mod.route decorator the blueprint will record the
@@ -121,7 +119,7 @@ Hence, in our admin blueprint will listen to the two endpoints - `/admin/` and
 Before we use our blueprints we need to register them on our app object. We can
 do this in our main `__init__.py` file. These are its new contents - 
 
-{% highlight python %}
+```
 from flask import Flask
 app = Flask(__name__)
 
@@ -139,7 +137,7 @@ def index():
     return "<a href='%s'>Admin Section</a> | \
             <a href='%s'>Posts Section</a>" % (url_for('admin.show'),
                                                url_for('posts.show'))
-{% endhighlight %}
+```
 
 Now that we've registered our application, test the application and you'll see
 how the blueprints have correctly registered our url endpoints.

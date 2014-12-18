@@ -1,9 +1,7 @@
 ---
-layout: post
 title: Why We Dont Sell Ads
-description: WhatsApp founders on ads
-category: articles
-tags: [rant, founders, startups]
+date: 2014-02-20T12:34:58+03:00
+tags: [inspiration, founders, startups]
 ---
 I found this great statement made by the WhatsApp founders on their blog about why they don't rely on ads and instead charge customers for the service. This is getting recirculated now that WhatsApp is looking at being acquired by Facebook at a valuation of around $19B. It interesting to see that while tons of apps rely on advertising as a key part of their business model there are companies who strive to go against it. Whats surprising is that their experience of working at an advertising behemoth, Yahoo, strengthened their resolve even more.
 

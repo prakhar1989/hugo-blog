@@ -1,9 +1,7 @@
 ---
-layout: post
 title: Write Code Everyday
-description: John Resig on the power of writing code every day
-category: articles
-tags: [rant]
+tags: [inspiration, rant]
+date: 2014-04-10T12:34:58+03:00
 ---
 > It’s important to note that that I don’t particularly care about the outward perception of the above Github chart. I think that’s the most important take away from this experiment: this is about a change that you’re making in your life for yourself not a change that you’re making to satisfy someone else’s perception of your work. The same goes for any form of dieting or exercise: if you don’t care about improving yourself then you’ll never actually succeed. - John Resig
 

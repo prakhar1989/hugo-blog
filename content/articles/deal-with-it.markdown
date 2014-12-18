@@ -1,9 +1,7 @@
 ---
-layout: post
 title: Deal With It
-description: Vim saves the day
-category: articles
-tags: [rant, vim, unix]
+tags: [vim]
+date: 2014-02-22T12:34:58+03:00
 ---
 
 Hilarious fable on HN featuring the superhero Unix and its trusted sidekick - Vim!
@@ -28,13 +26,13 @@ Hilarious fable on HN featuring the superhero Unix and its trusted sidekick - Vi
 **fix the problem**
 `:wq`[^2]
 
-{% highlight bash %}
+```
 git stash
 git pull 
 git stash apply
 git commit
 git push
-{% endhighlight %}
+```
 
 *Ctrl+d*, exit
 

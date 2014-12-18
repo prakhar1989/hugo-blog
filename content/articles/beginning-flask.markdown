@@ -1,8 +1,6 @@
 ---
-layout: post
-title: "Beginning Flask"
-description: "Intro to some flask goodness"
-category: articles
+title: Beginning Flask
+date: 2013-05-06T12:34:58+03:00
 tags: [python, flask, intros]
 ---
 
@@ -10,7 +8,7 @@ I've been meaning to start a write a series on [Flask](http://flask.pooco.org) w
 
 The nicest thing (and most confusing for beginners) about Flask is that its quite barebones on the onset. A simple `hello world` application in Flask is just about 7 lines as shown below. However, going from hello world to full fledged application is a daunting task in itself for a beginner.
 
-{% highlight python %}
+```
 from flask import Flask
 app = Flask(__name__)
 @app.route('/')
@@ -18,7 +16,7 @@ def hello():
   return "hello world"
 if __name__ == "__main__":
   app.run()
-{% endhighlight %}
+```
 
 Almost all of the material found in this guide will be available from other sources namely flask's excellent documentation and the countless flask projects on Github. However, I'll try my best to write a comprehensive post on each topic for that day the matter for which will be collected through the flask docs, projects on github and the mailing list.
 

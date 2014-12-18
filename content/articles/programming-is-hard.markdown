@@ -1,9 +1,7 @@
 ---
-layout: post
 title: Programming is Hard
-description: +1 Mr.Joe Armstrong
-category: articles
-tags: [rant, ruby]
+date: 2014-02-07T12:34:58+03:00
+tags: [inspiration]
 ---
 
 When Joe Armstrong, the creator of Erlang, [writes a post](http://joearms.github.io/2014/02/07/why-programming-is-difficult.html) on "Programming is Hard" you cant help but say to yourself - You're not alone!

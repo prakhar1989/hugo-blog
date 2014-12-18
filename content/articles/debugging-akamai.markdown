@@ -1,9 +1,7 @@
 ---
-layout: post
 title: "Debugging Akamai Headers"
-description: "Is my content being cached on Akamai?"
-category: articles
-tags: [akamai, tips]
+tags: [akamai]
+date: 2014-02-07T12:34:58+03:00
 ---
 
 If you've got anything to do with Akamai's caching, surely there must have come a time where you needed to find out whether your content is being cached at Akamai. 
@@ -18,7 +16,7 @@ In short, Pragma headers specific cache headers[^1] that are can be used by any 
 
 Here's how you can do it -
 
-{% highlight bash %}
+```
 ~ curl -H "Pragma: akamai-x-cache-on" -H "Pragma: akamai-x-check-cacheable" -I "http://static.xcite.com/skin/frontend/orange/default/images/xcite_logo.png"
 
 HTTP/1.1 200 OK
@@ -34,11 +32,11 @@ Date: Fri, 07 Feb 2014 08:59:57 GMT
 Connection: keep-alive
 X-Cache: TCP_MEM_HIT from a168-187-253-133 (AkamaiGHost/6.14.4-12151432) (-)
 X-Check-Cacheable: YES
-{% endhighlight %}
+```
 
 In the above curl request we are sending **Akamai Specific** Pragma headers to fetch a static `png` file from a URL that is on Akamai. The two key response headers that important here are the last two `X-Cache` and `X-Check-Cacheable`. Below is a curl request to a asset which is not cached by Akamai.
 
-{% highlight bash %}
+```
  ~  curl -H "Pragma: akamai-x-cache-on" -H "Pragma: akamai-x-check-cacheable" -I "http://www.xcite.com"
 
 HTTP/1.1 200 OK
@@ -53,7 +51,7 @@ Date: Fri, 07 Feb 2014 09:09:22 GMT
 Set-Cookie: frontend=kbpnphh3o3ohbmvu9j83ioigv6; expires=Fri, 07-Feb-2014 10:09:21 GMT; path=/; domain=.xcite.com; HttpOnly
 X-Cache: TCP_MISS from a217-243-192-27.deploy.akamaitechnologies.com (AkamaiGHost/6.14.3.5-12122608) (-)
 X-Check-Cacheable: NO
-{% endhighlight %}
+```
 
 As you can see, `X-Check-Cacheable` here is `NO` which indicates that content is not cached on Akamai.
 

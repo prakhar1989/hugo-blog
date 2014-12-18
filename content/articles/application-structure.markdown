@@ -1,9 +1,7 @@
 ---
-layout: post
 title: Application Structure
-description: "Application Structure in Flask"
-category: articles
 tags: [python, flask]
+date: 2013-05-07T12:34:58+03:00
 ---
 
 In this post, we're going to talk about a seemingly easy but an important topic - organizing and structuring your flask applications. 
@@ -18,27 +16,27 @@ This post will provide you an answer and show you a good way of structuring your
 ### Packages
 For larger applications going the packages way is generally a good idea.  A small app might look like this - 
 
-{% highlight python %}
+```
 - myapp
   |- static
   |- templates
   |- main.py
-{% endhighlight %}
+```
 
 To change this into a python module all you need to do is move the files in a separate folder and create a new file ( or rename the existing `main.py` ) `__init__.py` so that python can interpret the folder as a module. After re-structuring your app will look like this -
 
-{% highlight python %}
+```
 - myapp
   |- hello
     |-- __init__.py
     |-- static
     |-- templates
     |-- main.py
-{% endhighlight %}
+```
 
 The next step is to separate app initialization, models and views declaration from your `__init__.py`. To do that write the following code in your `__init__.py`. Note: I'm assuming that you're assuming sqlalchemy as your ORM. Additionally, I've used hello as the name of the app folder.
 
-{% highlight python %}
+```
 # flask imports go here
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
@@ -59,7 +57,7 @@ import hello.views
 
 # import models
 from hello.models.person import Person
-{% endhighlight %}
+```
 
 In this code, you'll notice that `hello.views`, `hello.models.person` and `app.cfg` are missing files. Don't worry, we'll create them soon. The rest of the code is self-explainatory. We get the base directory so that we can easily reference the config file to instantiate our app.
 
@@ -74,7 +72,7 @@ alongside your app (or hello) folder. Finally, inside your app (or
 hello) folder add all your views in a file `views.py`. Below is a sample
 excerpt of how your files should look like.
 
-{% highlight python %}
+```
 # sample app.cfg
 DEBUG = True
 SECRET= "mysupersecretkey"
@@ -92,11 +90,11 @@ from flask import render_template
 @app.route('/')
 def hello():
   return render_template('index.html')
-{% endhighlight %}
+```
 
 At this stage this is how your structure looks like -
 
-{% highlight python %}
+```
 - myapp
   |- app.cfg
   |- hello
@@ -107,19 +105,19 @@ At this stage this is how your structure looks like -
     |-- models/
       |--- __init__.py
       |--- dummy.py
-{% endhighlight %}
+```
 
 If you've noticed we still haven't told our app to run. To do that, create
 a new file called `manage.py` alongside `app.cfg` and enter the
 following code - 
 
-{% highlight python %}
+```
 from hello import app
 from hello import db
 
 if __name__ == "__main__":
   app.run()
-{% endhighlight %}
+```
 
 Now that you have everything setup, your app should work. Give it a go by running `python manage.py`
 and make sure there aren't any import errors.
@@ -134,7 +132,7 @@ the extension is very easy to follow and I encourage you to give it a
 read. I've edited the `manage.py` file and added support for
 flask-script.
 
-{% highlight python %}
+```
 from flask.ext.script import Manager, Server, Shell
 from hello import app
 from hello import db
@@ -155,7 +153,7 @@ manager.add_command("shell", Shell(make_context = _make_context))
 
 if __name__ == "__main__":
   manager.run()
-{% endhighlight %}
+```
 
 After making these changes, simply run `python manage.py runserver` to
 run the app and `python manage.py shell` to jump into a python shell

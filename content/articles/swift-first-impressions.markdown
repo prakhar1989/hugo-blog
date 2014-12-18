@@ -44,7 +44,7 @@ This tells the compiler that the variable `msg` can have a value or be a `nil`. 
 
 How do you use it? Let us assume you have a `User` object that stores information about a user and you define a collection that stores a collection of the `User` object. You need to define a `findById` function that returns the User object associated with that `id`. Here's how you can do it 
 
-{% highlight scala %}
+```
 func findById(id: Int, users: User[]) -> User? {
   for u in Users {
     if u.id == id {
@@ -60,17 +60,17 @@ if let user = findById(1, users) {
 } else {
   println("user not found")
 }
-{% endhighlight %}
+```
 
 One last thing that might trip up beginners is the user `!` to force unwrapping of the optional. Using a `!` simply means that you're sure the optional contains a value and you want to access it.
 
-{% highlight scala %}
+```
 if findById(1, users) {
   println("user found: \(findById(1, users)!.name)")
 } else {
   println("user not found")
 }
-{% endhighlight %}
+```
 
 
 Having optionals helps you keep your mind free from all these rules and helps eliminate potential bugs.
@@ -78,7 +78,7 @@ Having optionals helps you keep your mind free from all these rules and helps el
 ### Ranges
 Very simple and straightforward - ranges are my most preferred way of iterating through a collection of integers. Ranges are present in both Python and Ruby, and I'd be lying if I say that I don't miss them in Javascript.
 
-{% highlight scala %}
+```
 // Swift
 for i in 0..10 {
   println(i)
@@ -93,7 +93,7 @@ for i in range(0, 10) {
 for i in 0..10 {
   print i
 }
-{% endhighlight %}
+```
 
 Unfortunately usage of ranges in Go are different from the example above. Since there's no way to create an array (or a slice) by just specifying the start and end of the collection, `Range(1,20)` doesn't work. From the [documentation](http://golang.org/ref/spec#RangeClause)
 
@@ -101,12 +101,12 @@ Unfortunately usage of ranges in Go are different from the example above. Since 
 
 One thing that both Go and Swift share (w.r.t. ranges) is ignoring values using the `_`
 
-{% highlight scala %}
+```
 var (n, answer, base) = (4, 10, 2)
 for _ in 0..n {
   answer += base
 }
-{% endhighlight %}
+```
 
 This is a nice-to-have feature if you don't want to populate the local namespace.
 
@@ -122,7 +122,7 @@ Swift allows a lot of syntactic sugar when it comes to closures, making them a j
 
 Let me illustrate the points below with a practical example. We will use the `sort` function which takes a collection and a function (closure) on which the function is sorted.
 
-{% highlight scala %}
+```
 let fruits = ["apples", "oranges", "banana", "pear"]
 
 func longest(s1: String, s2: String) -> Bool {
@@ -131,48 +131,48 @@ func longest(s1: String, s2: String) -> Bool {
 
 // returns ["oranges", "banana", "apples", "pear"]
 sort(fruits, longest)
-{% endhighlight %}
+```
 
 The equivalent closure for to accomplish the above would be - 
-{% highlight scala %}
+```
 sort(fruits, { (s1: String, s2: String) -> Bool in
   return countElements(s1) > countElements(s2)
 })
-{% endhighlight %}
+```
 The code after `in` begins the closure. We will see how the features provided by Swift makes it much much easier to do the same thing.
 
 **Inferring parameter and return value types from context**. 
-{% highlight scala %}
+```
 // removing the type information
 sort(fruits, { (s1, s2) in 
   return countElements(s1) > countElements(s2)
 })
-{% endhighlight %}
+```
 
 **Implicit returns from single-expression closures**
-{% highlight scala %}
+```
 // remove the explicit return
 sort(fruits, { (s1, s2) in  
   countElements(s1) > countElements(s2)
 })
-{% endhighlight %}
+```
 **Shorthand argument names**
 
-{% highlight scala %}
+```
 // $0 refers to the first arg, $1 refers to the second
 sort(fruits, { countElements($0) > countElements($1) })
-{% endhighlight %}
+```
 
 **Trailing closure syntax**
-{% highlight scala %}
+```
 // syntactic sugar to allow passing a closure outside of a function call
 sort(fruits) { countElements($0) > countElements($1) }
-{% endhighlight %}
+```
 
 ### Map, Filter and Reduce
 Directly incorporated from the functional programming world, the functions `map` and `filter` are available on all collections to help you iterate through a collection, perform an operation and return a new collection. The syntax is similar to closure so it is quite intuitive once you get a hang of it.
 
-{% highlight scala %}
+```
 let numbers = [12, 49, 23, 44, 143]
 
 let squares = numbers.map { $0 * $0 } // squares of numbers
@@ -183,6 +183,6 @@ let even = numbers.filter { $0 % 2 == 0}  // filter all even
 
 let sum = numbers.reduce(0, combine: {$0 + $1}) // finding the sum of the elements
 // sum 271
-{% endhighlight %}
+```
 
 If you haven't tried Swift yet, I encourage you to give it a shot. Its a fun language and Apple's building a great ecosystem around it. Expect people to share their playground files with cool demos once Xcode 6 becomes stable. I am super excited to see what the future holds!

@@ -44,6 +44,6 @@ The course is primarily theoretical in both its presentation and exercises. This
 
 In sharp contrast to Andrew Ng's course, there are no compulsory programming assignments. The exercises are all quizzes which check how well you have understood the concepts. There is just one programming assignment which is also optional.
 
-## Conclusion
+### Conclusion
 Overall, I'm really glad I did this course. The professors emphasize citing industry examples wherever necessary (the PageRank algorithm and accompanying Google's implementation was covered for 3 lectures), which is a welcome change from other CS courses. Along with the book, I believe the course is a wonderful primer to the field of Data Mining.
 

@@ -66,7 +66,7 @@ console.log(g()()('al'))   // gooal
 console.log(g()()()('al')) // goooal
 ```
 
-This can be made much shorter by using [coffeescript](http://coffeescript.org/#try:g%20%3D%20(al%2Co)%20-%3E%20return%20if%20al%20then%20'g'%2B(o%7C%7C'')%2Bal%20else%20(al)%20-%3E%20return%20g(al%2C%20((o%7C%7C'')%2B'o'))%0A%0Aalert%20g()()('al')%0Aalert%20g()()()()()('al')%0A) (thanks to the `->` syntax)
+This can be made much shorter by using coffeescript.
 ```
 g = (al,o) -> return if al then 'g'+(o||'')+al else (al) -> return g(al,((o||'')+'o'))
 ```

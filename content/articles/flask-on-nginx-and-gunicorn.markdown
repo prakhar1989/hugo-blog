@@ -1,8 +1,6 @@
 ---
-layout: post
 title: Flask on Nginx and Gunicorn
-description: No BS guide to deploying a Flask app
-category: articles
+date: 2014-03-07T12:34:58+03:00
 tags: [nginx, flask, python, deployment]
 ---
 
@@ -12,17 +10,17 @@ A disclaimer: this guide will not tell you what these technologies are. Specific
 
 ### Setup
 First off setup a virtualenv. I'm a big fan of virtualenv as it helps you keep your global system environment clean.
-{% highlight bash %}
+```
 $ cd flask_app
 $ virtualenv flask_env
 $ source flask_env/bin/activate
 (flask_env)$ pip install flask && pip install gunicorn
-{% endhighlight %}
+```
 
 ### Gunicorn
 With that done, lets create a `bash` file called `gunicorn_start`. The contents of this file are below. What this basically does is sets up the virtualenv and starts the gunicorn server on `http://127.0.0.1:8000`. Do remember to customize the variables below as per your setup.
 
-{% highlight bash %}
+```
 #!/bin/bash
 
 NAME="my cool flask app"
@@ -52,7 +50,7 @@ exec gunicorn main:app -b 127.0.0.1:8000 \
   --user=$USER --group=$GROUP \
   --log-level=debug \
   --bind=unix:$SOCKFILE
-{% endhighlight %}
+```
 
 To make sure everything is running, attempt a `sudo ./gunicorn_start` command[^1]. If gunicorn starts up perfectly and doesn't cough any errors you are good to go.
 
@@ -61,20 +59,20 @@ To make sure everything is running, attempt a `sudo ./gunicorn_start` command[^1
 Now that `gunicorn` is setup properly we can now move our focus to Nginx. The configuration is quite simple to get it started. The couple of lines below simply tell Nginx to act as a reverse proxy. 
 
 **Contents of flaskconfig**[^2]
-{% highlight bash %}
+```
 server {
     location / {
         proxy_pass http://127.0.0.1:8000;
     }
 }
-{% endhighlight %}
+```
 
 To run this configuration you need to save this in `/etc/nginx/sites-available`. Assuming your file is `flaskconfig`, you need to create a symbolic link in the `sites-enabled` directory.
 
-{% highlight bash %}
+```
 $ cd /etc/nginx
 $ ln -s /etc/nginx/sites-available/flaskconfig /etc/nginx/sites-enabled/flaskconfig
-{% endhighlight %}
+```
 
 To test everything is working fine, restart nginx - hopefully the server should restart without any server errors[^3]. Now `cd` into the project directory and start the `gunicorn_start` command. Now head over to the domain name and you should see your application running.
 
@@ -82,19 +80,19 @@ To test everything is working fine, restart nginx - hopefully the server should 
 
 Supervisor is a client/server system that allows its users to monitor and control a number of processes on UNIX-like operating systems. In simple words, rather than manually starting and stopping `gunicorn` you can use supervisor to create a daemon that is easy to manage. Create a new configuration file in `/etc/supervisor/conf.d`. To manage supervisor you can use the familiar `sudo service supervisor restart` command.
 
-{% highlight bash %}
+```
 [program:flask_app]
 command = /Code/flask_app/gunicorn_start
 user = root
 stdout_logfile = /Code/flask_app/logs/gunicorn_supervisor.log
 redirect_stderr = true
-{% endhighlight %}
+```
 
 ### Fabric
 
 Fabric is a really cool python library that can be used for application deployment and systems administration. Using nothing but `python` you can create deployment / automation scripts. You can have a look at a `fabfile` I created for deploying a django application.
 
-{% highlight python %}
+```
 from fabric.api import *
 from contextlib import contextmanager as _contextmanager
 
@@ -122,8 +120,7 @@ def deploy():
 
 def restart_service():
     run("sudo supervisorctl restart flask_app")
-
-{% endhighlight %}
+```
 
 Hopefully, this post has been helpful in giving you a good idea of how you can deploy flask apps on Nginx & Gunicorn. If you have any queries feel free to contact me.
 
