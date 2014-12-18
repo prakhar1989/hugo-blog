@@ -43,7 +43,7 @@ input[type="email"]:focus, input[type="search"]:focus, input[type="text"]:focus,
 
 .container {
   background: white;
-  max-width: 760px;
+  max-width: 740px;
   position: relative;
   margin: 0 auto;
   padding: 3rem;
@@ -129,6 +129,7 @@ h1 {
 
 h3 {
   line-height: 1.3;
+  color: #5a6e79;
   font-size: 1.4rem;
   letter-spacing: 0.2rem;
   text-transform: uppercase;
@@ -179,8 +180,9 @@ div.post-title a.title {
 }
 
 span.post-date {
-  font-size: 1.4rem;
+  font-size: 1.7rem;
   color: #526F7F;
+  opacity: 0.8;
 }
 h1.post-title a {
   text-transform: uppercase;
