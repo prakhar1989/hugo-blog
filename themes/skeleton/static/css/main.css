@@ -363,3 +363,20 @@ h1.social-me a {
   margin-right: 2rem;
   color: #5a6e79;
 }
+
+ul.recent-posts li {
+  list-style-type: none;
+}
+
+ul.recent-posts .desc {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.4rem;
+}
+
+.intro figure, figure.recent-project {
+  margin: 0;
+}
+
+.intro figure img {
+  border-radius: 4px;
+}

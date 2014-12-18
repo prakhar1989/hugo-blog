@@ -2,6 +2,7 @@
 title: Demystifying Decorators
 date: 2014-11-03T12:34:58+03:00
 tags: [python, decorators]
+description: "Not your run-of-the-mill post on decorators"
 ---
 
 If you've been programming in Python for some time chances are you have come across decorators. Even though you might not know what decorators are and how they work, you've surely used them as most of popular Python libraries use decorators (the familiar `@` syntax) to make beautiful APIs.

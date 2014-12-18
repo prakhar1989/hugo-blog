@@ -16,7 +16,7 @@ I believe that the best way to learn is by working on projects. Below is a growi
 
 <li>
 	<div class="project-item">
-		<h3>ColorPhun</h3>
+		<h3 id="colorphun">ColorPhun</h3>
 		<figure>
 			<img src="/images/colorphun.png">
       <figcaption>In game screenshots. Get it on <a href="https://play.google.com/store/apps/details?id=com.prakharme.prakharsriv.colorphun">Google Play</a></figcaption>

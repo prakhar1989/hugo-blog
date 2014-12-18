@@ -1,10 +1,11 @@
 ---
-date: 2014-12-01T12:34:58+03:00
-title: Mining of Massive DataSets - A Review
-tags: [courses]
+date: 2014-12-10T12:34:58+03:00
+title: "Mining of Massive DataSets - A Review"
+tags: ["courses"]
+description: "Thoughts on Stanford's Data Mining course"
 ---
 
-If you've been keeping track, I've hardly published a single article in the last month. In my defense, the last 7 months have been extremely hectic. High work pressure and a rather dense online course kept most of the drafts from seeing the light of day. Before I jump in reviewing the course i.e. [Mining Massive DataSets (MMDS)](https://www.coursera.org/course/mmds), here's a quick short story for some context.
+If you've been keeping track, I've hardly published a single article in the last month. In my defense, the last 7 months have been extremely hectic. High work pressure and a rather dense online course kept most of the drafts from seeing the light of day.  <!--more--> Before I jump in reviewing the course i.e. [Mining Massive DataSets (MMDS)](https://www.coursera.org/course/mmds), here's a quick short story for some context.
 
 I first stumbled onto MMDS or [CS246](http://mmds.org/) (as its called in Stanford), a graduate level course on (you guessed it) data mining in early 2012 when I had recently finished Andrew Ng's course on Machine Learning. With professors like Anand Rajaraman (of Amazon) and Jeff Ullman teaching the course and making their book freely available, I got quite interested and wished that it be offered on Coursera some day. Fast forward 2 years and I see a mail from Coursera informing me that the course is up for grabs. Without hesitating, I hurriedly signed up and waited eagerly for the course to start.
 

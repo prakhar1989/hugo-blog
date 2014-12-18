@@ -8,18 +8,18 @@
     <language>en-us</language>
     
     
-    <lastBuildDate>Mon, 01 Dec 2014 12:34:58 AST</lastBuildDate>
+    <lastBuildDate>Wed, 10 Dec 2014 12:34:58 AST</lastBuildDate>
     <atom:link href="http://192.241.186.225/tags/courses/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Mining of Massive DataSets - A Review</title>
       <link>http://192.241.186.225/articles/mining-of-massive-datasets---a-review/</link>
-      <pubDate>Mon, 01 Dec 2014 12:34:58 AST</pubDate>
+      <pubDate>Wed, 10 Dec 2014 12:34:58 AST</pubDate>
       
       <guid>http://192.241.186.225/articles/mining-of-massive-datasets---a-review/</guid>
       <description>
 
-&lt;p&gt;If you&amp;rsquo;ve been keeping track, I&amp;rsquo;ve hardly published a single article in the last month. In my defense, the last 7 months have been extremely hectic. High work pressure and a rather dense online course kept most of the drafts from seeing the light of day. Before I jump in reviewing the course i.e. &lt;a href=&#34;https://www.coursera.org/course/mmds&#34;&gt;Mining Massive DataSets (MMDS)&lt;/a&gt;, here&amp;rsquo;s a quick short story for some context.&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;ve been keeping track, I&amp;rsquo;ve hardly published a single article in the last month. In my defense, the last 7 months have been extremely hectic. High work pressure and a rather dense online course kept most of the drafts from seeing the light of day.   Before I jump in reviewing the course i.e. &lt;a href=&#34;https://www.coursera.org/course/mmds&#34;&gt;Mining Massive DataSets (MMDS)&lt;/a&gt;, here&amp;rsquo;s a quick short story for some context.&lt;/p&gt;
 
 &lt;p&gt;I first stumbled onto MMDS or &lt;a href=&#34;http://mmds.org/&#34;&gt;CS246&lt;/a&gt; (as its called in Stanford), a graduate level course on (you guessed it) data mining in early 2012 when I had recently finished Andrew Ng&amp;rsquo;s course on Machine Learning. With professors like Anand Rajaraman (of Amazon) and Jeff Ullman teaching the course and making their book freely available, I got quite interested and wished that it be offered on Coursera some day. Fast forward 2 years and I see a mail from Coursera informing me that the course is up for grabs. Without hesitating, I hurriedly signed up and waited eagerly for the course to start.&lt;/p&gt;
 
