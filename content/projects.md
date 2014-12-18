@@ -1,12 +1,8 @@
----
-layout: page
-permalink: /projects/
-title: Projects 
-tags: [projects]
-modified: 05-05-2014
-image:
-  feature: mac3.jpg
----
++++
+title = "Projects"
+nopaging = true
+nodate = true
++++
 
 > “For the things we have to learn before we can do them, we learn by doing them.” - Aristotle
 

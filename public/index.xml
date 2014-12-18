@@ -8,40 +8,8 @@
     <language>en-us</language>
     
     
-    <lastBuildDate>Mon, 15 Dec 2014 10:18:41 AST</lastBuildDate>
+    <lastBuildDate>Mon, 01 Dec 2014 12:34:58 AST</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>quotes</title>
-      <link>http://localhost:1313/quotes/</link>
-      <pubDate>Mon, 15 Dec 2014 10:18:41 AST</pubDate>
-      
-      <guid>http://localhost:1313/quotes/</guid>
-      <description>&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Show me your code and conceal your data structures, and I shall continue to be mystified. Show me your data structures, and I won’t usually need your code; it’ll be obvious. - Eric Raymond&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;From an educational point of view, our experience suggests that undergraduate computer science courses should emphasize basic notions of modularity, specification, and data abstraction, and should not let these be displaced by more advanced topics, such as design patterns, object-oriented methods, concurrency, functional languages, and so on  - Jackson &amp;amp; Chapin (2000) on SICP&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>http://localhost:1313/about/</link>
-      <pubDate>Wed, 10 Dec 2014 12:34:58 AST</pubDate>
-      
-      <guid>http://localhost:1313/about/</guid>
-      <description>
-
-&lt;h1 id=&#34;hi-there:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Hi there.&lt;/h1&gt;
-
-&lt;p&gt;I&amp;rsquo;m Prakhar Srivastav and I love building things (mostly for the web) and celebrating the joy of programming. In my free time I enjoy gaming, doing courses and trying out new programming languages.&lt;/p&gt;
-
-&lt;p&gt;Like the &lt;code&gt;/dev/random&lt;/code&gt;, I use this blog as a place to redirect unwanted streams of thoughts, ideas and rants about software development, programming and other things that interest me.&lt;/p&gt;
-
-&lt;p&gt;If you’d like to connect, feel free to reach out on my &lt;a href=&#34;prakhar1989@gmail.com&#34;&gt;email&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
     
     <item>
       <title>Mining of Massive DataSets - A Review</title>
@@ -465,7 +433,9 @@ P(no dart hits the target) = e^(-d/t) = e^(-0.5) = 0.607
       <pubDate>Thu, 14 Aug 2014 12:34:58 AST</pubDate>
       
       <guid>http://localhost:1313/articles/why-do-you-want-to-do-great-things/</guid>
-      <description>&lt;blockquote&gt;
+      <description>&lt;p&gt;During my usual late night lurking on HN today, I came across this gem of a comment and couldn&amp;rsquo;t help sharing it here.&lt;/p&gt;
+
+&lt;blockquote&gt;
 &lt;p&gt;Why do you want to do great things? Seriously, dig into it. When I ask a lot of people in startups this question and dig long enough, it comes down to money&amp;ndash; they want to be rich, they want to be free.&lt;/p&gt;
 
 &lt;p&gt;Fact: I&amp;rsquo;ve met these rich/free people and they are largely working their asses off to get more rich (and presumably more free?). The ones who make it (largely) LOVE THE GAME. The few who get rich somehow but don&amp;rsquo;t actually love the game of getting rich are listlessly complaining about being unhappy.&lt;/p&gt;
@@ -481,7 +451,7 @@ P(no dart hits the target) = e^(-d/t) = e^(-0.5) = 0.607
 &lt;p&gt;Remember that a million years of evolution has made humanity naturally discontent&amp;ndash; do you think happiness/contentedness is a survival trait? Add to that the external pressure of peers who make it big, do &amp;ldquo;great things&amp;rdquo;, and the river of marketing telling you that you need fancier watches, shinier cars, the newest iPhone. &lt;strong&gt;Being happy/content takes smarts and discipline that most people simply can&amp;rsquo;t manage. Be one of the ones who can&lt;/strong&gt;. - Tony Wright via &lt;a href=&#34;https://news.ycombinator.com/item?id=8177830&#34;&gt;HN&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;This is why I love HN.  Do checkout the rest of the &lt;a href=&#34;https://news.ycombinator.com/item?id=8177259&#34;&gt;discussion&lt;/a&gt;. It&amp;rsquo;s awesome.&lt;/p&gt;
+&lt;p&gt;Do checkout the rest of the &lt;a href=&#34;https://news.ycombinator.com/item?id=8177259&#34;&gt;discussion&lt;/a&gt;. It&amp;rsquo;s awesome.&lt;/p&gt;
 </description>
     </item>
     
@@ -978,6 +948,100 @@ if __name__ == &amp;quot;__main__&amp;quot;:
 &lt;/ol&gt;
 
 &lt;p&gt;See the full talk &lt;a href=&#34;http://ecorner.stanford.edu/author/heidi_roizen&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Fun with SparkFun</title>
+      <link>http://localhost:1313/articles/fun-with-sparkfun/</link>
+      <pubDate>Mon, 14 Jul 2014 12:34:58 AST</pubDate>
+      
+      <guid>http://localhost:1313/articles/fun-with-sparkfun/</guid>
+      <description>&lt;p&gt;This is about a quick hack that I did. Couple of days back, I came across a cool project called &lt;a href=&#34;https://data.sparkfun.com/&#34;&gt;SparkFun&lt;/a&gt; on &lt;a href=&#34;https://news.ycombinator.com/item?id=8015354&#34;&gt;HN&lt;/a&gt; which is free online service to push your data. It allows you to create streams and then push data via a simple HTTP call. The primary motivation behind the service is to enable devices connected via Internet of Things to push data online easily.&lt;/p&gt;
+
+&lt;p&gt;I had been crawling a few websites to need of latest remittance rates to my home country (the rates offered for remittance differ quite substantially from the current spot rates). Its a &lt;a href=&#34;http://casperjs.org/&#34;&gt;casperjs&lt;/a&gt; script that crawls the page and sends me an email. Clearly, email was getting hard to analyse trends and see history - but I was quite lazy to work on setting up persistence for this quick hack. When I saw Sparkfun I instantly knew how I could achieve logging.&lt;/p&gt;
+
+&lt;p&gt;In case you&amp;rsquo;re wondering on the architecture, here&amp;rsquo;s a &lt;a href=&#34;https://news.ycombinator.com/item?id=8016011&#34;&gt;comment&lt;/a&gt; by one of the founders -&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;By default it writes metadata about the stream (title, description, etc) using a file based db called nedb, and it appends the actual logged data to CSV files that are split into 500k chunks. When the user requests their logged data, all of the files are stitched back together, converted into the requested format (JSON, CSV, etc), and streamed to the user’s web client.
+For the production server, we are currently using MongoDb for metadata storage and the same CSV module for logged data storage.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s the &lt;a href=&#34;https://data.sparkfun.com/streams/0llnrLvRyOFYXyv3yDD6&#34;&gt;stream&lt;/a&gt; that you can check for remittance rates. This is updated every 4 hours (as the bank itself updates the rates 5-6 times a day).  And below is the code that makes it possible -&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var casper = require(&#39;casper&#39;).create();
+ 
+var home_url = &amp;quot;https://applications2.almullagroup.com/onlineremit/faces/infrastructure/EXLogin.jspx&amp;quot;;
+var sparkfun_url = &amp;quot;https://data.sparkfun.com/input/XCVB?private_key=ABCD&amp;amp;INR=&amp;quot;
+ 
+casper.start(home_url);
+
+casper.waitForSelector(&amp;quot;form#form1&amp;quot;);
+ 
+casper.then(function() {
+  this.fill(&#39;form[name=&amp;quot;form1&amp;quot;]&#39;,{ &#39;showrate&#39; : &#39;2&#39;});
+  this.click(&#39;input[type=submit]&#39;)
+});
+ 
+casper.then(function(){
+  var rate = this.getHTML(&#39;tr:nth-child(4) td:nth-child(4) span&#39;);
+  this.echo(&amp;quot;AMX REMIT RATE - Rs.&amp;quot; +  rate); // later sent as an email as well
+  this.open(sparkfun_url + rate);
+});
+ 
+casper.run();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;Special thanks to &lt;a href=&#34;http://dushyantrao.github.io/&#34;&gt;Dushyant&lt;/a&gt; for introducing me to CasperJs&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Choosing Angular</title>
+      <link>http://localhost:1313/articles/choosing-angular/</link>
+      <pubDate>Sun, 06 Jul 2014 12:34:58 AST</pubDate>
+      
+      <guid>http://localhost:1313/articles/choosing-angular/</guid>
+      <description>&lt;p&gt;For the last couple of weeks I&amp;rsquo;ve spent a good deal of time on building a
+brand new checkout for &lt;a href=&#34;http://www.xcite.com&#34;&gt;Xcite.com&lt;/a&gt;. Like other ecommerce
+websites, our website has a conventional 3 step checkout - login/signup,
+delivery and finally, payment. As a part of new project our goal is to allow
+customers to checkout as guests i.e. without the need of creating an account
+with Xcite. This allows us to reduce a step for customers who just want
+quickly purchase something off the website and be on their way.&lt;/p&gt;
+
+&lt;p&gt;Being an ecommerce website, user experience is something that is of paramount importance to us. Above all, the checkout process has to be smooth, easy and just work for the user. At any stage if the user is not satisfied, the website risks loosing the sale and all the dollars spent in bringing the user to the store, coaxing him to fill his basket go for naught.&lt;/p&gt;
+
+&lt;p&gt;With that in mind, our focus has always been to make the checkout process as fluid as possible. The current process, for example, behaves as a &lt;a href=&#34;http://en.wikipedia.org/wiki/Single-page_application&#34;&gt;SPA (Single-page web app)&lt;/a&gt; and allows the user to seamlessly transition between the three steps and finally onto the payment gateway. However, from a software perspective it is a maintenance nightmare. The code powering the application is 2.5k lines of jQuery with tons of &lt;code&gt;on&lt;/code&gt;, &lt;code&gt;bind&lt;/code&gt; and &lt;code&gt;trigger&lt;/code&gt; strewn in. Clearly, weilding jquery, which is great for DOM manipulation, is an absolute disaster for making a SPA where the UI is closely bound to the data.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;a href=&#34;http://singlepageappbook.com&#34;&gt;&lt;img src=&#34;http://singlepageappbook.com/assets/overview.png&#34;&gt;&lt;/a&gt;
+    &lt;figcaption&gt;&lt;a href=&#34;http://singlepageappbook.com/&#34; title=&#34;Single Page App Book&#34;&gt;Structure of modern SPAs. Courtesy - Single Page App Book&lt;/a&gt;.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;So finally when the chance to restructure the checkout process came in we decided to let of the jQuery baggage and rewrite the application in something more suited to our needs. Now the &lt;a href=&#34;http://programmers.stackexchange.com/questions/6268/when-is-a-big-rewrite-the-answer&#34;&gt;rewrite vs refactor&lt;/a&gt; debate is a long standing one in software engineering which I&amp;rsquo;m sure most of you are not alien to. Lots of words have been written, battles been fought and blood has been shed on the topic to decide whether the team should throw the technical baggage and begin afresh or should they try harder to carve a diamond out of existing coal.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;They did it by making the single worst strategic mistake that any software company can make: They decided to rewrite the code from scratch. - Joel Spolsky&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Joel makes a lot of well reasoned arguments in his &lt;a href=&#34;http://www.joelonsoftware.com/articles/fog0000000069.html&#34;&gt;article&lt;/a&gt; (which I suggest you should definitely read). In our case, however, our team had solid reasons in favour of a rewrite.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The existing code was written by a team which was no longer with the project. No one on the existing team had a strong understanding of how the code worked.&lt;/li&gt;
+&lt;li&gt;Without any structure, the code was extremely hard to maintain and understand. Having a huge javascript file with more than 1500 lines of code was a complete nightmare.&lt;/li&gt;
+&lt;li&gt;There were no tests at all which made refactoring a very hard exercise. Whenever a bug was reported the team used to be scared to break something that was already working.&lt;/li&gt;
+&lt;li&gt;It used a technology (jQuery) which was totally not suited to the problem. This meant that adding any new features on the existing application would result in a lot more code which while using a better technology could be accomplished with much lesser.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In my opinion, these are very strong reasons that encourage a rewrite. With that out of the way, the next question on the team&amp;rsquo;s mind was which technology to pick. Javascript MVC frameworks have been cropping by the dozen and we wanted to be sure to pick something that was stable, battle-tested, had a strong community and ready help available.&lt;/p&gt;
+
+&lt;p&gt;Being the only front-end engineer on the team, I had a strong say in choosing the framework to build the application on. Despite having substantial experience working with Backbone.js, given the complexity and needs of the checkout application, I was in favour of going for a framework that had, among other things, first class support for 2 way data binding.&lt;/p&gt;
+
+&lt;p&gt;With these features in mind, it was not hard to make a choice and settle on &lt;a href=&#34;https://angularjs.org/&#34;&gt;Angularjs&lt;/a&gt;. With features like dependancy injection, 2 way data binding and awesome support for unit and end-to-end testing, Angular seemed like a great choice.&lt;/p&gt;
+
+&lt;p&gt;In the next set of posts, I will talk more about what challenges I faced while building the new checkout application. I&amp;rsquo;m certainly hoping that I will have fun with Angular and learn something along the way!&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Disclaimer: Views and opinions presented in this article are purely mine and do not represent those of my employer&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>
     

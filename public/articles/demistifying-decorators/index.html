@@ -25,6 +25,7 @@
 
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="http://localhost:1313/css/normalize.css">
   <link rel="stylesheet" href="http://localhost:1313/css/skeleton.css">
@@ -56,9 +57,10 @@
       </div>
       <div class="four columns">
         <ul class="nav-list">
-          <li><a href="/about">About</a></li>
-          <li><a href="/articles">Blog</a></li>
-          <li><a href="/projects">Projects</a></li>
+          <li><a href="/about" title="About Me"><i class="ion-android-person"></i></a></li>
+          <li><a href="/articles" title="Articles"><i class="ion-ios-paper"></i></a></li>
+          <li><a href="/projects" title="Projects"><i class="ion-social-github"></i></a></li>
+          <li><a href="/quotes" title="Quotes"><i class="ion-quote"></i></a></li>
         </ul>
       </div>
     </div>
@@ -77,7 +79,7 @@
           <div class="post-content-meta">
 
             
-              <span class="post-tag"> Published on  </span>
+              <i class="ion-ios-calendar-outline"></i>  
               <span class="post-date">
                 <span class="post-date-month">November</span> 
                 <span class="post-date-day"> 3, </span>
@@ -86,18 +88,21 @@
             
 
             
-              <span class="post-tag"> in </span>
             
+                <span class="post-tag"> in </span>
                 
-                  <a class="post-tag post-tag-python" href="http://localhost:1313/tags/python">#python</a>
+                <a class="post-tag post-tag-python" href="http://localhost:1313/tags/python">
+                  <i class="ion-ios-pricetag-outline"></i>python</a>
                 
-                  <a class="post-tag post-tag-decorators" href="http://localhost:1313/tags/decorators">#decorators</a>
+                <a class="post-tag post-tag-decorators" href="http://localhost:1313/tags/decorators">
+                  <i class="ion-ios-pricetag-outline"></i>decorators</a>
                 
             
 
          </div>
 
 			
+
 
 			
 
@@ -193,7 +198,7 @@ def get_account(account):
 			
           
           <div class="six columns">
-            <span>&larr;</span>
+            <i class="ion-arrow-left-c"></i>
             <a class="paging-link" href="/articles/bloom-filters-for-dummies/">Bloom Filters for Dummies</a>
           </div>
           
@@ -201,7 +206,7 @@ def get_account(account):
 					
           <div class="paging-newer six columns">
             <a class="paging-link" href="/articles/mining-of-massive-datasets---a-review/">Mining of Massive DataSets - A Review</a>
-            <span>&rarr;</span>
+            <i class="ion-arrow-right-c"></i>
           </div>
           
 
@@ -221,7 +226,7 @@ def get_account(account):
     </div>
       <div class="footer">
 	<hr class="thin" />
-  <p>Designed with ♥ by Prakhar Srivastav. Powered by <a href="http://gohugo.io">Hugo</a>.</p>
+  <p>Designed with <i class="ion-ios-heart"></i> by Prakhar Srivastav. Powered by <a href="http://gohugo.io">Hugo</a>.</p>
 </div>
 
   </div>

@@ -25,6 +25,7 @@
 
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="http://localhost:1313/css/normalize.css">
   <link rel="stylesheet" href="http://localhost:1313/css/skeleton.css">
@@ -56,9 +57,10 @@
       </div>
       <div class="four columns">
         <ul class="nav-list">
-          <li><a href="/about">About</a></li>
-          <li><a href="/articles">Blog</a></li>
-          <li><a href="/projects">Projects</a></li>
+          <li><a href="/about" title="About Me"><i class="ion-android-person"></i></a></li>
+          <li><a href="/articles" title="Articles"><i class="ion-ios-paper"></i></a></li>
+          <li><a href="/projects" title="Projects"><i class="ion-social-github"></i></a></li>
+          <li><a href="/quotes" title="Quotes"><i class="ion-quote"></i></a></li>
         </ul>
       </div>
     </div>
@@ -77,7 +79,7 @@
           <div class="post-content-meta">
 
             
-              <span class="post-tag"> Published on  </span>
+              <i class="ion-ios-calendar-outline"></i>  
               <span class="post-date">
                 <span class="post-date-month">February</span> 
                 <span class="post-date-day"> 27, </span>
@@ -86,16 +88,18 @@
             
 
             
-              <span class="post-tag"> in </span>
             
+                <span class="post-tag"> in </span>
                 
-                  <a class="post-tag post-tag-git" href="http://localhost:1313/tags/git">#git</a>
+                <a class="post-tag post-tag-git" href="http://localhost:1313/tags/git">
+                  <i class="ion-ios-pricetag-outline"></i>git</a>
                 
             
 
          </div>
 
 			
+
 
 			
 
@@ -211,7 +215,7 @@ Finished one cherry-pick.
 			
           
           <div class="six columns">
-            <span>&larr;</span>
+            <i class="ion-arrow-left-c"></i>
             <a class="paging-link" href="/articles/deal-with-it/">Deal With It</a>
           </div>
           
@@ -219,7 +223,7 @@ Finished one cherry-pick.
 					
           <div class="paging-newer six columns">
             <a class="paging-link" href="/articles/flask-on-nginx-and-gunicorn/">Flask on Nginx and Gunicorn</a>
-            <span>&rarr;</span>
+            <i class="ion-arrow-right-c"></i>
           </div>
           
 
@@ -239,7 +243,7 @@ Finished one cherry-pick.
     </div>
       <div class="footer">
 	<hr class="thin" />
-  <p>Designed with ♥ by Prakhar Srivastav. Powered by <a href="http://gohugo.io">Hugo</a>.</p>
+  <p>Designed with <i class="ion-ios-heart"></i> by Prakhar Srivastav. Powered by <a href="http://gohugo.io">Hugo</a>.</p>
 </div>
 
   </div>

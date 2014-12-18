@@ -4,7 +4,9 @@ body {
   font-size: 1.5rem;
 }
 
-h1, h2, h3, h4, h5, h6 {
+a { text-decoration: none; }
+
+h1, h2, h3, h4, h5, h6, button, .button {
   font-family: "Raleway", sans-serif;
 }
 
@@ -89,10 +91,6 @@ blockquote {
   background: #e9f2f7;
   padding: 2rem;
   margin: 1rem 0;
-}
-
-blockquote p {
-  margin: 0;
 }
 
 h1 { 
@@ -180,11 +178,7 @@ h1.post-title a {
   margin-right: 2.7rem;
   letter-spacing: 0.2rem;
   text-transform: uppercase;
-  font-size: 1.2rem;
-}
-
-.nav-list li a:hover {
-  border-bottom: 1px solid #69808c;
+  font-size: 2.2rem;
 }
 
 p.post-meta {
@@ -226,6 +220,35 @@ div.post-meta, .paging {
   text-align: center;
 }
 
+.paging a {
+  font-family: "Raleway", sans-serif;
+  text-decoration: none;
+  font-size: 1.6rem;
+}
+
+.paging i {
+  color: #1EAEDB;
+}
+
+div.custom-quote {
+  font-family: "Raleway", sans-serif;
+  position: relative;
+  padding: 15px 0 0 44px;
+}
+
+div.custom-quote h1 {
+  font-size: 4rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #dce2e5;
+}
+
+div.custom-quote span.author {
+  font-style: italic;
+  font-weight: 600;
+}
+
 /* MEDIA QUERIES */
 
 /* Larger than phablet */
@@ -256,6 +279,6 @@ div.post-meta, .paging {
 @media (min-width: 420px) {
   .nav-list li a {
     margin-right: 0rem;
-    margin-left: 1.5rem;
+    margin-left: 3.5rem;
   }
 }
