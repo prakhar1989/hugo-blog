@@ -305,6 +305,26 @@ ul#projects-list li {
   list-style-type: none;
 }
 
+ul#projects-list div.project-item {
+  margin-bottom: 5rem;
+}
+
+a.fork-github {
+  float: right;
+}
+
+p.tech-stack {
+  text-transform: uppercase;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.button.nodejs {
+  background: #80bd01;
+  border: 1px solid #80bd01;
+}
+
 /* MEDIA QUERIES */
 
 /* Larger than phablet */
