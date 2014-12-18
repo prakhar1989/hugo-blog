@@ -14,6 +14,33 @@ input[type="email"] {
   height: 24px;
 }
 
+.button.button-primary, 
+button.button-primary, 
+input[type="submit"].button-primary, 
+input[type="reset"].button-primary, 
+input[type="button"].button-primary {
+  border-color: rgb(105, 128, 140);
+  background: rgb(105, 128, 140);
+}
+
+.button.button-primary:hover, 
+button.button-primary:hover, 
+input[type="submit"].button-primary:hover,
+input[type="reset"].button-primary:hover, 
+input[type="button"].button-primary:hover, 
+.button.button-primary:focus,
+button.button-primary:focus,
+input[type="submit"].button-primary:focus,
+input[type="reset"].button-primary:focus,
+input[type="button"].button-primary:focus {
+  border-color: rgb(105, 128, 140);
+  background: #5a6e79;
+}
+
+input[type="email"]:focus, input[type="search"]:focus, input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
+  border-color: rgb(105, 128, 140);
+}
+
 .container {
   background: white;
   max-width: 760px;
@@ -285,4 +312,10 @@ div.custom-quote span.author {
     margin-right: 0rem;
     margin-left: 3.5rem;
   }
+}
+
+h1.social-me a {
+  font-size: 3rem;
+  margin-right: 2rem;
+  color: #5a6e79;
 }
