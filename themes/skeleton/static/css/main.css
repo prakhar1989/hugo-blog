@@ -89,7 +89,6 @@ input[type="email"]:focus, input[type="search"]:focus, input[type="text"]:focus,
   margin:0;
   white-space: nowrap;
   overflow: auto;
-  width: 12em;
   /* animation: type 5s steps(300, end); 
   -webkit-animation: type 5s steps(300, end); */
 }

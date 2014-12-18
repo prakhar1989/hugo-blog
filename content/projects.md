@@ -4,7 +4,11 @@ nopaging = true
 nodate = true
 +++
 
-> “For the things we have to learn before we can do them, we learn by doing them.” - Aristotle
+<div class="custom-quote">
+  <h1><i class="ion-quote"></i></h1>
+  <p> For the things we have to learn before we can do them, we learn by doing them. -  <span class="author">Aristotle</span> </p>
+</div>
+
 
 I believe that the best way to learn is by working on projects. Below is a growing list of projects that I have shipped across various technologies listed in reverse chronological order.
 
