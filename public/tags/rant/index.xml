@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rant on cat /dev/random</title>
-    <link>http://localhost:1313/tags/rant/</link>
+    <link>http://192.241.186.225/tags/rant/</link>
     <description>Recent content in Rant on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Sat, 13 Sep 2014 12:34:58 AST</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/rant/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://192.241.186.225/tags/rant/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>A Happy Accident</title>
-      <link>http://localhost:1313/articles/a-happy-accident/</link>
+      <link>http://192.241.186.225/articles/a-happy-accident/</link>
       <pubDate>Sat, 13 Sep 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/a-happy-accident/</guid>
+      <guid>http://192.241.186.225/articles/a-happy-accident/</guid>
       <description>&lt;p&gt;Last week, I was pleasantly surprised to find an email by a correspondent of &lt;a href=&#34;http://economictimes.indiatimes.com/&#34;&gt;Economic Times&lt;/a&gt; (a leading newspaper in India) asking for permission to quote a comment I made on &lt;a href=&#34;https://news.ycombinator.com/item?id=7698688&#34;&gt;Hacker News&lt;/a&gt; in the newspaper&amp;rsquo;s front page!&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -31,10 +31,10 @@
     
     <item>
       <title>Maciej on Matasano</title>
-      <link>http://localhost:1313/articles/maciej-on-matasano/</link>
+      <link>http://192.241.186.225/articles/maciej-on-matasano/</link>
       <pubDate>Tue, 12 Aug 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/maciej-on-matasano/</guid>
+      <guid>http://192.241.186.225/articles/maciej-on-matasano/</guid>
       <description>&lt;p&gt;Just when you promise yourself that you are going to work on &lt;a href=&#34;http://csapp.cs.cmu.edu/&#34;&gt;systems&lt;/a&gt; for a couple of weeks and not get diverted, you get to hear about new ways to kill time learning &lt;a href=&#34;http://cryptopals.com/&#34;&gt;crypto&lt;/a&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -45,10 +45,10 @@
     
     <item>
       <title>It Ends</title>
-      <link>http://localhost:1313/articles/it-ends/</link>
+      <link>http://192.241.186.225/articles/it-ends/</link>
       <pubDate>Tue, 27 May 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/it-ends/</guid>
+      <guid>http://192.241.186.225/articles/it-ends/</guid>
       <description>&lt;figure&gt;
     &lt;a href=&#34;#&#34;&gt;&lt;img src=&#34;/images/github_streak.png&#34;&gt;&lt;/a&gt;
     &lt;figcaption&gt;&lt;a href=&#34;https://github.com/prakhar1989&#34; title=&#34;Newman Demo&#34;&gt;Github Streak&lt;/a&gt;.&lt;/figcaption&gt;
@@ -70,10 +70,10 @@
     
     <item>
       <title>Evan Priestly on PHP</title>
-      <link>http://localhost:1313/articles/evan-priestly-on-php/</link>
+      <link>http://192.241.186.225/articles/evan-priestly-on-php/</link>
       <pubDate>Sun, 25 May 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/evan-priestly-on-php/</guid>
+      <guid>http://192.241.186.225/articles/evan-priestly-on-php/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;At Facebook, I described myself as &amp;ldquo;the engineer who hates PHP the least&amp;rdquo; and have also been called a &amp;ldquo;PHP idiot savant&amp;rdquo;. While I&amp;rsquo;m not really a fan of PHP, my understanding of it is extremely deep so there&amp;rsquo;s a huge activation energy for me to learn something else. I also think language choice is far less important than most people make it out to be; in my experience, the people who I have encountered who scoff the hardest at PHP and cry the most loudly about the importance of languages tend to also be really bad at doing any useful work in the languages they advocate.  - Evan Priestly&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -84,10 +84,10 @@
     
     <item>
       <title>Write Code Everyday</title>
-      <link>http://localhost:1313/articles/write-code-everyday/</link>
+      <link>http://192.241.186.225/articles/write-code-everyday/</link>
       <pubDate>Thu, 10 Apr 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/write-code-everyday/</guid>
+      <guid>http://192.241.186.225/articles/write-code-everyday/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;It’s important to note that that I don’t particularly care about the outward perception of the above Github chart. I think that’s the most important take away from this experiment: this is about a change that you’re making in your life for yourself not a change that you’re making to satisfy someone else’s perception of your work. The same goes for any form of dieting or exercise: if you don’t care about improving yourself then you’ll never actually succeed. - John Resig&lt;/p&gt;
 &lt;/blockquote&gt;

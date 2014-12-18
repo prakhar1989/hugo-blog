@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nodejs on cat /dev/random</title>
-    <link>http://localhost:1313/tags/nodejs/</link>
+    <link>http://192.241.186.225/tags/nodejs/</link>
     <description>Recent content in Nodejs on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Sat, 24 May 2014 12:34:58 AST</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/nodejs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://192.241.186.225/tags/nodejs/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Automated Testing With Newman</title>
-      <link>http://localhost:1313/articles/automated-testing-with-newman/</link>
+      <link>http://192.241.186.225/articles/automated-testing-with-newman/</link>
       <pubDate>Sat, 24 May 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/automated-testing-with-newman/</guid>
+      <guid>http://192.241.186.225/articles/automated-testing-with-newman/</guid>
       <description>&lt;p&gt;Steve Klabnik, the developer at Balanced recently put up a post on the company blog talking about doing &lt;a href=&#34;http://blog.balancedpayments.com/tdd-your-api/&#34;&gt;TDD for APIs&lt;/a&gt; where he advocates a strong case for following Test Driven Development for APIs. For a lot of companies like Balanced, Stripe, Parse etc the API is their primary product. Hence, it makes sense to have strong development and testing practices for these APIs.&lt;/p&gt;
 
 &lt;p&gt;TDD has taken off quite well with DHH and the ruby community strongly making claims of it solving a lot of problems and guaranteeing robust code. With tools like rspec and cucumber the ruby community has certainly been one of the most vocal proponents of this development methodology.&lt;/p&gt;
