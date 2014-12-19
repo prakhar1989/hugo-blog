@@ -29,16 +29,16 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:url" content="http://192.241.186.225/projects/" />
+<meta property="og:url" content="http://localhost:1313/projects/" />
 
 
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
   <link href='http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="http://192.241.186.225/css/normalize.css">
-  <link rel="stylesheet" href="http://192.241.186.225/css/skeleton.css">
-  <link rel="stylesheet" href="http://192.241.186.225/css/main.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/normalize.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/skeleton.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/main.css">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
@@ -48,8 +48,8 @@
   <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
 
   
-  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/github.css">
-  <script src="http://192.241.186.225/js/highlight.min.js"></script>
+  <link rel="stylesheet" href="http://localhost:1313/css/highlight/github.css">
+  <script src="http://localhost:1313/js/highlight.min.js"></script>
 
   <script>hljs.initHighlightingOnLoad();</script>
 
@@ -61,16 +61,18 @@
       <div class="post-header">
   <div class="container">
     <div class="row">
-      <div class="eight columns">
+      <div class="six columns">
         <h4><a href="/">CAT /DEV/RANDOM</a></h4>
       </div>
-      <div class="four columns">
-        <ul class="nav-list">
-          <li><a href="/about" title="About Me"><i class="ion-android-person"></i></a></li>
-          <li><a href="/articles" title="Articles"><i class="ion-ios-paper"></i></a></li>
-          <li><a href="/projects" title="Projects"><i class="ion-social-github"></i></a></li>
-          <li><a href="/quotes" title="Quotes"><i class="ion-quote"></i></a></li>
-        </ul>
+      <div class="six columns">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="/about" title="About Me"><i class="ion-android-person"></i></a></li>
+            <li><a href="/articles" title="Articles"><i class="ion-ios-paper"></i></a></li>
+            <li><a href="/projects" title="Projects"><i class="ion-social-github"></i></a></li>
+            <li><a href="/quotes" title="Quotes"><i class="ion-quote"></i></a></li>
+          </ul>
+        </nav>
       </div>
     </div>
   </div>
@@ -332,5 +334,8 @@
 </div>
 
   </div>
-</body>
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
 </html>

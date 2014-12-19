@@ -1,3 +1,4 @@
+/* SITE WIDE CSS */
 body {
   color: #283035;
   font-family: "Source Serif Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -50,6 +51,25 @@ input[type="email"]:focus, input[type="search"]:focus, input[type="text"]:focus,
   width: 80%;
 }
 
+figure img {
+  width: 100%;
+  max-width: 740px;
+  height: auto!important;
+}
+
+figcaption {
+  text-align: center;
+  font-size: 1.4rem;
+  font-family: "Raleway", sans-serif;
+  font-style: italic;
+}
+
+blockquote p {
+  margin-bottom: 0;
+}
+
+/* SITE WIDE ENDS */
+
 .post-header {
   border-bottom: 1px solid #eee;
 }
@@ -61,60 +81,8 @@ input[type="email"]:focus, input[type="search"]:focus, input[type="text"]:focus,
   font-weight: 800;
 }
 
-.post-header .row {
-  margin-bottom: 0;
-}
-
 .post-header a {
   color: #69808c;
-  text-decoration: none;
-}
-
-#terminal {
-  background: black;
-  color: white;
-  font-family: monospace;
-  padding: 2.2rem;
-  margin-bottom: 2rem;
-}
-
-
-#terminal span {
-  animation: blink 1s infinite;
-  -webkit-animation: blink 1s infinite;
-}
-
-#terminal h1 {
-  font-size: 2.4rem;
-  margin:0;
-  white-space: nowrap;
-  overflow: auto;
-  /* animation: type 5s steps(300, end); 
-  -webkit-animation: type 5s steps(300, end); */
-}
-
-@keyframes type {
-  from { width: 0; } 
-} 
-
-@-webkit-keyframes type {
-  from { width: 0; } 
-} 
-
-@keyframes blink {
-  to { opacity: .0; }
-}
-
-@-webkit-keyframes blink {
-  to { opacity: .0; }
-}
-
-.post-header h4 a {
-  font-weight: 800;
-}
-
-.post-header h4 {
-  margin: 1.6rem 0;
 }
 
 blockquote {
@@ -140,25 +108,6 @@ h3 {
 section.post {
   margin: 1.2rem 0;
   padding: 2rem 0;
-}
-
-.read-more-link a {
-  margin: 0.4rem 0;
-  font-size: 1.3rem;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.hero {
-  background-image: url('http://prakhar.me/images/texture-feature-01.jpg');
-  background-size: cover;
-  background-position: center center;
-  height: 25rem;
-  box-shadow: inset 0 0 15px rgba(0,0,0,.5)
-}
-
-.mast {
-  margin-top: 5rem;
 }
 
 section ol, section ul {
@@ -193,25 +142,33 @@ h1.post-title a {
   font-size: 2.4rem;
 }
 
-.nav-list li {
+
+/* HEADER SECTION */
+nav ul li {
   list-style-type: none;
-  float: left;
-  position: relative;
-  margin-bottom: 0rem;
-  margin-top: 1rem;
-  font-family: "Raleway", sans-serif;
+  display: inline-block;
+  font-size: 2rem;
+  margin: 0 2rem;
 }
 
-.nav-list ul {
-  padding-left: 0;
+nav ul {
+  text-align: center;
+  margin-bottom: 0;
 }
 
-.nav-list li a {
-  margin-right: 2.7rem;
-  letter-spacing: 0.2rem;
-  text-transform: uppercase;
-  font-size: 2.2rem;
+.post-header h4 {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
 }
+
+.post-header .row {
+  margin-bottom: 1rem;
+}
+
+/* HEADER SECTION ENDS */
 
 p.post-meta {
   margin: 1rem 0;
@@ -262,13 +219,17 @@ div.post-meta, .paging {
   color: #1EAEDB;
 }
 
-div.custom-quote {
+
+/* QUOTE PAGE */
+div.custom-quote, ul#quotes-list li {
   font-family: "Raleway", sans-serif;
   position: relative;
   padding: 15px 0 0 44px;
+  margin-bottom: 3rem;
+  list-style-type: none;
 }
 
-div.custom-quote h1 {
+div.custom-quote h1, ul#quotes-list li h1 {
   font-size: 4rem;
   position: absolute;
   top: 0;
@@ -276,27 +237,17 @@ div.custom-quote h1 {
   color: #dce2e5;
 }
 
-div.custom-quote span.author {
+ul#quotes-list li p {
+  display: inline;
+}
+
+div.custom-quote span.author, 
+ul#quotes-list li span.author {
   font-style: italic;
   font-weight: 600;
 }
 
-figure img {
-  width: 100%;
-  max-width: 740px;
-  height: auto!important;
-}
-
-figcaption {
-  text-align: center;
-  font-size: 1.4rem;
-  font-family: "Raleway", sans-serif;
-  font-style: italic;
-}
-
-blockquote p {
-  margin-bottom: 0;
-}
+/* QUOTE PAGE ENDS */
 
 ul#projects-list {
   padding-left: 0;
@@ -326,13 +277,42 @@ p.tech-stack {
   border: 1px solid #80bd01;
 }
 
+h1.social-me a {
+  font-size: 3rem;
+  margin-right: 2rem;
+  color: #5a6e79;
+}
+
+div.recent {
+  margin-top: 2rem;
+}
+
+div.recent ul li {
+  list-style-type: none;
+}
+
+div.recent p.desc {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.4rem;
+}
+
+.intro figure, div.recent figure {
+  margin: 0;
+}
+
+.intro figure {
+  margin-bottom: 2em;
+}
+
+.intro figure img {
+  border-radius: 4px;
+}
+
 /* MEDIA QUERIES */
 
 /* Larger than phablet */
 @media (min-width: 550px) {
-  body {
-    font-size: 1.8rem;
-  }
+  body { font-size: 1.8rem; }
 
   h1 { font-size: 1.8rem; 
     margin-bottom: 0.4rem;
@@ -342,48 +322,31 @@ p.tech-stack {
   h4 { font-size: 1.5rem; }
   h5 { font-size: 1.2rem; }
   h6 { font-size: 1.2rem; }
-  
+
   div.post-meta, .paging {
     display: block;
   }
 
-  .nav-list li a {
-    margin-right: 0rem;
-    margin-left: 1.5rem;
+  /* HEADER SECTION */
+  nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    font-size: 2rem;
+    margin: 0 1.5rem;
   }
-}
 
-@media (min-width: 420px) {
-  .nav-list li a {
-    margin-right: 0rem;
-    margin-left: 3.5rem;
+  nav ul {
+    text-align: right;
+    margin-top: 1.4rem;
   }
+
+  .post-header h4 {
+    text-align: left;
+    font-size: 1.6rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+  }
+
 }
 
-h1.social-me a {
-  font-size: 3rem;
-  margin-right: 2rem;
-  color: #5a6e79;
-}
-
-ul.recent-posts li {
-  list-style-type: none;
-}
-
-ul.recent-posts .desc {
-  font-family: "Raleway", sans-serif;
-  font-size: 1.4rem;
-}
-
-.intro figure, figure.recent-project {
-  margin: 0;
-}
-
-.intro figure {
-  margin-bottom: 2em;
-}
-
-.intro figure img {
-  box-shadow: inset 0 0 15px rgba(0,0,0,.5);
-  border-radius: 4px;
-}
