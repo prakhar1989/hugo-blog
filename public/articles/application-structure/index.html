@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    Application Structure - cat /dev/random | Prakhar Srivastav
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="copyright" content="&copy; Copyright 2012 to Present"/>
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="My name is Prakhar Srivastav and I build stuff. I love programming, Python, Vim and ice tea, not necessarily in that order."/>
+<meta name="keywords" content="blog, web, programming, python, Prakhar Srivastav, Prakhar, Srivastav">
+<meta name="author" content="Prakhar Srivastav">
+
+
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cat /dev/null">
+<meta property="og:description" content="My name is Prakhar Srivastav and I build stuff. I love programming, Python, Vim and ice tea, not necessarily in that order.">
+<meta property="og:url" content="http://prakhar.me/index.html">
+<meta property="og:site_name" content="cat /dev/random">
+<meta http-equiv="cleartype" content="on">
+
+
+  <meta property="og:title" content="Application Structure" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://192.241.186.225/articles/application-structure/" />
+
+
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="http://192.241.186.225/css/normalize.css">
+  <link rel="stylesheet" href="http://192.241.186.225/css/skeleton.css">
+  <link rel="stylesheet" href="http://192.241.186.225/css/main.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
+
+  
+  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/github.css">
+  <script src="http://192.241.186.225/js/highlight.min.js"></script>
+
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  
+</head>
+
+
+<body>
+      <div class="post-header">
+  <div class="container">
+    <div class="row">
+      <div class="six columns">
+        <h4><a href="/">CAT /DEV/RANDOM</a></h4>
+      </div>
+      <div class="six columns">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="/about" title="About Me"><i class="ion-android-person"></i></a></li>
+            <li><a href="/articles" title="Articles"><i class="ion-ios-paper"></i></a></li>
+            <li><a href="/projects" title="Projects"><i class="ion-social-github"></i></a></li>
+            <li><a href="/quotes" title="Quotes"><i class="ion-quote"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+
+      <section>
+            <h1 class="post-title">
+              <a href="/articles/application-structure/">Application Structure</a>
+            </h1>
+
+          <div class="post-content-meta">
+
+            
+              <i class="ion-ios-calendar-outline"></i>  
+              <span class="post-date">
+                <span class="post-date-month">May</span> 
+                <span class="post-date-day"> 7, </span>
+                <span class="post-date-year">2013</span>
+              </span> 
+            
+
+            
+            
+                <span class="post-tag"> in </span>
+                
+                <a class="post-tag post-tag-python" href="http://192.241.186.225/tags/python">
+                  <i class="ion-ios-pricetag-outline"></i>python</a>
+                
+                <a class="post-tag post-tag-flask" href="http://192.241.186.225/tags/flask">
+                  <i class="ion-ios-pricetag-outline"></i>flask</a>
+                
+            
+
+         </div>
+
+			
+
+
+			
+
+      <div class="post-content">
+        
+
+<p>In this post, we&rsquo;re going to talk about a seemingly easy but an important topic - organizing and structuring your flask applications.</p>
+
+<p>As mentioned earlier, getting started with flask is super easy. Unlike django, flask doesn&rsquo;t follow a directory structure when you start a new app. Flask will not complain even if all of your code resides in a single <code>main.py</code> file. But we all know that that is not the way to go. Having all your code in one file makes it messy and unmaintainable.</p>
+
+<p>Lets assume that you&rsquo;ve gone through the throughly explained <a href="http://flask.pocoo.org/docs/tutorial/">flaskr tutorial</a> (which you definitely should in case you haven&rsquo;t) and unable to contain the excitement you start a new flask app. As you keep writing more code and see it working you start getting that nice feeling about the awesomeness of flask. However, as your code keeps growing and since its all in a single file you start getting frustrated. Configurations, models, views etc. should definitely go in separate files, you think, so that your application is kept modular. But where do you start?</p>
+
+<p>This post will provide you an answer and show you a good way of structuring your apps. For starters, the flask <a href="http://flask.pocoo.org/docs/patterns/packages/">patterns site</a> provides an easy-to-follow tutorial for structuring an app. This post will cover that and will go beyond by covering configuration module and an extension called <a href="http://flask-script.readthedocs.org/en/latest/">flask-script</a>. Lets get started!</p>
+
+<h3 id="packages:116daa917c1b6b0be75648eef414a7bf">Packages</h3>
+
+<p>For larger applications going the packages way is generally a good idea.  A small app might look like this -</p>
+
+<pre><code>- myapp
+  |- static
+  |- templates
+  |- main.py
+</code></pre>
+
+<p>To change this into a python module all you need to do is move the files in a separate folder and create a new file ( or rename the existing <code>main.py</code> ) <code>__init__.py</code> so that python can interpret the folder as a module. After re-structuring your app will look like this -</p>
+
+<pre><code>- myapp
+  |- hello
+    |-- __init__.py
+    |-- static
+    |-- templates
+    |-- main.py
+</code></pre>
+
+<p>The next step is to separate app initialization, models and views declaration from your <code>__init__.py</code>. To do that write the following code in your <code>__init__.py</code>. Note: I&rsquo;m assuming that you&rsquo;re assuming sqlalchemy as your ORM. Additionally, I&rsquo;ve used hello as the name of the app folder.</p>
+
+<pre><code># flask imports go here
+from flask import Flask
+from flask.ext.sqlalchemy import SQLAlchemy
+import os
+
+# declaring the app
+app = Flask(__name__)
+
+# get the base dir
+base_dir = os.path.dirname(os.path.abspath(__file__))
+app.config.from_pyfile(os.path.join(base_dir, '../app.cfg'))
+
+# create db
+db = SQLAlchemy(app)
+
+# importing views
+import hello.views
+
+# import models
+from hello.models.person import Person
+</code></pre>
+
+<p>In this code, you&rsquo;ll notice that <code>hello.views</code>, <code>hello.models.person</code> and <code>app.cfg</code> are missing files. Don&rsquo;t worry, we&rsquo;ll create them soon. The rest of the code is self-explainatory. We get the base directory so that we can easily reference the config file to instantiate our app.</p>
+
+<h3 id="application-configuration:116daa917c1b6b0be75648eef414a7bf">Application Configuration</h3>
+
+<p>The next step is to create the missing files. In your app (in my case -
+hello) folder, create a new folder called <code>models</code> and add your models
+(either separately or all in single file).  Dont forget to create a
+blank <code>__init__.py</code> file in this folder as well. Next, create a file
+called <code>app.cfg</code> to store your configuration. This file should reside
+alongside your app (or hello) folder. Finally, inside your app (or
+hello) folder add all your views in a file <code>views.py</code>. Below is a sample
+excerpt of how your files should look like.</p>
+
+<pre><code># sample app.cfg
+DEBUG = True
+SECRET= &quot;mysupersecretkey&quot;
+
+# dummy model inside models folder
+# filename hello/models/dummy.py
+from hello import db
+class Dummy(db.Model):
+  pass
+
+# views inside hello/views.py
+from hello import app
+from hello.models.dummy import Dummy
+from flask import render_template
+@app.route('/')
+def hello():
+  return render_template('index.html')
+</code></pre>
+
+<p>At this stage this is how your structure looks like -</p>
+
+<pre><code>- myapp
+  |- app.cfg
+  |- hello
+    |-- __init__.py
+    |-- static/
+    |-- templates/
+    |-- views.py
+    |-- models/
+      |--- __init__.py
+      |--- dummy.py
+</code></pre>
+
+<p>If you&rsquo;ve noticed we still haven&rsquo;t told our app to run. To do that, create
+a new file called <code>manage.py</code> alongside <code>app.cfg</code> and enter the
+following code -</p>
+
+<pre><code>from hello import app
+from hello import db
+
+if __name__ == &quot;__main__&quot;:
+  app.run()
+</code></pre>
+
+<p>Now that you have everything setup, your app should work. Give it a go by running <code>python manage.py</code>
+and make sure there aren&rsquo;t any import errors.</p>
+
+<h3 id="flask-script:116daa917c1b6b0be75648eef414a7bf">Flask Script</h3>
+
+<p>One last thing I need to introduce before we wrap up is a flask extension called
+<a href="http://flask-script.readthedocs.org/en/latest/">flask-script</a>. The
+flask-script extensions provides support for writing scripts and makes
+it super easy to add commands that can runserver, open shell, manage
+cronjobs and other things right from the terminal. The documentation for
+the extension is very easy to follow and I encourage you to give it a
+read. I&rsquo;ve edited the <code>manage.py</code> file and added support for
+flask-script.</p>
+
+<pre><code>from flask.ext.script import Manager, Server, Shell
+from hello import app
+from hello import db
+
+# (optional) - include models if you want to!
+import hello.models as models
+
+def _make_context():
+  &quot;&quot;&quot; context for passing into to the shell command &quot;&quot;&quot;
+  return dict(app=app, db=db, models=models)
+
+# set manager
+manager = Manager(app)
+
+# add commands
+manager.add_command(&quot;runserver&quot;, Server())
+manager.add_command(&quot;shell&quot;, Shell(make_context = _make_context))
+
+if __name__ == &quot;__main__&quot;:
+  manager.run()
+</code></pre>
+
+<p>After making these changes, simply run <code>python manage.py runserver</code> to
+run the app and <code>python manage.py shell</code> to jump into a python shell
+with your application context, db and models loaded!</p>
+
+<p>I hope this has been a fun tutorial for you to follow. If there are any
+issues feel free to email me.</p>
+
+<p>The code for this lesson is available on my <a href="https://github.com/prakhar1989/flask-tuts/tree/master/lesson-1/hello">github</a>.</p>
+
+<p>In the next post we&rsquo;re going to delve further into the topic of project structure by taking a look at <strong>blueprints in Flask</strong>.</p>
+
+<p>See you next time!</p>
+
+      </div>
+	
+			
+
+      </div>
+
+      <div class="row paging">
+			
+          
+          <div class="six columns">
+            <i class="ion-arrow-left-c"></i>
+            <a class="paging-link" href="/articles/beginning-flask/">Beginning Flask</a>
+          </div>
+          
+
+					
+          <div class="paging-newer six columns">
+            <a class="paging-link" href="/articles/class-based-views/">Class Based Views</a>
+            <i class="ion-arrow-right-c"></i>
+          </div>
+          
+
+      
+       </div>
+
+
+          
+          	
+          
+    </div>
+  </div>
+	
+
+	
+
+    </div>
+      <div class="footer">
+	<hr class="thin" />
+  <p><a href="/about#colophon:6083a88ee3411b0d17ce02d738f69d47">Designed</a> with <i class="ion-ios-heart"></i> by Prakhar Srivastav</p>
+</div>
+
+  </div>
+</body>
+</html>

@@ -203,22 +203,12 @@
   </url>
   
   <url>
-    <loc>http://192.241.186.225/projects/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://192.241.186.225/quotes/datastructures/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://192.241.186.225/quotes/distrsys/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://192.241.186.225/quotes/sicp/</loc>
+    <loc>http://192.241.186.225/projects/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -233,7 +223,17 @@
   </url>
   
   <url>
+    <loc>http://192.241.186.225/quotes/sicp/</loc>
+    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://192.241.186.225/quotes/streams/</loc>
+    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://192.241.186.225/quotes/distrsys/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   

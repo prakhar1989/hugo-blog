@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    Making the Blog Instant - cat /dev/random | Prakhar Srivastav
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="copyright" content="&copy; Copyright 2012 to Present"/>
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="My name is Prakhar Srivastav and I build stuff. I love programming, Python, Vim and ice tea, not necessarily in that order."/>
+<meta name="keywords" content="blog, web, programming, python, Prakhar Srivastav, Prakhar, Srivastav">
+<meta name="author" content="Prakhar Srivastav">
+
+
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cat /dev/null">
+<meta property="og:description" content="My name is Prakhar Srivastav and I build stuff. I love programming, Python, Vim and ice tea, not necessarily in that order.">
+<meta property="og:url" content="http://prakhar.me/index.html">
+<meta property="og:site_name" content="cat /dev/random">
+<meta http-equiv="cleartype" content="on">
+
+
+  <meta property="og:title" content="Making the Blog Instant" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://192.241.186.225/articles/making-the-blog-instant/" />
+
+
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="http://192.241.186.225/css/normalize.css">
+  <link rel="stylesheet" href="http://192.241.186.225/css/skeleton.css">
+  <link rel="stylesheet" href="http://192.241.186.225/css/main.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
+
+  
+  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/github.css">
+  <script src="http://192.241.186.225/js/highlight.min.js"></script>
+
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  
+</head>
+
+
+<body>
+      <div class="post-header">
+  <div class="container">
+    <div class="row">
+      <div class="six columns">
+        <h4><a href="/">CAT /DEV/RANDOM</a></h4>
+      </div>
+      <div class="six columns">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="/about" title="About Me"><i class="ion-android-person"></i></a></li>
+            <li><a href="/articles" title="Articles"><i class="ion-ios-paper"></i></a></li>
+            <li><a href="/projects" title="Projects"><i class="ion-social-github"></i></a></li>
+            <li><a href="/quotes" title="Quotes"><i class="ion-quote"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+
+      <section>
+            <h1 class="post-title">
+              <a href="/articles/making-the-blog-instant/">Making the Blog Instant</a>
+            </h1>
+
+          <div class="post-content-meta">
+
+            
+              <i class="ion-ios-calendar-outline"></i>  
+              <span class="post-date">
+                <span class="post-date-month">February</span> 
+                <span class="post-date-day"> 8, </span>
+                <span class="post-date-year">2014</span>
+              </span> 
+            
+
+            
+            
+                <span class="post-tag"> in </span>
+                
+                <a class="post-tag post-tag-javascript" href="http://192.241.186.225/tags/javascript">
+                  <i class="ion-ios-pricetag-outline"></i>javascript</a>
+                
+            
+
+         </div>
+
+			
+
+
+			
+
+      <div class="post-content">
+        <p><a href="http://instantclick.io/">InstantClick.js</a> was <a href="https://news.ycombinator.com/item?id=7201353">released</a> on Hacker News today and I thought I will give it a whirl on my blog.</p>
+
+<p>InstantClick is a simple library takes makes your pages faster by prefetching the target URL on hover (&amp; touchstart in case of mobile). Based on the concept of <a href="https://github.com/rails/turbolinks">Turbolinks</a> and <a href="http://pjax.heroku.com/">PJAX</a> it works by utilizing the 200ms-300ms difference between a hover and a click to fetch the target content via an Ajax call. The obvious downside to this is that the server will have to serve requests that the user never really clicks on. The library also provides a <code>mousedown</code> event that can be used in place of <code>hover</code> for prefetching which can serve to reduce load on the webserver and still make the site feel fast.</p>
+
+<p>With its downsides, a blog like this makes a perfect candidate for a the library given that it runs on Github&rsquo;s servers and loads static pages. Also, if you&rsquo;re the type who likes to drop into the code to decipher the magic, I urge you to check it out on <a href="https://github.com/dieulot/instantclick/blob/master/instantclick.js">Github</a> (its very readable).</p>
+
+<p>Now that the library is integrated the posts on blog seem to load instantly! Thanks open-source!</p>
+
+      </div>
+	
+			
+
+      </div>
+
+      <div class="row paging">
+			
+          
+          <div class="six columns">
+            <i class="ion-arrow-left-c"></i>
+            <a class="paging-link" href="/articles/debugging-akamai/">Debugging Akamai Headers</a>
+          </div>
+          
+
+					
+          <div class="paging-newer six columns">
+            <a class="paging-link" href="/articles/quantity/">Quantity</a>
+            <i class="ion-arrow-right-c"></i>
+          </div>
+          
+
+      
+       </div>
+
+
+          
+          	
+          
+    </div>
+  </div>
+	
+
+	
+
+    </div>
+      <div class="footer">
+	<hr class="thin" />
+  <p><a href="/about#colophon:6083a88ee3411b0d17ce02d738f69d47">Designed</a> with <i class="ion-ios-heart"></i> by Prakhar Srivastav</p>
+</div>
+
+  </div>
+</body>
+</html>

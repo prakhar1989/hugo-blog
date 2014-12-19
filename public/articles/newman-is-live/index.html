@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    Newman Is Live - cat /dev/random | Prakhar Srivastav
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="copyright" content="&copy; Copyright 2012 to Present"/>
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="My name is Prakhar Srivastav and I build stuff. I love programming, Python, Vim and ice tea, not necessarily in that order."/>
+<meta name="keywords" content="blog, web, programming, python, Prakhar Srivastav, Prakhar, Srivastav">
+<meta name="author" content="Prakhar Srivastav">
+
+
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cat /dev/null">
+<meta property="og:description" content="My name is Prakhar Srivastav and I build stuff. I love programming, Python, Vim and ice tea, not necessarily in that order.">
+<meta property="og:url" content="http://prakhar.me/index.html">
+<meta property="og:site_name" content="cat /dev/random">
+<meta http-equiv="cleartype" content="on">
+
+
+  <meta property="og:title" content="Newman Is Live" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://192.241.186.225/articles/newman-is-live/" />
+
+
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="http://192.241.186.225/css/normalize.css">
+  <link rel="stylesheet" href="http://192.241.186.225/css/skeleton.css">
+  <link rel="stylesheet" href="http://192.241.186.225/css/main.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
+
+  
+  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/github.css">
+  <script src="http://192.241.186.225/js/highlight.min.js"></script>
+
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  
+</head>
+
+
+<body>
+      <div class="post-header">
+  <div class="container">
+    <div class="row">
+      <div class="six columns">
+        <h4><a href="/">CAT /DEV/RANDOM</a></h4>
+      </div>
+      <div class="six columns">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="/about" title="About Me"><i class="ion-android-person"></i></a></li>
+            <li><a href="/articles" title="Articles"><i class="ion-ios-paper"></i></a></li>
+            <li><a href="/projects" title="Projects"><i class="ion-social-github"></i></a></li>
+            <li><a href="/quotes" title="Quotes"><i class="ion-quote"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+
+      <section>
+            <h1 class="post-title">
+              <a href="/articles/newman-is-live/">Newman Is Live</a>
+            </h1>
+
+          <div class="post-content-meta">
+
+            
+              <i class="ion-ios-calendar-outline"></i>  
+              <span class="post-date">
+                <span class="post-date-month">May</span> 
+                <span class="post-date-day"> 5, </span>
+                <span class="post-date-year">2014</span>
+              </span> 
+            
+
+            
+            
+                <span class="post-tag"> in </span>
+                
+                <a class="post-tag post-tag-postman" href="http://192.241.186.225/tags/postman">
+                  <i class="ion-ios-pricetag-outline"></i>postman</a>
+                
+                <a class="post-tag post-tag-newman" href="http://192.241.186.225/tags/newman">
+                  <i class="ion-ios-pricetag-outline"></i>newman</a>
+                
+            
+
+         </div>
+
+			
+
+
+			
+
+      <div class="post-content">
+        <p>And finally, after working non-stop on the project for 45 days <a href="http://github.com/a85/Newman">Newman</a> is finally in beta. Newman is a command-line collection runner for <a href="http://getpostman.com">Postman</a> built fully on Node.js. Newman is my first-ever node.js project and I&rsquo;m extremely glad to have got a chance to build something useful and learn a new technology.</p>
+
+<figure>
+    <a href="#"><img src="/images/newman.png"></a>
+    <figcaption><a href="http://www.flickr.com/photos/80901381@N04/7758832526/" title="Newman Demo">Newman Demo</a>.</figcaption>
+</figure>
+
+<p>Node has been on my radar for quite some time given its meteoric rise and hype. Plus, evented programming is something that I have been waiting to try outside of confines of a browser. Overall, I&rsquo;ve been pretty happy with the entire ecosystem - lots of libraries, good support and helpful community. If you are good enough with JavaScript you can be productive in Node pretty easily.</p>
+
+<p>Getting back to Newman, the ability to run postman collections from the command line was one of the most demanded features by Postman users. With this in place, developers can set up API tests which run automatically on every commit, subsequently passing or failing a new build. This allows developers to make sure their APIs don&rsquo;t break and have a Continous Integration system which keeps everything in check.</p>
+
+<p>If you are a postman user I urge you to go check out Newman. It can dramatically make your life easier and improve your workflow. We&rsquo;ve tried hard to make the <a href="https://github.com/a85/Newman/blob/master/README.md">readme</a> as readable and useful as possible. If you face any issues while setting up or running Nemwan please feel free to file an issue.</p>
+
+<p>On the learning front, Newman was an immensely rewarding experience. With the project repo being over 9 weeks old, this is surely the longest I have worked on a side-project. From running good unit tests to organizing your project I learned a lot of things that I had no prior experience in. Pair programming with <a href="http://github.com/viig99">Arjun</a> was super fun and damn helpful. Our code reviews taught me a lot and definitely made me a better programmer.</p>
+
+<p>In the coming days, I&rsquo;ll be talking about more of my technical learnings with regards to design and testing on this blog - so stay tuned for that. Hopefully, with Newman out, I&rsquo;ll write more frequently. Expect to see more posts on Golang as my next project is an exciting new game!</p>
+
+<p>For any feedback on Newman, feel free to reach out!</p>
+
+      </div>
+	
+			
+
+      </div>
+
+      <div class="row paging">
+			
+          
+          <div class="six columns">
+            <i class="ion-arrow-left-c"></i>
+            <a class="paging-link" href="/articles/write-code-everyday/">Write Code Everyday</a>
+          </div>
+          
+
+					
+          <div class="paging-newer six columns">
+            <a class="paging-link" href="/articles/using-blueprints/">Using Blueprints</a>
+            <i class="ion-arrow-right-c"></i>
+          </div>
+          
+
+      
+       </div>
+
+
+          
+          	
+          
+    </div>
+  </div>
+	
+
+	
+
+    </div>
+      <div class="footer">
+	<hr class="thin" />
+  <p><a href="/about#colophon:6083a88ee3411b0d17ce02d738f69d47">Designed</a> with <i class="ion-ios-heart"></i> by Prakhar Srivastav</p>
+</div>
+
+  </div>
+</body>
+</html>

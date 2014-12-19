@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    Bloom Filters for Dummies - cat /dev/random | Prakhar Srivastav
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="copyright" content="&copy; Copyright 2012 to Present"/>
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="My name is Prakhar Srivastav and I build stuff. I love programming, Python, Vim and ice tea, not necessarily in that order."/>
+<meta name="keywords" content="blog, web, programming, python, Prakhar Srivastav, Prakhar, Srivastav">
+<meta name="author" content="Prakhar Srivastav">
+
+
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cat /dev/null">
+<meta property="og:description" content="My name is Prakhar Srivastav and I build stuff. I love programming, Python, Vim and ice tea, not necessarily in that order.">
+<meta property="og:url" content="http://prakhar.me/index.html">
+<meta property="og:site_name" content="cat /dev/random">
+<meta http-equiv="cleartype" content="on">
+
+
+  <meta property="og:title" content="Bloom Filters for Dummies" />
+<meta property="og:description" content="An Intro to Bloom Filters" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://192.241.186.225/articles/bloom-filters-for-dummies/" />
+
+
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="http://192.241.186.225/css/normalize.css">
+  <link rel="stylesheet" href="http://192.241.186.225/css/skeleton.css">
+  <link rel="stylesheet" href="http://192.241.186.225/css/main.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
+
+  
+  <link rel="stylesheet" href="http://192.241.186.225/css/highlight/github.css">
+  <script src="http://192.241.186.225/js/highlight.min.js"></script>
+
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  
+</head>
+
+
+<body>
+      <div class="post-header">
+  <div class="container">
+    <div class="row">
+      <div class="six columns">
+        <h4><a href="/">CAT /DEV/RANDOM</a></h4>
+      </div>
+      <div class="six columns">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="/about" title="About Me"><i class="ion-android-person"></i></a></li>
+            <li><a href="/articles" title="Articles"><i class="ion-ios-paper"></i></a></li>
+            <li><a href="/projects" title="Projects"><i class="ion-social-github"></i></a></li>
+            <li><a href="/quotes" title="Quotes"><i class="ion-quote"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+
+      <section>
+            <h1 class="post-title">
+              <a href="/articles/bloom-filters-for-dummies/">Bloom Filters for Dummies</a>
+            </h1>
+
+          <div class="post-content-meta">
+
+            
+              <i class="ion-ios-calendar-outline"></i>  
+              <span class="post-date">
+                <span class="post-date-month">October</span> 
+                <span class="post-date-day"> 19, </span>
+                <span class="post-date-year">2014</span>
+              </span> 
+            
+
+            
+            
+                <span class="post-tag"> in </span>
+                
+                <a class="post-tag post-tag-algorithms" href="http://192.241.186.225/tags/algorithms">
+                  <i class="ion-ios-pricetag-outline"></i>algorithms</a>
+                
+            
+
+         </div>
+
+			
+
+
+			
+
+      <div class="post-content">
+        
+
+<p>Bloom Filters is one of those data structures that you don&rsquo;t generally learn about in a typical data structures 101 class, but wish you had learnt once you know about them. Despite reading several articles on bloom filters I was still finding it hard to grasp the concepts until the last week when I decided to sit down and not get up until I get the hang of it. Below is an article where I attempt to explain what I understood in a clear way (hopefully) so that others can learn.</p>
+
+<h3 id="a-use-case:d5d8a5425bd3ed6bd548c6538f6ba3fb">A Use Case</h3>
+
+<p>Before we talk about what a Bloom Filter is and how it actually works let me make an attempt to sell you on why you would need a bloom filter. Let&rsquo;s assume you have an idea to build your own search engine. You are fed up of Google&rsquo;s monopoly and decide to write your own version of a search engine (much like <a href="http://duckduckgo.com">DuckDuckGo</a>). Now the first step in building a search engine is to build a crawler. How does a crawler work? Quite simply the work of crawler can be reduced down to the following steps (without the implementation details, of course)</p>
+
+<ol>
+<li>Start with a URL (webpage) and scrape its content.</li>
+<li>Extract a list of all URLs on that page.</li>
+<li>For each URL on that page check if this URL has not been crawled already.</li>
+<li>Take the new URL that you encounter and go to Step 1.</li>
+</ol>
+
+<p>As you can see, a crawler&rsquo;s work in theory is quite simple - just keep scraping content for any previously unseen URLs (webpages). The step we are going to focus on is step 3 in the above algorithm. If you&rsquo;ve taken your data structures class you know that to maintain a list of all URLs to check for membership is a bad idea (<code>O(n)</code> lookup time). So what you instead do is a use a set (or a hash-table) in memory that allows you do quick lookups and test for membership of a URL. Now this works fine as long as your hash-table can reside in the memory. Consider the case for Google for example - clearly there is no way a hash table for a billion plus URLs can reside in main memory. You can surely use the disk for storing and querying but since that is significantly slower compared to accessing the main memory we are not going to consider that case for now.</p>
+
+<h3 id="bloom-filters:d5d8a5425bd3ed6bd548c6538f6ba3fb">Bloom Filters</h3>
+
+<p>How do you tackle the above situation? Is there a data structure that can be stored in main memory and still hold vast amount of data? This is where bloom filters come in. Bloom filters use much lesser space and constant time to answer the queries for set membership. More precisely</p>
+
+<blockquote>
+<p>A Bloom filter is a data structure that is used to check for membership of an element <code>x</code> in a set of <code>m</code> elements.</p>
+</blockquote>
+
+<p>Bloom filters have a strong space advantage over other data structures like sets, hash tables or binary search trees. Bloom filters also have the property that the time taken to add an item or to check for membership is a constant <code>O(k)</code> and is independent of the number of items in the filter.</p>
+
+<p>What&rsquo;s the catch you might ask? Well, the catch is that bloom filters trade exactness for this efficiency meaning that there are false-positives - i.e. elements that are not a part of set but are claimed to be part of the set. However, as we shall soon see, the rate of false positives depends upon the application and can be lowered at the expense of  amount of memory required. Like everything else in computer science, there is a trade-off and in this case, between exactness and amount of memory.</p>
+
+<h3 id="algorithm:d5d8a5425bd3ed6bd548c6538f6ba3fb">Algorithm</h3>
+
+<p>At the heart of every bloom filter lies two key elements</p>
+
+<ol>
+<li>An array of <code>n</code> bits, initially all set to <code>0</code>.</li>
+<li>A collection of <code>k</code> independent hash functions <code>h(x)</code>. Each hash function takes a value <code>v</code> and generates a number <code>i</code> where <code>i &lt; n</code> which effectively maps to a position in the bit array.</li>
+</ol>
+
+<p>The underlying idea of a bloom filter is quite simple and can be explained in the following steps -</p>
+
+<ol>
+<li>Initialize a bit array of <code>n</code> bits with zeros. Generally <code>n</code> is chosen to be much greater than the number of elements in the set.</li>
+<li>Whenever the filter sees a new element apply each of the hash functions <code>h(x)</code> on the element. With the value generated, which is an index in the bit array, set the bit to 1 in the array. For example, if there are <code>k</code> hash functions there will be <code>k</code> indices generated. For each of these <code>k</code> positions in the bit array set <code>array[i] = 1</code></li>
+<li>To check if an element exists in the set, simply carry out the exact same procedure with a slight twist. Generate <code>k</code> values by applying the <code>k</code> hash-functions on the input. If <strong>at least</strong> one of these <code>k</code> indices in the bit array is set to zero then the element is a new element else this is an existing element in the set.</li>
+</ol>
+
+<h3 id="example:d5d8a5425bd3ed6bd548c6538f6ba3fb">Example</h3>
+
+<p>Lets just jump to an example<sup class="footnote-ref" id="fnref:d5d8a5425bd3ed6bd548c6538f6ba3fb:1"><a rel="footnote" href="#fn:d5d8a5425bd3ed6bd548c6538f6ba3fb:1">1</a></sup>. We start by defining the hash functions. To keep the example simple, we&rsquo;ll use two hash functions <code>h(x)</code> and <code>g(x)</code>. This is how these work for an integer <code>x</code></p>
+
+<p><code>h(x)</code>:</p>
+
+<ol>
+<li>Convert <code>x</code> to its binary equivalent. Lets call it <code>b</code>.</li>
+<li>Take the odd numbered bits in <code>b</code> and generate a new number <code>y</code> with these bits.</li>
+<li>Return the value of <code>y modulo 11</code>.</li>
+</ol>
+
+<p><code>g(x)</code> is same as <code>h(x)</code>, the only difference being that instead of taking the odd numbered bits we take the even numbered bits.</p>
+
+<p><em>Quick example</em>: Let <code>x = 25</code>. Then <code>b = 11001</code>. Taking every odd bit gives us a binary number <code>101</code> which is binary for <code>5</code>. Similarly taking every even bit gives us <code>10</code> which is binary for <code>2</code>. Hence <code>h(x) = 5 % 11 = 5</code> and <code>g(x) = 2 % 11 = 2</code>.</p>
+
+<p>Here&rsquo;s a simple implementation in Python for the hash functions defined above.</p>
+
+<pre><code>def h(x):
+    return int(&quot;&quot;.join([v for i, v in enumerate(bin(x)[2:]) if i % 2 == 0]), 2) % 11
+
+def g(x):
+    return int(&quot;&quot;.join([v for i, v in enumerate(bin(x)[2:]) if i % 2 == 1]), 2) % 11
+</code></pre>
+
+<p>With that out of the way lets proceed with our filter. Assume our bit array has <code>11</code> bits, all of which are initially set to zero - <code>00000000000</code>.</p>
+
+<p>Let the first number that our bloom filter sees be <code>25</code>. As shown above, the value of <code>h(25) = 5</code> and <code>g(25) = 2</code>. Hence the next step is to set the <code>5th</code> and the <code>2nd</code> position in our bit array to <code>1</code>. Doing that our bit array now transforms to <code>00100100000</code> (<a href="https://en.wikipedia.org/wiki/Endianness">big endian</a> mode).</p>
+
+<p>Extending the same logic for different values of <code>x</code> we get the table shown below.</p>
+
+<table>
+<thead>
+<tr>
+<th><code>x</code></th>
+<th><code>b</code></th>
+<th><code>h(x)</code></th>
+<th><code>g(x)</code></th>
+<th align="center"><code>Bit array</code></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>25</code></td>
+<td><code>0000011001</code></td>
+<td><code>5</code></td>
+<td><code>2</code></td>
+<td align="center"><code>00100100000</code></td>
+</tr>
+
+<tr>
+<td><code>159</code></td>
+<td><code>0010011111</code></td>
+<td><code>0</code></td>
+<td><code>7</code></td>
+<td align="center"><code>10100101000</code></td>
+</tr>
+
+<tr>
+<td><code>585</code></td>
+<td><code>1001001001</code></td>
+<td><code>7</code></td>
+<td><code>9</code></td>
+<td align="center"><code>10100101010</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>This can be verified by using the functions defined above -</p>
+
+<pre><code>map(lambda x: (h(x), g(x)), (25, 159, 585))
+# [(5, 2), (0, 7), (7, 9)]
+</code></pre>
+
+<p>As its quite clear, the bit array now becomes <code>10100101010</code>. How about lookups? Lets say that the new value that comes to our filter is<code>118</code>. We compute <code>h(118)</code> and <code>g(118)</code> and find these values to be <code>5</code> and <code>3</code> respectively. The next thing we do is the check in value of the bit array at these indices and find that</p>
+
+<pre><code>array[5] = 1
+array[3] = 0
+</code></pre>
+
+<p>Since one of the bit is set to 0 our bloom filter reports that this the number <code>118</code> is not an existing member in our set.</p>
+
+<h3 id="false-positives:d5d8a5425bd3ed6bd548c6538f6ba3fb">False Positives</h3>
+
+<p>Getting back to the caveat that was pointed out earlier - let me use an example to demonstrate how the bloom filter is susceptible to false positives.</p>
+
+<p>Assume the next value that comes to our filter is <code>162</code>. Calculating the hash functions we find that <code>h(162)</code> is <code>2</code> and <code>g(162)</code> is <code>0</code>. Looking for the values in our bit array we find that both of these indices are set to <code>1</code>. Hence, in this case the bloom filter will wrongly report that the value <code>162</code> exists in our set.</p>
+
+<h3 id="performance:d5d8a5425bd3ed6bd548c6538f6ba3fb">Performance</h3>
+
+<p>If after reading the above you are thinking to yourself that we just need to reduce the number of collisions to reduce the rate of false positives then you are right. A simple improvement in the above example is to use more hash functions and have a large bit array. If instead of 11 bits we had 100 bits and instead of just 2 hash functions <code>h(x)</code> and <code>g(x)</code> we had a few more, the probability that a non-existing value to hash to all the set bits would have reduced, thereby, reducing the rate of false positives.</p>
+
+<h4 id="a-numerical-example:d5d8a5425bd3ed6bd548c6538f6ba3fb">A numerical example</h4>
+
+<p>Let&rsquo;s do some math to corroborate our intuition above. If you feel the above statement is intuitive enough feel free to skip this section.</p>
+
+<p>From the example in the previous section it will be clear that a false positive arrives whenever all the positions output by the <code>k</code> hash functions. Hence we can say that, the probability of a false positive depends on the density of <code>1</code>s in the array and the number of hash functions. More the number of <code>1s</code> the higher the probability of a false positive. Likewise, fewer the hash functions, higher the probability of a collision.</p>
+
+<p>Also, roughly we can say the following about the number of ones -</p>
+
+<p>{% highlight text %}
+number of 1s = (no. of elements x no. of hash functions) - collisions.
+{% endhighlight %}</p>
+
+<p>From the above example, we have <code>3</code> input elements and <code>2</code> hash functions. Hence there should be <code>6</code> bits set to 1. Since we have one collision <code>g(117) == h(585)</code> therefore the total number of bits set in our bit array is <code>5</code>.</p>
+
+<p>Lastly, considering an analogy to darts and targets, we can say that for <code>d</code> darts and <code>t</code> targets, we can prove that the probability that no darts hit the target is <code>e^(-d/t)</code> where <code>e</code> is the base of natural logarithm<sup class="footnote-ref" id="fnref:d5d8a5425bd3ed6bd548c6538f6ba3fb:2"><a rel="footnote" href="#fn:d5d8a5425bd3ed6bd548c6538f6ba3fb:2">2</a></sup>. In our case, the targets are the bits in the array and the darts are the outputs of the hash-functions.</p>
+
+<p>Okay, now we are ready for the example. Assume we have a bit array of 1 billion bits, 5 hash functions and 100 million elements. That is</p>
+
+<pre><code>t = 10^9 (bits in the array are the targets)
+d = 5 x 10^8 (outputs from the hash functions are the darts)
+P(no dart hits the target) = e^(-d/t) = e^(-0.5) = 0.607
+</code></pre>
+
+<p>Hence the density of <code>0s</code> in the bit array = <code>0.607</code> or density of <code>1s</code> in the bit array = <code>0.393</code>.</p>
+
+<p>The probability of a false positive = Probablity of all 5 hash functions to a index that has 1 in the bit array = <code>0.393^5 = 0.00937</code>.</p>
+
+<p>As seen above, the P(false positive) is indeed less. By tweaking the number of hash functions and the number of bits in the array this can be improved even further.</p>
+
+<h3 id="space-advantage:d5d8a5425bd3ed6bd548c6538f6ba3fb">Space Advantage</h3>
+
+<p>The space advantage in a Bloom Filter comes from the compactness from the data structure. A Bloom filter with 1% error and an optimal value of k, requires only about 9.6 bits (1.2 bytes) per element — regardless of the size of the elements<sup class="footnote-ref" id="fnref:d5d8a5425bd3ed6bd548c6538f6ba3fb:3"><a rel="footnote" href="#fn:d5d8a5425bd3ed6bd548c6538f6ba3fb:3">3</a></sup>. Comparing this value to storing a typical integer in hash table which would take 32 bits or (4 bytes).</p>
+
+<h3 id="implementations:d5d8a5425bd3ed6bd548c6538f6ba3fb">Implementations</h3>
+
+<p>Hopefully, if you&rsquo;ve come this long you are probably sold on giving the data structure a shot. Armon Dadgar&rsquo;s <a href="https://github.com/armon/bloomd">bloomd</a> is excellent implementation inspired by Memcached. There are also a good number of client libraries available in popular languages. If you&rsquo;re using <a href="http://redis.io/">Redis</a> you can use the <code>SETBIT</code> and <code>GETBIT</code> functions to have a redis backed bloom filter. The <a href="http://redis.io/topics/data-types">documentation</a> has some helpful examples to help you.</p>
+
+<h3 id="conclusion:d5d8a5425bd3ed6bd548c6538f6ba3fb">Conclusion</h3>
+
+<p>I hope this article was useful in whetting your appetite about Bloom Filters. Probabilisitic data structures are really cool and in my opinion, bloom filters are a perfect introduction to the topic.</p>
+
+<p>Feel free to leave any comments or suggestions in the comments below.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:d5d8a5425bd3ed6bd548c6538f6ba3fb:1">The example is motivated by the one discussed by Prof. Jeff Ullman in a lecture of the <a href="https://www.coursera.org/course/mmds">Mining Massive Datasets course</a>.
+ <a class="footnote-return" href="#fnref:d5d8a5425bd3ed6bd548c6538f6ba3fb:1"><sup>[return]</sup></a></li>
+<li id="fn:d5d8a5425bd3ed6bd548c6538f6ba3fb:2">To read about the proof, please read section <code>4.4.3</code> of the <a href="http://mmds.org/#ver21">Mining Massive Datasets book</a>.
+ <a class="footnote-return" href="#fnref:d5d8a5425bd3ed6bd548c6538f6ba3fb:2"><sup>[return]</sup></a></li>
+<li id="fn:d5d8a5425bd3ed6bd548c6538f6ba3fb:3"><a href="http://theory.stanford.edu/~rinap/papers/esa2006b.pdf">Bonomi et al</a>
+ <a class="footnote-return" href="#fnref:d5d8a5425bd3ed6bd548c6538f6ba3fb:3"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+      </div>
+	
+			
+
+      </div>
+
+      <div class="row paging">
+			
+          
+          <div class="six columns">
+            <i class="ion-arrow-left-c"></i>
+            <a class="paging-link" href="/articles/just-learn/">Just Learn</a>
+          </div>
+          
+
+					
+          <div class="paging-newer six columns">
+            <a class="paging-link" href="/articles/demistifying-decorators/">Demystifying Decorators</a>
+            <i class="ion-arrow-right-c"></i>
+          </div>
+          
+
+      
+       </div>
+
+
+          
+          	
+          
+    </div>
+  </div>
+	
+
+	
+
+    </div>
+      <div class="footer">
+	<hr class="thin" />
+  <p><a href="/about#colophon:6083a88ee3411b0d17ce02d738f69d47">Designed</a> with <i class="ion-ios-heart"></i> by Prakhar Srivastav</p>
+</div>
+
+  </div>
+</body>
+</html>

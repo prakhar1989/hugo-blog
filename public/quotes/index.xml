@@ -23,26 +23,6 @@
     
     <item>
       <title></title>
-      <link>http://192.241.186.225/quotes/distrsys/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>http://192.241.186.225/quotes/distrsys/</guid>
-      <description>&lt;p&gt;A distributed system is one in which the failure of a computer you didn&amp;rsquo;t even know existed can render your own computer unusable.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://192.241.186.225/quotes/sicp/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>http://192.241.186.225/quotes/sicp/</guid>
-      <description>&lt;p&gt;From an educational point of view, our experience suggests that undergraduate computer science courses should emphasize basic notions of modularity, specification, and data abstraction, and should not let these be displaced by more advanced topics, such as design patterns, object-oriented methods, concurrency, functional languages, and so on.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>http://192.241.186.225/quotes/language/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
@@ -63,6 +43,16 @@
     
     <item>
       <title></title>
+      <link>http://192.241.186.225/quotes/sicp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>http://192.241.186.225/quotes/sicp/</guid>
+      <description>&lt;p&gt;From an educational point of view, our experience suggests that undergraduate computer science courses should emphasize basic notions of modularity, specification, and data abstraction, and should not let these be displaced by more advanced topics, such as design patterns, object-oriented methods, concurrency, functional languages, and so on.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>http://192.241.186.225/quotes/streams/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
@@ -70,6 +60,16 @@
       <description>&lt;p&gt;We should have some ways of connecting programs like garden hose&amp;ndash;screw in
 another segment when it becomes necessary to massage data in
 another way. This is the way of IO also.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://192.241.186.225/quotes/distrsys/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>http://192.241.186.225/quotes/distrsys/</guid>
+      <description>&lt;p&gt;A distributed system is one in which the failure of a computer you didn&amp;rsquo;t even know existed can render your own computer unusable.&lt;/p&gt;
 </description>
     </item>
     
