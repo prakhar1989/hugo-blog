@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    {{ .Title }}{{ if ne .Title .Site.Title }} - {{ .Site.Title }}{{ end }} | Prakhar Srivastav
+  </title>
+
+  {{ partial "meta.html" . }}
+
+  {{ partial "og.html" . }}
+
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="{{ .Site.BaseUrl }}/css/normalize.css">
+  <link rel="stylesheet" href="{{ .Site.BaseUrl }}/css/skeleton.css">
+  <link rel="stylesheet" href="{{ .Site.BaseUrl }}/css/main.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  <!-- RSS -->
+  <link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+
+  <!-- Syntax highlighting -->
+  <link rel="stylesheet" href="{{ .Site.BaseUrl }}/css/highlight/github.css">
+  <script src="{{ .Site.BaseUrl }}/js/highlight.min.js"></script>
+
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  {{ if .Site.Params.categoriescss }}
+    <link rel="stylesheet" type="text/css" href="{{ .Site.Params.categoriescss }}">
+  {{ end }}
+</head>

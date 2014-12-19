@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Algorithms on cat /dev/random</title>
+    <link>http://prakhar.me/tags/algorithms/</link>
+    <description>Recent content in Algorithms on cat /dev/random</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    
+    <lastBuildDate>Sun, 19 Oct 2014 12:34:58 AST</lastBuildDate>
+    <atom:link href="http://prakhar.me/tags/algorithms/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Bloom Filters for Dummies</title>
+      <link>http://prakhar.me/articles/bloom-filters-for-dummies/</link>
+      <pubDate>Sun, 19 Oct 2014 12:34:58 AST</pubDate>
+      
+      <guid>http://prakhar.me/articles/bloom-filters-for-dummies/</guid>
+      <description>
+
+&lt;p&gt;Bloom Filters is one of those data structures that you don&amp;rsquo;t generally learn about in a typical data structures 101 class, but wish you had learnt once you know about them. Despite reading several articles on bloom filters I was still finding it hard to grasp the concepts until the last week when I decided to sit down and not get up until I get the hang of it. Below is an article where I attempt to explain what I understood in a clear way (hopefully) so that others can learn.&lt;/p&gt;
+
+&lt;h3 id=&#34;a-use-case:d5d8a5425bd3ed6bd548c6538f6ba3fb&#34;&gt;A Use Case&lt;/h3&gt;
+
+&lt;p&gt;Before we talk about what a Bloom Filter is and how it actually works let me make an attempt to sell you on why you would need a bloom filter. Let&amp;rsquo;s assume you have an idea to build your own search engine. You are fed up of Google&amp;rsquo;s monopoly and decide to write your own version of a search engine (much like &lt;a href=&#34;http://duckduckgo.com&#34;&gt;DuckDuckGo&lt;/a&gt;). Now the first step in building a search engine is to build a crawler. How does a crawler work? Quite simply the work of crawler can be reduced down to the following steps (without the implementation details, of course)&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Start with a URL (webpage) and scrape its content.&lt;/li&gt;
+&lt;li&gt;Extract a list of all URLs on that page.&lt;/li&gt;
+&lt;li&gt;For each URL on that page check if this URL has not been crawled already.&lt;/li&gt;
+&lt;li&gt;Take the new URL that you encounter and go to Step 1.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;As you can see, a crawler&amp;rsquo;s work in theory is quite simple - just keep scraping content for any previously unseen URLs (webpages). The step we are going to focus on is step 3 in the above algorithm. If you&amp;rsquo;ve taken your data structures class you know that to maintain a list of all URLs to check for membership is a bad idea (&lt;code&gt;O(n)&lt;/code&gt; lookup time). So what you instead do is a use a set (or a hash-table) in memory that allows you do quick lookups and test for membership of a URL. Now this works fine as long as your hash-table can reside in the memory. Consider the case for Google for example - clearly there is no way a hash table for a billion plus URLs can reside in main memory. You can surely use the disk for storing and querying but since that is significantly slower compared to accessing the main memory we are not going to consider that case for now.&lt;/p&gt;
+
+&lt;h3 id=&#34;bloom-filters:d5d8a5425bd3ed6bd548c6538f6ba3fb&#34;&gt;Bloom Filters&lt;/h3&gt;
+
+&lt;p&gt;How do you tackle the above situation? Is there a data structure that can be stored in main memory and still hold vast amount of data? This is where bloom filters come in. Bloom filters use much lesser space and constant time to answer the queries for set membership. More precisely&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A Bloom filter is a data structure that is used to check for membership of an element &lt;code&gt;x&lt;/code&gt; in a set of &lt;code&gt;m&lt;/code&gt; elements.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Bloom filters have a strong space advantage over other data structures like sets, hash tables or binary search trees. Bloom filters also have the property that the time taken to add an item or to check for membership is a constant &lt;code&gt;O(k)&lt;/code&gt; and is independent of the number of items in the filter.&lt;/p&gt;
+
+&lt;p&gt;What&amp;rsquo;s the catch you might ask? Well, the catch is that bloom filters trade exactness for this efficiency meaning that there are false-positives - i.e. elements that are not a part of set but are claimed to be part of the set. However, as we shall soon see, the rate of false positives depends upon the application and can be lowered at the expense of  amount of memory required. Like everything else in computer science, there is a trade-off and in this case, between exactness and amount of memory.&lt;/p&gt;
+
+&lt;h3 id=&#34;algorithm:d5d8a5425bd3ed6bd548c6538f6ba3fb&#34;&gt;Algorithm&lt;/h3&gt;
+
+&lt;p&gt;At the heart of every bloom filter lies two key elements&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;An array of &lt;code&gt;n&lt;/code&gt; bits, initially all set to &lt;code&gt;0&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;A collection of &lt;code&gt;k&lt;/code&gt; independent hash functions &lt;code&gt;h(x)&lt;/code&gt;. Each hash function takes a value &lt;code&gt;v&lt;/code&gt; and generates a number &lt;code&gt;i&lt;/code&gt; where &lt;code&gt;i &amp;lt; n&lt;/code&gt; which effectively maps to a position in the bit array.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The underlying idea of a bloom filter is quite simple and can be explained in the following steps -&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Initialize a bit array of &lt;code&gt;n&lt;/code&gt; bits with zeros. Generally &lt;code&gt;n&lt;/code&gt; is chosen to be much greater than the number of elements in the set.&lt;/li&gt;
+&lt;li&gt;Whenever the filter sees a new element apply each of the hash functions &lt;code&gt;h(x)&lt;/code&gt; on the element. With the value generated, which is an index in the bit array, set the bit to 1 in the array. For example, if there are &lt;code&gt;k&lt;/code&gt; hash functions there will be &lt;code&gt;k&lt;/code&gt; indices generated. For each of these &lt;code&gt;k&lt;/code&gt; positions in the bit array set &lt;code&gt;array[i] = 1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;To check if an element exists in the set, simply carry out the exact same procedure with a slight twist. Generate &lt;code&gt;k&lt;/code&gt; values by applying the &lt;code&gt;k&lt;/code&gt; hash-functions on the input. If &lt;strong&gt;at least&lt;/strong&gt; one of these &lt;code&gt;k&lt;/code&gt; indices in the bit array is set to zero then the element is a new element else this is an existing element in the set.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;example:d5d8a5425bd3ed6bd548c6538f6ba3fb&#34;&gt;Example&lt;/h3&gt;
+
+&lt;p&gt;Lets just jump to an example&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:d5d8a5425bd3ed6bd548c6538f6ba3fb:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:d5d8a5425bd3ed6bd548c6538f6ba3fb:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;. We start by defining the hash functions. To keep the example simple, we&amp;rsquo;ll use two hash functions &lt;code&gt;h(x)&lt;/code&gt; and &lt;code&gt;g(x)&lt;/code&gt;. This is how these work for an integer &lt;code&gt;x&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;h(x)&lt;/code&gt;:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Convert &lt;code&gt;x&lt;/code&gt; to its binary equivalent. Lets call it &lt;code&gt;b&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Take the odd numbered bits in &lt;code&gt;b&lt;/code&gt; and generate a new number &lt;code&gt;y&lt;/code&gt; with these bits.&lt;/li&gt;
+&lt;li&gt;Return the value of &lt;code&gt;y modulo 11&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;code&gt;g(x)&lt;/code&gt; is same as &lt;code&gt;h(x)&lt;/code&gt;, the only difference being that instead of taking the odd numbered bits we take the even numbered bits.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Quick example&lt;/em&gt;: Let &lt;code&gt;x = 25&lt;/code&gt;. Then &lt;code&gt;b = 11001&lt;/code&gt;. Taking every odd bit gives us a binary number &lt;code&gt;101&lt;/code&gt; which is binary for &lt;code&gt;5&lt;/code&gt;. Similarly taking every even bit gives us &lt;code&gt;10&lt;/code&gt; which is binary for &lt;code&gt;2&lt;/code&gt;. Hence &lt;code&gt;h(x) = 5 % 11 = 5&lt;/code&gt; and &lt;code&gt;g(x) = 2 % 11 = 2&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a simple implementation in Python for the hash functions defined above.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def h(x):
+    return int(&amp;quot;&amp;quot;.join([v for i, v in enumerate(bin(x)[2:]) if i % 2 == 0]), 2) % 11
+
+def g(x):
+    return int(&amp;quot;&amp;quot;.join([v for i, v in enumerate(bin(x)[2:]) if i % 2 == 1]), 2) % 11
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With that out of the way lets proceed with our filter. Assume our bit array has &lt;code&gt;11&lt;/code&gt; bits, all of which are initially set to zero - &lt;code&gt;00000000000&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let the first number that our bloom filter sees be &lt;code&gt;25&lt;/code&gt;. As shown above, the value of &lt;code&gt;h(25) = 5&lt;/code&gt; and &lt;code&gt;g(25) = 2&lt;/code&gt;. Hence the next step is to set the &lt;code&gt;5th&lt;/code&gt; and the &lt;code&gt;2nd&lt;/code&gt; position in our bit array to &lt;code&gt;1&lt;/code&gt;. Doing that our bit array now transforms to &lt;code&gt;00100100000&lt;/code&gt; (&lt;a href=&#34;https://en.wikipedia.org/wiki/Endianness&#34;&gt;big endian&lt;/a&gt; mode).&lt;/p&gt;
+
+&lt;p&gt;Extending the same logic for different values of &lt;code&gt;x&lt;/code&gt; we get the table shown below.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;code&gt;x&lt;/code&gt;&lt;/th&gt;
+&lt;th&gt;&lt;code&gt;b&lt;/code&gt;&lt;/th&gt;
+&lt;th&gt;&lt;code&gt;h(x)&lt;/code&gt;&lt;/th&gt;
+&lt;th&gt;&lt;code&gt;g(x)&lt;/code&gt;&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;&lt;code&gt;Bit array&lt;/code&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;25&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0000011001&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;5&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;2&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;00100100000&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;159&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0010011111&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;7&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;10100101000&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;585&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;1001001001&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;7&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;9&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;10100101010&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;This can be verified by using the functions defined above -&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;map(lambda x: (h(x), g(x)), (25, 159, 585))
+# [(5, 2), (0, 7), (7, 9)]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As its quite clear, the bit array now becomes &lt;code&gt;10100101010&lt;/code&gt;. How about lookups? Lets say that the new value that comes to our filter is&lt;code&gt;118&lt;/code&gt;. We compute &lt;code&gt;h(118)&lt;/code&gt; and &lt;code&gt;g(118)&lt;/code&gt; and find these values to be &lt;code&gt;5&lt;/code&gt; and &lt;code&gt;3&lt;/code&gt; respectively. The next thing we do is the check in value of the bit array at these indices and find that&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;array[5] = 1
+array[3] = 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Since one of the bit is set to 0 our bloom filter reports that this the number &lt;code&gt;118&lt;/code&gt; is not an existing member in our set.&lt;/p&gt;
+
+&lt;h3 id=&#34;false-positives:d5d8a5425bd3ed6bd548c6538f6ba3fb&#34;&gt;False Positives&lt;/h3&gt;
+
+&lt;p&gt;Getting back to the caveat that was pointed out earlier - let me use an example to demonstrate how the bloom filter is susceptible to false positives.&lt;/p&gt;
+
+&lt;p&gt;Assume the next value that comes to our filter is &lt;code&gt;162&lt;/code&gt;. Calculating the hash functions we find that &lt;code&gt;h(162)&lt;/code&gt; is &lt;code&gt;2&lt;/code&gt; and &lt;code&gt;g(162)&lt;/code&gt; is &lt;code&gt;0&lt;/code&gt;. Looking for the values in our bit array we find that both of these indices are set to &lt;code&gt;1&lt;/code&gt;. Hence, in this case the bloom filter will wrongly report that the value &lt;code&gt;162&lt;/code&gt; exists in our set.&lt;/p&gt;
+
+&lt;h3 id=&#34;performance:d5d8a5425bd3ed6bd548c6538f6ba3fb&#34;&gt;Performance&lt;/h3&gt;
+
+&lt;p&gt;If after reading the above you are thinking to yourself that we just need to reduce the number of collisions to reduce the rate of false positives then you are right. A simple improvement in the above example is to use more hash functions and have a large bit array. If instead of 11 bits we had 100 bits and instead of just 2 hash functions &lt;code&gt;h(x)&lt;/code&gt; and &lt;code&gt;g(x)&lt;/code&gt; we had a few more, the probability that a non-existing value to hash to all the set bits would have reduced, thereby, reducing the rate of false positives.&lt;/p&gt;
+
+&lt;h4 id=&#34;a-numerical-example:d5d8a5425bd3ed6bd548c6538f6ba3fb&#34;&gt;A numerical example&lt;/h4&gt;
+
+&lt;p&gt;Let&amp;rsquo;s do some math to corroborate our intuition above. If you feel the above statement is intuitive enough feel free to skip this section.&lt;/p&gt;
+
+&lt;p&gt;From the example in the previous section it will be clear that a false positive arrives whenever all the positions output by the &lt;code&gt;k&lt;/code&gt; hash functions. Hence we can say that, the probability of a false positive depends on the density of &lt;code&gt;1&lt;/code&gt;s in the array and the number of hash functions. More the number of &lt;code&gt;1s&lt;/code&gt; the higher the probability of a false positive. Likewise, fewer the hash functions, higher the probability of a collision.&lt;/p&gt;
+
+&lt;p&gt;Also, roughly we can say the following about the number of ones -&lt;/p&gt;
+
+&lt;p&gt;{% highlight text %}
+number of 1s = (no. of elements x no. of hash functions) - collisions.
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;From the above example, we have &lt;code&gt;3&lt;/code&gt; input elements and &lt;code&gt;2&lt;/code&gt; hash functions. Hence there should be &lt;code&gt;6&lt;/code&gt; bits set to 1. Since we have one collision &lt;code&gt;g(117) == h(585)&lt;/code&gt; therefore the total number of bits set in our bit array is &lt;code&gt;5&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Lastly, considering an analogy to darts and targets, we can say that for &lt;code&gt;d&lt;/code&gt; darts and &lt;code&gt;t&lt;/code&gt; targets, we can prove that the probability that no darts hit the target is &lt;code&gt;e^(-d/t)&lt;/code&gt; where &lt;code&gt;e&lt;/code&gt; is the base of natural logarithm&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:d5d8a5425bd3ed6bd548c6538f6ba3fb:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:d5d8a5425bd3ed6bd548c6538f6ba3fb:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;. In our case, the targets are the bits in the array and the darts are the outputs of the hash-functions.&lt;/p&gt;
+
+&lt;p&gt;Okay, now we are ready for the example. Assume we have a bit array of 1 billion bits, 5 hash functions and 100 million elements. That is&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;t = 10^9 (bits in the array are the targets)
+d = 5 x 10^8 (outputs from the hash functions are the darts)
+P(no dart hits the target) = e^(-d/t) = e^(-0.5) = 0.607
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Hence the density of &lt;code&gt;0s&lt;/code&gt; in the bit array = &lt;code&gt;0.607&lt;/code&gt; or density of &lt;code&gt;1s&lt;/code&gt; in the bit array = &lt;code&gt;0.393&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The probability of a false positive = Probablity of all 5 hash functions to a index that has 1 in the bit array = &lt;code&gt;0.393^5 = 0.00937&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;As seen above, the P(false positive) is indeed less. By tweaking the number of hash functions and the number of bits in the array this can be improved even further.&lt;/p&gt;
+
+&lt;h3 id=&#34;space-advantage:d5d8a5425bd3ed6bd548c6538f6ba3fb&#34;&gt;Space Advantage&lt;/h3&gt;
+
+&lt;p&gt;The space advantage in a Bloom Filter comes from the compactness from the data structure. A Bloom filter with 1% error and an optimal value of k, requires only about 9.6 bits (1.2 bytes) per element — regardless of the size of the elements&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:d5d8a5425bd3ed6bd548c6538f6ba3fb:3&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:d5d8a5425bd3ed6bd548c6538f6ba3fb:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;. Comparing this value to storing a typical integer in hash table which would take 32 bits or (4 bytes).&lt;/p&gt;
+
+&lt;h3 id=&#34;implementations:d5d8a5425bd3ed6bd548c6538f6ba3fb&#34;&gt;Implementations&lt;/h3&gt;
+
+&lt;p&gt;Hopefully, if you&amp;rsquo;ve come this long you are probably sold on giving the data structure a shot. Armon Dadgar&amp;rsquo;s &lt;a href=&#34;https://github.com/armon/bloomd&#34;&gt;bloomd&lt;/a&gt; is excellent implementation inspired by Memcached. There are also a good number of client libraries available in popular languages. If you&amp;rsquo;re using &lt;a href=&#34;http://redis.io/&#34;&gt;Redis&lt;/a&gt; you can use the &lt;code&gt;SETBIT&lt;/code&gt; and &lt;code&gt;GETBIT&lt;/code&gt; functions to have a redis backed bloom filter. The &lt;a href=&#34;http://redis.io/topics/data-types&#34;&gt;documentation&lt;/a&gt; has some helpful examples to help you.&lt;/p&gt;
+
+&lt;h3 id=&#34;conclusion:d5d8a5425bd3ed6bd548c6538f6ba3fb&#34;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;I hope this article was useful in whetting your appetite about Bloom Filters. Probabilisitic data structures are really cool and in my opinion, bloom filters are a perfect introduction to the topic.&lt;/p&gt;
+
+&lt;p&gt;Feel free to leave any comments or suggestions in the comments below.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:d5d8a5425bd3ed6bd548c6538f6ba3fb:1&#34;&gt;The example is motivated by the one discussed by Prof. Jeff Ullman in a lecture of the &lt;a href=&#34;https://www.coursera.org/course/mmds&#34;&gt;Mining Massive Datasets course&lt;/a&gt;.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:d5d8a5425bd3ed6bd548c6538f6ba3fb:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:d5d8a5425bd3ed6bd548c6538f6ba3fb:2&#34;&gt;To read about the proof, please read section &lt;code&gt;4.4.3&lt;/code&gt; of the &lt;a href=&#34;http://mmds.org/#ver21&#34;&gt;Mining Massive Datasets book&lt;/a&gt;.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:d5d8a5425bd3ed6bd548c6538f6ba3fb:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:d5d8a5425bd3ed6bd548c6538f6ba3fb:3&#34;&gt;&lt;a href=&#34;http://theory.stanford.edu/~rinap/papers/esa2006b.pdf&#34;&gt;Bonomi et al&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:d5d8a5425bd3ed6bd548c6538f6ba3fb:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The String Rotation Problem</title>
+      <link>http://prakhar.me/articles/the-string-rotation-problem/</link>
+      <pubDate>Tue, 22 Jul 2014 12:34:58 AST</pubDate>
+      
+      <guid>http://prakhar.me/articles/the-string-rotation-problem/</guid>
+      <description>&lt;p&gt;On a recent (rather long) flight, while I was devouring Jon Bentley&amp;rsquo;s &lt;a href=&#34;http://www.cs.bell-labs.com/cm/cs/pearls/&#34;&gt;Programming Pearls&lt;/a&gt;, I came across this rather interesting problem.&lt;/p&gt;
+
+&lt;p&gt;The problem is simple - How will you a rotate a string of length &lt;code&gt;n&lt;/code&gt; by &lt;code&gt;i&lt;/code&gt; steps in place i.e. without using any extra space?&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;/images/string_rotate.png&#34;&gt; &lt;/figure&gt;
+
+&lt;p&gt;The example shown below makes it quite clear. Now the easiest way to do this is to simply save the &lt;code&gt;i&lt;/code&gt; chars in a separate vector, shift the remaining chars by &lt;code&gt;i&lt;/code&gt; and finally, paste the initial &lt;code&gt;i&lt;/code&gt; items at the back. But this clearly uses extra space &lt;code&gt;O(i)&lt;/code&gt;. Another way is to simply move the entire array left by one and do this &lt;code&gt;i&lt;/code&gt; times. But this is too slow &lt;code&gt;O(i * n)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;A really smart insight (which the author calls the &lt;strong&gt;Aha! moment&lt;/strong&gt;) is this - The shifted array is basically two arrays reversed twice.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s how it works - Lets assume you have the array &lt;code&gt;ab&lt;/code&gt;. The array &lt;code&gt;a&lt;/code&gt; here is the array formed by the first &lt;code&gt;i&lt;/code&gt; chars and &lt;code&gt;b&lt;/code&gt; is the rest of it. In the example above,
+array &lt;code&gt;a&lt;/code&gt; is &lt;code&gt;abc&lt;/code&gt; and array &lt;code&gt;b&lt;/code&gt; is &lt;code&gt;defghi&lt;/code&gt;. With that in place, if we carry out the following transformation, we get back exactly what we need.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;AB =&amp;gt; abc defghi &amp;lt;br/&amp;gt;
+A&amp;lt;sup&amp;gt;r&amp;lt;/sup&amp;gt;B =&amp;gt; cba defghi &amp;lt;br/&amp;gt;
+A&amp;lt;sup&amp;gt;r&amp;lt;/sup&amp;gt;B&amp;lt;sup&amp;gt;r&amp;lt;/sup&amp;gt; =&amp;gt; cba ihgfed &amp;lt;br/&amp;gt;
+(A&amp;lt;sup&amp;gt;r&amp;lt;/sup&amp;gt;B&amp;lt;sup&amp;gt;r&amp;lt;/sup&amp;gt;)&amp;lt;sup&amp;gt;r&amp;lt;/sup&amp;gt; =&amp;gt; BA =&amp;gt; defghi abc (answer) &amp;lt;br/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is really a very neat trick to solve the problem, especially the part where you consider one array as a sum of two arrays. The author ends this section with a very interesting tidbit&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Brian Kernighan and P.J. Plauger used precisely this code in their 1981 Software tools in Pascal to move lines in a text editor. Kernighan reports that it ran correctly the first time it was executed, while their previous code for a similar task based on linked lists had several bugs.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;To make sure you are sold, below is some python code which does the same thing. Clearly, this algorithm is extremely clever and damn simple to implement!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def reverse(arr, start, end):
+    &amp;quot;&amp;quot;&amp;quot; reverses an array from the start to the end, where start and end
+    are zero indexed &amp;quot;&amp;quot;&amp;quot;
+    for i in range((end - start + 1)/2):
+        arr[start+i], arr[end-i] = arr[end-i], arr[start+i]
+    return arr
+
+
+def rotate(arr, i):
+    &amp;quot;&amp;quot;&amp;quot; rotates an array i chars to the left &amp;quot;&amp;quot;&amp;quot;
+    arr = reverse(arr, 0, i-1) # arb
+    arr = reverse(arr, i, len(arr)-1) #arbr
+    return reverse(arr, 0, len(arr)-1) #ba
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    s = &amp;quot;abcdefghi&amp;quot;
+    print &amp;quot;&amp;quot;.join(rotate(list(s), 3)) # =&amp;gt; defghiabc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Until next time!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

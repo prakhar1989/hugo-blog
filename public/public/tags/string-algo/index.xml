@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>String Algo on cat /dev/random</title>
+    <link>http://localhost:1313/tags/string-algo/</link>
+    <description>Recent content in String Algo on cat /dev/random</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 UTC</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/string-algo/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>The String Rotation Problem</title>
+      <link>http://localhost:1313/articles/2014-07-22-the-string-rotation-problem/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/articles/2014-07-22-the-string-rotation-problem/</guid>
+      <description>&lt;p&gt;On a recent (rather long) flight, while I was devouring Jon Bentley&amp;rsquo;s &lt;a href=&#34;http://www.cs.bell-labs.com/cm/cs/pearls/&#34;&gt;Programming Pearls&lt;/a&gt;, I came across this rather interesting problem.&lt;/p&gt;
+
+&lt;p&gt;The problem is simple - How will you a rotate a string of length &lt;code&gt;n&lt;/code&gt; by &lt;code&gt;i&lt;/code&gt; steps in place i.e. without using any extra space?&lt;/p&gt;
+
+&lt;figure&gt; &lt;img src=&#34;/images/string_rotate.png&#34;&gt; &lt;/figure&gt;
+
+&lt;p&gt;The example shown below makes it quite clear. Now the easiest way to do this is to simply save the &lt;code&gt;i&lt;/code&gt; chars in a separate vector, shift the remaining chars by &lt;code&gt;i&lt;/code&gt; and finally, paste the initial &lt;code&gt;i&lt;/code&gt; items at the back. But this clearly uses extra space &lt;code&gt;O(i)&lt;/code&gt;. Another way is to simply move the entire array left by one and do this &lt;code&gt;i&lt;/code&gt; times. But this is too slow &lt;code&gt;O(i * n)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;A really smart insight (which the author calls the &lt;strong&gt;Aha! moment&lt;/strong&gt;) is this - The shifted array is basically two arrays reversed twice.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s how it works - Lets assume you have the array &lt;code&gt;ab&lt;/code&gt;. The array &lt;code&gt;a&lt;/code&gt; here is the array formed by the first &lt;code&gt;i&lt;/code&gt; chars and &lt;code&gt;b&lt;/code&gt; is the rest of it. In the example above,
+array &lt;code&gt;a&lt;/code&gt; is &lt;code&gt;abc&lt;/code&gt; and array &lt;code&gt;b&lt;/code&gt; is &lt;code&gt;defghi&lt;/code&gt;. With that in place, if we carry out the following transformation, we get back exactly what we need.&lt;/p&gt;
+
+&lt;p&gt;{% raw %}
+AB =&amp;gt; abc defghi &lt;br/&gt;
+A&lt;sup&gt;r&lt;/sup&gt;B =&amp;gt; cba defghi &lt;br/&gt;
+A&lt;sup&gt;r&lt;/sup&gt;B&lt;sup&gt;r&lt;/sup&gt; =&amp;gt; cba ihgfed &lt;br/&gt;
+(A&lt;sup&gt;r&lt;/sup&gt;B&lt;sup&gt;r&lt;/sup&gt;)&lt;sup&gt;r&lt;/sup&gt; =&amp;gt; BA =&amp;gt; defghi abc (answer) &lt;br/&gt;
+{% endraw %}&lt;/p&gt;
+
+&lt;p&gt;This is really a very neat trick to solve the problem, especially the part where you consider one array as a sum of two arrays. The author ends this section with a very interesting tidbit&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Brian Kernighan and P.J. Plauger used precisely this code in their 1981 Software tools in Pascal to move lines in a text editor. Kernighan reports that it ran correctly the first time it was executed, while their previous code for a similar task based on linked lists had several bugs.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;To make sure you are sold, below is some python code which does the same thing. Clearly, this algorithm is extremely clever and damn simple to implement!&lt;/p&gt;
+
+&lt;p&gt;{% highlight python %}
+def reverse(arr, start, end):
+    &amp;ldquo;&amp;rdquo;&amp;rdquo; reverses an array from the start to the end, where start and end
+    are zero indexed &amp;ldquo;&amp;rdquo;&amp;rdquo;
+    for i in range((end - start + 1)/2):
+        arr[start+i], arr[end-i] = arr[end-i], arr[start+i]
+    return arr&lt;/p&gt;
+
+&lt;p&gt;def rotate(arr, i):
+    &amp;ldquo;&amp;rdquo;&amp;rdquo; rotates an array i chars to the left &amp;ldquo;&amp;rdquo;&amp;rdquo;
+    arr = reverse(arr, 0, i-1) # arb
+    arr = reverse(arr, i, len(arr)-1) #arbr
+    return reverse(arr, 0, len(arr)-1) #ba&lt;/p&gt;
+
+&lt;p&gt;if &lt;strong&gt;name&lt;/strong&gt; == &amp;ldquo;&lt;strong&gt;main&lt;/strong&gt;&amp;ldquo;:
+    s = &amp;ldquo;abcdefghi&amp;rdquo;
+    print &amp;ldquo;&amp;rdquo;.join(rotate(list(s), 3)) # =&amp;gt; defghiabc
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Until next time!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

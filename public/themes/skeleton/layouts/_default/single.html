@@ -1,0 +1,111 @@
+{{ partial "header.html" . }}
+
+<body>
+      {{ partial "singletop.html" . }}
+
+  <div class="container">
+    <div class="row">
+
+      <section>
+            <h1 class="post-title">
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h1>
+
+          <div class="post-content-meta">
+
+            {{ if not .Params.nodate }}
+              <i class="ion-ios-calendar-outline"></i>  
+              <span class="post-date">
+                <span class="post-date-month">{{ .Date.Format "January" }}</span> 
+                <span class="post-date-day"> {{ .Date.Format "2" }}, </span>
+                <span class="post-date-year">{{ .Date.Format "2006" }}</span>
+              </span> 
+            {{ end }}
+
+            {{ $Site := .Site }}
+            {{ if .Params.tags }}
+                <span class="post-tag"> in </span>
+                {{ range .Params.tags }}
+                <a class="post-tag post-tag-{{ . | urlize }}" href="{{ $Site.BaseUrl}}/tags/{{ . | urlize }}">
+                  <i class="ion-ios-pricetag-outline"></i>{{ . }}</a>
+                {{ end }}
+            {{ end }}
+
+         </div>
+
+			{{ if .Params.socialsharing }}
+        {{ partial "socialsharing.html" . }}
+      {{ end }}
+
+
+			{{ if .Params.bannerinline }}
+				<img src="{{ .Params.bannerinline }}" class="pure-img content-banner-image-inline" />
+			{{ end }}
+
+      <div class="post-content">
+        {{ .Content }}
+      </div>
+	
+			{{ if .Params.socialsharing }}
+		    	{{ partial "socialsharing.html" . }}
+		    {{ end }}
+
+      </div>
+
+      <div class="row paging">
+			{{ if not .Params.nopaging }}
+          {{ if .Next }}
+          <div class="six columns">
+            <i class="ion-arrow-left-c"></i>
+            <a class="paging-link" href="{{ .Next.RelPermalink }}">{{ .Next.Title  }}</a>
+          </div>
+          {{ end }}
+
+					{{ if .Prev }}
+          <div class="paging-newer six columns">
+            <a class="paging-link" href="{{ .Prev.RelPermalink }}">{{ .Prev.Title }}</a>
+            <i class="ion-arrow-right-c"></i>
+          </div>
+          {{ end }}
+
+      {{ end }}
+       </div>
+
+
+          {{ if not .Params.nocomment }}
+          	{{ template "_internal/disqus.html" . }}
+          {{ end }}
+    </div>
+  </div>
+	{{ if .Params.totop }}
+		<script type="text/javascript">
+			onscroll = function() {
+			  var toTopVisible = false;
+			  var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			  if (scrollTop > 1000) {
+			    if (!toTopVisible) {
+			      document.getElementById('nav-to-top').style.display = 'block';
+			    }
+			  } else {
+			    if (scrollTop < 1000 || toTopVisible) {
+			      document.getElementById('nav-to-top').style.display = 'none';
+			    }
+			  }
+			};
+		</script>
+	{{ end }}
+
+	{{ if .Params.socialsharing }}
+		<script type="text/javascript">
+			function popupShare(url) {
+				window.open(url, '_blank', 'scrollbars,resizable,height=525,width=600');
+				return false;
+			}
+		</script>
+	{{ end }}
+
+    </div>
+      {{ partial "footer.html" . }}
+  </div>
+</body>
+</html>

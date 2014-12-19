@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ruby on cat /dev/random</title>
+    <link>http://localhost:1313/tags/ruby/</link>
+    <description>Recent content in Ruby on cat /dev/random</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    
+    <lastBuildDate>Fri, 07 Feb 2014 12:34:58 AST</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Programming is Hard</title>
+      <link>http://localhost:1313/articles/2014-02-07-programming-is-hard/</link>
+      <pubDate>Fri, 07 Feb 2014 12:34:58 AST</pubDate>
+      
+      <guid>http://localhost:1313/articles/2014-02-07-programming-is-hard/</guid>
+      <description>&lt;p&gt;When Joe Armstrong, the creator of Erlang, &lt;a href=&#34;http://joearms.github.io/2014/02/07/why-programming-is-difficult.html&#34;&gt;writes a post&lt;/a&gt; on &amp;ldquo;Programming is Hard&amp;rdquo; you cant help but say to yourself - You&amp;rsquo;re not alone!&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If you’ve got this far, you’ll understand that I think programming is pretty damn difficult. That’s why workplaces are designed to make programming even more difficult. We have open plan offices which provide a noisy environment to break our concentration, mobile phones to disturb us, and internet to distract us.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;On the other hand, one cant help but wonder at the power we, programmers, have - power to automate mundane tasks, solve hard problems and hopefully to change the world.&lt;/p&gt;
+
+&lt;p&gt;P.S: To generate this new post, I hacked up a quick &lt;a href=&#34;https://github.com/prakhar1989/prakhar1989.github.com/blob/master/Rakefile&#34;&gt;Rakefile&lt;/a&gt; to create a new post and dev environment for me. Yay for automation (&amp;amp; laziness)!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

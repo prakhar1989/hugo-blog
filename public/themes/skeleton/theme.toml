@@ -1,0 +1,10 @@
+name = "Skeleton"
+description = "A clean, responsive skeleton inspired template."
+license = "Apache 2.0"
+licenselink = ""
+source_repo = ""
+tags = ["skeleton", "raleway", "blog", "gallery"]
+features = ["blog"]
+[author]
+    name = "Prakhar Srivastav"
+    homepage = "http://prakhar.me"

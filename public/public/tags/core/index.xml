@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Core on cat /dev/random</title>
+    <link>http://localhost:1313/tags/core/</link>
+    <description>Recent content in Core on cat /dev/random</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 UTC</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/core/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Enums in Python</title>
+      <link>http://localhost:1313/articles/2013-05-12-enums-in-python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/articles/2013-05-12-enums-in-python/</guid>
+      <description>
+
+&lt;p&gt;On 12th May 2013, Guido accepted the Python Enhancement Proposal 435 which suggests adding an Enum type to the Python standard library. The news caused a lot of commotion in the Python community and generated (mostly) healthy discussions on &lt;a href=&#34;https://news.ycombinator.com/item?id=5685903&#34;&gt;Hacker News&lt;/a&gt;. In this post I&amp;rsquo;ll give an introduction to what enums are and talk about how you can use them in your programs.&lt;/p&gt;
+
+&lt;h3 id=&#34;enumerated-types:f270d7a06ced02040967745a0bab63a7&#34;&gt;Enumerated Types&lt;/h3&gt;
+
+&lt;p&gt;According to &lt;a href=&#34;http://en.wikipedia.org/wiki/Enumerated_type&#34;&gt;Wikipedia&lt;/a&gt;, an enumerated type is a data type consisting of a set of named values called elements, members or enumerators of the type. The enumerator names are usually identifiers that behave as constants in the language.&lt;/p&gt;
+
+&lt;p&gt;In other words, an enumeration is a set of symbolic names useful for
+defining an &lt;strong&gt;immutable&lt;/strong&gt;, &lt;strong&gt;related&lt;/strong&gt; set of &lt;strong&gt;constant values&lt;/strong&gt;. It is like a class of constants that are immutable and related which can be used throughout your programs.&lt;/p&gt;
+
+&lt;p&gt;For example, an enumerated type called &lt;code&gt;Days_of_Week&lt;/code&gt; may be defined to consist of &lt;code&gt;sunday&lt;/code&gt;, &lt;code&gt;monday&lt;/code&gt;, &lt;code&gt;tuesday&lt;/code&gt;, &lt;code&gt;wednesday&lt;/code&gt; etc. Or an enumerated class for &lt;code&gt;Roles&lt;/code&gt; might contain &lt;code&gt;admin&lt;/code&gt;, &lt;code&gt;user&lt;/code&gt; and &lt;code&gt;guest&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;why-enums:f270d7a06ced02040967745a0bab63a7&#34;&gt;Why Enums?&lt;/h3&gt;
+
+&lt;p&gt;Why do we need Enums? Aren&amp;rsquo;t the constructs already available in the
+language capable of doing this? To answer the second question first, its true that similar functionality is possible. Developers all this while have been using a constants defined as INTS for this very purpose.  For example, check out &lt;a href=&#34;https://github.com/mitsuhiko/flask/wiki/Large-app-how-to#first-model-and-its-constants-file&#34;&gt;this&lt;/a&gt; definition of a model in SqlAlchemy.
+Armin, the creator of flask, declares a few constants in the &lt;code&gt;constants.py&lt;/code&gt; file which look like this&lt;/p&gt;
+
+&lt;p&gt;{% highlight python %}&lt;/p&gt;
+
+&lt;h1 id=&#34;user-role:f270d7a06ced02040967745a0bab63a7&#34;&gt;User role&lt;/h1&gt;
+
+&lt;p&gt;ADMIN = 0
+STAFF = 1
+USER = 2
+ROLE = {
+  ADMIN: &amp;lsquo;admin&amp;rsquo;,
+  STAFF: &amp;lsquo;staff&amp;rsquo;,
+  USER: &amp;lsquo;user&amp;rsquo;,
+}&lt;/p&gt;
+
+&lt;h1 id=&#34;user-status:f270d7a06ced02040967745a0bab63a7&#34;&gt;user status&lt;/h1&gt;
+
+&lt;p&gt;INACTIVE = 0
+NEW = 1
+ACTIVE = 2
+STATUS = {
+  INACTIVE: &amp;lsquo;inactive&amp;rsquo;,
+  NEW: &amp;lsquo;new&amp;rsquo;,
+  ACTIVE: &amp;lsquo;active&amp;rsquo;,
+}
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;The problem with this, however, is that these are ultimately integers. You can do a number of operations on them, which logically do not make sense. To point out another problem, imagine there are 100s of such roles. While debugging&lt;/p&gt;
+
+&lt;p&gt;{% highlight python %}
+&amp;gt;&amp;gt;&amp;gt; print user.role
+0
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;makes much less sense that&lt;/p&gt;
+
+&lt;p&gt;{% highlight python %}
+&amp;gt;&amp;gt;&amp;gt; print user.role
+Roles.admin #type enum
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Finally, if there&amp;rsquo;s another set of constants which need the same values
+(employee roles, for example) in which case these definitions might clash.&lt;/p&gt;
+
+&lt;p&gt;Using enums allows us to write cleaner programs the above issues are
+accounted for.
+- Enums can have values distinct from each other.
+- Operations (like multiplication) are not defined for these values&lt;/p&gt;
+
+&lt;h3 id=&#34;usage:f270d7a06ced02040967745a0bab63a7&#34;&gt;Usage&lt;/h3&gt;
+
+&lt;p&gt;I&amp;rsquo;ll encourage you to the check out the &lt;a href=&#34;http://www.python.org/dev/peps/pep-0435/&#34;&gt;PEP&lt;/a&gt; for detailed (proposed) syntax but here a few examples.&lt;/p&gt;
+
+&lt;p&gt;{% highlight python %}
+from emum import Emum&lt;/p&gt;
+
+&lt;p&gt;Class Roles(Enum):
+  admin = 0
+  staff = 1
+  user = 2&lt;/p&gt;
+
+&lt;p&gt;print(Roles.admin)               # &amp;gt;&amp;gt;&amp;gt; Roles.admin
+print(repr(Roles.admin))         # &amp;gt;&amp;gt;&amp;gt; &lt;Roles.admin: 0&gt;
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Make no mistake, the numbers indicated here are just values that are
+assigned to the enum members and dont stand for anything. As mentioned in the PEP -
+&lt;em&gt;Using integers is short and handy (and provided by default by the Functional API), but not strictly enforced. In the vast majority of use-cases, one doesn&amp;rsquo;t care what the actual value of an enumeration is. But if the value is important, enumerations can have arbitrary values.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;highlights:f270d7a06ced02040967745a0bab63a7&#34;&gt;Highlights&lt;/h3&gt;
+
+&lt;p&gt;Below is a list of important features as defined in the PEP&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Enums support iteration in definition order&lt;/li&gt;
+&lt;li&gt;Enum members are hashable.&lt;/li&gt;
+&lt;li&gt;Duplication of enum members is not allowed. However, if two enum members have the same value then they are referred to as aliases.&lt;/li&gt;
+&lt;li&gt;Finally, ordered comparisons are not supported as enums are not like
+integers&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The exact mechanics of how Enums will work are still not clear and are being
+actively discussed on the mailing list. Hopefully, this post has helped you in
+understanding in what the hullaboo is all about!&lt;/p&gt;
+
+&lt;p&gt;See you next time!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
