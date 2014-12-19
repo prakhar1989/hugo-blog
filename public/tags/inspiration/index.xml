@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Inspiration on cat /dev/random</title>
-    <link>http://localhost:1313/tags/inspiration/</link>
+    <link>http://192.241.186.225/tags/inspiration/</link>
     <description>Recent content in Inspiration on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Thu, 02 Oct 2014 12:34:58 AST</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/inspiration/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://192.241.186.225/tags/inspiration/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Just Learn</title>
-      <link>http://localhost:1313/articles/just-learn/</link>
+      <link>http://192.241.186.225/articles/just-learn/</link>
       <pubDate>Thu, 02 Oct 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/just-learn/</guid>
+      <guid>http://192.241.186.225/articles/just-learn/</guid>
       <description>&lt;div class=&#34;custom-quote&#34;&gt;
   &lt;h1&gt;&lt;i class=&#34;ion-quote&#34;&gt;&lt;/i&gt;&lt;/h1&gt;
 
@@ -35,10 +35,10 @@
     
     <item>
       <title>Why Do You Want To Do Great Things?</title>
-      <link>http://localhost:1313/articles/why-do-you-want-to-do-great-things/</link>
+      <link>http://192.241.186.225/articles/why-do-you-want-to-do-great-things/</link>
       <pubDate>Thu, 14 Aug 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/why-do-you-want-to-do-great-things/</guid>
+      <guid>http://192.241.186.225/articles/why-do-you-want-to-do-great-things/</guid>
       <description>&lt;p&gt;During my usual late night lurking on HN today, I came across this gem of a comment and couldn&amp;rsquo;t help sharing it here.&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -63,10 +63,10 @@
     
     <item>
       <title>No Excuses</title>
-      <link>http://localhost:1313/articles/no-excuses/</link>
+      <link>http://192.241.186.225/articles/no-excuses/</link>
       <pubDate>Sat, 31 May 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/no-excuses/</guid>
+      <guid>http://192.241.186.225/articles/no-excuses/</guid>
       <description>
 
 &lt;h3 id=&#34;stop-making-excuses-go-build-something:b88914358eb6c6dee8e053191d6b1e49&#34;&gt;Stop Making Excuses. Go Build Something&lt;/h3&gt;
@@ -81,10 +81,10 @@
     
     <item>
       <title>Write Code Everyday</title>
-      <link>http://localhost:1313/articles/write-code-everyday/</link>
+      <link>http://192.241.186.225/articles/write-code-everyday/</link>
       <pubDate>Thu, 10 Apr 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/write-code-everyday/</guid>
+      <guid>http://192.241.186.225/articles/write-code-everyday/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;It’s important to note that that I don’t particularly care about the outward perception of the above Github chart. I think that’s the most important take away from this experiment: this is about a change that you’re making in your life for yourself not a change that you’re making to satisfy someone else’s perception of your work. The same goes for any form of dieting or exercise: if you don’t care about improving yourself then you’ll never actually succeed. - John Resig&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -101,10 +101,10 @@
     
     <item>
       <title>Thinking For Programmers</title>
-      <link>http://localhost:1313/articles/thinking-for-programmers/</link>
+      <link>http://192.241.186.225/articles/thinking-for-programmers/</link>
       <pubDate>Sat, 05 Apr 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/thinking-for-programmers/</guid>
+      <guid>http://192.241.186.225/articles/thinking-for-programmers/</guid>
       <description>&lt;p&gt;Leslie Lamport, the creator the famous Paxos&amp;rsquo; Algorithm and LaTeX, in his paper talks about what programmers are doing wrong?&lt;/p&gt;
 
 &lt;p&gt;Answer: Not thinking enough&lt;/p&gt;
@@ -119,10 +119,10 @@
     
     <item>
       <title>Being A Senior Engineer</title>
-      <link>http://localhost:1313/articles/being-a-senior-engineer/</link>
+      <link>http://192.241.186.225/articles/being-a-senior-engineer/</link>
       <pubDate>Mon, 31 Mar 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/being-a-senior-engineer/</guid>
+      <guid>http://192.241.186.225/articles/being-a-senior-engineer/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.kitchensoap.com/2012/10/25/on-being-a-senior-engineer/&#34;&gt;Brilliant article&lt;/a&gt; on what differentiates senior engineers.&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -143,10 +143,10 @@ Every successful engineer I’ve met, upon finishing up a design or getting read
     
     <item>
       <title>Why We Dont Sell Ads</title>
-      <link>http://localhost:1313/articles/why-we-dont-sell-ads/</link>
+      <link>http://192.241.186.225/articles/why-we-dont-sell-ads/</link>
       <pubDate>Thu, 20 Feb 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/why-we-dont-sell-ads/</guid>
+      <guid>http://192.241.186.225/articles/why-we-dont-sell-ads/</guid>
       <description>&lt;p&gt;I found this great statement made by the WhatsApp founders on their blog about why they don&amp;rsquo;t rely on ads and instead charge customers for the service. This is getting recirculated now that WhatsApp is looking at being acquired by Facebook at a valuation of around $19B. It interesting to see that while tons of apps rely on advertising as a key part of their business model there are companies who strive to go against it. Whats surprising is that their experience of working at an advertising behemoth, Yahoo, strengthened their resolve even more.&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -165,10 +165,10 @@ Every successful engineer I’ve met, upon finishing up a design or getting read
     
     <item>
       <title>Quantity</title>
-      <link>http://localhost:1313/articles/quantity/</link>
+      <link>http://192.241.186.225/articles/quantity/</link>
       <pubDate>Mon, 10 Feb 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/quantity/</guid>
+      <guid>http://192.241.186.225/articles/quantity/</guid>
       <description>&lt;p&gt;The ceramics teacher announced on opening day that he was dividing the class into two groups. All those on the left side of the studio, he said, would be graded solely on the quantity of work they produced, all those on the right solely on its quality. His procedure was simple: on the final day of class he would bring in his bathroom scales and weigh the work of the “quantity” group: fifty pound of pots rated an “A”, forty pounds a “B”, and so on. Those being graded on “quality”, however, needed to produce only one pot — albeit a perfect one — to get an “A”.&lt;/p&gt;
 
 &lt;p&gt;Well, came grading time and a curious fact emerged: the works of highest quality were all produced by the group being graded for quantity.&lt;/p&gt;
@@ -183,10 +183,10 @@ Every successful engineer I’ve met, upon finishing up a design or getting read
     
     <item>
       <title>Programming is Hard</title>
-      <link>http://localhost:1313/articles/programming-is-hard/</link>
+      <link>http://192.241.186.225/articles/programming-is-hard/</link>
       <pubDate>Fri, 07 Feb 2014 12:34:58 AST</pubDate>
       
-      <guid>http://localhost:1313/articles/programming-is-hard/</guid>
+      <guid>http://192.241.186.225/articles/programming-is-hard/</guid>
       <description>&lt;p&gt;When Joe Armstrong, the creator of Erlang, &lt;a href=&#34;http://joearms.github.io/2014/02/07/why-programming-is-difficult.html&#34;&gt;writes a post&lt;/a&gt; on &amp;ldquo;Programming is Hard&amp;rdquo; you cant help but say to yourself - You&amp;rsquo;re not alone!&lt;/p&gt;
 
 &lt;blockquote&gt;
