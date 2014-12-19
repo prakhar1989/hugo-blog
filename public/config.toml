@@ -1,6 +1,0 @@
-baseurl = "http://prakhar.me"
-languageCode = "en-us"
-title = "cat /dev/random"
-contentdir: "content"
-layoutdir: "layouts"
-publishdir: "public"
