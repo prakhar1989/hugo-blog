@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Decorators on cat /dev/random</title>
-    <link>http://192.241.186.225/tags/decorators/</link>
+    <link>http://prakhar.me/tags/decorators/</link>
     <description>Recent content in Decorators on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Mon, 03 Nov 2014 12:34:58 AST</lastBuildDate>
-    <atom:link href="http://192.241.186.225/tags/decorators/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://prakhar.me/tags/decorators/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Demystifying Decorators</title>
-      <link>http://192.241.186.225/articles/demistifying-decorators/</link>
+      <link>http://prakhar.me/articles/demistifying-decorators/</link>
       <pubDate>Mon, 03 Nov 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/demistifying-decorators/</guid>
+      <guid>http://prakhar.me/articles/demistifying-decorators/</guid>
       <description>
 
 &lt;p&gt;If you&amp;rsquo;ve been programming in Python for some time chances are you have come across decorators. Even though you might not know what decorators are and how they work, you&amp;rsquo;ve surely used them as most of popular Python libraries use decorators (the familiar &lt;code&gt;@&lt;/code&gt; syntax) to make beautiful APIs.&lt;/p&gt;

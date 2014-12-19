@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javascript on cat /dev/random</title>
-    <link>http://192.241.186.225/tags/javascript/</link>
+    <link>http://prakhar.me/tags/javascript/</link>
     <description>Recent content in Javascript on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Sat, 02 Aug 2014 12:34:58 AST</lastBuildDate>
-    <atom:link href="http://192.241.186.225/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://prakhar.me/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Organizing Angular Apps for Testing</title>
-      <link>http://192.241.186.225/articles/organizing-angular-apps-for-testing/</link>
+      <link>http://prakhar.me/articles/organizing-angular-apps-for-testing/</link>
       <pubDate>Sat, 02 Aug 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/organizing-angular-apps-for-testing/</guid>
+      <guid>http://prakhar.me/articles/organizing-angular-apps-for-testing/</guid>
       <description>
 
 &lt;p&gt;In the &lt;a href=&#34;/articles/choosing-angular&#34;&gt;last post&lt;/a&gt;, I talked about how we moved away from jQuery to Angularjs to power our single page application. To recap, the major problems with our existing code which convinced us to do a rewrite -&lt;/p&gt;
@@ -279,10 +279,10 @@ files: [
     
     <item>
       <title>Making the Blog Instant</title>
-      <link>http://192.241.186.225/articles/making-the-blog-instant/</link>
+      <link>http://prakhar.me/articles/making-the-blog-instant/</link>
       <pubDate>Sat, 08 Feb 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/making-the-blog-instant/</guid>
+      <guid>http://prakhar.me/articles/making-the-blog-instant/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://instantclick.io/&#34;&gt;InstantClick.js&lt;/a&gt; was &lt;a href=&#34;https://news.ycombinator.com/item?id=7201353&#34;&gt;released&lt;/a&gt; on Hacker News today and I thought I will give it a whirl on my blog.&lt;/p&gt;
 
 &lt;p&gt;InstantClick is a simple library takes makes your pages faster by prefetching the target URL on hover (&amp;amp; touchstart in case of mobile). Based on the concept of &lt;a href=&#34;https://github.com/rails/turbolinks&#34;&gt;Turbolinks&lt;/a&gt; and &lt;a href=&#34;http://pjax.heroku.com/&#34;&gt;PJAX&lt;/a&gt; it works by utilizing the 200ms-300ms difference between a hover and a click to fetch the target content via an Ajax call. The obvious downside to this is that the server will have to serve requests that the user never really clicks on. The library also provides a &lt;code&gt;mousedown&lt;/code&gt; event that can be used in place of &lt;code&gt;hover&lt;/code&gt; for prefetching which can serve to reduce load on the webserver and still make the site feel fast.&lt;/p&gt;

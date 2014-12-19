@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Side Projects Nodejs on cat /dev/random</title>
-    <link>http://192.241.186.225/tags/side-projects-nodejs/</link>
+    <link>http://prakhar.me/tags/side-projects-nodejs/</link>
     <description>Recent content in Side Projects Nodejs on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Mon, 14 Jul 2014 12:34:58 AST</lastBuildDate>
-    <atom:link href="http://192.241.186.225/tags/side-projects-nodejs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://prakhar.me/tags/side-projects-nodejs/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Fun with SparkFun</title>
-      <link>http://192.241.186.225/articles/fun-with-sparkfun/</link>
+      <link>http://prakhar.me/articles/fun-with-sparkfun/</link>
       <pubDate>Mon, 14 Jul 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/fun-with-sparkfun/</guid>
+      <guid>http://prakhar.me/articles/fun-with-sparkfun/</guid>
       <description>&lt;p&gt;This is about a quick hack that I did. Couple of days back, I came across a cool project called &lt;a href=&#34;https://data.sparkfun.com/&#34;&gt;SparkFun&lt;/a&gt; on &lt;a href=&#34;https://news.ycombinator.com/item?id=8015354&#34;&gt;HN&lt;/a&gt; which is free online service to push your data. It allows you to create streams and then push data via a simple HTTP call. The primary motivation behind the service is to enable devices connected via Internet of Things to push data online easily.&lt;/p&gt;
 
 &lt;p&gt;I had been crawling a few websites to need of latest remittance rates to my home country (the rates offered for remittance differ quite substantially from the current spot rates). Its a &lt;a href=&#34;http://casperjs.org/&#34;&gt;casperjs&lt;/a&gt; script that crawls the page and sends me an email. Clearly, email was getting hard to analyse trends and see history - but I was quite lazy to work on setting up persistence for this quick hack. When I saw Sparkfun I instantly knew how I could achieve logging.&lt;/p&gt;

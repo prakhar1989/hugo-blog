@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming Languages on cat /dev/random</title>
-    <link>http://192.241.186.225/tags/programming-languages/</link>
+    <link>http://prakhar.me/tags/programming-languages/</link>
     <description>Recent content in Programming Languages on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Mon, 09 Jun 2014 12:34:58 AST</lastBuildDate>
-    <atom:link href="http://192.241.186.225/tags/programming-languages/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://prakhar.me/tags/programming-languages/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Swift - First Impressions</title>
-      <link>http://192.241.186.225/articles/swift-first-impressions/</link>
+      <link>http://prakhar.me/articles/swift-first-impressions/</link>
       <pubDate>Mon, 09 Jun 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/swift-first-impressions/</guid>
+      <guid>http://prakhar.me/articles/swift-first-impressions/</guid>
       <description>
 
 &lt;p&gt;Last week at WWDC Apple made the most exciting announcement (for developers at least) of launching a new programming language - Swift. Although I have never written a single line of code for iOS (in Objective C) I got so excited that within no time I was installing Xcode 6 to give playground &amp;amp; Swift a shot.&lt;/p&gt;

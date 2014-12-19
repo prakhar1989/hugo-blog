@@ -172,6 +172,12 @@ nav ul {
   margin-bottom: 1rem;
 }
 
+span.post-date.listing-date {
+  color: #a5bac5;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.6rem;
+}
+
 /* HEADER SECTION ENDS */
 
 p.post-meta {

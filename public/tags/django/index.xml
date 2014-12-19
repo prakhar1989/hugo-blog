@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Django on cat /dev/random</title>
-    <link>http://192.241.186.225/tags/django/</link>
+    <link>http://prakhar.me/tags/django/</link>
     <description>Recent content in Django on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Thu, 09 May 2013 12:34:58 AST</lastBuildDate>
-    <atom:link href="http://192.241.186.225/tags/django/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://prakhar.me/tags/django/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Class Based Views</title>
-      <link>http://192.241.186.225/articles/class-based-views/</link>
+      <link>http://prakhar.me/articles/class-based-views/</link>
       <pubDate>Thu, 09 May 2013 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/class-based-views/</guid>
+      <guid>http://prakhar.me/articles/class-based-views/</guid>
       <description>&lt;p&gt;If you&amp;rsquo;ve used Django before, one of the things that you surely miss (apart from the django-admin, of course) is class based (or generic) views. Class based views allow you to structure your views and reuse code by harnessing inheritance and mixins. This allows you to create generic views for routine tasks and simply inherit from them for similar views.&lt;/p&gt;
 
 &lt;p&gt;In flask 0.7 class based views were introduced which act similar to generic

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Founders on cat /dev/random</title>
-    <link>http://192.241.186.225/tags/founders/</link>
+    <link>http://prakhar.me/tags/founders/</link>
     <description>Recent content in Founders on cat /dev/random</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <lastBuildDate>Thu, 20 Feb 2014 12:34:58 AST</lastBuildDate>
-    <atom:link href="http://192.241.186.225/tags/founders/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://prakhar.me/tags/founders/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Why We Dont Sell Ads</title>
-      <link>http://192.241.186.225/articles/why-we-dont-sell-ads/</link>
+      <link>http://prakhar.me/articles/why-we-dont-sell-ads/</link>
       <pubDate>Thu, 20 Feb 2014 12:34:58 AST</pubDate>
       
-      <guid>http://192.241.186.225/articles/why-we-dont-sell-ads/</guid>
+      <guid>http://prakhar.me/articles/why-we-dont-sell-ads/</guid>
       <description>&lt;p&gt;I found this great statement made by the WhatsApp founders on their blog about why they don&amp;rsquo;t rely on ads and instead charge customers for the service. This is getting recirculated now that WhatsApp is looking at being acquired by Facebook at a valuation of around $19B. It interesting to see that while tons of apps rely on advertising as a key part of their business model there are companies who strive to go against it. Whats surprising is that their experience of working at an advertising behemoth, Yahoo, strengthened their resolve even more.&lt;/p&gt;
 
 &lt;hr /&gt;

@@ -3,7 +3,8 @@
       {{ partial "singletop.html" . }}
 
   <div class="container">
-
+      <h1 class="post-title"> <a href="#">Posts</a> </h1>
+      <p></p>
       {{ range .Data.Pages }}
       <div class="row">
         <div class="post-title eight columns">
@@ -20,7 +21,7 @@
         </div>
         <div class="post-meta four columns">
           {{ if not .Params.nodate }}
-          <span class="post-date">
+          <span class="post-date listing-date">
             <span class="post-date-month">{{ .Date.Format "January" }}</span> 
             <span class="post-date-day"> {{ .Date.Format "2" }}, </span>
             <span class="post-date-year">{{ .Date.Format "2006" }}</span>
