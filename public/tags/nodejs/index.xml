@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nodejs on cat /dev/random</title>
+    <link>http://prakhar.me/tags/nodejs/</link>
+    <description>Recent content in Nodejs on cat /dev/random</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    
+    <lastBuildDate>Sat, 24 May 2014 12:34:58 AST</lastBuildDate>
+    <atom:link href="http://prakhar.me/tags/nodejs/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Automated Testing With Newman</title>
+      <link>http://prakhar.me/articles/automated-testing-with-newman/</link>
+      <pubDate>Sat, 24 May 2014 12:34:58 AST</pubDate>
+      
+      <guid>http://prakhar.me/articles/automated-testing-with-newman/</guid>
+      <description>&lt;p&gt;Steve Klabnik, the developer at Balanced recently put up a post on the company blog talking about doing &lt;a href=&#34;http://blog.balancedpayments.com/tdd-your-api/&#34;&gt;TDD for APIs&lt;/a&gt; where he advocates a strong case for following Test Driven Development for APIs. For a lot of companies like Balanced, Stripe, Parse etc the API is their primary product. Hence, it makes sense to have strong development and testing practices for these APIs.&lt;/p&gt;
+
+&lt;p&gt;TDD has taken off quite well with DHH and the ruby community strongly making claims of it solving a lot of problems and guaranteeing robust code. With tools like rspec and cucumber the ruby community has certainly been one of the most vocal proponents of this development methodology.&lt;/p&gt;
+
+&lt;p&gt;After trying a couple of solutions, Steve finally settles down with Cucumber to write specs that test his APIs. Now if you&amp;rsquo;re a Postman user and have Jetpacks installed surely his approach seems too tedious. Compared to setting up Cucumber and writing verbose specs,
+writing simple JS code to run after the API gets a response seems extremely easy and productive - and all of this, right inside postman. Near the end of the article, Steve hits the point home with these lines&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Now that we have a testable validation that our API is working as intended, we can do all kinds of things. We’d like to integrate this suite into our more general continuous integration suite. We’d like to run this test every hour, or every three hours, which can be a form of alerting against regressions.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Until now, since all the tests run inside Postman this was not possible for Jetpack users. However, with &lt;a href=&#34;https://github.com/a85/Newman&#34;&gt;Newman&lt;/a&gt; released this can be as easy as exporting a collection and setting up a trusted Unix scheduler - cron.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s how we can do it with Newman.&lt;/p&gt;
+
+&lt;p&gt;Lets setup a simple script called &lt;code&gt;run_newman&lt;/code&gt; to run our tests&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+
+timestamp=$(date +&amp;quot;%s&amp;quot;) 
+collection=/var/www/myapp/tests/collection.json
+env=/var/www/myapp/tests/envfile.json
+
+# create separate outfile for each run
+outfile=/var/www/myapp/tests/outfile-$timestamp.json
+
+# redirect all output to /dev/null
+newman -c $collection -c $env -o $outfile &amp;gt; /dev/null2&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Make it an executable&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ chmod +x run_newman
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To run Newman every hour, run &lt;code&gt;crontab -e&lt;/code&gt; and enter the following -&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;0 * * * * /path/to/run_newman
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Check your &lt;code&gt;cron&lt;/code&gt; if it has been setup&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ crontab -l
+0 * * * * /path/to/run_newman
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With this, we have Newman ready to run automatically every hour and test our APIs. Do note that instructions of setting up cron vary upon the specific *nix distribution. Make sure to google on how to setup cron for your distribution.&lt;/p&gt;
+
+&lt;p&gt;Lets have it to do one more thing - send us email alerts in case our tests fail. Newman allows users to use a &lt;code&gt;-s&lt;/code&gt; flag to signal a STDERR and halts the run in case any of the tests fail. This makes it very easy to have simple alert logic in the cron script itself.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+
+timestamp=$(date +&amp;quot;%s&amp;quot;) 
+collection=/var/www/myapp/tests/collection.json
+env=/var/www/myapp/tests/envfile.json
+
+# mail settings
+RCVR=&amp;quot;rcvr@example.com&amp;quot;
+SUBJ=&amp;quot;Test Failed&amp;quot;
+
+# create separate outfile for each run
+outfile=/var/www/myapp/tests/outfile-$timestamp.json
+
+# capture newman STDERR status
+command=&amp;quot;$(newman -c $collection -c $env -o $outfile 2&amp;gt;&amp;amp;1 &amp;gt; /dev/null)&amp;quot;
+
+# send mail if STDERR is not 0
+if [ &amp;quot;$?&amp;quot; -ne &amp;quot;0&amp;quot; ]; then
+	mail $RCVR -s &amp;quot;$SUBJ&amp;quot;
+fi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I hope you agree that Newman is an extremely useful tool that you can use with Postman to automate testing of your APIs!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

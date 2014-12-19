@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vim on cat /dev/random</title>
+    <link>http://prakhar.me/tags/vim/</link>
+    <description>Recent content in Vim on cat /dev/random</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    
+    <lastBuildDate>Sat, 22 Feb 2014 12:34:58 AST</lastBuildDate>
+    <atom:link href="http://prakhar.me/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Deal With It</title>
+      <link>http://prakhar.me/articles/deal-with-it/</link>
+      <pubDate>Sat, 22 Feb 2014 12:34:58 AST</pubDate>
+      
+      <guid>http://prakhar.me/articles/deal-with-it/</guid>
+      <description>&lt;p&gt;Hilarious fable on HN featuring the superhero Unix and its trusted sidekick - Vim!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ring ring ring&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;yeah, what&amp;rsquo;s up?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;ins&gt;&lt;a href=&#34;http://www.nagios.org/&#34;&gt;Nagios&lt;/a&gt;&lt;/ins&gt; is paging, something with that code you pushed live a couple hours ago is throwing a fit&amp;hellip; looks like half the web cluster is on the verge of &lt;ins&gt;&lt;a href=&#34;https://help.ubuntu.com/community/SwapFaq/#What_is_swappiness_and_how_do_I_change_it.3F&#34;&gt;going to swap&lt;/a&gt;&lt;/ins&gt;, can you look into it? asap!&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Well, I&amp;rsquo;m on at the bus stop and won&amp;rsquo;t be near a computer for at least an hour&amp;hellip;yeah, I&amp;rsquo;ll sort it out, will text you when we can push fix live.&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;pulls out &lt;a href=&#34;http://www.samsung.com/global/microsite/galaxynote3-gear/&#34;&gt;Note 3&lt;/a&gt;, shitty 3G coverage&lt;/li&gt;
+&lt;li&gt;connects to VPN&lt;/li&gt;
+&lt;li&gt;ssh into dev env with &lt;a href=&#34;https://play.google.com/store/apps/details?id=org.connectbot&amp;amp;hl=en&#34;&gt;connectbot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;switches to &lt;a href=&#34;https://play.google.com/store/apps/details?id=org.pocketworkstation.pckeyboard&#34;&gt;hackerkeyboard&lt;/a&gt; for input mode&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://kb.iu.edu/data/acuy.html&#34;&gt;screen -dr dev&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Ctrl+c&lt;/em&gt; &lt;code&gt;tail join IRC channel that dumps syslogs from production cluster&lt;/code&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:78cc5efcd25af8b0495bd97cbde42be4:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:78cc5efcd25af8b0495bd97cbde42be4:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;sees error&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Ctrl+c&lt;/em&gt; &lt;code&gt;vim the/file/causing/the/unexpected/problem&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;fix the problem&lt;/strong&gt;
+&lt;code&gt;:wq&lt;/code&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:78cc5efcd25af8b0495bd97cbde42be4:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:78cc5efcd25af8b0495bd97cbde42be4:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git stash
+git pull 
+git stash apply
+git commit
+git push
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;Ctrl+d&lt;/em&gt;, exit&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;sends text message &amp;ldquo;good to go!&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;deal with it.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://news.ycombinator.com/item?id=7280853&#34;&gt;Source&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:78cc5efcd25af8b0495bd97cbde42be4:1&#34;&gt;the &lt;code&gt;tail&lt;/code&gt; command is used to print the last lines of a text file. &lt;code&gt;tail -f server_log&lt;/code&gt; is a knee-jerk reaction to any server issue.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:78cc5efcd25af8b0495bd97cbde42be4:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:78cc5efcd25af8b0495bd97cbde42be4:2&#34;&gt;&lt;code&gt;wq&lt;/code&gt; saves a files in vim and closes the text editor
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:78cc5efcd25af8b0495bd97cbde42be4:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

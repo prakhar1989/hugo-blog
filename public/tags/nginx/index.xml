@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nginx on cat /dev/random</title>
+    <link>http://prakhar.me/tags/nginx/</link>
+    <description>Recent content in Nginx on cat /dev/random</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    
+    <lastBuildDate>Fri, 07 Mar 2014 12:34:58 AST</lastBuildDate>
+    <atom:link href="http://prakhar.me/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Flask on Nginx and Gunicorn</title>
+      <link>http://prakhar.me/articles/flask-on-nginx-and-gunicorn/</link>
+      <pubDate>Fri, 07 Mar 2014 12:34:58 AST</pubDate>
+      
+      <guid>http://prakhar.me/articles/flask-on-nginx-and-gunicorn/</guid>
+      <description>
+
+&lt;p&gt;Even after deploying a number of &lt;a href=&#34;http://flask.pocoo.org/&#34;&gt;Flask&lt;/a&gt; apps I always find myself googling up blog posts on how to get the trio of nginx, gunicorn and supervisor working together. Below is simple, straight, no-nonsense guide on how to deploy a flask app on a Linux server using Nginx, Gunicorn and Supervisor.&lt;/p&gt;
+
+&lt;p&gt;A disclaimer: this guide will not tell you what these technologies are. Specifically, I will not talk about why you should use &lt;code&gt;nginx&lt;/code&gt; + &lt;code&gt;gunicorn&lt;/code&gt; instead of &lt;code&gt;apache&lt;/code&gt; + &lt;code&gt;mod_wsgi&lt;/code&gt;. There is plenty of good documentation online which already does that. This is my preferred setup for deploying flask applications and it is extremely simple to get started.&lt;/p&gt;
+
+&lt;h3 id=&#34;setup:97e8e5fc5e66771175bb9d2622c52526&#34;&gt;Setup&lt;/h3&gt;
+
+&lt;p&gt;First off setup a virtualenv. I&amp;rsquo;m a big fan of virtualenv as it helps you keep your global system environment clean.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd flask_app
+$ virtualenv flask_env
+$ source flask_env/bin/activate
+(flask_env)$ pip install flask &amp;amp;&amp;amp; pip install gunicorn
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;gunicorn:97e8e5fc5e66771175bb9d2622c52526&#34;&gt;Gunicorn&lt;/h3&gt;
+
+&lt;p&gt;With that done, lets create a &lt;code&gt;bash&lt;/code&gt; file called &lt;code&gt;gunicorn_start&lt;/code&gt;. The contents of this file are below. What this basically does is sets up the virtualenv and starts the gunicorn server on &lt;code&gt;http://127.0.0.1:8000&lt;/code&gt;. Do remember to customize the variables below as per your setup.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+
+NAME=&amp;quot;my cool flask app&amp;quot;
+FLASKDIR=/Code/flask_app
+VENVDIR=/Code/flask_app/flask_env
+SOCKFILE=/Code/flask_app/sock
+USER=captain
+GROUP=captain
+NUM_WORKERS=3
+
+echo &amp;quot;Starting $NAME&amp;quot;
+
+# activate the virtualenv
+cd $VENVDIR
+source bin/activate
+
+export PYTHONPATH=$FLASKDIR:$PYTHONPATH
+
+# Create the run directory if it doesn&#39;t exist
+RUNDIR=$(dirname $SOCKFILE)
+test -d $RUNDIR || mkdir -p $RUNDIR
+
+# Start your unicorn
+exec gunicorn main:app -b 127.0.0.1:8000 \
+  --name $NAME \
+  --workers $NUM_WORKERS \
+  --user=$USER --group=$GROUP \
+  --log-level=debug \
+  --bind=unix:$SOCKFILE
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To make sure everything is running, attempt a &lt;code&gt;sudo ./gunicorn_start&lt;/code&gt; command&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:97e8e5fc5e66771175bb9d2622c52526:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:97e8e5fc5e66771175bb9d2622c52526:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;. If gunicorn starts up perfectly and doesn&amp;rsquo;t cough any errors you are good to go.&lt;/p&gt;
+
+&lt;h3 id=&#34;nginx:97e8e5fc5e66771175bb9d2622c52526&#34;&gt;Nginx&lt;/h3&gt;
+
+&lt;p&gt;Now that &lt;code&gt;gunicorn&lt;/code&gt; is setup properly we can now move our focus to Nginx. The configuration is quite simple to get it started. The couple of lines below simply tell Nginx to act as a reverse proxy.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Contents of flaskconfig&lt;/strong&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:97e8e5fc5e66771175bb9d2622c52526:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:97e8e5fc5e66771175bb9d2622c52526:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;server {
+    location / {
+        proxy_pass http://127.0.0.1:8000;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To run this configuration you need to save this in &lt;code&gt;/etc/nginx/sites-available&lt;/code&gt;. Assuming your file is &lt;code&gt;flaskconfig&lt;/code&gt;, you need to create a symbolic link in the &lt;code&gt;sites-enabled&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd /etc/nginx
+$ ln -s /etc/nginx/sites-available/flaskconfig /etc/nginx/sites-enabled/flaskconfig
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To test everything is working fine, restart nginx - hopefully the server should restart without any server errors&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:97e8e5fc5e66771175bb9d2622c52526:3&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:97e8e5fc5e66771175bb9d2622c52526:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;. Now &lt;code&gt;cd&lt;/code&gt; into the project directory and start the &lt;code&gt;gunicorn_start&lt;/code&gt; command. Now head over to the domain name and you should see your application running.&lt;/p&gt;
+
+&lt;h3 id=&#34;supervisor:97e8e5fc5e66771175bb9d2622c52526&#34;&gt;Supervisor&lt;/h3&gt;
+
+&lt;p&gt;Supervisor is a client/server system that allows its users to monitor and control a number of processes on UNIX-like operating systems. In simple words, rather than manually starting and stopping &lt;code&gt;gunicorn&lt;/code&gt; you can use supervisor to create a daemon that is easy to manage. Create a new configuration file in &lt;code&gt;/etc/supervisor/conf.d&lt;/code&gt;. To manage supervisor you can use the familiar &lt;code&gt;sudo service supervisor restart&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[program:flask_app]
+command = /Code/flask_app/gunicorn_start
+user = root
+stdout_logfile = /Code/flask_app/logs/gunicorn_supervisor.log
+redirect_stderr = true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;fabric:97e8e5fc5e66771175bb9d2622c52526&#34;&gt;Fabric&lt;/h3&gt;
+
+&lt;p&gt;Fabric is a really cool python library that can be used for application deployment and systems administration. Using nothing but &lt;code&gt;python&lt;/code&gt; you can create deployment / automation scripts. You can have a look at a &lt;code&gt;fabfile&lt;/code&gt; I created for deploying a django application.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from fabric.api import *
+from contextlib import contextmanager as _contextmanager
+
+env.user = &amp;quot;captain&amp;quot;
+env.activate = &amp;quot;source /Code/flask_app/flask_env/bin/activate&amp;quot;
+env.directory = &amp;quot;/Code/flask_app/&amp;quot;
+env.hosts = [&amp;quot;33.33.33.33&amp;quot;]
+
+def prepare_deploy():
+    local(&amp;quot;echo ------------------------&amp;quot;)
+    local(&amp;quot;echo DEPLOYING APP TO PRODUCTION&amp;quot;)
+    local(&amp;quot;git add . &amp;amp;&amp;amp; git commit&amp;quot;)
+    local(&amp;quot;git push -u origin master&amp;quot;)
+    local(&amp;quot;echo APP PUSHED TO PRODUCTION&amp;quot;)
+    local(&amp;quot;echo ------------------------&amp;quot;)
+
+def commit(msg):
+    local(&amp;quot;git add . &amp;amp;&amp;amp; git commit -am %s&amp;quot; % msg)
+
+def deploy():
+    prepare_deploy()
+    with cd(env.directory):
+        run(&amp;quot;git pull&amp;quot;)
+    restart_service()
+
+def restart_service():
+    run(&amp;quot;sudo supervisorctl restart flask_app&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Hopefully, this post has been helpful in giving you a good idea of how you can deploy flask apps on Nginx &amp;amp; Gunicorn. If you have any queries feel free to contact me.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:97e8e5fc5e66771175bb9d2622c52526:1&#34;&gt;Do remember to give the &lt;code&gt;gunicorn_start&lt;/code&gt; script the executable status with the &lt;code&gt;chmod +x gunicorn_start&lt;/code&gt; command.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:97e8e5fc5e66771175bb9d2622c52526:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:97e8e5fc5e66771175bb9d2622c52526:2&#34;&gt;For a more elaborate configuration for a production server, refer to the &lt;a href=&#34;http://gunicorn-docs.readthedocs.org/en/latest/deploy.html&#34;&gt;gunicorn documentation&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:97e8e5fc5e66771175bb9d2622c52526:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:97e8e5fc5e66771175bb9d2622c52526:3&#34;&gt;You can use &lt;code&gt;sudo nginx -t&lt;/code&gt; to identify any configuration related errors.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:97e8e5fc5e66771175bb9d2622c52526:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
