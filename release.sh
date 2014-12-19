@@ -1,5 +1,5 @@
 hugo --theme=skeleton
-git add public/
+git add -A
 git commit
-git push
-ansible digitalocean -m shell -a "cd /home/captain/Code/hugo/ && git pull" -u captain
+git push origin master
+git subtree push --prefix=public git@github.com:prakhar1989/prakhar1989.github.com.git gh-pages

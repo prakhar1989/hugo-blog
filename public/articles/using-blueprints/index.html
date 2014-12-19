@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    Using Blueprints - cat /dev/random | Prakhar Srivastav
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="copyright" content="&copy; Copyright 2012 to Present"/>
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="My name is Prakhar Srivastav and I build stuff. I love programming, Python, Vim and ice tea, not necessarily in that order."/>
+<meta name="keywords" content="blog, web, programming, python, Prakhar Srivastav, Prakhar, Srivastav">
+<meta name="author" content="Prakhar Srivastav">
+
+
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cat /dev/null">
+<meta property="og:description" content="My name is Prakhar Srivastav and I build stuff. I love programming, Python, Vim and ice tea, not necessarily in that order.">
+<meta property="og:url" content="http://prakhar.me/index.html">
+<meta property="og:site_name" content="cat /dev/random">
+<meta http-equiv="cleartype" content="on">
+
+
+  <meta property="og:title" content="Using Blueprints" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://prakhar.me/articles/using-blueprints/" />
+
+
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="http://prakhar.me/css/normalize.css">
+  <link rel="stylesheet" href="http://prakhar.me/css/skeleton.css">
+  <link rel="stylesheet" href="http://prakhar.me/css/main.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
+
+  
+  <link rel="stylesheet" href="http://prakhar.me/css/highlight/github.css">
+  <script src="http://prakhar.me/js/highlight.min.js"></script>
+
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  
+</head>
+
+
+<body>
+      <div class="post-header">
+  <div class="container">
+    <div class="row">
+      <div class="six columns">
+        <h4><a href="/">CAT /DEV/RANDOM</a></h4>
+      </div>
+      <div class="six columns">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="/about" title="About Me"><i class="ion-android-person"></i></a></li>
+            <li><a href="/articles" title="Articles"><i class="ion-ios-paper"></i></a></li>
+            <li><a href="/projects" title="Projects"><i class="ion-social-github"></i></a></li>
+            <li><a href="/quotes" title="Quotes"><i class="ion-quote"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+
+      <section>
+            <h1 class="post-title">
+              <a href="/articles/using-blueprints/">Using Blueprints</a>
+            </h1>
+
+          <div class="post-content-meta">
+
+            
+              <i class="ion-ios-calendar-outline"></i>  
+              <span class="post-date">
+                <span class="post-date-month">May</span> 
+                <span class="post-date-day"> 8, </span>
+                <span class="post-date-year">2014</span>
+              </span> 
+            
+
+            
+            
+                <span class="post-tag"> in </span>
+                
+                <a class="post-tag post-tag-python" href="http://prakhar.me/tags/python">
+                  <i class="ion-ios-pricetag-outline"></i>python</a>
+                
+                <a class="post-tag post-tag-flask" href="http://prakhar.me/tags/flask">
+                  <i class="ion-ios-pricetag-outline"></i>flask</a>
+                
+            
+
+         </div>
+
+			
+
+
+			
+
+      <div class="post-content">
+        
+
+<p>In today&rsquo;s short lesson we&rsquo;ll continue where we left off and completely wrap up the topic of code organization by learning about blueprints. <a href="http://flask.pocoo.org/docs/blueprints/">Blueprints</a> have been a rather recent addition to flask (introduced in version 0.7) and were added to help users structure large applications into reusable components.</p>
+
+<h3 id="blueprints:f0cac9f26d40801131474de4fca3c0eb">Blueprints</h3>
+
+<p>What exactly are blueprints? Lets see what the official documentation has to say. <em>Flask uses a concept of blueprints for making application components and supporting common patterns within an application or across applications. Blueprints can greatly simplify how large applications work and provide a central means for Flask extensions to register operations on applications.</em></p>
+
+<p>In other words, blueprints are essential to building a Flask site larger than a few endpoints. Blueprints also allow you to reuse components across multiple apps, or as releasing a set of endpoints as open source libraries that can be easily plugged into other apps. If its still not clear, I&rsquo;m sure some code will drive the point home.</p>
+
+<p>Lets get started. Lets start with a simple app which looks like this -</p>
+
+<pre><code>|-- blogs
+|  |-- __init__.py
+|  |-- views.py
+|  |-- static/
+|  |-- templates/
+|  |  |-- admin/
+|  |  |  |-- index.html
+|  |  |-- posts/
+|  |  |  |-- index.html
+|-- runserver.py
+</code></pre>
+
+<p>I&rsquo;m using the same structure as we discussed in the previous post, however,
+given the scale of the app, I&rsquo;m not using flask-script and instead have a simple
+<code>runserver.py</code> file.</p>
+
+<p>Contents of the <code>views.py</code> file</p>
+
+<pre><code>from flask import render_template
+from blogs import app
+
+# routes for admin section
+@app.route('/admin', defaults={'page': 'index'})
+@app.route('/admin/&lt;page&gt;')
+def admin_show(page):
+  return render_template('admin/index.html', page=page)
+
+# routes for the posts section
+@app.route('/posts', defaults={'page': 'index'})
+@app.route('/posts/&lt;page&gt;')
+def posts_show(page):
+  return render_template('posts/index.html', page=page)
+</code></pre>
+
+<p>Seeing the code above, I&rsquo;m sure that the intent is quite clear. What I&rsquo;m trying
+to do is structure the main components in my application, <code>admin</code> and <code>posts</code> in
+this case, in a single file. In the real world, there will be many more such
+components which follow a common pattern and in such case having them all in
+one place will be a real mess.</p>
+
+<h3 id="restructuring:f0cac9f26d40801131474de4fca3c0eb">Restructuring</h3>
+
+<p>Lets see how we solve this problem using blueprints. I&rsquo;ve created two new
+folders - each for admin and posts and initialized with a blank <code>__init__.py</code>
+file.</p>
+
+<pre><code>|-- blogs
+|  |-- __init__.py
+|  |-- admin/
+|  |  |-- __init__.py
+|  |  |-- views.py
+|  |-- posts/
+|  |  |-- __init__.py
+|  |  |-- views.py
+|  |-- static/
+|  |-- templates/
+|  |  |-- admin/
+|  |  |  |-- index.html
+|  |  |-- posts/
+|  |  |  |-- index.html
+|-- runserver.py
+</code></pre>
+
+<p>Additionally, I&rsquo;ve added two new <code>views.py</code> in each of the folders. Here are the
+contents of the two files</p>
+
+<p><code>admin/views.py</code>:</p>
+
+<pre><code>from flask import Blueprint, render_template
+mod = Blueprint('admin', __name__, url_prefix='/admin')
+
+# route handles for /admin and /admin/page
+@mod.route('/', defaults={'page': 'index'})
+@mod.route('/&lt;page&gt;')
+def show(page):
+  return render_template('admin/index.html', page=page)
+</code></pre>
+
+<p><code>posts/views.py</code>:</p>
+
+<pre><code>from flask import Blueprint, render_template
+mod = Blueprint('posts', __name__, url_prefix='/posts')
+
+# route handles for /posts and /posts/page
+@mod.route('/', defaults={'page': 'index'})
+@mod.route('/&lt;page&gt;')
+def show(page):
+  return render_template('posts/index.html', page=page)
+</code></pre>
+
+<p>What we&rsquo;re trying to do here is a setup the component as a blueprint. When a new
+function is bound using the @mod.route decorator the blueprint will record the
+function <code>show</code> when it is later registered. Blueprints are considered to be
+contained in a folder and the name of this folder is inferred from the second
+argument to the <code>Blueprint</code> constructor (<code>__name__</code> in this case.) The third
+argument, <code>url_prefix</code> is what mounts the blueprint at a specific location.
+Hence, in our admin blueprint will listen to the two endpoints - <code>/admin/</code> and
+<code>/admin/&lt;page&gt;</code>.</p>
+
+<p>Before we use our blueprints we need to register them on our app object. We can
+do this in our main <code>__init__.py</code> file. These are its new contents -</p>
+
+<pre><code>from flask import Flask
+app = Flask(__name__)
+
+# importing as module.. follow this pattern to include more modules
+from blogs.admin.views import mod as adminModule
+from blogs.posts.views import mod as postsModule
+
+# registering the modules
+app.register_blueprint(adminModule)
+app.register_blueprint(postsModule)
+
+# referencing the module views using url_for
+@app.route('/')
+def index():
+    return &quot;&lt;a href='%s'&gt;Admin Section&lt;/a&gt; | \
+            &lt;a href='%s'&gt;Posts Section&lt;/a&gt;&quot; % (url_for('admin.show'),
+                                               url_for('posts.show'))
+</code></pre>
+
+<p>Now that we&rsquo;ve registered our application, test the application and you&rsquo;ll see
+how the blueprints have correctly registered our url endpoints.</p>
+
+<p>I hope this tutorial helped you in understanding what blueprints are and what
+they can do. If you want to follow along, all the code for this tutorial is
+available on my <a href="https://github.com/prakhar1989/flask-tuts/tree/master/lesson-2">github</a>.</p>
+
+<p>In summary, blueprints allow us to modularize our components which can be plugged in our
+app. This makes our components easy to re-use and maintain. If you&rsquo;ve done
+django and you&rsquo;re thinking to yourself that this is how django does <code>apps</code> then
+you&rsquo;re absolutely correct. The idea in both the cases is similar - to have
+resuable and pluggable modular components within your application. To know more
+do read the short write up on the <a href="http://flask.pocoo.org/docs/blueprints/">official flask documentation</a>.</p>
+
+<p>With this we finally wrap up our topic of project structure and organization. If
+you&rsquo;re keen to checkout how a large app is done and see the techniques are done
+I encourage you to checkout this <a href="https://github.com/mitsuhiko/flask/wiki/Large-app-how-to">tutorial</a> on flask wiki.</p>
+
+<p>Next time we&rsquo;ll talk about <strong>Class Based Views</strong> in Flask. See you next time!</p>
+
+      </div>
+	
+			
+
+      </div>
+
+      <div class="row paging">
+			
+          
+          <div class="six columns">
+            <i class="ion-arrow-left-c"></i>
+            <a class="paging-link" href="/articles/newman-is-live/">Newman Is Live</a>
+          </div>
+          
+
+					
+          <div class="paging-newer six columns">
+            <a class="paging-link" href="/articles/enums-in-python/">Enums in Python</a>
+            <i class="ion-arrow-right-c"></i>
+          </div>
+          
+
+      
+       </div>
+
+
+          
+          	
+          
+    </div>
+  </div>
+	
+
+	
+
+    </div>
+      <div class="footer">
+	<hr class="thin" />
+  <p><a href="/about#colophon:6083a88ee3411b0d17ce02d738f69d47">Designed</a> with <i class="ion-ios-heart"></i> by Prakhar Srivastav</p>
+</div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    Swift - First Impressions - cat /dev/random | Prakhar Srivastav
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="copyright" content="&copy; Copyright 2012 to Present"/>
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="My name is Prakhar Srivastav and I build stuff. I love programming, Python, Vim and ice tea, not necessarily in that order."/>
+<meta name="keywords" content="blog, web, programming, python, Prakhar Srivastav, Prakhar, Srivastav">
+<meta name="author" content="Prakhar Srivastav">
+
+
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cat /dev/null">
+<meta property="og:description" content="My name is Prakhar Srivastav and I build stuff. I love programming, Python, Vim and ice tea, not necessarily in that order.">
+<meta property="og:url" content="http://prakhar.me/index.html">
+<meta property="og:site_name" content="cat /dev/random">
+<meta http-equiv="cleartype" content="on">
+
+
+  <meta property="og:title" content="Swift - First Impressions" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://prakhar.me/articles/swift-first-impressions/" />
+
+
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="http://prakhar.me/css/normalize.css">
+  <link rel="stylesheet" href="http://prakhar.me/css/skeleton.css">
+  <link rel="stylesheet" href="http://prakhar.me/css/main.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
+
+  
+  <link rel="stylesheet" href="http://prakhar.me/css/highlight/github.css">
+  <script src="http://prakhar.me/js/highlight.min.js"></script>
+
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  
+</head>
+
+
+<body>
+      <div class="post-header">
+  <div class="container">
+    <div class="row">
+      <div class="six columns">
+        <h4><a href="/">CAT /DEV/RANDOM</a></h4>
+      </div>
+      <div class="six columns">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="/about" title="About Me"><i class="ion-android-person"></i></a></li>
+            <li><a href="/articles" title="Articles"><i class="ion-ios-paper"></i></a></li>
+            <li><a href="/projects" title="Projects"><i class="ion-social-github"></i></a></li>
+            <li><a href="/quotes" title="Quotes"><i class="ion-quote"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+
+      <section>
+            <h1 class="post-title">
+              <a href="/articles/swift-first-impressions/">Swift - First Impressions</a>
+            </h1>
+
+          <div class="post-content-meta">
+
+            
+              <i class="ion-ios-calendar-outline"></i>  
+              <span class="post-date">
+                <span class="post-date-month">June</span> 
+                <span class="post-date-day"> 9, </span>
+                <span class="post-date-year">2014</span>
+              </span> 
+            
+
+            
+            
+                <span class="post-tag"> in </span>
+                
+                <a class="post-tag post-tag-swift" href="http://prakhar.me/tags/swift">
+                  <i class="ion-ios-pricetag-outline"></i>swift</a>
+                
+                <a class="post-tag post-tag-programming-languages" href="http://prakhar.me/tags/programming-languages">
+                  <i class="ion-ios-pricetag-outline"></i>programming languages</a>
+                
+            
+
+         </div>
+
+			
+
+
+			
+
+      <div class="post-content">
+        
+
+<p>Last week at WWDC Apple made the most exciting announcement (for developers at least) of launching a new programming language - Swift. Although I have never written a single line of code for iOS (in Objective C) I got so excited that within no time I was installing Xcode 6 to give playground &amp; Swift a shot.</p>
+
+<p>After spending a week with Swift I&rsquo;ve come to the conclusion that it is a very well designed programming language. For a Python/JS developer like me I was able to get productive very easily. It has strong remanents of Scala which is something I definitely I can&rsquo;t dig enough.</p>
+
+<p>Below is a small list of features that I love the most about Swift. Consider this is an initial evaluation only, as I gain more experience I will blog about using Protocols, Enumerations and Generics with more practical examples.</p>
+
+<h3 id="type-inference:9c765f6cd3c9cb3494c0676a5cd8e7b9">Type Inference</h3>
+
+<p>One of the biggest inhibitions that developers with experience in dynamic languages like Python / Ruby have towards static compiled languages is the verbosity in the syntax. Repeatedly declaring <code>String name = &quot;abc&quot;</code> and <code>int age = 23</code> gets frustrating and it might make you think - why isn&rsquo;t my computer smart enough to figure out that <code>23</code> is indeed an integer. In Swift, this is as simple as</p>
+
+<pre><code>let age = 23      // int
+let name = &quot;nasd&quot; // string
+let money = 23.3  // double
+</code></pre>
+
+<p>Modern languages like Go embrace type inference and in my opinion it is one of reasons why Go saw an upsurge of adoption within the Python / Ruby community.</p>
+
+<h3 id="optionals:9c765f6cd3c9cb3494c0676a5cd8e7b9">Optionals</h3>
+
+<p>An optional value either contains a value or a <code>nil</code> to indicate that a value is missing. I first learnt about the <code>Option</code> type in Scala and the benefits of using a dedicated type for this became evident early on. Being a strongly typed language, Swift encourages using optionals to ensure safety.</p>
+
+<pre><code># in the python world one would 
+# do the following
+msg = raw_prompt()
+if msg {
+  // raises a compile error
+  print(msg + &quot;, world&quot;)
+}
+</code></pre>
+
+<p>While this is an accepted practice in lots of languages, the right way in Swift to do this is like this</p>
+
+<pre><code>let msg: String? = &quot;hello&quot;
+</code></pre>
+
+<p>This tells the compiler that the variable <code>msg</code> can have a value or be a <code>nil</code>. Why is this awesome? I think this is definitely better than remembering the arcane rules other programming languages have. For example, in some cases a blank String is <code>truthy</code> while in others it is <code>falsy</code> e.g. Javascript. In PHP as an empty string is <code>falsy</code> one would expect the string <code>&quot;0&quot;</code> to be <code>truthy</code> but its not <em>[this is because the <code>&quot;0&quot;</code> is typecasted into a int]</em>.</p>
+
+<p>How do you use it? Let us assume you have a <code>User</code> object that stores information about a user and you define a collection that stores a collection of the <code>User</code> object. You need to define a <code>findById</code> function that returns the User object associated with that <code>id</code>. Here&rsquo;s how you can do it</p>
+
+<pre><code>func findById(id: Int, users: User[]) -&gt; User? {
+  for u in Users {
+    if u.id == id {
+      return u
+    }	
+  }
+  return nil
+}
+
+// user is bound to value in case nil is not returned
+if let user = findById(1, users) {
+  println(&quot;user found: \(user.name)&quot;)
+} else {
+  println(&quot;user not found&quot;)
+}
+</code></pre>
+
+<p>One last thing that might trip up beginners is the user <code>!</code> to force unwrapping of the optional. Using a <code>!</code> simply means that you&rsquo;re sure the optional contains a value and you want to access it.</p>
+
+<pre><code>if findById(1, users) {
+  println(&quot;user found: \(findById(1, users)!.name)&quot;)
+} else {
+  println(&quot;user not found&quot;)
+}
+</code></pre>
+
+<p>Having optionals helps you keep your mind free from all these rules and helps eliminate potential bugs.</p>
+
+<h3 id="ranges:9c765f6cd3c9cb3494c0676a5cd8e7b9">Ranges</h3>
+
+<p>Very simple and straightforward - ranges are my most preferred way of iterating through a collection of integers. Ranges are present in both Python and Ruby, and I&rsquo;d be lying if I say that I don&rsquo;t miss them in Javascript.</p>
+
+<pre><code>// Swift
+for i in 0..10 {
+  println(i)
+}
+
+// Python
+for i in range(0, 10) {
+  print(i)
+}
+
+// Ruby
+for i in 0..10 {
+  print i
+}
+</code></pre>
+
+<p>Unfortunately usage of ranges in Go are different from the example above. Since there&rsquo;s no way to create an array (or a slice) by just specifying the start and end of the collection, <code>Range(1,20)</code> doesn&rsquo;t work. From the <a href="http://golang.org/ref/spec#RangeClause">documentation</a></p>
+
+<blockquote>
+<p>The expression on the right in the &ldquo;range&rdquo; clause is called the range expression, which may be an array, pointer to an array, slice, string, map, or channel permitting receive operations.</p>
+</blockquote>
+
+<p>One thing that both Go and Swift share (w.r.t. ranges) is ignoring values using the <code>_</code></p>
+
+<pre><code>var (n, answer, base) = (4, 10, 2)
+for _ in 0..n {
+  answer += base
+}
+</code></pre>
+
+<p>This is a nice-to-have feature if you don&rsquo;t want to populate the local namespace.</p>
+
+<h3 id="closures:9c765f6cd3c9cb3494c0676a5cd8e7b9">Closures</h3>
+
+<p>If you have any Javascript experience under your belt, chances are you have used closures. Closures are common in languages in which functions are treated as first-class citizens. I&rsquo;ll not go into details of explaining what closures are but to put it in one line - they are self-contained blocks of code that can be passed around your code. Closures basically capture or <em>close</em> the values of the data from the context in which they were defined.</p>
+
+<p>Swift allows a lot of syntactic sugar when it comes to closures, making them a joy to use. The 4 primary features are</p>
+
+<ul>
+<li>Inferring parameter and return value types from context.</li>
+<li>Implicit returns from single-expression closures</li>
+<li>Shorthand argument names</li>
+<li>Trailing closure syntax</li>
+</ul>
+
+<p>Let me illustrate the points below with a practical example. We will use the <code>sort</code> function which takes a collection and a function (closure) on which the function is sorted.</p>
+
+<pre><code>let fruits = [&quot;apples&quot;, &quot;oranges&quot;, &quot;banana&quot;, &quot;pear&quot;]
+
+func longest(s1: String, s2: String) -&gt; Bool {
+  return countElements(s1) &gt; countElements(s2)
+}
+
+// returns [&quot;oranges&quot;, &quot;banana&quot;, &quot;apples&quot;, &quot;pear&quot;]
+sort(fruits, longest)
+</code></pre>
+
+<p>The equivalent closure for to accomplish the above would be -</p>
+
+<pre><code>sort(fruits, { (s1: String, s2: String) -&gt; Bool in
+  return countElements(s1) &gt; countElements(s2)
+})
+</code></pre>
+
+<p>The code after <code>in</code> begins the closure. We will see how the features provided by Swift makes it much much easier to do the same thing.</p>
+
+<p><strong>Inferring parameter and return value types from context</strong>.</p>
+
+<pre><code>// removing the type information
+sort(fruits, { (s1, s2) in 
+  return countElements(s1) &gt; countElements(s2)
+})
+</code></pre>
+
+<p><strong>Implicit returns from single-expression closures</strong></p>
+
+<pre><code>// remove the explicit return
+sort(fruits, { (s1, s2) in  
+  countElements(s1) &gt; countElements(s2)
+})
+</code></pre>
+
+<p><strong>Shorthand argument names</strong></p>
+
+<pre><code>// $0 refers to the first arg, $1 refers to the second
+sort(fruits, { countElements($0) &gt; countElements($1) })
+</code></pre>
+
+<p><strong>Trailing closure syntax</strong></p>
+
+<pre><code>// syntactic sugar to allow passing a closure outside of a function call
+sort(fruits) { countElements($0) &gt; countElements($1) }
+</code></pre>
+
+<h3 id="map-filter-and-reduce:9c765f6cd3c9cb3494c0676a5cd8e7b9">Map, Filter and Reduce</h3>
+
+<p>Directly incorporated from the functional programming world, the functions <code>map</code> and <code>filter</code> are available on all collections to help you iterate through a collection, perform an operation and return a new collection. The syntax is similar to closure so it is quite intuitive once you get a hang of it.</p>
+
+<pre><code>let numbers = [12, 49, 23, 44, 143]
+
+let squares = numbers.map { $0 * $0 } // squares of numbers
+// squares [144, 2401, 529, 1936, 20449]
+
+let even = numbers.filter { $0 % 2 == 0}  // filter all even
+// even [12, 44]
+
+let sum = numbers.reduce(0, combine: {$0 + $1}) // finding the sum of the elements
+// sum 271
+</code></pre>
+
+<p>If you haven&rsquo;t tried Swift yet, I encourage you to give it a shot. Its a fun language and Apple&rsquo;s building a great ecosystem around it. Expect people to share their playground files with cool demos once Xcode 6 becomes stable. I am super excited to see what the future holds!</p>
+
+      </div>
+	
+			
+
+      </div>
+
+      <div class="row paging">
+			
+          
+          <div class="six columns">
+            <i class="ion-arrow-left-c"></i>
+            <a class="paging-link" href="/articles/no-excuses/">No Excuses</a>
+          </div>
+          
+
+					
+          <div class="paging-newer six columns">
+            <a class="paging-link" href="/articles/choosing-angular/">Choosing Angular</a>
+            <i class="ion-arrow-right-c"></i>
+          </div>
+          
+
+      
+       </div>
+
+
+          
+          	
+          
+    </div>
+  </div>
+	
+
+	
+
+    </div>
+      <div class="footer">
+	<hr class="thin" />
+  <p><a href="/about#colophon:6083a88ee3411b0d17ce02d738f69d47">Designed</a> with <i class="ion-ios-heart"></i> by Prakhar Srivastav</p>
+</div>
+
+  </div>
+</body>
+</html>
