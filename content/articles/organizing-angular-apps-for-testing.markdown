@@ -169,7 +169,6 @@ files: [
   'src/services/MessageService.js',
   'tests/unit/specs/*.js'
 ],
-{% endhighlight %}
 ```
 
 Do make sure to include `angular.min.js` and `angular-mocks.js` or you'll be beating yourself with incomprehensible error messages from Angular while running your tests. With that setup, you can run `karma start tests/karma.conf.js --single-run`. 

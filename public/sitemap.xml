@@ -203,6 +203,16 @@
   </url>
   
   <url>
+    <loc>http://prakhar.me/quotes/datastructures/</loc>
+    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://prakhar.me/projects/</loc>
+    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://prakhar.me/quotes/distrsys/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
@@ -213,27 +223,17 @@
   </url>
   
   <url>
-    <loc>http://prakhar.me/quotes/sicp/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://prakhar.me/projects/</loc>
-    <lastmod>0001-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://prakhar.me/quotes/learn/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://prakhar.me/quotes/streams/</loc>
+    <loc>http://prakhar.me/quotes/sicp/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://prakhar.me/quotes/datastructures/</loc>
+    <loc>http://prakhar.me/quotes/streams/</loc>
     <lastmod>0001-01-01T00:00:00+00:00</lastmod>
   </url>
   
