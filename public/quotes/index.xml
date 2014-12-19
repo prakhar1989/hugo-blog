@@ -23,26 +23,6 @@
     
     <item>
       <title></title>
-      <link>http://192.241.186.225/quotes/language/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>http://192.241.186.225/quotes/language/</guid>
-      <description>&lt;p&gt;It is not a language&amp;rsquo;s weakness but its strengths that control the gradient of its change: Alas, a language never escapes its embryonic sac.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://192.241.186.225/quotes/learn/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-      
-      <guid>http://192.241.186.225/quotes/learn/</guid>
-      <description>&lt;p&gt;At its best, starting a startup is merely an ulterior motive for curiosity. And you’ll do it best if you introduce the ulterior motive toward the end of the process. So here is the ultimate advice for young would-be startup founders, boiled down to two words: just learn&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>http://192.241.186.225/quotes/distrsys/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
       
@@ -58,6 +38,26 @@
       
       <guid>http://192.241.186.225/quotes/sicp/</guid>
       <description>&lt;p&gt;From an educational point of view, our experience suggests that undergraduate computer science courses should emphasize basic notions of modularity, specification, and data abstraction, and should not let these be displaced by more advanced topics, such as design patterns, object-oriented methods, concurrency, functional languages, and so on.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://192.241.186.225/quotes/language/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>http://192.241.186.225/quotes/language/</guid>
+      <description>&lt;p&gt;It is not a language&amp;rsquo;s weakness but its strengths that control the gradient of its change: Alas, a language never escapes its embryonic sac.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://192.241.186.225/quotes/learn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>http://192.241.186.225/quotes/learn/</guid>
+      <description>&lt;p&gt;At its best, starting a startup is merely an ulterior motive for curiosity. And you’ll do it best if you introduce the ulterior motive toward the end of the process. So here is the ultimate advice for young would-be startup founders, boiled down to two words: just learn&lt;/p&gt;
 </description>
     </item>
     

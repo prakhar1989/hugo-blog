@@ -68,6 +68,11 @@ blockquote p {
   margin-bottom: 0;
 }
 
+div.footnotes {
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
 /* SITE WIDE ENDS */
 
 .post-header {
@@ -128,18 +133,17 @@ div.post-title a.title {
   font-size: 1.8rem;
 }
 
-span.post-date {
-  font-size: 1.7rem;
-  color: #526F7F;
-  opacity: 0.8;
+h1.post-title {
+  margin-bottom: 1rem;
 }
+
 h1.post-title a {
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: 0.1rem;
   text-decoration: none;
   color: #69808c;
-  font-size: 2.4rem;
+  font-size: 1.8rem;
 }
 
 
@@ -194,7 +198,7 @@ div.post-meta, .paging {
 }
 
 .post-content {
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .post-content-meta {
@@ -346,6 +350,18 @@ div.recent p.desc {
     margin-top: 2rem;
     margin-bottom: 1rem;
     font-weight: 800;
+  }
+
+  h1.post-title a {
+    font-size: 2.4rem;
+  }
+
+  .post-content {
+    margin-top: 3rem;
+  }
+
+  h1.post-title {
+    margin-bottom: 2rem;
   }
 
 }
