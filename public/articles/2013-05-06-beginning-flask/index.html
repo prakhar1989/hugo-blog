@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>
+    Beginning Flask // cat /dev/random
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+
+
+  <meta property="og:title" content="Beginning Flask" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://localhost:1313/articles/2013-05-06-beginning-flask/" />
+
+
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Source+Serif+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="http://localhost:1313/css/normalize.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/skeleton.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/main.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="cat /dev/random" />
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/highlight/github.css">
+  <script src="http://localhost:1313/js/highlight.min.js"></script>
+
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  
+</head>
+
+
+<body>
+      <div class="post-header">
+  <div class="container">
+    <div class="row">
+      <div class="eight columns">
+        <h4><a href="/">CAT /DEV/RANDOM</a></h4>
+      </div>
+      <div class="four columns">
+        <ul class="nav-list">
+          <li><a href="/about">About</a></li>
+          <li><a href="/articles">Blog</a></li>
+          <li><a href="/projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+
+      <section>
+            <h1 class="post-title">
+              <a href="/articles/2013-05-06-beginning-flask/">Beginning Flask</a>
+            </h1>
+
+          <div class="post-content-meta">
+
+            
+              <span class="post-tag"> Published on  </span>
+              <span class="post-date">
+                <span class="post-date-month">May</span> 
+                <span class="post-date-day"> 6, </span>
+                <span class="post-date-year">2013</span>
+              </span> 
+            
+
+            
+              <span class="post-tag"> in </span>
+            
+                
+                  <a class="post-tag post-tag-python" href="http://localhost:1313/tags/python">#python</a>
+                
+                  <a class="post-tag post-tag-flask" href="http://localhost:1313/tags/flask">#flask</a>
+                
+                  <a class="post-tag post-tag-intros" href="http://localhost:1313/tags/intros">#intros</a>
+                
+            
+
+         </div>
+
+			
+
+			
+
+      <div class="post-content">
+        <p>I&rsquo;ve been meaning to start a write a series on <a href="http://flask.pooco.org">Flask</a> which is a micro-framework for developing web applications in python. In Ruby parlance, flask is to <a href="http://www.sinatrarb.com/">Sinatra</a> what Django is to Rails.</p>
+
+<p>The nicest thing (and most confusing for beginners) about Flask is that its quite barebones on the onset. A simple <code>hello world</code> application in Flask is just about 7 lines as shown below. However, going from hello world to full fledged application is a daunting task in itself for a beginner.</p>
+
+<pre><code>from flask import Flask
+app = Flask(__name__)
+@app.route('/')
+def hello():
+  return &quot;hello world&quot;
+if __name__ == &quot;__main__&quot;:
+  app.run()
+</code></pre>
+
+<p>Almost all of the material found in this guide will be available from other sources namely flask&rsquo;s excellent documentation and the countless flask projects on Github. However, I&rsquo;ll try my best to write a comprehensive post on each topic for that day the matter for which will be collected through the flask docs, projects on github and the mailing list.</p>
+
+<p>As a disclaimer: I&rsquo;m new to flask myself and I&rsquo;m constantly learning. While building a couple of apps in flask I&rsquo;ve found myself stumbling on a few aspects like project organization, ORM and deployment very frequently. Having a lot of choices at your disposal might not always be best for productivity. Through this guide, I aim to help you in making the right choices by sharing the best practices involved in building flask apps.</p>
+
+<p>The idea is to write on a topic each day, detailed with code examples
+and references for further reading. To get the most out of each post, it
+is expected that you&rsquo;ll type out the code for yourself. The best way to
+learn is by doing.</p>
+
+<p>I&rsquo;ll start the series with <strong>Project Structure and Organization</strong>. See you next time!</p>
+
+      </div>
+	
+			
+
+      </div>
+
+      <div class="row paging">
+			
+          
+          <div class="six columns">
+            <span>&larr;</span>
+            <a class="paging-link" href="/articles/2013-05-12-enums-in-python/">Enums in Python</a>
+          </div>
+          
+
+					
+          <div class="paging-newer six columns">
+            <a class="paging-link" href="/articles/application-structure/">Application Structure</a>
+            <span>&rarr;</span>
+          </div>
+          
+
+      
+       </div>
+
+
+          
+          	
+          
+    </div>
+  </div>
+	
+
+	
+
+    </div>
+      <div class="footer">
+	<hr class="thin" />
+  <p>Designed with ♥ by Prakhar Srivastav. Powered by <a href="http://gohugo.io">Hugo</a>.</p>
+</div>
+
+  </div>
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

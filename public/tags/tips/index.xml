@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tips on cat /dev/random</title>
+    <link>http://localhost:1313/tags/tips/</link>
+    <description>Recent content in Tips on cat /dev/random</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 UTC</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/tips/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Debugging Akamai Headers</title>
+      <link>http://localhost:1313/articles/2014-02-07-debugging-akamai/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/articles/2014-02-07-debugging-akamai/</guid>
+      <description>
+
+&lt;p&gt;If you&amp;rsquo;ve got anything to do with Akamai&amp;rsquo;s caching, surely there must have come a time where you needed to find out whether your content is being cached at Akamai.&lt;/p&gt;
+
+&lt;h2 id=&#34;pragma-headers:d836348edc51b33fb2353b7b58094272&#34;&gt;Pragma Headers&lt;/h2&gt;
+
+&lt;p&gt;The easiest way to test whether your content is cached at Akamai is to do via custom Pragma headers. What are Pragma headers you might say? The HTTP Specification has a simple definition of Pragma headers.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The Pragma general-header field is used to include implementation-specific directives that might apply to any recipient along the request/response chain. All pragma directives specify optional behavior from the viewpoint of the protocol.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In short, Pragma headers specific cache headers&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:d836348edc51b33fb2353b7b58094272:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:d836348edc51b33fb2353b7b58094272:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; that are can be used by any party in the entire chain from request-response (in our case Akamai) to communicate specific caching functionality.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s how you can do it -&lt;/p&gt;
+
+&lt;p&gt;{% highlight bash %}
+~ curl -H &amp;ldquo;Pragma: akamai-x-cache-on&amp;rdquo; -H &amp;ldquo;Pragma: akamai-x-check-cacheable&amp;rdquo; -I &amp;ldquo;&lt;a href=&#34;http://static.xcite.com/skin/frontend/orange/default/images/xcite_logo.png&amp;quot;&#34;&gt;http://static.xcite.com/skin/frontend/orange/default/images/xcite_logo.png&amp;quot;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;HTTP/1.1 200 OK
+Server: nginx/0.8.55
+Content-Type: image/png
+Last-Modified: Sun, 02 Feb 2014 00:29:51 GMT
+ETag: &amp;ldquo;26d8eb2-1c43-4f16181581dc0&amp;rdquo;
+Accept-Ranges: bytes
+Content-Length: 7235
+Cache-Control: max-age=2142389
+Expires: Tue, 04 Mar 2014 04:06:26 GMT
+Date: Fri, 07 Feb 2014 08:59:57 GMT
+Connection: keep-alive
+X-Cache: TCP_MEM_HIT from a168-187-253-133 (AkamaiGHost/6.14.4-12151432) (-)
+X-Check-Cacheable: YES
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;In the above curl request we are sending &lt;strong&gt;Akamai Specific&lt;/strong&gt; Pragma headers to fetch a static &lt;code&gt;png&lt;/code&gt; file from a URL that is on Akamai. The two key response headers that important here are the last two &lt;code&gt;X-Cache&lt;/code&gt; and &lt;code&gt;X-Check-Cacheable&lt;/code&gt;. Below is a curl request to a asset which is not cached by Akamai.&lt;/p&gt;
+
+&lt;p&gt;{% highlight bash %}
+ ~  curl -H &amp;ldquo;Pragma: akamai-x-cache-on&amp;rdquo; -H &amp;ldquo;Pragma: akamai-x-check-cacheable&amp;rdquo; -I &amp;ldquo;&lt;a href=&#34;http://www.xcite.com&amp;quot;&#34;&gt;http://www.xcite.com&amp;quot;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;HTTP/1.1 200 OK
+Server: nginx/0.8.55
+Content-Type: text/html; charset=UTF-8
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Pragma: no-cache
+X-Served-By: 381172-web1 1.0-1549
+X-Frame-Options: sameorigin
+Date: Fri, 07 Feb 2014 09:09:22 GMT
+Set-Cookie: frontend=kbpnphh3o3ohbmvu9j83ioigv6; expires=Fri, 07-Feb-2014 10:09:21 GMT; path=/; domain=.xcite.com; HttpOnly
+X-Cache: TCP_MISS from a217-243-192-27.deploy.akamaitechnologies.com (AkamaiGHost/6.14.3.5-12122608) (-)
+X-Check-Cacheable: NO
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;As you can see, &lt;code&gt;X-Check-Cacheable&lt;/code&gt; here is &lt;code&gt;NO&lt;/code&gt; which indicates that content is not cached on Akamai.&lt;/p&gt;
+
+&lt;p&gt;I just used 2 pragma headers for testing, there are few others pragma headers that you can use to get even more information&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;akamai-x-cache-on&lt;/li&gt;
+&lt;li&gt;akamai-x-cache-remote-on&lt;/li&gt;
+&lt;li&gt;akamai-x-check-cacheable&lt;/li&gt;
+&lt;li&gt;akamai-x-get-cache-key&lt;/li&gt;
+&lt;li&gt;akamai-x-get-extracted-values&lt;/li&gt;
+&lt;li&gt;akamai-x-get-nonces&lt;/li&gt;
+&lt;li&gt;akamai-x-get-ssl-client-session-id&lt;/li&gt;
+&lt;li&gt;akamai-x-get-true-cache-key&lt;/li&gt;
+&lt;li&gt;akamai-x-serial-no&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See you next time!&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:d836348edc51b33fb2353b7b58094272:1&#34;&gt;To learn more about caching and headers go through this &lt;a href=&#34;http://www.mnot.net/cache_docs/&#34;&gt;awesome blog post&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:d836348edc51b33fb2353b7b58094272:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

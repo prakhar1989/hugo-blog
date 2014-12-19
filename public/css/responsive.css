@@ -1,0 +1,91 @@
+@media (max-width:1200px){
+
+}
+@media (max-width:1024px){
+	.home_page_post_area .home_single_post .thumbnails a {
+	  width: 305px;
+	}
+}
+@media (max-width:992px){
+
+}
+@media (max-width:768px){
+	.home_page_post_area .home_single_post .thumbnails a {
+	  width: 232px;
+	}
+	.home_page_post_area .home_single_post .post_content_area .single_post_content > h5 {
+	  font-size: 22px;
+	}
+	.home_page_post_area .home_single_post .post_content_area .single_post_content > h5 a {
+	  margin: 9px 0 0;
+	}
+	/*shortcode style*/
+	.alert_yellow, .alert_red, .alert_blue, .alert_gray{
+		font-size:16px;
+	}
+}
+@media (max-width:767px){
+	#expand_content_menu{
+		position:absolute;
+	}
+}
+@media (max-width:640px){
+
+}
+@media (max-width:480px){
+	.home_page_post_area .home_single_post .thumbnails a img {
+	  height: auto !important;
+	  width: 100%;
+	}
+	.home_page_post_area .home_single_post .thumbnails a {
+	  height: auto;
+	  width: 141px;
+	}
+	.home_page_post_area .home_single_post .single_post_content .single_blockquote h2 {
+	  font-size: 26px;
+	  line-height: 40px;
+	}
+	.single_page_post_area .conmment_form .form-group .control-label {
+	  display: block;
+	  padding-left: 20px;
+	}
+	.single_page_post_area .comment_area .post_content_area .single_comment .single_comment {
+	  margin-left: 20px;
+	}
+	.single_page_post_area .home_single_post .post_content_area .single_post_content h1 {
+	  font-size: 33px;
+	}
+}
+@media (max-width:320px){
+	.profile_area .profile_inner h2 {
+	  font-size: 29px;
+	  line-height: 40px;
+	}
+	.replay_area {
+	  display: block;
+	  float: left;
+	  text-align: left;
+	  width: 100%;
+	}
+	.home_page_post_area .home_single_post .post_content_area .single_post_content div.post_info .replay_area a {
+	  float: left;
+	  margin: 16px 0 0;
+	}
+	.home_page_post_area .home_single_post .thumbnails a {
+	  display: block;
+	  float: none;
+	  height: auto;
+	  margin: 9px auto;
+	  width: 180px;
+	}
+	.home_page_post_area .home_single_post .post_content_area .single_post_content h2 > a {
+	  font-size: 30px;
+	}
+	.home_page_post_area .home_single_post .post_content_area .single_post_content > h5 {
+	  font-size: 15px;
+	  padding: 10px;
+	}
+	.home_page_post_area .home_single_post .post_content_area .single_post_content h2 {
+	  font-size: 24px;
+	}
+}

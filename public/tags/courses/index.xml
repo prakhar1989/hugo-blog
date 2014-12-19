@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Courses on cat /dev/random</title>
+    <link>http://prakhar.me/tags/courses/</link>
+    <description>Recent content in Courses on cat /dev/random</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    
+    <lastBuildDate>Wed, 10 Dec 2014 12:34:58 AST</lastBuildDate>
+    <atom:link href="http://prakhar.me/tags/courses/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Mining of Massive DataSets - A Review</title>
+      <link>http://prakhar.me/articles/mining-of-massive-datasets---a-review/</link>
+      <pubDate>Wed, 10 Dec 2014 12:34:58 AST</pubDate>
+      
+      <guid>http://prakhar.me/articles/mining-of-massive-datasets---a-review/</guid>
+      <description>
+
+&lt;p&gt;If you&amp;rsquo;ve been keeping track, I&amp;rsquo;ve hardly published a single article in the last month. In my defense, the last 7 months have been extremely hectic. High work pressure and a rather dense online course kept most of the drafts from seeing the light of day.   Before I jump in reviewing the course i.e. &lt;a href=&#34;https://www.coursera.org/course/mmds&#34;&gt;Mining Massive DataSets (MMDS)&lt;/a&gt;, here&amp;rsquo;s a quick short story for some context.&lt;/p&gt;
+
+&lt;p&gt;I first stumbled onto MMDS or &lt;a href=&#34;http://mmds.org/&#34;&gt;CS246&lt;/a&gt; (as its called in Stanford), a graduate level course on (you guessed it) data mining in early 2012 when I had recently finished Andrew Ng&amp;rsquo;s course on Machine Learning. With professors like Anand Rajaraman (of Amazon) and Jeff Ullman teaching the course and making their book freely available, I got quite interested and wished that it be offered on Coursera some day. Fast forward 2 years and I see a mail from Coursera informing me that the course is up for grabs. Without hesitating, I hurriedly signed up and waited eagerly for the course to start.&lt;/p&gt;
+
+&lt;p&gt;The course lasted for around 8 weeks comprising of long lectures, quizzes and a final exam which I gave just a couple of days back. MMDS came on HN where I also posted a similar review. I&amp;rsquo;m reposting it here with minor changes. For the impatient ones a TL;DR -&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If you&amp;rsquo;re interested in Machine Learning and Data Mining and want to learn with what kind of challenges are posed by huge datasets in applying standard algorithms, then you&amp;rsquo;ll find this course extremely valuable.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;For the rest of you, here&amp;rsquo;s a few things that I liked -&lt;/p&gt;
+
+&lt;h3 id=&#34;faculty:61d6eae03e4f24448d625cdc6f6abc5e&#34;&gt;Faculty&lt;/h3&gt;
+
+&lt;p&gt;Like most MOOCs, MMDS is taught by one of the best faculty from the field. I&amp;rsquo;ve been an avid follower of Anand Rajaraman&amp;rsquo;s &lt;a href=&#34;http://anand.typepad.com/datawocky/&#34;&gt;blog&lt;/a&gt; before I joined this course and I have to say the enthusiasm of the faculty is infectious and their expertise with the material is markedly evident.&lt;/p&gt;
+
+&lt;h3 id=&#34;difficulty:61d6eae03e4f24448d625cdc6f6abc5e&#34;&gt;Difficulty&lt;/h3&gt;
+
+&lt;p&gt;MMDS is a CS graduate level course (CS246) from Stanford. That means the topics are not trivial, the lectures are dense and you as a student are expected to invest significant time into understanding the material. On average I spent around 6-8 hours per week on the lectures and quizzes. Since this is hard, grasping the concepts and getting the quiz right is quite gratifying. There&amp;rsquo;s also an advanced section for students who want to challenge themselves more. As an incentive, a certificate of achievement with distinction is awarded to these students.&lt;/p&gt;
+
+&lt;h3 id=&#34;material:61d6eae03e4f24448d625cdc6f6abc5e&#34;&gt;Material&lt;/h3&gt;
+
+&lt;p&gt;The syllabus and the topics covered in this blog are extremely relevant for any one aspiring to work in the data mining / machine learning field. Having done Andrew Ng&amp;rsquo;s ML course, this course acts a perfect supplement and covers a lot of practical aspects of implementing the algorithms when applied to massive data sets. For example, a recent lecture talked about how the &lt;a href=&#34;http://www.dmi.unict.it/~apulvirenti/agd/BFR98.pdf&#34;&gt;BFR algorithm&lt;/a&gt; for finding clusters works better than k-means for a very large dataset.&lt;/p&gt;
+
+&lt;h3 id=&#34;book:61d6eae03e4f24448d625cdc6f6abc5e&#34;&gt;Book&lt;/h3&gt;
+
+&lt;p&gt;The accompanying MMDS book is just awesome and the lectures build upon the content and examples from it. For someone who finds the book a bit too challenging (probably because your math is a bit rusty) the lectures make the material quite approachable.&lt;/p&gt;
+
+&lt;h3 id=&#34;final-exam:61d6eae03e4f24448d625cdc6f6abc5e&#34;&gt;Final Exam&lt;/h3&gt;
+
+&lt;p&gt;This was my first course where there was a final exam and in my opinion it made the experience more rewarding. Two exams of 3 hours and 2 hours did take a toll but revising the content at the end helped build a mental model of the concepts and grasp the big picture better, all of which at the end of the day made the learning experience more rewarding and fruitful.&lt;/p&gt;
+
+&lt;p&gt;And a few things which could&amp;rsquo;ve been better -&lt;/p&gt;
+
+&lt;h3 id=&#34;theoretical:61d6eae03e4f24448d625cdc6f6abc5e&#34;&gt;Theoretical&lt;/h3&gt;
+
+&lt;p&gt;The course is primarily theoretical in both its presentation and exercises. This is not to say that algorithms are presented without examples, but that the examples (and the quizzes even more so) are trivial and do not do a great job in illustrating the issues with implementing or applying various algorithms in real-life datasets.&lt;/p&gt;
+
+&lt;h3 id=&#34;programming-assignments:61d6eae03e4f24448d625cdc6f6abc5e&#34;&gt;Programming Assignments&lt;/h3&gt;
+
+&lt;p&gt;In sharp contrast to Andrew Ng&amp;rsquo;s course, there are no compulsory programming assignments. The exercises are all quizzes which check how well you have understood the concepts. There is just one programming assignment which is also optional.&lt;/p&gt;
+
+&lt;h3 id=&#34;conclusion:61d6eae03e4f24448d625cdc6f6abc5e&#34;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Overall, I&amp;rsquo;m really glad I did this course. The professors emphasize citing industry examples wherever necessary (the PageRank algorithm and accompanying Google&amp;rsquo;s implementation was covered for 3 lectures), which is a welcome change from other CS courses. Along with the book, I believe the course is a wonderful primer to the field of Data Mining.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
