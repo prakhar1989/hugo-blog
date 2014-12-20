@@ -1,3 +1,1 @@
-> Hugo
-
-New Blog in using [Hugo](http://gohugo.io/).
+New Blog. Powered by [Hugo](http://gohugo.io/).

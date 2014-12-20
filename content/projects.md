@@ -39,7 +39,7 @@ I believe that the best way to learn is by working on projects. Below is a growi
       <figcaption>Xcite Checkout page</figcaption>
 		</figure>
 		<p> One of the first work projects to be included in this page as this is a project I'm particularly proud of. In this project I acted as a sole front-end engineer and was responsible for bringing a new technology - Angular.js in our stack of tools. </p>
-    <p>The business proposition thorough this 2-month long project was to enable Guest checkout that would allow a faster and a more seamless checkout for customers who don't wish to register. In the process we made the checkout process as a single-page application and moved from an entangled jQuery codebase to a one in Angular.js. To learn more feel free to go through a few <a href="articles/choosing-angular/">blog</a> <a href="articles/organizing-angular-apps-for-testing/">posts</a> that I've shared on the topic.
+    <p>The business proposition through this 2-month long project was to enable Guest checkout that would allow a faster and a more seamless checkout for customers who don't wish to register. In the process we made the checkout process as a single-page application and moved from an entangled jQuery codebase to a one in Angular.js. To learn more feel free to go through a few <a href="articles/choosing-angular/">blog</a> <a href="articles/organizing-angular-apps-for-testing/">posts</a> that I've shared on the topic.
 		</p>
 	</div>
 </li>
@@ -80,12 +80,12 @@ I believe that the best way to learn is by working on projects. Below is a growi
 
 <li>
 	<div class="project-item">
-		<h3><a href="https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo">Postman Interceptor</a></h3>
+		<h3>Postman Interceptor</h3>
 		<p class="tech-stack">Javascript, Sinon.js, Chrome Extension</p>
 <p><a href="https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo">Postman Interceptor</a> is a chrome extension that gives <a href="http://getpostman.com">Postman</a> wings! It enables Postman to send restricted headers i.e. headers that cannot be sent via XmlHttpRequest like User-Agent, Referrer etc. and send cookie information with any request.</p>
 <p>The killer feature in this extension is the ability to capture any requests sent by the browser and forward them to Postman for inspection. If you are looking at inspecting the API calls that your website is making then all you need to do is just turn on this extension and all your requests will be forwarded to Postman for you to inspect the headers, the form data and body. From a technical standpoint this was my foray into developing a chrome application - an ecosystem for which I have become quite fond of post the project. Writing tests for an extension was challenging but with the availability of stubs and mocks in <a href="#">Sinon</a> they became a breeze.</p>
 <a class="button" href="https://github.com/a85/newman"> <i class="ion-fork-repo"></i> Fork on Github </a>
-<a class="button button-primary" href="https://www.npmjs.org/package/newman"> <i class="ion-social-chrome"></i> Get it on Chrome</a>
+<a class="button button-primary" href="https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo"> <i class="ion-social-chrome"></i> Get it on Chrome</a>
 <p>Here is a short 20sec demo on how it works!</p>
   <iframe height="315" src="//www.youtube.com/embed/Dxf-o_DLSLw" frameborder="0" allowfullscreen></iframe>
   </div>
