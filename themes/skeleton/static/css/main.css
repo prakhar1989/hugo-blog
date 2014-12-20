@@ -165,7 +165,9 @@ nav ul {
   font-size: 1.6rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
-  font-weight: 800;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
 }
 
 .post-header .row {
@@ -365,7 +367,6 @@ div#disqus_area {
     font-size: 1.6rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
-    font-weight: 800;
   }
 
   h1.post-title a {
