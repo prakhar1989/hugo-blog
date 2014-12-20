@@ -282,11 +282,6 @@ p.tech-stack {
   margin-bottom: 0.8rem;
 }
 
-.button.nodejs {
-  background: #80bd01;
-  border: 1px solid #80bd01;
-}
-
 h1.social-me a {
   font-size: 3rem;
   margin-right: 2rem;
@@ -316,6 +311,21 @@ div.recent p.desc {
 
 .intro figure img {
   border-radius: 4px;
+}
+
+/* Disqus */
+
+div#disqus_thread a {
+  color: #5a6e79;
+}
+
+a.publisher-anchor-color {
+  color: #5a6e79;
+}
+
+div#disqus_area {
+  background: #f5f9fc;
+  padding: 2rem;
 }
 
 /* MEDIA QUERIES */

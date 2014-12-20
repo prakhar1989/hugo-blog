@@ -72,11 +72,18 @@
        </div>
 
 
-          {{ if not .Params.nocomment }}
-          	{{ template "_internal/disqus.html" . }}
-          {{ end }}
     </div>
   </div>
+
+  <div class="container">
+    <div class="row" id="disqus_area">
+    {{ if not .Params.nocomment }}
+      {{ partial "disqus.html" }}
+    {{ end }}
+    </div>
+  </div>
+
+
 	{{ if .Params.totop }}
 		<script type="text/javascript">
 			onscroll = function() {
