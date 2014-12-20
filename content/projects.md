@@ -2,6 +2,7 @@
 title = "Projects"
 nopaging = true
 nodate = true
+nocomment = true
 +++
 
 <div class="custom-quote">

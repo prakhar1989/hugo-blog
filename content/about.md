@@ -2,6 +2,7 @@
 title = "About"
 nopaging = true
 nodate = true
+nocomment = true
 +++
 
 Hi there.
@@ -18,8 +19,6 @@ I use this blog as a place to redirect random streams of thoughts (much like `/d
   <a title="LinkedIn" href="https://www.linkedin.com/in/prakharsrivastav"><i class="ion-social-linkedin-outline"></i></a> 
 </h1></p>
 
-<br />
-
 ### Colophon
 
 This website would not have been possible without the open-source contributions of numerous programmers.  It is written in Vim and compiled into HTML 
@@ -30,8 +29,6 @@ For the design, it uses the excellent minimalistic CSS framework called [Skeleto
 For typography, it uses the [Source Serif Pro](https://github.com/adobe-fonts/source-serif-pro) open sourced by Adobe. Sans-serif goodness is provided by [Raleway](https://github.com/theleagueof/raleway).
 
 Lastly, [Git](http://git-scm.com/) is used to publish on Github, where all the code for this website is freely [available](https://github.com/prakhar1989/prakhar1989.github.com).
-
-<br />
 
 ### Subscribe
 

@@ -75,13 +75,13 @@
     </div>
   </div>
 
+  {{ if not .Params.nocomment }}
   <div class="container">
     <div class="row" id="disqus_area">
-    {{ if not .Params.nocomment }}
       {{ partial "disqus.html" }}
-    {{ end }}
     </div>
   </div>
+  {{ end }}
 
 
 	{{ if .Params.totop }}
