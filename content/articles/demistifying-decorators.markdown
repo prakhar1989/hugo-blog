@@ -2,6 +2,7 @@
 title: Demystifying Decorators
 date: 2014-11-03T12:34:58+03:00
 tags: [python, decorators]
+draft: true
 description: "Not your run-of-the-mill post on decorators"
 ---
 
