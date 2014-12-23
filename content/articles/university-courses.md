@@ -2,10 +2,10 @@
 date = "2014-12-23T20:33:29+03:00"
 title = "University Courses"
 tags = ["rant", "courses"]
-description = "Courses and the art of hoarding"
+description = "Courses and the Art of Hoarding"
 +++
 
-It would be an understatement to say that one of my fav pastime is hoarding (no not the kind where I can hoard physical goods to drive up prices). I hoard blog posts, videos, E-books, Dribbble screenshots and almost anything I can lay my hands on in the hope that one day I'll have to time to actually go through it.
+It would be an understatement to say that one of my favorite pastime is hoarding (no not the kind where I can hoard physical goods to drive up prices). I hoard blog posts, videos, E-books, Dribbble screenshots and almost anything I can lay my hands on in the hope that one day I'll have to time to actually go through it.
 
 While working through recent MOOCs and frequently stumbling on academic papers, I felt that there's a whole load of treasure hidden deep within university pages. A course page such as [this](http://www.cs.princeton.edu/~dpw/courses/cos326-12/info.php) has great assignments and lecture notes which would be invaluable if you're familiar with the topic and just want to have fun doing some exercises or if you're looking for an idea for your next project. From lectures notes to videos and assignments, professors are increasingly using the internet to share all course materials. 
 
