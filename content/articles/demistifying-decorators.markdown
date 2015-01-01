@@ -32,7 +32,8 @@ What are **decorators**? Quite simply,
 
 Quite a few articles have been written about decorators for beginner and experienced programmers alike. However, what I've found generally missing is they are littered with fake examples that are hard to relate to. As a result, although you do understand decorators conceptually, its hard to use that knowledge into your next program. 
 
-In this blog post, I intend that cover a very realistic example that I encountered while recently working on a project at my workplace. Hopefully, this will help you understand on how decorators can be used to design more intuitive abstractions in fewer lines of code.
+In this blog post, I intend to demonstrate the usefulness of decorators by 
+using a realistic example that I encountered while recently working on a project at my workplace. Hopefully, this will help you understand on how decorators can be used to design more intuitive abstractions in fewer lines of code.
 
 ### The Problem
 Well lets just say that you are required to make a CRUD app. You are required to just query the database and show the results on a webpage. But this time, you are not allowed to use an ORM as your boss hates everything that has a 3-letter acronym. Your only option now is to write plain-old SQL[^1] to build this app.
@@ -60,7 +61,7 @@ def get_deals(id):
 def get_account(account):
     db = get_db()
     c = db.cursor(DictCursor)
-    c.execute("select name, account from accounts where id = '%s'" % (account,))
+    c.execute("select name, account from accounts where id = '%s'" % (a	ccount,))
     result = c.fetchone()
     return result
 ...
