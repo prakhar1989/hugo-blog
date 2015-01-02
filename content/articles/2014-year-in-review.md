@@ -19,15 +19,15 @@ I think my decision to just go with an [existing theme](https://github.com/mmist
 	<figcaption>Github Contributions Chart 2014</figcaption>
 </figure>
 
-The best part of year, however, was the last month during which a [curated list](https://github.com/prakhar1989/awesome-courses) of CS courses I made grew insanely popular (earning 1500 stars in a single day)! I also feel a bit sheepish to mention that it helped me tick two items off my bucket list - being on Github's trending page and having a personal project submitted my someone else on [HN](https://news.ycombinator.com/item?id=8806910).
+The best part of year, however, was the last month during which a [curated list](https://github.com/prakhar1989/awesome-courses) of CS courses I made grew insanely popular (earning 1500 stars in a single day)! I also feel a bit sheepish to mention that it helped me tick two items off my bucket list - being on Github's trending page and having a personal project submitted by someone else on [HN](https://news.ycombinator.com/item?id=8806910).
 
 ### New Tech
 
 I experimented with few new frameworks and programming languages this year. On the Javascript side, I got a chance early on to use Angular at my workplace where we rebuilt the entire checkout functionality. My work on Postman also introduced me to Node.js where my experience was earlier restricted to "Hello World". To get out of my comfort zone of web development, I set aside time for learning Android and built my first mobile app this year. 
 
-On the programming languages front, my focus this year was experimenting more with functional programming languages. I spent around a month with OCaml while working through a course. Unfortunately, I was not able to come up with a useful project where I could use it, so my knowledge in OCaml languished. 
+On the programming languages front, my focus this year was experimenting more with functional programming languages. I spent around a month with [OCaml](https://ocaml.org/) while working through a course. Unfortunately, I was not able to come up with a useful project where I could use it, so my knowledge in OCaml languished. 
 
-I also spent a few weeks with Rust which happened when I was quite burnt out from work and desperately wanted a change. Playing with Rust was more fruitful as I was able to send a few Pull requests to a popular rust project. Rust overall seems fantastic and I'm planning to spend more time as it hits 1.0 early 2015.
+I also spent a few weeks with [Rust](http://www.rust-lang.org/) which happened when I was quite burnt out from work and desperately wanted a change. Playing with Rust was more fruitful as I was able to send a few Pull requests to a popular rust project. Rust overall seems fantastic and I'm planning to spend more time as it hits 1.0 early 2015.
 
 ### Courses
 This year I finished one course, Mining Massive DataSets - a two month long Data Mining course on Coursera. For the ones interested, my review can be read [here](http://prakhar.me/articles/mining-of-massive-datasets---a-review/). On the lighter side, I also audited a course on [Nutrition](https://www.coursera.org/course/nutritionforhealth) and spent a few weekends through Ilya Grigorik's [course](https://www.udacity.com/course/ud884) on Web Performance. 
