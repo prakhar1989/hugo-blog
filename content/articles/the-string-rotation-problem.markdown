@@ -19,9 +19,9 @@ array `a` is `abc` and array `b` is `defghi`. With that in place, if we carry ou
 
 ```
 AB => abc defghi <br/>
-A<sup>r</sup>B => cba defghi <br/>
-A<sup>r</sup>B<sup>r</sup> => cba ihgfed <br/>
-(A<sup>r</sup>B<sup>r</sup>)<sup>r</sup> => BA => defghi abc (answer) <br/>
+A'B => cba defghi <br/>
+A'B' => cba ihgfed <br/>
+(A'B')' => BA => defghi abc<br/>
 ```
 
 This is really a very neat trick to solve the problem, especially the part where you consider one array as a sum of two arrays. The author ends this section with a very interesting tidbit 
