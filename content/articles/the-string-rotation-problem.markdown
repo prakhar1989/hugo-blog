@@ -18,10 +18,10 @@ Here's how it works - Lets assume you have the array `ab`. The array `a` here is
 array `a` is `abc` and array `b` is `defghi`. With that in place, if we carry out the following transformation, we get back exactly what we need.
 
 ```
-AB => abc defghi <br/>
-A'B => cba defghi <br/>
-A'B' => cba ihgfed <br/>
-(A'B')' => BA => defghi abc<br/>
+AB => abc defghi
+A'B => cba defghi
+A'B' => cba ihgfed
+(A'B')' => BA => defghi abc
 ```
 
 This is really a very neat trick to solve the problem, especially the part where you consider one array as a sum of two arrays. The author ends this section with a very interesting tidbit 
