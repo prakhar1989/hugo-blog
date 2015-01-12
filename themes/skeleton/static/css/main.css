@@ -65,7 +65,7 @@ figcaption {
 }
 
 blockquote p {
-  margin-bottom: 0;
+  margin-bottom: 1.2rem;
 }
 
 div.footnotes {
