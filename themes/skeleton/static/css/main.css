@@ -5,6 +5,11 @@ body {
   font-size: 1.5rem;
 }
 
+code, kbd, pre, samp {
+  font-family: "Source Code Pro", monospace;
+  font-size: 1.4rem;
+}
+
 a { text-decoration: none; }
 
 h1, h2, h3, h4, h5, h6, button, .button {
