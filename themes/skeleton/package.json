@@ -14,7 +14,8 @@
   "author": "Prakhar Srivastav",
   "license": "MIT",
   "dependencies": {
-    "gulp-concat-css": "^1.1.1",
+    "gulp-concat": "^2.4.3",
+    "gulp-minify-css": "^0.4.2",
     "gulp-rename": "^1.2.0"
   }
 }
