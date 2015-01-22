@@ -1,0 +1,20 @@
+{
+  "name": "Skeleton",
+  "version": "0.0.1",
+  "description": "A minimal theme for hugo",
+  "repository": "https://github.com/prakhar1989/hugo_blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "theme",
+    "hugo"
+  ],
+  "author": "Prakhar Srivastav",
+  "license": "MIT",
+  "dependencies": {
+    "gulp-concat-css": "^1.1.1",
+    "gulp-rename": "^1.2.0"
+  }
+}
