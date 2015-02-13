@@ -33,17 +33,16 @@ The key differentiating factor between SWIM and other heart-beating / gossip pro
 
 ### SWIM Dissemination Component
 
-In the basic version, the dissemination component simply multicasts this information to the rest of the group. All members receiving this message delete M<sub>j</sub> from its local membership list.
-
-In a more robust version of SWIM, instead of relying on the unreliable and inefficient multicast, the dissemination component piggybacks membership updates on the *ping* and *ack* messages sent by the failure detector protocol. This approach is called the *infection-style* of dissemination which has the benefits of lower packet loss and better latency.
+In the basic version, the dissemination component simply multicasts this information to the rest of the group. All members receiving this message delete M<sub>j</sub> from its local membership list. Information about new members or voluntarily leaving is multicast members in a similar manner.
 
 ### Improvements
+
+**Infection-Style Dissemination** - In a more robust version of SWIM, instead of relying on the unreliable and inefficient multicast, the dissemination component piggybacks membership updates on the *ping* and *ack* messages sent by the failure detector protocol. This approach is called the *infection-style* of dissemination which has the benefits of lower packet loss and better latency.
 
 **Suspicion Mechanism** - Even though the SWIM protocol guards against the scenario where there's congestion between two nodes by pinging `k` nodes, there is still a probability in which case a perfectly healthy process M<sub>j</sub> becomes slow (high load) or becomes unavailable due to a network partition around itself and hence is marked failed by the protocol. 
 
 SWIM reduces the effect of this problem by running a subprotocol called the Suspicion subprotocol whenever a failure is detected by the basic SWIM. In this protocol, when M<sub>i</sub> finds M<sub>j</sub> to be non-responsive (directly and indirectly) it marks it as a *suspect* instead of marking it as failed. It then uses the dissemination component to send this message M<sub>j</sub>: `suspect` to other nodes (via infection-style). Any process that later finds M<sub>j</sub> responding to *ping* un-marks the suspicion and infects the system with the M<sub>j</sub>: `alive` message.
 
-**Time-bounded Completeness** - 
-The basic SWIM protocol detects failures in an average constant number of protocol periods. While every faulty process is guaranteed to be detected *eventually* there is a small probability that due to the random selection of target nodes there might be a considerable delay before a ping is sent to faulty node. 
+**Time-bounded Completeness** - The basic SWIM protocol detects failures in an average constant number of protocol periods. While every faulty process is guaranteed to be detected *eventually* there is a small probability that due to the random selection of target nodes there might be a considerable delay before a ping is sent to faulty node. 
 
-A simple improvement suggested by SWIM to mitigate this is 
+A simple improvement suggested by SWIM to mitigate this is by maintaining an array of known elements and selecting *ping* targets in a round-robin fashion. After the array is completely traversed, the process then randomly shuffles this array and continues the process. This provides a finite upper bound on the time units between successive selections of the same target.
