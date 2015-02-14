@@ -27,6 +27,11 @@ An important thing to note is that the scalability and efficiency of membership 
 	
 The SWIM failure detector uses two parameters - a protocol period `T` and an integer `k` which is the size of failure detection sub-groups.
 
+<figure> 
+  <img src="/images/swim.png" height="100px"> 
+	<figcaption>SWIM Failure Detection</figcaption>
+</figure>
+
 The figure above shows how the protocol works. After every `T` time units, a process M<sub>i</sub> selects a random process from its membership list say M<sub>j</sub> and sends a *ping* to it. It then waits from an *ack* from M<sub>j</sub>. If it does not receive the *ack* within the pre-specified timeout, M<sub>i</sub> indirectly probes M<sub>j</sub> by randomly selecting `k` targets and uses them to send a *ping* to M<sub>j</sub>. Each of these `k` targets then send a *ping* to M<sub>j</sub> on behalf of M<sub>i</sub> and on receiving an *ack* notify M<sub>i</sub>. If, for some reason, none of these processes receive an *ack*, M<sub>i</sub> declares M<sub>j</sub> as failed and hands off the update to the dissemination component.
 
 The key differentiating factor between SWIM and other heart-beating / gossip protocols is how SWIM uses other targets to reach M<sub>j</sub> so as to avoid any congestion on the network path between M<sub>i</sub> and M<sub>j</sub>.
@@ -46,3 +51,6 @@ SWIM reduces the effect of this problem by running a subprotocol called the Susp
 **Time-bounded Completeness** - The basic SWIM protocol detects failures in an average constant number of protocol periods. While every faulty process is guaranteed to be detected *eventually* there is a small probability that due to the random selection of target nodes there might be a considerable delay before a ping is sent to faulty node. 
 
 A simple improvement suggested by SWIM to mitigate this is by maintaining an array of known elements and selecting *ping* targets in a round-robin fashion. After the array is completely traversed, the process then randomly shuffles this array and continues the process. This provides a finite upper bound on the time units between successive selections of the same target.
+
+### CONCLUSION
+
