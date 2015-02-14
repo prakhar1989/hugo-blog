@@ -5,7 +5,7 @@ tags = ["distributed-systems"]
 description = "Failure detection in distributed systems"
 +++
 
-Let's say that you asked to build a distributed database similar to [Cassandra](http://cassandra.apache.org/) for example. Your storage system will store and process large amounts of data running on a huge number of commodity servers. In other words, your system will rely on the power of 100s of nodes to manage data.
+Let's say that you asked to build a distributed database similar to [Cassandra](http://cassandra.apache.org/). Your storage system will store and process large amounts of data running on a huge number of commodity servers. In other words, your system will rely on the power of 100s of nodes to manage data.
 
 At this scale, failures will be the norm rather than the exception. Even if we assume that one node lasts for 1000 days (roughly 3 years), in a cluster of 500 nodes there will be a failure once every 2 days. 
 
