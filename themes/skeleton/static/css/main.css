@@ -62,10 +62,12 @@ input[type="email"]:focus, input[type="search"]:focus, input[type="text"]:focus,
   padding: 3rem;
   width: 80%;
 }
-
+figure {
+  text-align: center;
+}
 figure img {
   width: 100%;
-  max-width: 740px;
+  max-width: 300px;
   height: auto!important;
 }
 
