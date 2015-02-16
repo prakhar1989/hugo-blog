@@ -79,7 +79,7 @@ figcaption {
 }
 
 blockquote p {
-  margin-bottom: 1.2rem;
+  margin-bottom: 0;
 }
 
 div.footnotes {
@@ -107,7 +107,7 @@ div.footnotes {
 blockquote {
   background: #e9f2f7;
   padding: 2rem;
-  margin: 1rem 0;
+  margin: 2rem 0;
 }
 
 h1 { 
@@ -327,6 +327,7 @@ div.recent p.desc {
 
 .intro figure img {
   border-radius: 4px;
+  max-width: none;
 }
 
 /* Disqus */
