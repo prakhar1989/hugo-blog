@@ -5,12 +5,11 @@ nodate = true
 nocomment = true
 +++
 
-<ul id="quotes-list">
-  <li> 
- <h1 class="ion-quote"></i></h1>
+<div class="custom-quote">
+  <h1 class="ion-quote"></i></h1>
   <p>I am a man of vehement disposition, with violent enthusiasms, and extreme immoderation in all my passions. <span class="author"> - Oliver Sacks</span>
-  </p> </li>
-</ul>
+  </p> 
+</div>
 
 Hi there.
 

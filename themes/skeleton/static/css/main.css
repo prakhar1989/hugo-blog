@@ -247,7 +247,8 @@ div.post-meta, .paging {
 
 
 /* QUOTE PAGE */
-div.custom-quote, ul#quotes-list li {
+div.custom-quote, 
+ul#quotes-list li {
   font-family: "Raleway", sans-serif;
   position: relative;
   padding: 15px 0 0 44px;
@@ -255,7 +256,8 @@ div.custom-quote, ul#quotes-list li {
   list-style-type: none;
 }
 
-div.custom-quote h1, ul#quotes-list li h1 {
+div.custom-quote h1, 
+ul#quotes-list li h1 {
   font-size: 4rem;
   position: absolute;
   top: 0;
