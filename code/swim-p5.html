@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.1/p5.min.js"></script>
+    <script src="js/vendor/lodash.min.js"></script>
+</head>
+<body>
+<script>
+    var Canvas = {
+        width: 750,
+        height: 800
+    };
+
+    // draws a downward arrow at x coord of l length
+    var drawArrow = function(x, l, label) {
+        text(label, x, 10);
+        line(x, 20, x, l);
+        line(x, l, x - 20, l - 25);
+        line(x, l, x + 20, l - 25);
+    };
+
+    function drawBackground() {
+        labels = ["Mi", "Mj", "Mk1", "Mk2"];
+        for (var i = 1; i < 5; i++) {
+            drawArrow(100 * i, 400, labels[i-1]);
+        }
+    }
+
+    function setup() {
+        textFont("monospace");
+        createCanvas(Canvas.width, Canvas.height);
+        drawBackground();
+    }
+
+    var a = 100, b = 100, dx = 1, dy = 0.5, c = a, d = b;
+
+    function draw() {
+        if (c >= 100) {
+            line(a, b, c, d);
+            if (c == 200) {
+                dx = -1;
+                a = c;
+                b = d;
+            }
+            c = c + dx;
+            d = d + dy;
+        }
+    }
+</script>
+</body>
+</html>
