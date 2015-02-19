@@ -5,11 +5,18 @@ nodate = true
 nocomment = true
 +++
 
+<ul id="quotes-list">
+  <li> 
+ <h1 class="ion-quote"></i></h1>
+  <p>I am a man of vehement disposition, with violent enthusiasms, and extreme immoderation in all my passions. <span class="author"> - Oliver Sacks</span>
+  </p> </li>
+</ul>
+
 Hi there.
 
-I'm Prakhar Srivastav and I love building things (mostly for the web) and celebrating the joy of programming. In my free time I enjoy gaming, [doing courses](https://www.class-central.com/@prakhar) and trying out new programming languages.
+I'm Prakhar Srivastav and I am passionate about computer science, building things (mostly for the web) and celebrating the joy of programming. In my free time I am generally found gaming, [doing courses](https://www.class-central.com/@prakhar) or trying out new programming languages.
 
-I use this blog as a place to redirect random streams of thoughts (much like `/dev/random`), ideas and rants about software development, programming and other things that interest me.
+This website is about my experimentation in creating and following a system for constant personal growth by writing about my progress, ideas and rants about software development, programming and other things that interest me. 
 
 <p>If you’d like to connect, feel free to <a href="mailto:prakhar1989@gmail.com">email</a> or stalk me elsewhere on the web
 <h1 class="social-me">
