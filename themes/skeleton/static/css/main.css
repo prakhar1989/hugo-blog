@@ -347,6 +347,17 @@ div#disqus_area {
   padding: 2rem;
 }
 
+/* pygments highlighting */
+.highlight {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.highlight pre {
+  line-height: 150%;
+  margin: 0;
+}
 /* MEDIA QUERIES */
 
 /* Larger than phablet */
@@ -399,4 +410,3 @@ div#disqus_area {
   }
 
 }
-
