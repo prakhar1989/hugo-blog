@@ -27,14 +27,11 @@ This website is about my experimentation in creating and following a system for 
 
 ### Colophon
 
-This website would not have been possible without the open-source contributions of numerous programmers.  It is written in Vim and compiled into HTML 
-using [Hugo](http://gohugo.io) - a static site generator in [Go](https://golang.org/). 
+This website is written in [Vim](https://github.com/prakhar1989/dotfiles) and compiled into HTML using [Hugo](http://gohugo.io) - a static site generator in [Go](https://golang.org/). For the design, it uses the excellent minimalistic CSS framework called [Skeleton](http://getskeleton.com). 
 
-For the design, it uses the excellent minimalistic CSS framework called [Skeleton](http://getskeleton.com). Beautiful [icons](http://ionicons.com/) on the site are courtesy of the team behind the awesome [Ionic Framework](http://ionicframework.com/).
+Beautiful [icons](http://ionicons.com/) on the site are courtesy of the team behind the awesome [Ionic Framework](http://ionicframework.com/).  For typography, it uses the [Source Serif Pro](https://github.com/adobe-fonts/source-serif-pro) open sourced by Adobe. Sans-serif goodness is provided by [Raleway](https://github.com/theleagueof/raleway). 
 
-For typography, it uses the [Source Serif Pro](https://github.com/adobe-fonts/source-serif-pro) open sourced by Adobe. Sans-serif goodness is provided by [Raleway](https://github.com/theleagueof/raleway).
-
-Lastly, [Git](http://git-scm.com/) is used to publish on Github, where all the code for this website is freely [available](https://github.com/prakhar1989/prakhar1989.github.com).
+Lastly, [Git](http://git-scm.com/) is used to publish on Github, where all the code for this website is freely [available](https://github.com/prakhar1989/hugo-blog).
 
 ### Subscribe
 
