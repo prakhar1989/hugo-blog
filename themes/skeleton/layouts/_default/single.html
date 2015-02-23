@@ -56,15 +56,13 @@
 			{{ if not .Params.nopaging }}
           {{ if .Next }}
           <div class="six columns">
-            <i class="ion-arrow-left-c"></i>
-            <a class="paging-link" href="{{ .Next.RelPermalink }}">{{ .Next.Title  }}</a>
+            <a class="paging-link" href="{{ .Next.RelPermalink }}"><i class="ion-chevron-left"></i> {{ .Next.Title  }}</a>
           </div>
           {{ end }}
 
 					{{ if .Prev }}
           <div class="paging-newer six columns">
-            <a class="paging-link" href="{{ .Prev.RelPermalink }}">{{ .Prev.Title }}</a>
-            <i class="ion-arrow-right-c"></i>
+            <a class="paging-link" href="{{ .Prev.RelPermalink }}">{{ .Prev.Title }} <i class="ion-chevron-right"></i></a>
           </div>
           {{ end }}
 

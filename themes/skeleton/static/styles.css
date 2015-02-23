@@ -1031,13 +1031,6 @@ a.post-tag {
   font-size: 1.4rem;
 }
 
-div.post-meta, .paging {
-  display: none;
-}
-
-.paging-newer {
-  text-align: right;
-}
 
 .post-content {
   margin-top: 2rem;
@@ -1055,16 +1048,23 @@ div.post-meta, .paging {
   text-align: center;
 }
 
+div.post-meta, .paging {
+  display: none;
+}
+
+.paging-newer {
+  text-align: right;
+}
+
 .paging a {
   font-family: "Raleway", sans-serif;
   text-decoration: none;
   font-size: 1.6rem;
+  background: #eee;
+  color: #5a6e79;
+  padding: 1.2rem;
+  border-radius: 2px;
 }
-
-.paging i {
-  color: #1EAEDB;
-}
-
 
 /* QUOTE PAGE */
 div.custom-quote, 
