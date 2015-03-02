@@ -1169,9 +1169,15 @@ div#disqus_area {
 
 /* pygments highlighting */
 .highlight {
-  padding: 10px;
+  /*padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  */
+}
+
+code {
+  background: white;
+  border: 1px solid #ddd;
 }
 
 .highlight pre {
