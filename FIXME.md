@@ -1,7 +1,7 @@
 Steps to fix fuckups with submodules
 
 ```shell
-$ rm .gitsubmodules
+$ rm .gitmodules
 $ rm .git/modules
 $ vim .git/config #Edit `.git/config` and remove entry for submodul
 $ rm -rf public
