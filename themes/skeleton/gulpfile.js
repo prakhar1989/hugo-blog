@@ -9,7 +9,8 @@ var fileOrder = [
   'static/css/normalize.css', 
   'static/css/skeleton.css', 
   'static/css/main.css', 
-  'static/css/highlight.css'
+  'static/css/highlight.css',
+  'static/css/zoom.css'
 ];
 
 gulp.task('default', function() {

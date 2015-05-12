@@ -10,7 +10,7 @@ This update is coming in a bit late, especially after the week 1 and week 2 upda
 Much to my delight I got selected in GSOC to work for Surveyman! To top it all, 
 I was the [first ever student](http://google-opensource.blogspot.com/2015/05/gsoc-2015-stats-part-1-all-about.html) to represent Kuwait in Google Summer of Code!
   
-<figure><img src="/images/gsoc_kuwait.png"></img>
+<figure><img data-action="zoom" src="/images/gsoc_kuwait.png"></img>
 	<figcaption> Kuwait's first time in GSOC! </figcaption>
 </figure>
 
@@ -20,7 +20,7 @@ With that out of the way, let me quickly summarize the progress I made on the pr
 
 The only challenging part, I felt, was factoring in all these controls in the UI without adding any visual clutter. Filling up the blocks / questions area with various icons didn't feel like a good solution. As a result I spent some time talking to friends and looking for inspiration in other applications. Although I did go ahead with a simple *Trash* icon for delete, the solution for editing question text turned out to be much more interesting.
 
-<figure><img src="/images/delete_edit.png"></img>
+<figure><img data-action="zoom" src="/images/delete_edit.png"></img>
 	<figcaption> In-place editing and deletion for Questions! </figcaption>
 </figure>
 
