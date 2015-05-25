@@ -15,6 +15,6 @@ Long thing short, I had a fantastic time revising the identities, reading handou
 
 Much to my delight, after spending a good deal of time, rummaging thorough some notes and math websites I was able to successfully solve the differential equation! It also inspired me to type down the proof in a LaTeX document so that I could share it with other students. For the time being it seems as if I'm going to write all my notes in LaTeX.
 
-If you're interested, you can checkout the proof [here](https://github.com/prakhar1989/cloud-computing/blob/master/week2.pdf).
+If you're interested, you can checkout the proof [here](https://www.dropbox.com/s/i83c9objmmczcqr/Math_Equations.pdf?dl=0).
 
 <iframe width="100%" height="150" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/22622151&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
