@@ -348,10 +348,9 @@ div#disqus_area {
 
 /* pygments highlighting */
 .highlight {
-  /*padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  */
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 
 code {
@@ -360,7 +359,7 @@ code {
 }
 
 .highlight pre {
-  line-height: 150%;
+  line-height: 135%;
   margin: 0;
 }
 /* MEDIA QUERIES */
