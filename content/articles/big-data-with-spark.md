@@ -9,6 +9,8 @@ Last night I finished the final assignment for the new course that I had been wo
 
 I heard about the course after stumbling upon a laudatory [review](https://news.ycombinator.com/item?id=9702803) by an existing student on Hacker News. After learning that the course involves programming assignments that teach you the Spark API, I couldn't help signing up.
 
+TL;DR - If you're a programmer who wants to explore what the hype on Spark is all about and considers solving [code katas](http://codekata.com/) a great way to spend your evenings, then take this course - you will not be disappointed.
+
 ### Apache Spark
 
 <figure><img data-action="zoom" src="/images/spark.png"></img>
@@ -66,7 +68,4 @@ CS 100.1x is probably the course where I've spent the least amount of time and h
 
 What this goes to show is that the material is light, focused and can be done with quickly if you find it interesting - much like any other crash course. For someone who's curious to understand how Spark works and wants to dip their toes in the water, I doubt there can be a anything more fruitful than spending a couple of weekends working through the programming assignments.
 
-
 Overall, I had a great time learning about the Spark computation model, its API and how it can be efficiently used to process large amounts of data. Although the path from completing this course to setting up a data processing pipeline on a cluster for your company is a tough one, I feel that the material provided me enough tools to go and explore further.
-
-In conclusion, if you're a programmer who's wants to explore what the hype on Spark is all about and considers solving [code katas](http://codekata.com/) a great way to spend your evenings, then take this course - you will not be disappointed.
