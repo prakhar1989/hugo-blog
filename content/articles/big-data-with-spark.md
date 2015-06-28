@@ -5,7 +5,7 @@ tags = ["courses"]
 description = "Thoughts on the Big-data MOOC"
 +++
 
-Last night I finished the final assignment for the new course that I had been working on the past week called [Intro to Big Data with Apache Spark or CS100.1 x](https://www.edx.org/course/introduction-big-data-apache-spark-uc-berkeleyx-cs100-1x). With the course over, I decided to write down a quick review in the hope that it will help others in getting an idea of what they can expect by enrolling in this popular [MOOC](https://en.wikipedia.org/wiki/Massive_open_online_course) by UC Berkeley.
+Last night I finished the final assignment for the new course that I had been working on in the past week called [Intro to Big Data with Apache Spark or CS100.1 x](https://www.edx.org/course/introduction-big-data-apache-spark-uc-berkeleyx-cs100-1x). With the course over, I decided to write down a quick review in the hope that it will help others in getting an idea of what they can expect by enrolling in this popular [MOOC](https://en.wikipedia.org/wiki/Massive_open_online_course) by UC Berkeley.
 
 I heard about the course after stumbling upon a laudatory [review](https://news.ycombinator.com/item?id=9702803) by an existing student on Hacker News. After learning that the course involves programming assignments that teach you the Spark API, I couldn't help signing up.
 
