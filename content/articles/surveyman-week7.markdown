@@ -1,6 +1,6 @@
 +++
 date = "2015-06-08T15:50:49+03:00"
-title = "Week 8 - Surveyman"
+title = "Week 7 - Surveyman"
 description = "Migration to React-DnD 1.0"
 tags = ["react", "surveyman"]
 +++
