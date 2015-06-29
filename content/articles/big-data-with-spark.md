@@ -3,6 +3,7 @@ date = "2015-06-27T20:33:29+03:00"
 title = "Intro to Big Data with Apache Spark"
 tags = ["courses"]
 description = "Thoughts on the Big-data MOOC"
+mastimage = "http://prakhar.me/images/spark.png"
 +++
 
 Last night I finished the final assignment for the new course that I had been working on in the past week called [Intro to Big Data with Apache Spark or CS100.1 x](https://www.edx.org/course/introduction-big-data-apache-spark-uc-berkeleyx-cs100-1x). With the course over, I decided to write down a quick review in the hope that it will help others get an idea of what they can expect by enrolling in this popular [MOOC](https://en.wikipedia.org/wiki/Massive_open_online_course) by UC Berkeley.
@@ -13,7 +14,8 @@ TL;DR - If you're a programmer who wants to explore what the hype on Spark is al
 
 ### Apache Spark
 
-<figure><img data-action="zoom" src="/images/spark.png"></img>
+<figure>
+    <img data-action="zoom" src="/images/spark.png"></img>
 </figure>
 
 So what is [Apache Spark](https://spark.apache.org)? Spark is a fast and general-purpose cluster computing system that is used for large-scale data processing. The project was developed by the [AMPlab](https://amplab.cs.berkeley.edu/) at UC Berkeley and has now evolved into a standalone company - [Databricks](https://databricks.com/) that, among other things, provides enterprise consulting and training for Apache Spark.  
