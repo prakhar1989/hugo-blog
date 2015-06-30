@@ -6,7 +6,7 @@ tags = ["react", "surveyman"]
 mastimage = "http://prakhar.me/images/treeview.png"
 +++
 
-This is my last week at home (India) and given that I'm perfectly ensconced I had a pretty productive week. After the hectic last week which involved traveling, meeting relatives and getting documentation ready for the Visa interview this week was just me sitting at home working on this project.
+This is my last week at home (India) and the fact that I had a pretty productive week shows that I'm ensconced within the comforts of my home. After the hectic last week which involved traveling, meeting relatives and getting documentation ready for the Visa interview this week was just me sitting at home working on this project without any distractions.
 
 So there were three key features that I tackled this week, namely - TreeView, Option Lists and React transitions. Cumulatively, these changed the UI considerably. The app has finally started to look much more polished.
 
@@ -63,7 +63,7 @@ That is where OptionLists come in. Options List make it very convenient to re-us
 Technically, option lists were quite simple to build. At the `Store` I maintain an array of option lists which can later be persisted in [LocalStorage](http://diveintohtml5.info/storage.html). When the user selects an option list from the dropdown I remember that state in the `Store`. Lastly, when an `DraggableOptionList` is dropped on a `Question` I read the index from the `Store` and add the options to the questions. It's just that simple.
 
 ### Transitions
-The last improvement that I really wanted to finish was adding transitions in the application. If you interact with the items for example - try deleting an item you'll notice that it just disappears out of the survey. The result can feel quite jarring. What I wanted to do was find a way to add subtle animations so that the UI feels much more pleasant.
+The last improvement that had been on my mind for a while was to add transitions in the application. If you interact with the items for example - try deleting an item you'll notice that it just disappears out of the survey. The result can feel quite jarring. What I wanted to do was find a way to add subtle animations so that the UI feels much more pleasant.
 
 Unsurprisingly, for transitions I used `ReactCSSTransitionGroup` which is explained quite clearly in the [documentation](https://facebook.github.io/react/docs/animation.html).
 
