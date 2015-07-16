@@ -2,7 +2,7 @@ Steps to fix fuckups with submodules
 
 ```shell
 $ rm .gitmodules
-$ rm .git/modules
+$ rm -rf .git/modules
 $ vim .git/config #Edit `.git/config` and remove entry for submodul
 $ rm -rf public
 $ git add . && git commit -m "cleaning index"
