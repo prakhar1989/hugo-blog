@@ -108,9 +108,9 @@ From the example in the previous section it will be clear that a false positive 
 
 Also, roughly we can say the following about the number of ones -
 
-{% highlight text %}
+```
 number of 1s = (no. of elements x no. of hash functions) - collisions.
-{% endhighlight %}
+```
 
 From the above example, we have `3` input elements and `2` hash functions. Hence there should be `6` bits set to 1. Since we have one collision `g(117) == h(585)` therefore the total number of bits set in our bit array is `5`.
 
