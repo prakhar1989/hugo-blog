@@ -3,7 +3,7 @@ date = "2015-07-31T20:33:29+03:00"
 title = "Scalable Machine Learning"
 tags = ["courses"]
 description = "A quick review on the CS190 Course"
-mastimage = "https://pbs.twimg.com/media/CK4Dbh6VAAAPlqU.png"
+mastimage = "http://prakhar.me/images/zebrafish.png"
 +++
 
 A couple of days ago I finally finished off the last assignment of the [Scalable Machine Learning](https://www.edx.org/course/scalable-machine-learning-uc-berkeleyx-cs190-1x) course. The last few days in Kuwait were a bit tough as I had tons of stuff to do before leaving the country. It turns out leaving Kuwait is even harder than getting there in the first place. Additionally I had set a personal deadline of finishing the course a week before the actual deadline so that I when I reach home I could focus on other work.
