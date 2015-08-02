@@ -14,7 +14,7 @@
           <div class="post-content-meta">
 
             {{ if not .Params.nodate }}
-              <i class="ion-ios-calendar-outline"></i>  
+              <i class="icon-calendar"></i>  
               <span class="post-date">
                 <span class="post-date-month">{{ .Date.Format "January" }}</span> 
                 <span class="post-date-day"> {{ .Date.Format "2" }}, </span>
@@ -27,7 +27,7 @@
                 <span class="post-tag"> in </span>
                 {{ range .Params.tags }}
                 <a class="post-tag post-tag-{{ . | urlize }}" href="{{ $Site.BaseURL}}tags/{{ . | urlize }}">
-                  <i class="ion-ios-pricetag-outline"></i>{{ . }}</a>
+                  <i class="icon-tag"></i>{{ . }}</a>
                 {{ end }}
             {{ end }}
 

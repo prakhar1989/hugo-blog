@@ -6,7 +6,7 @@ var gulp      = require('gulp'),
 
 
 var fileOrder = [
-    'static/css/ionicons.min.css', 
+    'static/fontello/css/fontello.css',
     'static/css/normalize.css', 
     'static/css/skeleton.css', 
     'static/css/main.css', 
