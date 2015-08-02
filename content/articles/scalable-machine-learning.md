@@ -6,9 +6,13 @@ description = "A quick review of the CS190 Course"
 mastimage = "http://prakhar.me/images/zebrafish.png"
 +++
 
+
 A couple of days ago I finally finished the last assignment of the [Scalable Machine Learning](https://www.edx.org/course/scalable-machine-learning-uc-berkeleyx-cs190-1x) course. The last few days in Kuwait were a bit tough as I had tons of stuff to do before leaving the country. It turns out leaving Kuwait is even harder than getting there in the first place. Additionally I had set a personal deadline of finishing the course a week before the actual deadline so that I when I reach home I could focus on other work.
 
+
 Enough of rambling - let's get on with the review. Scalable Machine Learning or CS 190.1x is the second installment in the [Big Data series](https://www.edx.org/xseries) at EdX. The course picks up where the previous one - [CS 100.1x](https://www.edx.org/course/introduction-big-data-apache-spark-uc-berkeleyx-cs100-1x) left off and dives deeper into using Apache Spark's [MLlib](http://spark.apache.org/mllib/) to solve machine learning problems.
+
+> If you're interested to know more about the CS100.1x, go ahead and read the course review for [here](/articles/big-data-with-spark/).
 
 Since MLlib runs on top of Apache Spark it comes with the same benefits as Spark i.e performance, scalability and easy-to-use APIs in Python,
 Scala and Java. The library implements a host of popular machine learning algorithms out of the box such SVM, random forests and k-means clustering. In this course, however, the assignments ended up requiring only logisitic regression and linear regression with L<sub>1</sub> and L<sub>2</sub>-regularization.
