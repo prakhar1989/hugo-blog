@@ -6,7 +6,7 @@ nocomment = true
 +++
 
 <div class="custom-quote">
-  <h1><i class="ion-quote"></i></h1>
+  <h1><i class="icon-quote-left"></i></h1>
   <p> For the things we have to learn before we can do them, we learn by doing them. -  <span class="author">Aristotle</span> </p>
 </div>
 

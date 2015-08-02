@@ -6,7 +6,7 @@ nocomment = true
 +++
 
 <div class="custom-quote">
-  <h1 class="ion-quote"></i></h1>
+  <h1 class="icon-quote-left"></i></h1>
   <p>I am a man of vehement disposition, with violent enthusiasms, and extreme immoderation in all my passions. <span class="author"> - Oliver Sacks</span>
   </p> 
 </div>
