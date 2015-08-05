@@ -17,7 +17,7 @@ I'm Prakhar Srivastav and I am passionate about computer science, building thing
 
 This website is about my experimentation in creating and following a system for constant personal growth by writing about my progress, ideas and rants about software development, programming and other things that interest me. 
 
-<p>If you’d like to connect, feel free to <a href="mailto:prakhar1989@gmail.com">email</a> or stalk me elsewhere on the web
+<p>If you’d like to connect, feel free to <a href="mailto:prakhar@prakhar.me">email</a> or stalk me elsewhere on the web
 <h1 class="social-me">
   <a title="Github" href="http://github.com/prakhar1989"><i class="icon-github-circled"></i></a> 
   <a title="Hacker News" href="https://news.ycombinator.com/user?id=krat0sprakhar"><i class="icon-hacker-news"></i></a>
