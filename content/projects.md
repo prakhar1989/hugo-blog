@@ -17,6 +17,37 @@ I believe that the best way to learn is by working on projects. Below is a growi
 
 <li>
 	<div class="project-item">
+		<h3 id="react-term">React Term</h3>
+		<figure>
+			<img src="https://github.com/prakhar1989/react-term/raw/master/shot.png">
+            <figcaption>A terminal emulator in React. View it <a href="http://www.columbia.edu/~ps2894/">here</a></figcaption>
+		</figure>
+    <p>I had some free server space lying on the university server and which self-respecting programmer can let that go waste, right? So I quickly built a terminal emulator which hopefully is more exciting than a boring about me page.</p>
+    <a class="button" href="https://github.com/prakhar1989/react-term">
+      <i class="ion-fork-repo"></i> Fork on Github
+    </a>
+	</div>
+</li>
+
+<li>
+	<div class="project-item">
+		<h3 id="react-tags">React Tags</h3>
+		<figure>
+			<img src="/images/reacttags.png">
+            <figcaption>A simple tagging React component</figcaption>
+		</figure>
+    <p><a href="https://github.com/prakhar1989/react-tags">React-tags</a> came out of a need to having a tagging component that allows autocomplete and allows reordering of tags. It's inspired by GMail's <strong>To</strong> field in the compose window and uses React-DND for the drag and drop behavior. React-tags is my first standalone React component can be downloaded directly from NPM. This component also was my foray into learning how to publish react components that can be used both in the browser and via Nodejs. I learnt a lot about webpack and most importantly, how to deal with keyboard and mouse events in React.</p>
+    <a class="button" href="https://github.com/prakhar1989/react-tags">
+      <i class="ion-fork-repo"></i> Fork on Github
+    </a>
+    <a class="button button-primary" href="https://www.npmjs.com/package/react-tag-input">
+      <i class="ion-social-nodejs"></i> Get it on NPM
+    </a>
+	</div>
+</li>
+
+<li>
+	<div class="project-item">
 		<h3 id="colorphun">ColorPhun</h3>
 		<figure>
 			<img src="/images/colorphun.png">
