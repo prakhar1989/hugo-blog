@@ -17,7 +17,7 @@ I believe that the best way to learn is by working on projects. Below is a growi
 
 <li>
     <div class="project-item">
-        <h3 id="react-term">React Surveyman</h3>
+        <h3 id="react-surveyman">React Surveyman</h3>
         <figure>
             <img src="/images/surveyman.png">
             <figcaption>GSOC 2015 project in React. View it <a href="http://prakhar.me/react-surveyman">here</a></figcaption>
