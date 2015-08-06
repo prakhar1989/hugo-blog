@@ -18,7 +18,7 @@ I believe that the best way to learn is by working on projects. Below is a growi
 <li>
     <div class="project-item">
         <h3 id="react-surveyman">React Surveyman</h3>
-		<p class="tech-stack">React, Flux, Immutable.js, Webpack, ES6</p>
+		<p class="tech-stack">React, Flux, Immutable.js, ES6</p>
         <figure>
             <img src="/images/surveyman.png">
             <figcaption>GSOC 2015 project in React. View it <a href="http://prakhar.me/react-surveyman">here</a></figcaption>
@@ -114,7 +114,7 @@ I believe that the best way to learn is by working on projects. Below is a growi
 <li>
 	<div class="project-item">
 		<h3><a href="">Newman</a></h3>
-		<p class="tech-stack"><i class="ion-social-nodejs"></i> Javascript, Node.js, Sinon.js, Grunt, Mocha</p>
+		<p class="tech-stack">Node.js, Sinon.js, Grunt, Mocha</p>
 <p><a href="https://www.npmjs.org/package/newman">Newman</a> is a command-line collection runner for Postman. With Newman, postman users can integrate Postman collections with their build system or run automated tests for their API through a cron job. One can also use Newman as a grunt plugin to run their API tests any time you save your code in your editor. Newman is available as a npm package and can be installed very easily.</p>
 <p>Newman was one of my biggest side-projects till date with development spanning over a two month period. We spent a lot of time in designing the architecture so that it is extensible for its users. At the end Newman is more like a library which can be integrated with any application. Lastly, Newman happens to be my first library to be available on NPM!</p>
 <p>For more information about the project do read my accompanying <a href="articles/newman-is-live/">blog post.</a></p>
