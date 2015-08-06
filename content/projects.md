@@ -16,8 +16,23 @@ I believe that the best way to learn is by working on projects. Below is a growi
 <ul id="projects-list">
 
 <li>
+    <div class="project-item">
+        <h3 id="react-term">React Surveyman</h3>
+        <figure>
+            <img src="/images/surveyman.png">
+            <figcaption>GSOC 2015 project in React. View it <a href="http://prakhar.me/react-surveyman">here</a></figcaption>
+        </figure>
+        <p><a href="https://github.com/prakhar1989/react-surveyman">React-Surveyman</a> is a browser based survey-builder for Surveyman. Surveyman is research project at <a href="http://plasma.cs.umass.edu/">UMass Amherst</a> that helps survey designers to conduct reliable, repeatable surveys on the web at scale by automating large portions of the deployment and debugging of surveys.</p>
+        <p>As a selected project under <a href="https://www.google-melange.com/gsoc/homepage/google/gsoc2015">Google Summer of Code 2015</a>, this project uses the latest and greatest in the modern frontend development with technologies such as <a href="http://facebook.github.io/react/">React</a>, <a href="http://facebook.github.io/flux/">Flux</a>, <a href="http://webpack.github.io/">Webpack</a>, <a href="https://facebook.github.io/immutable-js/">Immutable.js</a> and <a href="https://babeljs.io/docs/learn-es2015/">ES6</a>. With more than 3 months spent coding, this project is one of the longest open-source projects that I have built single-handedly from the ground up.</p>
+        <p>During the summer working on the project, I blogged frequently where in I documented my experiences in taking design decisions, battling architectural issues and wrestling with various bugs. Do checkout the series <a href="/tags/surveyman/">here</a> if you want to get a feel for the trenches.</p>
+        <a class="button" href="https://github.com/prakhar1989/react-surveyman"> <i class="ion-fork-repo"></i> Fork on Github </a>
+    </div>
+</li>
+
+<li>
 	<div class="project-item">
 		<h3 id="react-term">React Term</h3>
+		<p class="tech-stack"><i class="ion-social-angular"></i> React, ES6</p>
 		<figure>
 			<img src="https://github.com/prakhar1989/react-term/raw/master/shot.png">
             <figcaption>A terminal emulator in React. View it <a href="http://www.columbia.edu/~ps2894/">here</a></figcaption>
@@ -32,6 +47,7 @@ I believe that the best way to learn is by working on projects. Below is a growi
 <li>
 	<div class="project-item">
 		<h3 id="react-tags">React Tags</h3>
+		<p class="tech-stack"><i class="ion-social-angular"></i> React, ES6</p>
 		<figure>
 			<img src="/images/reacttags.png">
             <figcaption>A simple tagging React component</figcaption>
@@ -49,6 +65,7 @@ I believe that the best way to learn is by working on projects. Below is a growi
 <li>
 	<div class="project-item">
 		<h3 id="colorphun">ColorPhun</h3>
+		<p class="tech-stack"><i class="ion-social-angular"></i> Android, Java</p>
 		<figure>
 			<img src="/images/colorphun.png">
       <figcaption>In game screenshots. Get it on <a href="https://play.google.com/store/apps/details?id=com.prakharme.prakharsriv.colorphun">Google Play</a></figcaption>
