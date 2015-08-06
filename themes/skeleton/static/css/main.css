@@ -295,8 +295,17 @@ a.fork-github {
 p.tech-stack {
   text-transform: uppercase;
   font-family: "Raleway", sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   margin-bottom: 0.8rem;
+  color: white;
+  font-weight: 600;
+}
+
+p.tech-stack span.tag {
+  background-color: #5a6e79;
+  margin-right: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
 }
 
 h1.social-me a {

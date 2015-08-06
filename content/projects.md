@@ -18,7 +18,7 @@ I believe that the best way to learn is by working on projects. Below is a growi
 <li>
     <div class="project-item">
         <h3 id="react-surveyman">React Surveyman</h3>
-		<p class="tech-stack"><i class="ion-social-angular"></i>React, Flux, Immutable, Webpack, ES6</p>
+		<p class="tech-stack">React, Flux, Immutable.js, Webpack, ES6</p>
         <figure>
             <img src="/images/surveyman.png">
             <figcaption>GSOC 2015 project in React. View it <a href="http://prakhar.me/react-surveyman">here</a></figcaption>
@@ -33,7 +33,7 @@ I believe that the best way to learn is by working on projects. Below is a growi
 <li>
 	<div class="project-item">
 		<h3 id="react-term">React Term</h3>
-		<p class="tech-stack"><i class="ion-social-angular"></i> React, ES6</p>
+		<p class="tech-stack">React, ES6</p>
 		<figure>
 			<img src="/images/react-term.png">
             <figcaption>A terminal emulator in React. View it <a href="http://www.columbia.edu/~ps2894/">here</a></figcaption>
@@ -48,7 +48,7 @@ I believe that the best way to learn is by working on projects. Below is a growi
 <li>
 	<div class="project-item">
 		<h3 id="react-tags">React Tags</h3>
-		<p class="tech-stack"><i class="ion-social-angular"></i> React, ES6</p>
+		<p class="tech-stack">React, ES6</p>
 		<figure>
 			<img src="/images/reacttags.png">
             <figcaption>A simple tagging React component</figcaption>
@@ -66,7 +66,7 @@ I believe that the best way to learn is by working on projects. Below is a growi
 <li>
 	<div class="project-item">
 		<h3 id="colorphun">ColorPhun</h3>
-		<p class="tech-stack"><i class="ion-social-angular"></i> Android, Java</p>
+		<p class="tech-stack">Android, Java</p>
 		<figure>
 			<img src="/images/colorphun.png">
       <figcaption>In game screenshots. Get it on <a href="https://play.google.com/store/apps/details?id=com.prakharme.prakharsriv.colorphun">Google Play</a></figcaption>
@@ -82,7 +82,7 @@ I believe that the best way to learn is by working on projects. Below is a growi
 <li>
 	<div class="project-item">
 		<h3>Xcite Checkout</a></h3>
-		<p class="tech-stack"><i class="ion-social-angular"></i> Angular JS, Node, Jasmine, Grunt</p>
+		<p class="tech-stack">Angular JS, Node, Jasmine, Grunt</p>
 		<figure>
 			<img src="/images/angular.png">
       <figcaption>Xcite Checkout page</figcaption>
@@ -259,3 +259,15 @@ I believe that the best way to learn is by working on projects. Below is a growi
 </li>
 
 </ul>
+
+<script type="text/javascript">
+// convert the p text to an array of span tags 
+// for styling the tech stack separately
+[].slice.call(document.getElementsByClassName('tech-stack'))
+  .forEach(function(p) {
+     var tags = p.innerHTML.split(',').map(function(t) {
+      return "<span class='tag'>" + t.trim() + "</span>";
+    });
+    p.innerHTML = tags.join('');
+  });
+</script>
