@@ -6,14 +6,14 @@ description = "Summary of the DNS paper"
 mastimage = "https://upload.wikimedia.org/wikibooks/en/7/72/Strucutre-of-dns.jpg"
 +++
 
-One of the classes that I've taken this semester is [Advanced Distributed Systems](http://roxanageambasu.github.io/ds2-class/2-papers/). The course is primarily a research seminar wherein the students are required to read a couple of research topics for each class and participate in a two hour discussion which is guided the professor. My goal in these series of blog posts is to summarize the papers in an approchable manner primarily to test my own understanding of the topic.
+One of the classes that I've taken this semester is [Advanced Distributed Systems](http://roxanageambasu.github.io/ds2-class/2-papers/). The course is primarily a research seminar wherein the students are required to read a couple of research topics for each class and participate in a two hour discussion which is guided by the professor. My goal in these series of blog posts is to summarize the papers in an approchable manner primarily to test my own understanding of the topic.
 
 ### The Domain Name System
 The first paper discussion for this class was a [paper](http://www.dtic.mil/dtic/tr/fulltext/u2/a203901.pdf) on the **Developement of the DNS**. This paper examines the ideas behind the initial design of the DNS in 1983 and discusses the evolution of these ideas into a working implementation. Why is this paper important in a distributed systems class? Before we answer that, lets try to define a distributed system.
 
 > A distributed system is a set of *independent* machines that *coordinate* over a *network* to achieve a common goal.
 
-If you look at the definition (particuarly the emphasized words) above carefully, you'll realize that the DNS system indeed behaves as distributed system thereby making the DNS one of earliest examples of a distributed system deployed at scale.
+If you look at the definition (particuarly the emphasized words) above carefully, you'll realize that the DNS indeed behaves as a distributed system. Infact the DNS is one of earliest examples of a distributed system deployed at scale.
 
 ### The paper
 <figure>
@@ -22,12 +22,12 @@ If you look at the definition (particuarly the emphasized words) above carefully
 </figure>
 
 - Before the DNS, the `HOSTS.TXT` file was used for publishing the mapping between host names and addresses. Eventually as the number of users and workstations grew it became harder and harder to transmit the file due to its increasing size.
-- An early design goal of the DNS system was, aside from feature-parity with `HOSTS.TXT` was the ability for the system to be independent of network topology and to be capable of encapsulating other names spaces.
-- The initial DNS design assumed the necessity of striking a balance between a very lean service and a completely general distributed database. The leaner and more general the service, the easier it would be to extend and replace the existing implementation. Similarly although the service offers lookup and persistence like a database it would not provide other features such as atomic guarantees around updates etc.
+- An early design goal of the DNS system was, aside from feature-parity with `HOSTS.TXT`, was the ability for the system to be independent of network topology and to be capable of encapsulating other names spaces.
+- The initial DNS design assumed the necessity of striking a balance between a very lean service and a completely general distributed database. The leaner and more general the service, the easier it would be to extend and replace the existing implementation. Similarly, although the service offers lookup and persistence like a database it would not provide other features such as atomic guarantees around updates.
 - The active components of the DNS are of two major types: name servers and resolvers. 
     - Name servers are repositories of information, and answer queries using whatever information they possess. 
     - Resolvers interface to client programs, and embody the algorithms necessary to find a name server that has the information sought by the client.
-- Early on it was decided that the DNS would exhibit a distributed system of control and its design as a tree grew as a natural consequence of this choice. 
+- Early on it was decided that the DNS would exhibit a distributed system of control and its design (as a tree with organizations being in control of their subtree) grew as a natural consequence of this choice. 
 - The domain name of a node is the concatenation of all labels on the path from the node to the root of the tree. Hence, the domain `www.google.com` is a node in the tree and has `www`, `google`, `com` and `.` as its ancestors. This has been demonstrated more clearly in the DNS resolution section below.
 - The DNS provides two major mechanisms for transferring data from its ultimate source to ultimate destination: zones and caching. 
     - Zones are sections of the system-wide database which are controlled by a specific organization. The organization controlling a zone is responsible for distributing current copies of the zones to multiple servers which make the zones available to clients throughout the Internet.  
@@ -42,7 +42,7 @@ A **negative cache** is a cache that also stores "negative" responses, i.e. fail
 
 > *Our conclusion is that any naming system that relies on caching for performance may need caching for negative results as well. Such a mechanism has been added to the DNS as an optional feature, with impressive performance gains in cases where it is supported in both the involved name servers and resolvers.*
 
-The primary reason for maintaining a negative cache is performance. As seen by the authors, typically one of out of every four DNS queries were for negative results i.e asking for hosts or data that does not exist. To ensure that the volume of queries do not impact the system, the servers and resolvers would cache these negative responses with its own TTL.
+The primary reason for maintaining a negative cache is performance. As seen by the authors, typically one out of every four DNS queries were for negative results i.e asking resolvers for hosts or data that did not exist. To ensure that the volume of queries do not impact the system, the servers and resolvers would cache these negative responses with its own TTL.
 
 ### Root Servers
 
@@ -85,7 +85,7 @@ Who operates these servers? These servers are collectively operated by universit
 
 ### DNS Resolution
 
-Now that we know the overall architecture of the DNS lets see if we can figure out a typical DNS resolution happens. Although the full cycle spans multiple steps, the fact that there's heavy levels of caching at each step ensures that no typical name-server is inundated with requests. However, let's assume that in this example all our caches are purged and hence our query goes via the root.
+Now that we know the overall architecture of the DNS lets see if we can figure out how a typical DNS resolution happens. Although the full cycle spans multiple steps, in practice heavy levels of caching at each step ensures that no typical name-server is inundated with requests. However, let's assume that in this example all our caches are purged and hence our query goes via the root.
  
 Suppose the DNS query is for: [www.google.com](http://www.google.com/)
 
