@@ -1,5 +1,5 @@
 +++
-date = "2015-09-21T20:33:29+03:00"
+date = "2015-09-24T20:33:29+03:00"
 title = "Understanding RPCs - Part II"
 tags = ["distributed-systems", "papers"]
 description = "RPC Semantics"
