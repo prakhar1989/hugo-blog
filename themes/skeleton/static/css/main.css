@@ -222,6 +222,13 @@ a.post-tag {
   font-family: "Raleway", sans-serif;
 }
 
+.post-content h4 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: #5a6e79;
+}
+
 .footer {
   font-size: 1.2rem;
   text-align: center;

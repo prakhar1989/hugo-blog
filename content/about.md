@@ -13,7 +13,7 @@ nocomment = true
 
 Hi there.
 
-I'm Prakhar Srivastav and I am passionate about computer science, building things (mostly for the web) and celebrating the joy of programming. In my free time I am generally found gaming, [doing courses](https://www.class-central.com/@prakhar) or trying out new programming languages.
+I'm Prakhar Srivastav and I am passionate about computer science, building things (mostly for the web) and celebrating the joy of programming. In my free time I am generally found [running](http://www.strava.com/athletes/10955633), [doing courses](https://www.class-central.com/@prakhar) or trying out new [programming languages](https://github.com/search?q=user%3Aprakhar1989+).
 
 This website is about my experimentation in creating and following a system for constant personal growth by writing about my progress, ideas and rants about software development, programming and other things that interest me. 
 

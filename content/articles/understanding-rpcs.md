@@ -1,15 +1,15 @@
 +++
 date = "2015-09-21T20:33:29+03:00"
-title = "Understanding RPCs"
+title = "Understanding RPCs - Part I"
 tags = ["distributed-systems", "papers"]
 description = "Remote Procedure Calls"
 mastimage = "http://prakhar.me/images/rpc.jpg"
 +++
 
 
-Having looked at a distributed system i.e the  name system in the [previous](/articles/the-domain-name-system/) post, lets turn our attention to something more fundamental. In this blog post, we are going to start diving deeper into one of the basic blocks of Distributed Systems - Remote Procedure Calls or RPCs.
+Having looked at a distributed system i.e the domain name system in the [previous](/articles/the-domain-name-system/) post, lets turn our attention to something more fundamental. In this blog post, we are going to start diving deeper into one of the basic blocks of Distributed Systems - Remote Procedure Calls or RPCs.
 
-The [paper](http://www.cs.virginia.edu/~zaher/classes/CS656/birrel.pdf) that we're going to be looking at today is authored by the duo of Nelson and Birell who were the first set of people to build an RPC implementation for their work at Xerox PARC.
+The [paper](http://www.cs.virginia.edu/~zaher/classes/CS656/birrel.pdf) that we're going to be looking at today is authored by the duo of [Nelson](https://en.wikipedia.org/wiki/Bruce_Jay_Nelson) and [Birell](https://birrell.org/andrew/me/bio.php) who were the first set of people to build an RPC implementation for their work at Xerox PARC. Nelson incidentally is also credited for the coining the term!
 
 ### Why RPCs?
 
@@ -17,13 +17,13 @@ In the last post, we defined a distributed system as below -
 
 > A distributed system is a set of *independent* machines that *coordinate* over a *network* to achieve a common goal.
 
-One of the important keywords in the above definition is *coordinate*. However, in order to coordinate, systems first need a way to communicate. So given we have a messaging layer (the network) what kind of a communication abstraction we can build that can be helpful to programmers while building distributed systems? 
+One of the important keywords in the above definition is *coordinate*. However, in order to coordinate, systems first need a way to communicate. Given that we have a messaging layer (the network) what kind of a communication abstraction we can build that can be helpful to programmers while building distributed systems? 
 
-RPCs are one such abstractions borrowed from programming languages that have a simple goal:
+RPCs are one such abstraction borrowed from programming languages that have a simple goal:
 
 > Make the process of executing code on a remote machine as simple and straight-forward as calling a local function.
 
-Let's hear what the authors have to say -  *RPCs are based on the observation that procedure calls are a well known and well understood mechanism for transfer of control and data within a program running on a single computer. Therefore, it is proposed that this same mechanism be extended to provide for transfer of control and data across a communication network.*
+But why did we specifically choose procedures? Let's hear what the authors have to say -  *RPCs are based on the observation that procedure calls are a well known and well understood mechanism for transfer of control and data within a program running on a single computer. Therefore, it is proposed that this same mechanism be extended to provide for transfer of control and data across a communication network.*
 
 ### Components
 <figure>
@@ -31,9 +31,9 @@ Let's hear what the authors have to say -  *RPCs are based on the observation th
     <figcaption>Components involved in a RPC. Image courtesy: Birell and Nelson's RPC paper</figcaption>
 </figure>
 
-The idea in RPC is simple - the caller machine makes a procedure call over a network to the callee machine which then executes the procedure locally, collects the results and sends it over to the caller.  The figure above lays out the key components in an RPC system, which in general has two main pieces: a stub generator and the run-time library.
+The underlying mechanism of a RPC is simple - the caller machine makes a procedure call over a network to the callee machine which then executes the procedure locally, collects the results and sends it over to the caller.  The figure above lays out the key components in an RPC system, which at a high-level has two main pieces: a stub generator and the run-time library.
 
-The stubs are responsible for placing a specification and packing / unpacking the arguments falling that specification part of message. This message is then forwarded to the runtime so that it can be wired to the callee (in case of the user-stub). The process of packing the arguments is usually called **marshalling** or **serialization** of the message. Likewise, **unmarshalling** or **deserialization** involves extracting information received into something which the system can understand.
+The stubs are responsible for placing a specification and packing / unpacking the arguments falling that specification into the message. This message is then forwarded to the runtime so that it can be wired to the callee (in case of the user-stub). The process of packing the arguments is usually called **marshalling** or **serialization** of the message. Likewise, **unmarshalling** or **deserialization** involves extracting information received into something which the system can understand.
 
 When writing a distributed application, a programmer first writes an interface module in which she specifies the procedure names, the types of the arguments it takes and finally the return types. The compiler then uses this definition and generates the user-stub and the client-stub.
 
@@ -80,6 +80,5 @@ Now would be a good time to talk about [Thrift](https://thrift.apache.org/) - th
 
 Nowadays Thrift is being used more and more amongst heterogenous services to talk amongst each other - for example, you could write a user authentication service in Java, but call it from your Ruby web application.
 
-### Semantics
-
-
+### Conclusion
+In this post we went over the overall idea behind RPCs and took a deep dive into the components which form a RPC system. In the next post we are going to continue our discussion about RPCs by talking about semantics and some limitations of RPCs.
