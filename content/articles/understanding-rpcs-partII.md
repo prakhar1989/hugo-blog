@@ -3,7 +3,7 @@ date = "2015-09-24T20:33:29+03:00"
 title = "Understanding RPCs - Part II"
 tags = ["distributed-systems", "papers"]
 description = "RPC Semantics"
-mastimage = "http://prakhar.me/images/rpc.jpg"
+mastimage = "http://prakhar.me/images/rpcs.jpg"
 +++
 
 In the [previous](/google.com) post, we introduced remote procedure calls and their use within a distributed system. In this post, we are going to dive deep into the concept of semantics - first in the context of distributed systems in general and then discuss various RPC semantics.
