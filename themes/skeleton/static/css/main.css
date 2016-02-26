@@ -374,8 +374,13 @@ code {
   border: 1px solid #ddd;
 }
 
-.highlight pre {
+pre, .highlight pre {
   line-height: 135%;
+  white-space: pre-wrap;     
+  white-space: -moz-pre-wrap;  
+  white-space: -pre-wrap;     
+  white-space: -o-pre-wrap;   
+  word-wrap: break-word;       
   margin: 0;
 }
 /* MEDIA QUERIES */
