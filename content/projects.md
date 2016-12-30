@@ -14,6 +14,32 @@ nocomment = true
 I believe that the best way to learn is by working on projects. Below is a growing list of projects that I have shipped across various technologies listed in reverse chronological order.
 
 <ul id="projects-list">
+<li>
+    <div class="project-item">
+        <h3 id="hmti">Hindley Milner Type Inference</h3>
+		<p class="tech-stack">OCaml</p>
+        <figure>
+            <img src="https://asciinema.org/a/c0w60mlj35keg24cvkfbj1z86.png" width="636"/>
+            <figcaption>Try it out <a href="https://asciinema.org/a/c0w60mlj35keg24cvkfbj1z86?&speed=3&theme=tango">here</a></figcaption>
+        </figure>
+        <p>The Hindley Milner Type Inference or Algorithm W is a type-inference algorithm that infers types in a programming language.</p>
+    <p>This project is a working implementation written in OCaml to demonstrate type-inference on a small functional language.</p>
+        <a class="button" href="https://github.com/prakhar1989/type-inference"> <i class="ion-fork-repo"></i> Fork on Github </a>
+    </div>
+</li>
+
+<li>
+    <div class="project-item">
+        <h3 id="bekanjoos">BeKanjoos</h3>
+		<p class="tech-stack">React, Go, Android, Node.js</p>
+        <figure>
+            <img src="//prakhar.me/bekanjoos/images/shot.png">
+            <figcaption>BeKanjoos - The Chrome Extension in action</figcaption>
+        </figure>
+        <p><a href="http://prakhar.me/bekanjoos/">Be Kanjoos</a> is a chrome extension and Android app that allows users to track their favorite products online. Using the apps, users can choose to be notified as soon as the prices drop for the favorite products</p>
+        <a class="button" href="https://github.com/prakhar1989/bekanjoos"> <i class="ion-fork-repo"></i> Fork on Github </a>
+    </div>
+</li>
 
 <li>
     <div class="project-item">
