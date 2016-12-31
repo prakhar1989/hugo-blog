@@ -16,6 +16,24 @@ I believe that the best way to learn is by working on projects. Below is a growi
 <ul id="projects-list">
 <li>
     <div class="project-item">
+        <h3 id="jsjs">JSJS</h3>
+		<p class="tech-stack">OCaml, Docker</p>
+        <figure>
+            <img src="/images/jsjs.png" width="636"/>
+            <figcaption>Try it out on <a href="http://jsjs-lang.org">jsjs-lang.org</a></figcaption>
+        </figure>
+        <p>JSJS is an experimental strongly typed functional programming language for the web. It has a scala/ocaml inspired syntax
+        and compiles down to Javascript that can run both in the browser and node.</p>
+    <p>The language is strongly typed, and uses the hindley milner type inference to infer types. It also has immutable collections, modules
+    a standard library and first-class syntax support for maps and lists. </p>
+
+    <p>Here's a short <a href="http://www.cs.columbia.edu/~sedwards/classes/2016/4115-spring/reports/JSJS-presentation.pdf">presentation</a> that talks about the motivation and a few other interesting things about this project</p>
+        <a class="button" href="https://github.com/prakhar1989/jsjs"> <i class="ion-fork-repo"></i> Fork on Github </a>
+    </div>
+</li>
+
+<li>
+    <div class="project-item">
         <h3 id="hmti">Hindley Milner Type Inference</h3>
 		<p class="tech-stack">OCaml</p>
         <figure>
