@@ -14,6 +14,20 @@ nocomment = true
 I believe that the best way to learn is by working on projects. Below is a growing list of projects that I have shipped across various technologies listed in reverse chronological order.
 
 <ul id="projects-list">
+
+<li>
+    <div class="project-item">
+        <h3 id="raytra">RayTra</h3>
+		<p class="tech-stack">C++</p>
+        <figure>
+            <img src="/images/raytra.png" width="636"/>
+            <figcaption>A sample render</figcaption>
+        </figure>
+        <p>In a super fun semester long project in a computer graphics class, I got to implement a RayTracer with a pretty cool list of features such as anti-aliasing, ray accelration tests and even reflection & shadows.</p>
+        <a class="button" href="https://github.com/prakhar1989/raytra"> <i class="ion-fork-repo"></i> Fork on Github </a>
+    </div>
+</li>
+
 <li>
     <div class="project-item">
         <h3 id="jsjs">JSJS</h3>
