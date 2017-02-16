@@ -1,4 +1,4 @@
-baseurl = "http://prakhar.me/"
+baseurl = "https://prakhar.me/"
 languageCode = "en-us"
 title = "cat /dev/random"
-pygmentsUseClasses = true 
+pygmentsUseClasses = true
