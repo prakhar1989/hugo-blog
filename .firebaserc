@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "blog-82848"
+    "default": "blog-82848",
+    "prakhar.me": "blog-82848"
   }
 }

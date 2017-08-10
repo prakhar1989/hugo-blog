@@ -1,28 +1,40 @@
 {
-   "database":{
-      "rules":"database.rules.json"
-   },
-   "hosting":{
-      "public":"public",
-      "headers":[
-         {
-            "source":"**/*.@(eot|otf|ttf|ttc|woff|font.css)",
-            "headers":[
-               {
-                  "key":"Access-Control-Allow-Origin",
-                  "value":"*"
-               }
-            ]
-         },
-         {
-            "source":"**/*.@(jpg|jpeg|gif|png)",
-            "headers":[
-               {
-                  "key":"Cache-Control",
-                  "value":"max-age=72000"
-               }
-            ]
-         }
-      ]
-   }
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "hosting": {
+    "public": "public",
+    "redirects": [
+      {
+        "source": "/docker-curriculum",
+        "destination": "https://docker-curriculum.com/",
+        "type": 302
+      },
+      {
+        "source": "/docker-curriculum/",
+        "destination": "https://docker-curriculum.com/",
+        "type": 302
+      }
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css)",
+        "headers": [
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(jpg|jpeg|gif|png)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=72000"
+          }
+        ]
+      }
+    ]
+  }
 }
